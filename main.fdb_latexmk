@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1783005771.5613 "main.bcf" "main.bbl" "main" 1783066912.76531 0
-  "main.bcf" 1783066912.35344 107999 6ed169b14a70b42dfb5e25b165431c73 "pdflatex"
+["biber main"] 1783005771.5613 "main.bcf" "main.bbl" "main" 1783068568.70285 0
+  "main.bcf" 1783068568.43531 107999 6ed169b14a70b42dfb5e25b165431c73 "pdflatex"
   "references.bib" 1782220513.87495 74 ba9d42caebe487b9a645f53108408a74 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1783066909.18942 "/home/jon/Documents/LaTeX/main.tex" "main.pdf" "main" 1783066912.76625 0
+["pdflatex"] 1783068565.5408 "/home/jon/Documents/LaTeX/main.tex" "main.pdf" "main" 1783068568.70335 0
   "/home/jon/Documents/LaTeX/main.tex" 1783005900.01564 2183 00589153b273d5703332b9966b88d99a ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -243,18 +243,18 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1775001600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1776437871.128 4602615 ac1019cb4c4ba39710c2cf7f752b378d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778508359 7753790 f639f9d1e3ed2eb832c8fd3e2a82c924 ""
-  "0.Einleitung.aux" 1783066912.09043 4752 04d13c9fc9ce0aba2689da41d8a1b85a "pdflatex"
+  "0.Einleitung.aux" 1783068568.24931 4752 04d13c9fc9ce0aba2689da41d8a1b85a "pdflatex"
   "0.Einleitung.tex" 1782398996.7994 415 af46afd46bad849f63d4be0300a7afdb ""
-  "1.Logik.aux" 1783066912.28144 5818 a5725e62cfc9d5f95158c0fd527e618f "pdflatex"
+  "1.Logik.aux" 1783068568.38631 5818 a5725e62cfc9d5f95158c0fd527e618f "pdflatex"
   "1.Logik.tex" 1782399019.0331 8156 3f6d1a9b475297b33eb9d2ecabce7843 ""
-  "2.MengenundZahlen.aux" 1783066912.31022 5031 cb600ce6a1a27d5093fc4c7b5c75886a "pdflatex"
-  "2.MengenundZahlen.tex" 1783066908.57555 433 90e3a4d698ba5d04a9a9b9b53231e732 ""
-  "main.aux" 1783066912.34544 873 d346c83b352d3be3ae263b6ee91f5637 "pdflatex"
+  "2.MengenundZahlen.aux" 1783068568.41334 5031 b9ff16d1b533997eac1cec92b9c0bcda "pdflatex"
+  "2.MengenundZahlen.tex" 1783068561.34051 706 515508ed58718f5a0d98cff01ee92e50 ""
+  "main.aux" 1783068568.43031 873 d346c83b352d3be3ae263b6ee91f5637 "pdflatex"
   "main.bbl" 1783005773.50353 1472 8637824b888511788c490d99af57cc73 "biber main"
-  "main.out" 1783066912.35044 379 507eace295ca10b36012251cd37abba1 "pdflatex"
-  "main.run.xml" 1783066912.35718 2402 7c866ed2192e71c57464ed4279aadefa "pdflatex"
+  "main.out" 1783068568.43353 379 507eace295ca10b36012251cd37abba1 "pdflatex"
+  "main.run.xml" 1783068568.43821 2402 7c866ed2192e71c57464ed4279aadefa "pdflatex"
   "main.tex" 1783005900.01564 2183 00589153b273d5703332b9966b88d99a ""
-  "main.toc" 1783066912.35718 266 38fb4858e6fdabc584e513ce852ffd7f "pdflatex"
+  "main.toc" 1783068568.43821 266 38fb4858e6fdabc584e513ce852ffd7f "pdflatex"
   (generated)
   "0.Einleitung.aux"
   "1.Logik.aux"

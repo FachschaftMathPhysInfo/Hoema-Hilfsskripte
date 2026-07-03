@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.11)  3 JUL 2026 10:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.11)  3 JUL 2026 10:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1074,16 +1074,18 @@ LaTeX Warning: Reference `natural-numbers' on page 5 undefined on input line 93.
 
  (./2.MengenundZahlen.tex
 Coffee 2.
-) [7
+
+Underfull \vbox (badness 2547) has occurred while \output is active []
+
+ [7
 
 
 
 
-] [8
+]) [8] [9
 
 
 
-] [9
 
 ] (./main.aux (./0.Einleitung.aux) (./1.Logik.aux) (./2.MengenundZahlen.aux))
 
@@ -1102,9 +1104,9 @@ Here is how much of TeX's memory you used:
  55532 multiletter control sequences out of 15000+600000
  594016 words of font info for 151 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 84i,13n,89p,1082b,1167s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,89p,1082b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (11 pages, 254195 bytes).
+Output written on main.pdf (11 pages, 254245 bytes).
 PDF statistics:
  209 PDF objects out of 1000 (max. 8388607)
  162 compressed objects within 2 object streams
