@@ -1,0 +1,107 @@
+\chapter{Logik}
+
+Mathematik ist eine Geisteswissenschaft. Anders als in Naturwissenschaften wird keine Heuristik verwendet, d.h. man akzeptiert keine Aussagen, nur weil sie plausibel erscheinen oder erfahrungsgemäß stimmen. Stattdessen müssen alle Aussagen mit den Gesetzen der \emph{Logik} bewiesen werden. Der Grund dafür ist, dass die menschliche Intuition im Bereich der Mathematik nicht sehr gut ist, und man leicht etwas für richtig halten kann, das in Wirklichkeit falsch ist. Außerdem lehrt die Notwendigkeit, jede Behauptung einwandfrei beweisen zu müssen, bevor sie akzeptiert wird, eine völlig neue Denkweise, die wiederum auch in der Physik Früchte tragen kann.
+
+Die Logik befasst sich mit dem Wahrheitsgehalt von Aussagen. In der klassischen Logik (die in der Mathematik verwendet wird) muss eine Aussage entweder wahr oder falsch sein.
+
+\begin{example}[Aussagen]
+    Beispiele für Aussagen sind:
+    \begin{align*}
+        & 2 + 2 = 4 & \emph{ist wahr.}\\
+        & 0 = 7 & \text{\emph{ist falsch.}}\\
+        & \text{Alle Menschen studieren Physik.} & \text{\emph{ist falsch.}}\\
+        & \text{Kaffee ist objektiv das beste und leckerste Getränk das es gibt.} & \text{\emph{ist wahr.}}\\
+    \end{align*}
+\end{example}
+
+\begin{definition}
+    Sei $A$ eine Aussage. Dann ist die \emph{negierte Aussage} $\neg A$ ("nicht $A$") genau dann wahr, wenn $A$ falsch ist.
+\end{definition}
+
+\begin{definition}
+    Seien $A$, $B$ Aussagen.
+    Die Aussage $A \land B$ ("$A$ und $B$") ist genau dann wahr, wenn $A$ und $B$ beide wahr sind.
+    Die Aussage $A \lor B$ ("$A$ oder $B$") ist genau dann wahr, wenn mindestens eine der beiden Aussagen $A$ und $B$ wahr ist.
+\end{definition}
+
+Mehrere Aussagen können durch die Verknüpfungen $\land$ (\emph{und}) und $\lor$ (\emph{oder}) aneinandergereit werden. Dabei ist  $\lor$ ist inklusiv, d.h. wenn $A \land B$ wahr ist, dann ist auch $A \lor B$ wahr. $A \lor \neg A$ ist immer wahr, und $A \land \neg A$ ist immer falsch.
+
+Das Kernstück der Logik sind \emph{Implikationen}:
+
+\begin{definition}
+    Seien $A$, $B$ Aussagen.
+    Die Aussage $A \implies B$ ("$A$ impliziert B") ist genau dann wahr, wenn daraus, dass $A$ wahr ist, folgt, dass $B$ auch wahr ist.
+
+    $A$ nennt man Prämisse, oder hinreichende Bedingung für $B$. $B$ nennt man Schlussfolgerung, oder notwendige Bedingung für $A$.
+
+    Die Aussage $A \iff B$ ("$A$ ist äquivalent zu $B$", "genau dann $A$ wenn $B$") ist genau dann wahr, wenn $A \implies B$ und $B \implies A$ wahr sind.
+\end{definition}
+
+Man bemerke, wenn $A$ falsch ist, dann ist $A \implies B$ wahr. Das ist nötig, weil man aus $A \implies B$ noch keinen Schluss über die Rückrichtung $B \implies A$ treffen kann, das macht erst die Äquivalenz.
+
+\begin{example}
+    Beispiele:
+    \begin{align*}
+        & 1 + 1 = 2 \implies 2 + 2 = 4 & \text{\emph{ist wahr, da $2 +2 = 4$ wahr ist.}}\\
+        & 2 = 7 \implies 0 = 0 & \text{\emph{ist wahr, da $2 = 7$ falsch ist.}}\\
+        \intertext{Man bemerke, dass man aus einer falschen Aussage alles folgern kann (hier z.B. durch Multiplikation mit $0$), das aber keinen mathematischen Wert hat: Die Implikation $2 = 7 \implies 0 = 1$ ist genauso wahr.}
+        & \text{Es regnet} \implies \text{die Straße ist nass.} & \emph{ist wahr:}\\
+        \intertext{Wenn es regnet, dann ist die Straße nass, also sind beide Seiten und damit auch die Implikation wahr. Wenn es nicht regnet, dann ist "es regnet" falsch, und damit die Implikation wahr.}
+        & \text{Physik ist ein Studienfach} & \\
+        & \implies \text{alle Menschen studieren Physik.} & \text{\emph{ist falsch:}}\\
+        \intertext{"Physik ist ein Studienfach" ist wahr, aber "alle Menschen studieren Physik" ist falsch. Damit ist die Implikation falsch.}
+        & 1 + 1 = 2 \iff 2 + 2 = 4 & \text{\emph{ist wahr, da beide Aussagen wahr sind.}}\\
+        & 2 = 7 \iff 0 = 0 & \text{\emph{ist falsch, da $0 = 0$ wahr aber $2 = 7$ falsch ist.}}\\
+        & 2 = 7 \iff 0 = 1 & \text{\emph{ist wahr, da beide Aussagen falsch sind.}}\\
+    \end{align*}
+\end{example}
+
+In der Mathematik startet man mit \emph{Axiomen}, das sind Aussagen, die man als wahr annimmt oder akzeptiert. In der modernen Mathematik\footnote{Die Gödelschen Unvollständigkeitssätze besagen in etwa, dass jedes widerspruchsfreie Axiomsystem unvollständig ist, d.h. dass es immer Aussagen gibt, die man mit den gegebenen Axiomen weder beweisen noch widerlegen kann. (Das ist eine grobe Erklärung der Sätze, nicht die formale Aussage.)} sind das die Zermelo-Fränkel Axiome \ref{ZF-axioms} mit (oder selten ohne) Auswahlaxiom \ref{axiom-of-choice}. Ausgehend davon leitet man durch logisch gültige Schlüsse weitere wahre Aussagen her.
+
+Kleine "Hilfsaussagen" ohne eigenständige Bedeutung nennt man \emph{Lemmata} (Singular \emph{Lemma}), wichtige Zwischenergebnisse nennt man \emph{Propositionen}, und ganz große Resultate nennt man \emph{Sätze} oder \emph{Theoreme}, die Grenzen sind allerdings etwas schwammig. Übliche Beweisstrategien sind:
+
+\begin{itemize}
+    \item \emph{Direkter Beweis}: Man zeigt $A \implies B$ durch eine Kette von Implikationen.
+    \item \emph{Beweis durch Kontraposition}: Man zeigt $\neg B \implies \neg A$, was logisch äquivalent zu $A \implies B$ ist.
+    \item \emph{Beweis durch Widerspruch}: Man nimmt an, dass $A$ wahr und $B$ falsch ist, und zeigt, dass daraus eine falsche Aussage folgt. Dabei nutzt man aus, dass $A \land \neg B$ die logische Negation von $A \implies B$ ist, und aus einer wahren Aussage keine falsche Aussage folgen kann.
+\end{itemize}
+
+\begin{definition}
+    Für Aussagen $A(x)$, die von einer Variable $x$ abhängen, verwendet man \emph{Quantoren}: $\exists$ ("es existiert"), $\exists!$ ("es existiert genau ein"), und $\forall$ ("für alle"). Ein Doppelpunkt $:$ bedeutet einfach "mit ..." oder "so, dass ... gilt".
+    \begin{itemize}
+        \item $\exists x: A(x)$ ist wahr, wenn mindestens ein $x$ existiert, für das $A(x)$ wahr ist.
+        \item $\exists! x: A(x)$ ist wahr, wenn genau ein $x$ existiert, für das $A(x)$ wahr ist.
+        \item $\forall x: A(x)$ ist wahr, wenn $A(x)$ wahr für alle x ist.
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    Die logischen Negationen von Quantoren sind:
+    \begin{itemize}
+        \item $\neg (\exists x: A(x)) \iff \forall x: \neg A(x)$
+        \item $\neg (\forall x: A(x)) \iff \exists x: \neg A(x)$
+    \end{itemize}
+\end{remark}
+
+\begin{remark}
+    Die Beweisstrategien für Quantoren sind:
+    \begin{itemize}
+        \item $\exists x: A(x)$ beweist man, indem man ein $x$ explizit angibt, für das $A(x)$ wahr ist, oder die Existenz dieses $x$ aus einer wahre Existenzaussage herleitet.
+        \item $\exists! x: A(x)$ beweist man in zwei Schritten. Erst zeigt man die Existenzaussage $\exists x: A(x)$. Für die Eindeutigkeitsaussage nimmt man an, dass zwei $x, y$ existieren, für die $A(x)$ und $A(y)$ wahr sind, und folgert, dass dann $x = y$ gelten muss.
+        \item $\forall x: A(x)$ beweist man, indem man ein $x$ als beliebig gegeben annimmt, und dann zeigt, dass $A(x)$ (unabhängig von der Wahl von $x$) wahr ist. Möglicherweise sind hierfür Fallunterscheidungen nötig (wie z.B. Fall 1 $x = 0$ und Fall 2 $x \neq 0$ wenn man in einem Beweisschritt durch $x$ teilen will), dann muss man $A(x)$ für alle Fälle beweisen.
+        \item \emph{Natürliche Induktion} ist eine nützliche Beweismethode für Aussagen $A(n)$, die von einer natürlichen Zahl $n$ abhängen. Man zeigt zuerst, dass $A(n)$ für wahlweise $n=0$ oder $n=1$ wahr ist. Dann zeigt man im zweiten Schritt, dass wenn $A(n)$ für eine beliebige natürliche Zahl $n$ wahr ist, dann auch $A(n+1)$ wahr ist. Aus beiden Schritten zusammen folgt, dass $A(n)$ für jede natürliche Zahl $n$ wahr ist.\\
+        Die Beweismethode der natürlichen Induktion ist eng verknüpft mit der Definition der natürlichen Zahlen $\N$, siehe \ref{natural-numbers}. Anschaulich bedeutet beides, bei $0$ (oder $1$) anzufangen, und sukzessive mit $+1$ "hochzugehen".
+    \end{itemize}
+\end{remark}
+
+
+
+\cite{GURAU}
+
+
+\newpage
+
+\fcolorbox{gray}{gray}{
+
+    double Test.
+}

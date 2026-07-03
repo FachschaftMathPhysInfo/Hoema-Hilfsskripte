@@ -1,0 +1,114 @@
+\documentclass[11pt,twoside]{book}
+
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{thmtools}
+
+
+
+\declaretheoremstyle[
+  headfont=\bfseries,
+  bodyfont=\itshape,
+  spaceabove=6pt,
+  spacebelow=6pt
+]{theoremstyle}
+
+\declaretheorem[style=theoremstyle, numberwithin=chapter, name=Theorem]{theorem}
+\declaretheorem[style=theoremstyle, sibling=theorem, name=Proposition]{proposition}
+\declaretheorem[sibling=theorem, name=Lemma]{lemma}
+\declaretheorem[sibling=theorem, name=Korollar]{corollary}
+
+\declaretheoremstyle[
+  spaceabove = 0.8em,
+  spacebelow = 0.8em,
+  headfont = \bfseries,
+  notefont = \itshape,
+  headpunct = {},
+  postheadspace = 1em,
+  headformat = \NAME~\NUMBER\NOTE\linebreak,
+  postheadspace = 10em
+]{definitionstyle}
+
+\declaretheorem[style=definitionstyle, sibling=theorem, name=Definition]{definition}
+\declaretheorem[style=definitionstyle, sibling=theorem, name=Coffee]{example}
+
+\declaretheoremstyle[
+  headfont=\itshape,
+  bodyfont=\normalfont
+]{remarkstyle}
+
+\declaretheorem[style=remarkstyle, sibling=theorem, name=Bemerkung]{remark}
+
+
+
+\definecolor{classical}{RGB}{153,5,5}
+\definecolor{classical_light}{RGB}{200,80,80} 
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\hbadness=10000
+
+\setcounter{chapter}{-1}
+
+\renewcommand{\chaptername}{Coffee}
+
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\arr}{\longrightarrow}
+
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rank}{rank}
+
+
+
+
+\begin{document}
+
+
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+
+
+\include{0.Einleitung}
+
+\include{1.Logik}
+
+\include{2.MengenundZahlen}
+
+
+
+
+\appendix
+
+
+\backmatter
+\printbibliography
+
+
+\end{document}

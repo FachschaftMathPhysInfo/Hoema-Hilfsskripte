@@ -1,0 +1,83 @@
+\documentclass[11pt,twoside]{book}
+
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{lipsum}
+
+
+\theoremstyle{definition}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Beispiel}
+\newtheorem{Corollary}[Theorem]{Korollar}
+\newtheorem{Remark}[Theorem]{Bemerkung}
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{exercise}[Theorem]{Aufgabe}
+
+\definecolor{shadecolor}{RGB}{238,233,233}
+
+\newenvironment{theorem}[1][]{\colorlet{shadecolor}{yellow!15} \begin{shaded} \begin{Theorem}[#1]}{\end{Theorem} \end{shaded}}
+\newenvironment{corollary}[1][]{\colorlet{shadecolor}{green!10} \begin{shaded} \begin{Corollary}[#1]}{\end{Corollary} \end{shaded}}
+\newenvironment{proposition}[1][]{\colorlet{shadecolor}{gray!15} \begin{shaded} \begin{Proposition}[#1]}{\end{Proposition} \end{shaded}}
+\newenvironment{lemma}[1][]{\colorlet{shadecolor}{gray!15} \begin{shaded} \begin{Lemma}[#1]}{\end{Lemma} \end{shaded}}
+
+\newenvironment{definition}[1][]{\colorlet{shadecolor}{blue!8} \begin{shaded} \begin{Definition}[#1]}{\end{Definition} \end{shaded}}
+
+\newenvironment{remark}[1][]{\colorlet{shadecolor}{purple!15} \begin{shaded} \begin{Remark}[#1]}{\end{Remark} \end{shaded}}
+\newenvironment{example}[1][]{\par \vspace{\medskipamount} \begin{Example}[#1]}{\end{Example} \par \vspace{\medskipamount}}
+
+\newenvironment{shadedbox}{\colorlet{shadecolor}{gray!15}  \begin{shaded}{} }{ \end{shaded} }
+\newenvironment{QUESTION}{\colorlet{shadecolor}{gray!15} \begin{shaded}{Question: } }{ \end{shaded} }
+\newenvironment{EXERCISE}{\colorlet{shadecolor}{gray!15} \begin{shaded}{Exercise:} }{ \end{shaded} }
+
+
+
+\begin{document}
+
+\lipsum
+
+\newpage
+
+The 7 stages of grief
+
+\begin{definition}[Stage 1]
+    Disbelief
+\end{definition}
+
+\begin{lemma}[Stage 2]
+    Anger
+\end{lemma}
+
+\begin{proposition}[Stage 3]
+    More disbelief
+\end{proposition}
+
+\begin{corollary}[Stage 4]
+    Rage
+\end{corollary}
+
+\begin{theorem}[Stage 5]
+    Bigger rage
+\end{theorem}
+
+\begin{remark}[Stage 6]
+    Coffee overdose
+\end{remark}
+
+\begin{example}[Stage 7]
+    Delusions of grandeur
+\end{example}
+
+\begin{QUESTION}
+    Ever enough Coffee?
+\end{QUESTION}
+
+\begin{EXERCISE}
+    Never enough Coffee!!
+\end{EXERCISE}
+
+
+
+\end{document}
