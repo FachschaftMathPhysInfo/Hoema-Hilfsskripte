@@ -1160,6 +1160,9 @@ INPUT 1.Logik.aux
 INPUT ./2.MengenundZahlen.aux
 INPUT 2.MengenundZahlen.aux
 INPUT 2.MengenundZahlen.aux
+INPUT ./AUXIES.aux
+INPUT AUXIES.aux
+INPUT AUXIES.aux
 OUTPUT main.aux
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1316,6 +1319,16 @@ INPUT ./2.MengenundZahlen.tex
 INPUT 2.MengenundZahlen.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT ./AUXIES.tex
+INPUT ./AUXIES.tex
+INPUT ./AUXIES.tex
+OUTPUT AUXIES.aux
+INPUT ./AUXIES.tex
+INPUT ./AUXIES.tex
+INPUT ./AUXIES.tex
+INPUT AUXIES.tex
+INPUT ./AUXIES.tex
+INPUT AUXIES.tex
 INPUT main.aux
 INPUT ./0.Einleitung.aux
 INPUT 0.Einleitung.aux
@@ -1326,6 +1339,9 @@ INPUT 1.Logik.aux
 INPUT ./2.MengenundZahlen.aux
 INPUT 2.MengenundZahlen.aux
 INPUT 2.MengenundZahlen.aux
+INPUT ./AUXIES.aux
+INPUT AUXIES.aux
+INPUT AUXIES.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT main.run.xml

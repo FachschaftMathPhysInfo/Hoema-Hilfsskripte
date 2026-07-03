@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.11)  3 JUL 2026 10:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.11)  3 JUL 2026 10:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -875,7 +875,7 @@ Package: thm-amsthm 2023/02/17 v0.75
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 88.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./main.aux (./0.Einleitung.aux) (./1.Logik.aux) (./2.MengenundZahlen.aux))
+) (./main.aux (./0.Einleitung.aux) (./1.Logik.aux) (./2.MengenundZahlen.aux) (./AUXIES.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
@@ -1082,34 +1082,45 @@ Underfull \vbox (badness 2547) has occurred while \output is active []
 
 
 
-]) [8] [9
+]) [8]
+\openout2 = `AUXIES.aux'.
+
+ (./AUXIES.tex
+Coffee 3.
+[9
 
 
 
 
-] (./main.aux (./0.Einleitung.aux) (./1.Logik.aux) (./2.MengenundZahlen.aux))
+]) [10
+
+
+
+] [11
+
+] (./main.aux (./0.Einleitung.aux) (./1.Logik.aux) (./2.MengenundZahlen.aux) (./AUXIES.aux))
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 507EACE295CA10B36012251CD37ABBA1;379.
+(rerunfilecheck)             Checksum: 3B435DEF8B8E4D37FD3ED1029E4B6596;477.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35842 strings out of 476041
- 696723 string characters out of 5793174
+ 35874 strings out of 476041
+ 697434 string characters out of 5793174
  1868388 words of memory out of 6000000
- 55532 multiletter control sequences out of 15000+600000
+ 55554 multiletter control sequences out of 15000+600000
  594016 words of font info for 151 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  84i,13n,89p,1082b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (11 pages, 254245 bytes).
+Output written on main.pdf (13 pages, 256210 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
- 45101 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 174 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 45109 words of extra memory for PDF output out of 51595 (max. 10000000)
 
