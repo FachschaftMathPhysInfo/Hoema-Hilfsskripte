@@ -7,6 +7,7 @@
 \usepackage{lmodern}
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{mathrsfs}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{tikz}
@@ -15,50 +16,81 @@
 \usepackage{microtype}
 \usepackage{tcolorbox}
 \usepackage{xcolor}
+\usepackage{framed}
 \usepackage[backend=biber,style=ieee]{biblatex}
 \addbibresource{references.bib}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
 
 \usepackage{thmtools}
 
 
 
-\declaretheoremstyle[
-  headfont=\bfseries,
-  bodyfont=\itshape,
-  spaceabove=6pt,
-  spacebelow=6pt
-]{theoremstyle}
+% \declaretheoremstyle[
+%   headfont=\bfseries,
+%   bodyfont=\itshape,
+%   spaceabove=6pt,
+%   spacebelow=6pt
+% ]{theoremstyle}
 
-\declaretheorem[style=theoremstyle, numberwithin=chapter, name=Theorem]{theorem}
-\declaretheorem[style=theoremstyle, sibling=theorem, name=Proposition]{proposition}
-\declaretheorem[sibling=theorem, name=Lemma]{lemma}
-\declaretheorem[sibling=theorem, name=Korollar]{corollary}
+% \declaretheorem[style=theoremstyle, numberwithin=chapter, name=Theorem]{theorem}
+% \declaretheorem[style=theoremstyle, sibling=theorem, name=Proposition]{proposition}
+% \declaretheorem[sibling=theorem, name=Lemma]{lemma}
+% \declaretheorem[sibling=theorem, name=Korollar]{corollary}
 
-\declaretheoremstyle[
-  spaceabove = 0.8em,
-  spacebelow = 0.8em,
-  headfont = \bfseries,
-  notefont = \itshape,
-  headpunct = {},
-  postheadspace = 1em,
-  headformat = \NAME~\NUMBER\NOTE\linebreak,
-  postheadspace = 10em
-]{definitionstyle}
+% \declaretheoremstyle[
+%   spaceabove = 0.8em,
+%   spacebelow = 0.8em,
+%   headfont = \bfseries,
+%   notefont = \itshape,
+%   headpunct = {},
+%   postheadspace = 1em,
+%   headformat = \NAME~\NUMBER\NOTE\linebreak,
+%   postheadspace = 10em
+% ]{definitionstyle}
 
-\declaretheorem[style=definitionstyle, sibling=theorem, name=Definition]{definition}
-\declaretheorem[style=definitionstyle, sibling=theorem, name=Coffee]{example}
+% \declaretheorem[style=definitionstyle, sibling=theorem, name=Definition]{definition}
+% \declaretheorem[style=definitionstyle, sibling=theorem, name=Coffee]{example}
 
-\declaretheoremstyle[
-  headfont=\itshape,
-  bodyfont=\normalfont
-]{remarkstyle}
+% \declaretheoremstyle[
+%   headfont=\itshape,
+%   bodyfont=\normalfont
+% ]{remarkstyle}
 
-\declaretheorem[style=remarkstyle, sibling=theorem, name=Bemerkung]{remark}
+% \declaretheorem[style=remarkstyle, sibling=theorem, name=Bemerkung]{remark}
+
+% \definecolor{classical}{RGB}{153,5,5}
+% \definecolor{classical_light}{RGB}{200,80,80} 
 
 
 
-\definecolor{classical}{RGB}{153,5,5}
-\definecolor{classical_light}{RGB}{200,80,80} 
+\theoremstyle{definition}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Beispiel}
+\newtheorem{Corollary}[Theorem]{Korollar}
+\newtheorem{Remark}[Theorem]{Bemerkung}
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{exercise}[Theorem]{Aufgabe}
+\newtheorem{Axiom}[Theorem]{Axiom}
+
+\definecolor{shadecolor}{RGB}{238,233,233}
+
+\newenvironment{theorem}[1][]{\colorlet{shadecolor}{yellow!15} \begin{shaded} \begin{Theorem}[#1]}{\end{Theorem} \end{shaded}}
+\newenvironment{corollary}[1][]{\colorlet{shadecolor}{green!10} \begin{shaded} \begin{Corollary}[#1]}{\end{Corollary} \end{shaded}}
+\newenvironment{proposition}[1][]{\colorlet{shadecolor}{gray!15} \begin{shaded} \begin{Proposition}[#1]}{\end{Proposition} \end{shaded}}
+\newenvironment{lemma}[1][]{\colorlet{shadecolor}{gray!15} \begin{shaded} \begin{Lemma}[#1]}{\end{Lemma} \end{shaded}}
+
+\newenvironment{definition}[1][]{\colorlet{shadecolor}{blue!8} \begin{shaded} \begin{Definition}[#1]}{\end{Definition} \end{shaded}}
+\newenvironment{axiom}[1][]{\colorlet{shadecolor}{blue!8} \begin{shaded} \begin{Axiom}[#1]}{\end{Axiom} \end{shaded}}
+
+\newenvironment{remark}[1][]{\colorlet{shadecolor}{gray!15} \begin{shaded} \begin{Remark}}{\end{Remark} \end{shaded}}
+\newenvironment{example}[1][]{\par \vspace{\medskipamount} \begin{Example}}{\end{Example} \par \vspace{\medskipamount}}
+
+\newenvironment{shadedbox}{\colorlet{shadecolor}{gray!15}  \begin{shaded}{} }{ \end{shaded} }
+\newenvironment{QUESTION}{\colorlet{shadecolor}{gray!15} \begin{shaded}{Question: } }{ \end{shaded} }
+\newenvironment{EXERCISE}{\colorlet{shadecolor}{gray!15} \begin{shaded}{Exercise:} }{ \end{shaded} }
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.5em}
@@ -75,6 +107,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\e}{\emptyset}
 \newcommand{\arr}{\longrightarrow}
 
 \DeclareMathOperator{\Tr}{Tr}
@@ -82,7 +115,10 @@
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\rank}{rank}
 
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.}\hbox{\scriptsize.}}} =}
 
+
+\setlist[enumerate,1]{label=(\roman*)}
 
 
 \begin{document}
@@ -95,9 +131,9 @@
 \mainmatter
 
 
-\include{0.Einleitung}
+%\include{0.Einleitung}
 
-\include{1.Logik}
+%\include{1.Logik}
 
 \include{2.MengenundZahlen}
 

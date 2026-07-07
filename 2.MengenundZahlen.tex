@@ -2,48 +2,154 @@
 
 \section{Mengen}
 
-Mengen sind ein zentrales Konzept, auf dem die ganze Mathematik beruht. Sie sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definiert werden. Stattdessen wird\\
+Mengen sind ein zentrales Konzept, auf dem die ganze Mathematik beruht. Grob gesprochen handelt es sich um eine Zusammenfassung von Objekten, die man \emph{Elemente} nennt, zu einem einzigen neuen Objekt, der \emph{Menge}. Für eine Menge $M$, die z.B. ein Element namens $x$ enthält, schreibt man $x \in M$ ("x Element M" / "x in M"). Wenn man alle Elemente einer Menge explizit kennt, beispielsweise $x$, $y$, $z$, dann kann man die Menge auch explizit durch $M = \{x, y, z\}$ mit sogenannten Mengenklammern $\{$, $\}$ angeben. Die Elemente können beliebige viele oder beliebig wenige sein, und sie müssen nicht intuitiv sinnvoll zusammenpassen: zum Beispiel ist $\{1, \sqrt{\pi}, XXX, \text{Gurau}, \text{\faCoffee} \}$ eine völlig valide Menge.
 
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
-COFFEE\\
+Mengen sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definiert werden. Stattdessen werden sie indirekt definiert, indem mit den Gesetzen der Logik alle Eigenschaften aufgelistet werden, die Mengen erfüllen:\\
 
+Zwischendrin fehlen noch ein paar Definitionen:
+\begin{definition}[TBA]
+    something
+    \begin{itemize}
+        \item Teilmengen
+        \item Schnittmengen
+        \item Vereinigungsmenge
+    \end{itemize}
+\end{definition}
 
-\begin{definition}
+\begin{axiom}[Zermelo-Fraenkel-Axiome] %[vgl Axiom 2.1]
     \label{ZF-axioms}
-    bla bla bla
+    In diesem Axiomsystem wird nicht zwischen Mengen und Elementen unterschieden, d.h. jedes Element einer anderen Menge wird auch selbst als eigenständige Menge gesehen. Die einzigen Objekte, deren Existenz axiomatisiert wird, sind Mengen.\\
+    \begin{enumerate}
+        \item \underline{Extensionalitätsaxiom}: Eine Menge wird vollständig durch ihre Elemente bestimmt. Formal, für je zwei Mengen $A$, $B$ gilt $(x \in A \iff x \in B) \implies A = B$. Das Extensionalitätsaxiom impliziert unter anderem, dass weitere im folgenden axiomatisierten Mengen eindeutig sind.
+        \item \underline{Paarmengenaxiom}: Wenn $A$, $B$ Mengen sind, dann ist $\{A, B\}$ eine Menge.
+        \item \underline{Aussonderungsaxiom}: Wenn $A$ eine Menge ist, und $P(x)$ eine Eigenschaft\footnote{Logisch streng genommen ist $P$ ein \emph{Prädikat}.}, die Elemente erfüllen oder nicht erfüllen können, dann ist $\{x \in A | P(x)\}$ eine Menge. Die Notation $x \in A | ...$ bedeutet "x in A, für die gilt: ...", definiert durch $x \in A \land P(x)$.
+        \item \underline{Vereinigungsaxiom}: Wenn $A$ eine Menge ist, die aus Mengen besteht, dann ist $\bigcup A \defeq \{x | x \in B \land D \in A\}$ eine Menge.
+        \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennt man die \emph{leere Menge} und schreibt $\e$ oder $\{\}$. Formal ist die Aussage $\exists \e: \forall x: x \notin \e$. Die leere Menge ist die einzige explizite Menge, deren Existenz axiomatisiert wird. Alle weiteren expliziten Mengen müssen also mit Hilfe der anderen Axiome aus der leeren Menge konstruiert werden.
+        \item \underline{Potenzmengenaxiom}: Für jede Menge $A$ existiert eine Menge, die alle Teilmengen von $A$ enthält. Diese nennen wir die Potenzmenge $\mathscr{P}(A)$. Eine Teilmenge $B \subset A$ ist eine Menge, die elementweise komplett in $A$ enthalten ist, formal definiert über $x \in B \implies x \in A$. Dann ist $\mathscr{P}(A) = \{B | B \subset A\}$.
+        \item \underline{Unendlichkeitsaxiom}: Sei $A$ eine beliebige Menge. Dann existiert eine Menge $B$ mit $\e \in B$, und $A \in B \implies A \cup \{A\} \in B$. Man bemerke, dass mit $A \arr A \cup \{A\} \in B$ die Voraussetzung für das Unendlichkeitsaxiom wieder erfüllt ist, damit gilt also auch $A \cup \{A\} \cup \{A \cup \{A\}\} \in B$. Diese Kette lässt sich \emph{induktiv}, d.h. durch wiederholtes Ausführen desselben Argumentes, beliebig weit fortsetzen. $B$ enthält also, sofern es mindestens ein $A$ enthält, gleich unendlich viele Mengen.
+        \item \underline{Ersetzungsaxiom}: Ist $A$ eine Menge, und $f$ eine Vorschrift, die jede Menge $x \in A$ eindeutig durch eine andere Menge $f(x)$ ersetzt (d.h. $f$ ist eine \emph{Funktion}, Def. \ref{def-function}), dann ist das Bild von $f$ definiert als $f(A) = \{f(x) | x \in A\}$ wieder eine Menge.
+        \item \underline{Fundierungs}- oder \underline{Regularitätsaxiom}: Sei $A$ eine Menge. Dann enthält $A$ ein Element $x$ mit $x \cap A = \e$.
+    \end{enumerate}
+\end{axiom}
+
+Danach ein paar Bemerkungen zu den einzelnen Axiomen
+
+\begin{remark}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{remark}
+
+Danach noch ein paar Definitionen
+
+\begin{definition}[TBA]
+    Coffee
+    \begin{itemize}
+        \item Komplementmenge
+        \item Kartesisches Produkt
+    \end{itemize}
 \end{definition}
 
-\begin{definition}
-    \label{axiom-of-choice}
+
+
+
+\section{Relationen}
+
+\begin{definition}[Relation]
+    ich würde es mal so versuchen, aber es spricht auch was dafür alle in eine einzelne Def zu packen
 \end{definition}
+
+\begin{definition}[Äquivalenzrelation]
+    
+\end{definition}
+
+\begin{definition}[Halbordnungsrelation, halbgeordnete Menge]
+    der Begriff "Poset" ist eigentlich auch ganz lustig\footnote{Hassel Diagramme}
+\end{definition}
+
+\begin{definition}[Ordnungsrelation, Totalordnungsrelation]
+    
+\end{definition}
+
+\begin{definition}[strenge Halbordnungsrelation, strenge Totalordnungsrelation]
+    
+\end{definition}
+
+\begin{definition}[Wohlordnungsrelation]
+    
+\end{definition}
+
+
+
+
+\section{Funktionen}
+
+\begin{definition}[Funktion] %vlg Def 2.1
+    Seien $X$, $Y$ Mengen. Eine \emph{Abbildungsvorschrift} $f: X \arr Y$ ist eine Vorschrift, die Elemente $x$ in $X$ nimmt, und ihnen Elemente $f(x)$ in $Y$ zuordnet. Diese Zuordnung kann erstmal beliebig sein. Eine Abbildungsvorschrift heißt \emph{wohldefiniert}, wenn sie folgende zwei Eigenschaften erfüllt:
+    \begin{itemize}
+        \item \underline{linkstotal}: $\forall x \in X \exists y \in Y: f(x) = y$, das heißt jedes $x$ in $X$ wird auf ein $y$ abgebildet, das auch in $Y$ liegt.
+        \item \underline{rechtseindeutig}: $\forall x \in X \forall y_1, y_2 \in Y: f(x) = y_1 \land f(x) = y_2 \implies y_1 = y_2$. Das bedeutet jedes $x$ wird nur auf ein $y$ abgebildet, und nicht auf zwei verschiedene (oder was die logische Aussage bedeutet, wenn es zwei $y$s gibt auf die $x$ abgebildet wird, dann sind beide das Gleiche $y$).
+    \end{itemize}
+    Eine wohldefinierte Abbildungsvorschrift $f: X \arr Y$ heißt \emph{Funktion} oder \emph{Abbildung}. $X$ heißt \emph{Definitionsmenge} ()\emph{Definitionsbereich}) von $f$, $Y$ heißt \emph{Bildmenge} ()\emph{Zielmenge}) von $f$.
+\end{definition}
+
+\begin{remark}
+    Funktionen sind keine fundamental neuen Objekte, sondern werden aus Relationen konstruiert: Funktion $f$ ist über eine Relation $R_f \subset X \times Y$ def durch $f(x) = y \iff (x, y) \in R_f$. Damit sind Funktionen also im Grunde wieder Mengen, und benötigen keine zusätzlichen Axiome um ihre Existenz zu begründen.
+\end{remark}
+
+\begin{example}
+    \begin{itemize}
+        \item ein paar super einfach Beispiele mit Mengen die nur 3, 4 Elemente haben, dann ein zwei Bsp mit $\R$
+    \end{itemize}
+\end{example}
+
+\begin{definition}[rund um Funktionen]
+    Seien $X$, $Y$, $Z$ Mengen, und $f: X \arr Y$, $g: Y \arr Z$ Funktionen.
+    \begin{enumerate}
+        \item Bild, Urbild
+        \item Einschränkung
+        \item Identität
+        \item Komposition
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    möglicherweise selbe Beispiele wie in der Bem davor nochmal aufgreifen
+\end{example}
+
+\begin{definition}[injektiv, surjektiv, bijektiv]
+    Seien $X$, $Y$ Mengen, und $f: X \arr Y$ eine Funktion.
+    \begin{enumerate}
+        \item injektiv
+        \item surjektiv
+        \item bijektiv
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    je mehr Bsp desto besser. wie wäre es mit ein paar Bildern?
+\end{example}
+
+\begin{definition}[Umkehrfunktion]
+    Seien $X$, $Y$ Mengen, und $f: X \arr Y$ eine Funktion.
+    \begin{enumerate}
+        \item linksinverses
+        \item rechtsinverses
+        \item inverses
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    hier wäre Bsp für Fkt die nur in eine Richtung invertierbar wären interessant.
+\end{example}
+
+\begin{lemma}[Existenz von Umkehrabbildungen]
+    Das finde ich wirklich wichtig, weil es langsam Überzeit wird, dass der Leser seinen ersten Beweis sieht!!
+\end{lemma}
+
+\begin{axiom}[Auswahlaxiom]
+    \label{axiom-of-choice}
+\end{axiom}
 
 %\begin{definition}
 %    \label{natural-induction}
