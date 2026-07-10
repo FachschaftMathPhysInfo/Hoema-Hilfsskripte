@@ -21,6 +21,7 @@
 \addbibresource{references.bib}
 \usepackage{fontawesome5}
 \usepackage{enumitem}
+\usepackage{faktor}
 
 \usepackage{thmtools}
 
@@ -65,7 +66,7 @@
 
 
 \theoremstyle{definition}
-\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Theorem}{Theorem}[chapter]
 \newtheorem{Definition}[Theorem]{Definition}
 \newtheorem{Example}[Theorem]{Beispiel}
 \newtheorem{Corollary}[Theorem]{Korollar}
@@ -89,6 +90,7 @@
 \newenvironment{example}[1][]{\par \vspace{\medskipamount} \begin{Example}}{\end{Example} \par \vspace{\medskipamount}}
 
 \newenvironment{shadedbox}{\colorlet{shadecolor}{gray!15}  \begin{shaded}{} }{ \end{shaded} }
+\newenvironment{redbox}{\colorlet{shadecolor}{red!15}  \begin{shaded}{} }{ \end{shaded} }
 \newenvironment{QUESTION}{\colorlet{shadecolor}{gray!15} \begin{shaded}{Question: } }{ \end{shaded} }
 \newenvironment{EXERCISE}{\colorlet{shadecolor}{gray!15} \begin{shaded}{Exercise:} }{ \end{shaded} }
 
@@ -96,6 +98,8 @@
 \setlength{\parskip}{0.5em}
 
 \hbadness=10000
+
+
 
 \setcounter{chapter}{-1}
 
@@ -116,6 +120,11 @@
 \DeclareMathOperator{\rank}{rank}
 
 \newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.}\hbox{\scriptsize.}}} =}
+
+
+
+\newcounter{query}
+\newenvironment{query} {\refstepcounter{query} \par\medskip \begin{redbox} \noindent \textbf{\textcolor{purple}{\thequery. }} \begingroup \color{purple} \large \ignorespaces} {\par \endgroup \end{redbox} \medskip \ignorespacesafterend}
 
 
 \setlist[enumerate,1]{label=(\roman*)}

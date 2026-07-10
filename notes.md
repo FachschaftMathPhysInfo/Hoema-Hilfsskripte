@@ -1,6 +1,30 @@
-Implikationen mit "Satzaussagen"
+Kapitel 1 nochmal drüberschauen
 
-Es existiert für alle ausschreiben
+- Format
+
+- mehr Beispiele
+
+- Negation von und / oder zufügen
+
 
 Roland Herzog eine Mail schreiben
-und Hans Knüpfer
+
+
+Kapitel 2
+
+- Bemerkungen zu den ZF Axiomen
+
+
+kleinere Dinge
+
+- schöneres ==> Symbol
+
+- schöneres leere Menge Symbol
+
+- underline konsistent machen
+
+Fragen zum ganzen Dokument
+
+- Buch zweiseitig oder einseitig?
+
+- Vorwörter?

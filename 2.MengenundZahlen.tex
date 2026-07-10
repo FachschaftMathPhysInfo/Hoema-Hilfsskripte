@@ -2,53 +2,109 @@
 
 \section{Mengen}
 
-Mengen sind ein zentrales Konzept, auf dem die ganze Mathematik beruht. Grob gesprochen handelt es sich um eine Zusammenfassung von Objekten, die man \emph{Elemente} nennt, zu einem einzigen neuen Objekt, der \emph{Menge}. Für eine Menge $M$, die z.B. ein Element namens $x$ enthält, schreibt man $x \in M$ ("x Element M" / "x in M"). Wenn man alle Elemente einer Menge explizit kennt, beispielsweise $x$, $y$, $z$, dann kann man die Menge auch explizit durch $M = \{x, y, z\}$ mit sogenannten Mengenklammern $\{$, $\}$ angeben. Die Elemente können beliebige viele oder beliebig wenige sein, und sie müssen nicht intuitiv sinnvoll zusammenpassen: zum Beispiel ist $\{1, \sqrt{\pi}, XXX, \text{Gurau}, \text{\faCoffee} \}$ eine völlig valide Menge.
+\begin{query}
+    Warum trinkst Du keinen Kaffee?
+\end{query}
 
-Mengen sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definiert werden. Stattdessen werden sie indirekt definiert, indem mit den Gesetzen der Logik alle Eigenschaften aufgelistet werden, die Mengen erfüllen:\\
+Mengen sind ein zentrales Konzept, auf dem die ganze Mathematik beruht. Grob gesprochen handelt es sich um eine Zusammenfassung von Objekten, die man \emph{Elemente} nennt, zu einem einzigen neuen Objekt, der \emph{Menge}. Für eine Menge $M$, die z.B. ein Element namens $x$ enthält, schreibt man $x \in M$ ("x Element M" / "x in M"). Wenn man alle Elemente einer Menge explizit kennt, beispielsweise $x$, $y$, $z$, dann kann man die Menge auch explizit durch $M = \{x, y, z\}$ mit sogenannten Mengenklammern $\{$...$\}$ oder $\{$ .. $\}$ angeben. Die Elemente können beliebige viele oder beliebig wenige sein, und sie müssen nicht intuitiv sinnvoll zusammenpassen: zum Beispiel ist $\{1, \sqrt{\pi}, \text{Gurau}, \text{\faCoffee} \}$ eine völlig valide Menge.
 
-Zwischendrin fehlen noch ein paar Definitionen:
-\begin{definition}[TBA]
-    something
+\begin{query}
+    Wie markiere ich neue Terminologie in Definitionen usw am besten? Optionen:
     \begin{itemize}
-        \item Teilmengen
-        \item Schnittmengen
-        \item Vereinigungsmenge
+        \item immer \emph{kursiv} markieren
+        \item immer \underline{unterstreichen}
+        \item außerhalb enumerate \emph{kursiv},
+        \begin{enumerate}
+            \item innerhalb enumerate \underline{unterstreichen}
+        \end{enumerate}
     \end{itemize}
+    Optionen für mehrere Begriffe (Terminologien, Wörter)
+    \begin{itemize}
+        \item \emph{Begriffe} (\emph{Terminologien}, \emph{Wörter})
+        \item \underline{Begriffe} (\emph{Terminologien}, \emph{Wörter})
+        \item \underline{Begriffe} (\underline{Terminologien}, \underline{Wörter})
+        \item noch ein Vorschlag: \underline{Begriffe} (Terminologien)
+    \end{itemize}
+    Ich persönlich wäre fast für immer unterstreichen, aber das spacing ist wie man sieht sehr unregelmäßig...
+\end{query}
+
+Mengen sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definiert werden. Stattdessen werden sie indirekt definiert, indem mit den Gesetzen der Logik alle Eigenschaften axiomatisch aufgelistet werden, die Mengen erfüllen sollen. Das resultierende System nennt man \underline{ZF-Mengenlehre}, nach den Mathematikern Ernst Zermelo und Abraham Fraenkel. Aber zuerst definieren wir etwas Notation:\\
+
+\begin{definition}[Teilmenge, Vereinigungsmenge, Schnittmenge]
+    \begin{enumerate}
+        \item Sei $A$ eine Menge. Eine \underline{Teilmenge} $B$ von $A$ ist eine Menge, die elementweise komplett in $A$ enthalten ist, logisch definiert über
+        $$x \in B \implies x \in A.$$
+        Man schreibt $B \subset A$ oder $B \subseteq A$.\\
+        Für eine \underline{echte Teilmenge}, d.h. $B \subset A$ und $B \neq A$, schreibt man $B \subsetneq A$.
+        \item Seien $A$, $B$ Mengen. Die \underline{Vereinigung} $A \cup B$ ist:
+        $$A \cup B = \bigcup \{A, B\}.$$
+        (siehe \ref{ZF-axioms}.) Ihre Existenz ist durch (ZF2) und (ZF4) begründet, und damit gilt $A \cup B = \{x | x \in A \lor x \in B\}$.
+        \item Der \underline{Durchschnitt} $A \cap B$ ist:
+        $$A \cap B = \{x \in A | x \in B\}.$$
+        Seine Existenz ist begründet durch (ZF3) mit dem Prädikat $P(x) = x \in B$, und damit gilt $A \cap B = \{x | x \in A \land x \in B\}$.
+    \end{enumerate}
 \end{definition}
 
 \begin{axiom}[Zermelo-Fraenkel-Axiome] %[vgl Axiom 2.1]
     \label{ZF-axioms}
-    In diesem Axiomsystem wird nicht zwischen Mengen und Elementen unterschieden, d.h. jedes Element einer anderen Menge wird auch selbst als eigenständige Menge gesehen. Die einzigen Objekte, deren Existenz axiomatisiert wird, sind Mengen.\\
-    \begin{enumerate}
+    In diesem Axiomsystem wird nicht zwischen Mengen und Elementen unterschieden, d.h. jedes Element einer anderen Menge wird auch selbst als eigenständige Menge gesehen. Die einzigen Objekte, deren Existenz axiomatisiert wird, sind Mengen.
+    \begin{enumerate}[label=(ZF\arabic*)]
         \item \underline{Extensionalitätsaxiom}: Eine Menge wird vollständig durch ihre Elemente bestimmt. Formal, für je zwei Mengen $A$, $B$ gilt $(x \in A \iff x \in B) \implies A = B$. Das Extensionalitätsaxiom impliziert unter anderem, dass weitere im folgenden axiomatisierten Mengen eindeutig sind.
         \item \underline{Paarmengenaxiom}: Wenn $A$, $B$ Mengen sind, dann ist $\{A, B\}$ eine Menge.
-        \item \underline{Aussonderungsaxiom}: Wenn $A$ eine Menge ist, und $P(x)$ eine Eigenschaft\footnote{Logisch streng genommen ist $P$ ein \emph{Prädikat}.}, die Elemente erfüllen oder nicht erfüllen können, dann ist $\{x \in A | P(x)\}$ eine Menge. Die Notation $x \in A | ...$ bedeutet "x in A, für die gilt: ...", definiert durch $x \in A \land P(x)$.
+        \item \underline{Aussonderungsaxiom}: Wenn $A$ eine Menge ist, und $P(x)$ eine Eigenschaft\footnote{Logisch streng genommen ist $P$ ein \emph{Prädikat}.}, die Elemente $x$ von $A$ entweder erfüllen oder nicht erfüllen können, dann ist $\{x \in A | P(x)\}$ eine Menge. Die Notation $x \in A | P(x)$ bedeutet "x in A, für die gilt: P(x)". Logisch ist das wieder definiert durch $x \in A \land P(x)$, aber der senkrechte Strich trennt optisch die Elemente der Menge von den Bedingungen, die diese erfüllen.
         \item \underline{Vereinigungsaxiom}: Wenn $A$ eine Menge ist, die aus Mengen besteht, dann ist $\bigcup A \defeq \{x | x \in B \land D \in A\}$ eine Menge.
-        \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennt man die \emph{leere Menge} und schreibt $\e$ oder $\{\}$. Formal ist die Aussage $\exists \e: \forall x: x \notin \e$. Die leere Menge ist die einzige explizite Menge, deren Existenz axiomatisiert wird. Alle weiteren expliziten Mengen müssen also mit Hilfe der anderen Axiome aus der leeren Menge konstruiert werden.
-        \item \underline{Potenzmengenaxiom}: Für jede Menge $A$ existiert eine Menge, die alle Teilmengen von $A$ enthält. Diese nennen wir die Potenzmenge $\mathscr{P}(A)$. Eine Teilmenge $B \subset A$ ist eine Menge, die elementweise komplett in $A$ enthalten ist, formal definiert über $x \in B \implies x \in A$. Dann ist $\mathscr{P}(A) = \{B | B \subset A\}$.
-        \item \underline{Unendlichkeitsaxiom}: Sei $A$ eine beliebige Menge. Dann existiert eine Menge $B$ mit $\e \in B$, und $A \in B \implies A \cup \{A\} \in B$. Man bemerke, dass mit $A \arr A \cup \{A\} \in B$ die Voraussetzung für das Unendlichkeitsaxiom wieder erfüllt ist, damit gilt also auch $A \cup \{A\} \cup \{A \cup \{A\}\} \in B$. Diese Kette lässt sich \emph{induktiv}, d.h. durch wiederholtes Ausführen desselben Argumentes, beliebig weit fortsetzen. $B$ enthält also, sofern es mindestens ein $A$ enthält, gleich unendlich viele Mengen.
+        \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennen wir die \underline{leere Menge} und schreibt $\e$ oder $\{\}$. Formal ist die Aussage $\exists \e: \forall x: x \notin \e$. Die leere Menge ist die einzige explizite Menge, deren Existenz axiomatisiert wird. Alle weiteren expliziten Mengen müssen also mit Hilfe der anderen Axiome aus der leeren Menge konstruiert werden.
+        \item \underline{Potenzmengenaxiom}: Für jede Menge $A$ existiert eine Menge, die alle Teilmengen von $A$ enthält. Diese nennen wir die Potenzmenge $\mathscr{P}(A)$. Dann ist $\mathscr{P}(A) = \{B | B \subset A\}$.
+        \item \underline{Unendlichkeitsaxiom}: Sei $A$ eine beliebige Menge. Dann existiert eine Menge $B$ mit $\e \in B$, und $A \in B \implies A \cup \{A\} \in B$. Man bemerke, dass mit $A \arr A \cup \{A\} \in B$ die Voraussetzung für das Unendlichkeitsaxiom wieder erfüllt ist, damit gilt also auch $A \cup \{A\} \cup \{A \cup \{A\}\} \in B$. Diese Kette lässt sich \underline{induktiv}, d.h. durch wiederholtes Ausführen desselben Argumentes, beliebig weit fortsetzen. $B$ enthält also, sofern es mindestens ein $A$ enthält, gleich unendlich viele Mengen.
         \item \underline{Ersetzungsaxiom}: Ist $A$ eine Menge, und $f$ eine Vorschrift, die jede Menge $x \in A$ eindeutig durch eine andere Menge $f(x)$ ersetzt (d.h. $f$ ist eine \emph{Funktion}, Def. \ref{def-function}), dann ist das Bild von $f$ definiert als $f(A) = \{f(x) | x \in A\}$ wieder eine Menge.
         \item \underline{Fundierungs}- oder \underline{Regularitätsaxiom}: Sei $A$ eine Menge. Dann enthält $A$ ein Element $x$ mit $x \cap A = \e$.
     \end{enumerate}
 \end{axiom}
 
-Danach ein paar Bemerkungen zu den einzelnen Axiomen
+Danach ein paar Bemerkungen zu einzelnen Axiomen
 
 \begin{remark}
     \begin{itemize}
-        \item 
+        \item e
     \end{itemize}
 \end{remark}
 
 Danach noch ein paar Definitionen
 
-\begin{definition}[TBA]
-    Coffee
-    \begin{itemize}
-        \item Komplementmenge
-        \item Kartesisches Produkt
-    \end{itemize}
+\begin{definition}[Komplement, symmetrische Differenz, kartesisches Produkt]
+    Seien $A$, $B$ Mengen. Wir definieren
+    \begin{enumerate}
+        \item das \underline{Komplement} $B \backslash A = \{x \in B | x \notin A\}$,
+        \item die \underline{symmetrische Differenz} $A \triangle B = (A \backslash B) \cup (B \backslash A)$,
+        \item das \underline{kartesische Produkt} $A \times B = \{ (a, b) | a \in A, b \in B\}$.
+    \end{enumerate}
 \end{definition}
+
+Man bemerke, dass die Paare $(a, b)$ geordnet sind, d.h. wenn $A$, $B$ zwei Elemente $x \neq y$ gemeinsam haben, dann ist $(x, y) \neq (y, x)$. Die Existenz von geordneten Paaren ist z.B. durch (ZF2) mittels einer Identifikation wie $(a, b) = \{\{a\}, \{a, b\}\}$ begründet.
+
+\begin{lemma}[Regeln von De Morgan]
+    Seien $A$, $B$, $C$ Mengen. Dann gilt:
+    \begin{enumerate}
+        \item $A \backslash (B \cup C) = (A \backslash B) \cap (A \backslash C)$,
+        \item $A \backslash (B \cap C) = (A \backslash B) \cup (A \backslash C)$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}
+        \item Sei $x$ beliebig. Man bemerke, dass $x \notin A \iff \neg (x \in A)$ ist. Dann gilt mit den Gesetzen der Logik:\\
+        $x \in A \backslash (B \cup C)$\\
+        $\iff x \in A \land x \notin (B \cup C)$\\
+        $\iff x \in A \land (x \notin B \land x \notin C)$\\
+        $\iff (x \in A \land x \notin B) \land (x \in A \land x \notin C)$\\
+        $\iff x \in (A \backslash B) \cap (A \backslash C)$.
+        \item Analog zu (i). Sei $x$ beliebig. Dann gilt:\\
+        $x \in A \backslash (B \cap C)$\\
+        $\iff x \in A \land x \notin (B \cap C)$\\
+        $\iff x \in A \land (x \notin B \lor x \notin C)$\\
+        $\iff (x \in A \land x \notin B) \lor (x \in A \land x \notin C)$\\
+        $\iff x \in (A \backslash B) \cup (A \backslash C)$.
+    \end{enumerate}
+\end{proof}
 
 
 
@@ -56,12 +112,59 @@ Danach noch ein paar Definitionen
 \section{Relationen}
 
 \begin{definition}[Relation]
-    ich würde es mal so versuchen, aber es spricht auch was dafür alle in eine einzelne Def zu packen
+    Seien $A$, $B$ Mengen. Eine \underline{Relation} $\sim_r$ zwischen $A$ und $B$ ist eine Zuordnungsvorschrift, die zwei Elemente $a \in A$ und $b \in B$ eindeutig entweder in Relation zueinander ($a \sim_r b$ ist wahr), oder nicht in Relation zueinander ($a \sim_r b$ ist falsch) stellt.\\
+    Man identifiziert dabei die Relation als Teilmenge $R \subset A \times B$, indem man
+    $$a \sim_r b \text{ ist wahr} \iff (a,b) \in R \subset A \times B$$
+    setzt.\\
+    Wenn $A = B$, dann nennt man $\sim_r$ auch einfach eine Relation auf $A$.
 \end{definition}
 
-\begin{definition}[Äquivalenzrelation]
-    
+Ihr Existenz erhalten Relationen dadurch, dass sie formal Teilmengen sind. Durch Forderung von weiteren Eigenschaften haben Relationen unterschiedlichste Anwendungen. Es gibt viele Beispiele für Relationen, einige folgend gleich, eines der wichtigsten davon ist die Äquivalenzrelation.
+
+\begin{definition}[Äquivalenzrelation] %vgl Def 2.1
+    Sei $X$ eine Menge. $\sim$ heißt \underline{Äquivalenzrelation} auf $X$, falls folgende Eigenschaften gelten:
+    \begin{enumerate}[label=(Ä\arabic*)]
+        \item \underline{reflexiv}: $\forall x \in X: x \sim x$
+        \item \underline{symmetrisch}: $\forall x, y \in X: x \sim y \iff y \sim x$
+        \item \underline{transitiv}: $\forall x, y, z \in X: x \sim y \land y \sim z \implies x \sim z$
+    \end{enumerate}
 \end{definition}
+
+\begin{query}
+    Hier könnte man sich auch
+    \begin{enumerate}
+        \item \emph{reflexiv}: \dots
+        \item \emph{symmetrisch}: \dots
+        \item \emph{transitiv}: \dots
+    \end{enumerate}
+    überlegen?
+\end{query}
+
+\begin{definition}[Äquivalenzklassen]
+    \label{def-equivalence-class}
+    Sei $X$ eine Menge und $\sim$ eine Äquivalenzrelation auf $X$. Für ein festes $x \in X$ definieren wir die \underline{Äquivalenzklasse} von $x$
+    $$[x] = \{y | x \sim y \},$$
+    und die \underline{Quotientenmenge} von $\sim$
+    $$\faktor{X}{\sim} = \{ [x] | x \in X \}.$$
+\end{definition}
+
+\begin{lemma}[Äquivalenzklassen sind wohldefiniert]
+    Sei $X$ eine Menge mit Äquivalenzrelation $\sim$. Dann sind die Äquivalenzklassen, d.h. die Elemente von $\faktor{X}{\sim}$, nichtleer und disjunkt.
+\end{lemma}
+\begin{proof}
+    Sei $x \in X$.\\
+    \emph{nichtleer}: Da $x \in X$, gilt nach (Ä1) $x \sim x$ und damit nach Def. \ref{def-equivalence-class} $x \in [x]$.\\
+    \emph{disjunkt}: Sei nun $y \in X$, dann ist $y \in [y]$.\\
+    Nehme an es gelte $x \sim y \implies y \in [x]$. Nach (Ä2) ist dann auch $y \sim x \implies x \in [y]$.\\
+    Nun gilt für jedes $z \in X$:
+
+    \qquad Falls $z \in [x] \implies x \sim z, y \sim x \implies y \sim z \implies z \in [x]$.
+
+    \qquad Falls $z \in [y] \implies y \sim z, x \sim y \implies x \sim z \implies z \in [y]$.
+    
+    Insgesamt gilt also $\forall z \in X: z \in [x] \iff z \in [y]$, und damit $[x] = [y]$.\\
+    Durch Kontraposition folgt, dass zwei verschiedene Äquivalenzklassen $[x], [w]$ mit $x \nsim w$ disjunkt sind.
+\end{proof}
 
 \begin{definition}[Halbordnungsrelation, halbgeordnete Menge]
     der Begriff "Poset" ist eigentlich auch ganz lustig\footnote{Hassel Diagramme}
@@ -70,6 +173,10 @@ Danach noch ein paar Definitionen
 \begin{definition}[Ordnungsrelation, Totalordnungsrelation]
     
 \end{definition}
+
+\begin{query}
+    Warum trinkst Du immer noch keinen Kaffee?
+\end{query}
 
 \begin{definition}[strenge Halbordnungsrelation, strenge Totalordnungsrelation]
     
@@ -90,7 +197,7 @@ Danach noch ein paar Definitionen
         \item \underline{linkstotal}: $\forall x \in X \exists y \in Y: f(x) = y$, das heißt jedes $x$ in $X$ wird auf ein $y$ abgebildet, das auch in $Y$ liegt.
         \item \underline{rechtseindeutig}: $\forall x \in X \forall y_1, y_2 \in Y: f(x) = y_1 \land f(x) = y_2 \implies y_1 = y_2$. Das bedeutet jedes $x$ wird nur auf ein $y$ abgebildet, und nicht auf zwei verschiedene (oder was die logische Aussage bedeutet, wenn es zwei $y$s gibt auf die $x$ abgebildet wird, dann sind beide das Gleiche $y$).
     \end{itemize}
-    Eine wohldefinierte Abbildungsvorschrift $f: X \arr Y$ heißt \emph{Funktion} oder \emph{Abbildung}. $X$ heißt \emph{Definitionsmenge} ()\emph{Definitionsbereich}) von $f$, $Y$ heißt \emph{Bildmenge} ()\emph{Zielmenge}) von $f$.
+    Eine wohldefinierte Abbildungsvorschrift $f: X \arr Y$ heißt \underline{Funktion} (oder \underline{Abbildung}). $X$ heißt \underline{Definitionsmenge} (\underline{Definitionsbereich}) von $f$, $Y$ heißt \underline{Bildmenge} (\underline{Zielmenge}) von $f$.
 \end{definition}
 
 \begin{remark}

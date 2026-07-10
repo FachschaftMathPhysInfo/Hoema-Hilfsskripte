@@ -1,5 +1,5 @@
 \contentsline {chapter}{\numberline {0}Mengen und Zahlen}{1}{chapter.0}%
 \contentsline {section}{\numberline {0.1}Mengen}{1}{section.0.1}%
-\contentsline {section}{\numberline {0.2}Relationen}{3}{section.0.2}%
-\contentsline {section}{\numberline {0.3}Funktionen}{3}{section.0.3}%
-\contentsline {chapter}{\numberline {1}auxies.aux}{7}{chapter.1}%
+\contentsline {section}{\numberline {0.2}Relationen}{4}{section.0.2}%
+\contentsline {section}{\numberline {0.3}Funktionen}{6}{section.0.3}%
+\contentsline {chapter}{\numberline {1}auxies.aux}{9}{chapter.1}%
