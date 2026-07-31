@@ -2,35 +2,12 @@
 
 \section{Mengen}
 
-\begin{query}
-    Warum trinkst Du keinen Kaffee?
-\end{query}
-
-Mengen sind ein zentrales Konzept, auf dem die ganze Mathematik beruht. Grob gesprochen handelt es sich um eine Zusammenfassung von Objekten, die man \emph{Elemente} nennt, zu einem einzigen neuen Objekt, der \emph{Menge}. Für eine Menge $M$, die z.B. ein Element namens $x$ enthält, schreibt man $x \in M$ ("x Element M" / "x in M"). Wenn man alle Elemente einer Menge explizit kennt, beispielsweise $x$, $y$, $z$, dann kann man die Menge auch explizit durch $M = \{x, y, z\}$ mit sogenannten Mengenklammern $\{$...$\}$ oder $\{$ .. $\}$ angeben. Die Elemente können beliebige viele oder beliebig wenige sein, und sie müssen nicht intuitiv sinnvoll zusammenpassen: zum Beispiel ist $\{1, \sqrt{\pi}, \text{Gurau}, \text{\faCoffee} \}$ eine völlig valide Menge.
-
-\begin{query}
-    Wie markiere ich neue Terminologie in Definitionen usw am besten? Optionen:
-    \begin{itemize}
-        \item immer \emph{kursiv} markieren
-        \item immer \underline{unterstreichen}
-        \item außerhalb enumerate \emph{kursiv},
-        \begin{enumerate}
-            \item innerhalb enumerate \underline{unterstreichen}
-        \end{enumerate}
-    \end{itemize}
-    Optionen für mehrere Begriffe (Terminologien, Wörter)
-    \begin{itemize}
-        \item \emph{Begriffe} (\emph{Terminologien}, \emph{Wörter})
-        \item \underline{Begriffe} (\emph{Terminologien}, \emph{Wörter})
-        \item \underline{Begriffe} (\underline{Terminologien}, \underline{Wörter})
-        \item noch ein Vorschlag: \underline{Begriffe} (Terminologien)
-    \end{itemize}
-    Ich persönlich wäre fast für immer unterstreichen, aber das spacing ist wie man sieht sehr unregelmäßig...
-\end{query}
+Mengen sind ein zentrales Konzept, auf dem die ganze Mathematik beruht. Grob gesprochen handelt es sich um eine Zusammenfassung von Objekten, die man \emph{Elemente} nennt, zu einem einzigen neuen Objekt, der \emph{Menge}. Für eine Menge $M$, die z.B. ein Element namens $x$ enthält, schreibt man $x \in M$ (sprich "x Element M" oder "x in M"). Wenn man alle Elemente einer Menge explizit kennt, beispielsweise $x$, $y$, $z$, dann kann man die Menge auch explizit durch $M = \{x, y, z\}$ mit sogenannten Mengenklammern $\{$...$\}$ oder $\{$ .. $\}$ angeben. Die Elemente können beliebige viele oder beliebig wenige sein, und sie müssen nicht intuitiv sinnvoll zusammenpassen: zum Beispiel ist $\{1, \sqrt{\pi}, \text{Gurau}, \text{\faCoffee} \}$ eine völlig valide Menge.
 
 Mengen sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definiert werden. Stattdessen werden sie indirekt definiert, indem mit den Gesetzen der Logik alle Eigenschaften axiomatisch aufgelistet werden, die Mengen erfüllen sollen. Das resultierende System nennt man \underline{ZF-Mengenlehre}, nach den Mathematikern Ernst Zermelo und Abraham Fraenkel. Aber zuerst definieren wir etwas Notation:\\
 
 \begin{definition}[Teilmenge, Vereinigungsmenge, Schnittmenge]
+    \label{subset-union-cap}
     \begin{enumerate}
         \item Sei $A$ eine Menge. Eine \underline{Teilmenge} $B$ von $A$ ist eine Menge, die elementweise komplett in $A$ enthalten ist, logisch definiert über
         $$x \in B \implies x \in A.$$
@@ -45,6 +22,12 @@ Mengen sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definier
     \end{enumerate}
 \end{definition}
 
+Natürlich ergeben diese Definitionen streng genommen erst Sinn, sobald man die dafür notwendigen ZF-Axiome (ZF 1-4) postuliert hat. Wir verwenden diese Notation allerdings für eine leichter verständliche Version der übrigen ZF-Axiome (ZF 6,7,9), und haben sie daher im Sinne der Übersichtlichkeit vorangeschoben. Der Leser kann sich selbst überzeugen, dass hier kein Zirkelschluss vorliegt.
+
+\begin{query}
+    Klingt das zu gehoben? Kann ich diesen Stil im Laufe des Scriptes immer wieder rausziehen?
+\end{query}
+
 \begin{axiom}[Zermelo-Fraenkel-Axiome] %[vgl Axiom 2.1]
     \label{ZF-axioms}
     In diesem Axiomsystem wird nicht zwischen Mengen und Elementen unterschieden, d.h. jedes Element einer anderen Menge wird auch selbst als eigenständige Menge gesehen. Die einzigen Objekte, deren Existenz axiomatisiert wird, sind Mengen.
@@ -55,7 +38,8 @@ Mengen sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definier
         \item \underline{Vereinigungsaxiom}: Wenn $A$ eine Menge ist, die aus Mengen besteht, dann ist $\bigcup A \defeq \{x | x \in B \land D \in A\}$ eine Menge.
         \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennen wir die \underline{leere Menge} und schreibt $\e$ oder $\{\}$. Formal ist die Aussage $\exists \e: \forall x: x \notin \e$. Die leere Menge ist die einzige explizite Menge, deren Existenz axiomatisiert wird. Alle weiteren expliziten Mengen müssen also mit Hilfe der anderen Axiome aus der leeren Menge konstruiert werden.
         \item \underline{Potenzmengenaxiom}: Für jede Menge $A$ existiert eine Menge, die alle Teilmengen von $A$ enthält. Diese nennen wir die Potenzmenge $\mathscr{P}(A)$. Dann ist $\mathscr{P}(A) = \{B | B \subset A\}$.
-        \item \underline{Unendlichkeitsaxiom}: Sei $A$ eine beliebige Menge. Dann existiert eine Menge $B$ mit $\e \in B$, und $A \in B \implies A \cup \{A\} \in B$. Man bemerke, dass mit $A \arr A \cup \{A\} \in B$ die Voraussetzung für das Unendlichkeitsaxiom wieder erfüllt ist, damit gilt also auch $A \cup \{A\} \cup \{A \cup \{A\}\} \in B$. Diese Kette lässt sich \underline{induktiv}, d.h. durch wiederholtes Ausführen desselben Argumentes, beliebig weit fortsetzen. $B$ enthält also, sofern es mindestens ein $A$ enthält, gleich unendlich viele Mengen.
+        \item \underline{Unendlichkeitsaxiom}: Sei $A$ eine beliebige Menge. Dann existiert eine Menge $B$ mit $\e \in B$, und $A \in B \implies A \cup \{A\} \in B$.\\
+        Man bemerke, dass mit $A \arr A \cup \{A\} \in B$ die Voraussetzung für das Unendlichkeitsaxiom wieder erfüllt ist, damit gilt also auch $A \cup \{A\} \cup \{A \cup \{A\}\} \in B$. Diese Kette lässt sich \underline{induktiv}, d.h. durch wiederholtes Ausführen desselben Argumentes, beliebig weit fortsetzen. $B$ enthält also, sofern es mindestens ein $A$ enthält, gleich unendlich viele Mengen.
         \item \underline{Ersetzungsaxiom}: Ist $A$ eine Menge, und $f$ eine Vorschrift, die jede Menge $x \in A$ eindeutig durch eine andere Menge $f(x)$ ersetzt (d.h. $f$ ist eine \emph{Funktion}, Def. \ref{def-function}), dann ist das Bild von $f$ definiert als $f(A) = \{f(x) | x \in A\}$ wieder eine Menge.
         \item \underline{Fundierungs}- oder \underline{Regularitätsaxiom}: Sei $A$ eine Menge. Dann enthält $A$ ein Element $x$ mit $x \cap A = \e$.
     \end{enumerate}
@@ -82,6 +66,10 @@ Danach noch ein paar Definitionen
 
 Man bemerke, dass die Paare $(a, b)$ geordnet sind, d.h. wenn $A$, $B$ zwei Elemente $x \neq y$ gemeinsam haben, dann ist $(x, y) \neq (y, x)$. Die Existenz von geordneten Paaren ist z.B. durch (ZF2) mittels einer Identifikation wie $(a, b) = \{\{a\}, \{a, b\}\}$ begründet.
 
+\begin{example}
+    zu Mengenoperationen $\subset, \cup, \cap, \backslash, \triangle, \times$ auch Beispiele mit $\e$!
+\end{example}
+
 \begin{lemma}[Regeln von De Morgan]
     Seien $A$, $B$, $C$ Mengen. Dann gilt:
     \begin{enumerate}
@@ -89,6 +77,7 @@ Man bemerke, dass die Paare $(a, b)$ geordnet sind, d.h. wenn $A$, $B$ zwei Elem
         \item $A \backslash (B \cap C) = (A \backslash B) \cup (A \backslash C)$.
     \end{enumerate}
 \end{lemma}
+Wir sehen nun unseren ersten kleineren Beweis. Die Beweismethode, die wir hier verwenden, nennt man \emph{Nachrechnen}, damit meint man in der Mathematik das wiederholte Anwenden von Axiomen, Definitionen, und bereits gezeigten Aussagen, ohne dabei größere Ideen zu brauchen oder auf kompliziertere Details achten zu müssen.
 \begin{proof}
     \begin{enumerate}
         \item Sei $x$ beliebig. Man bemerke, dass $x \notin A \iff \neg (x \in A)$ ist. Dann gilt mit den Gesetzen der Logik:\\
@@ -96,13 +85,15 @@ Man bemerke, dass die Paare $(a, b)$ geordnet sind, d.h. wenn $A$, $B$ zwei Elem
         $\iff x \in A \land x \notin (B \cup C)$\\
         $\iff x \in A \land (x \notin B \land x \notin C)$\\
         $\iff (x \in A \land x \notin B) \land (x \in A \land x \notin C)$\\
-        $\iff x \in (A \backslash B) \cap (A \backslash C)$.
+        $\iff x \in (A \backslash B) \cap (A \backslash C)$.\\
+        Nach (ZF1) sind also beide Mengen gleich.
         \item Analog zu (i). Sei $x$ beliebig. Dann gilt:\\
         $x \in A \backslash (B \cap C)$\\
         $\iff x \in A \land x \notin (B \cap C)$\\
         $\iff x \in A \land (x \notin B \lor x \notin C)$\\
         $\iff (x \in A \land x \notin B) \lor (x \in A \land x \notin C)$\\
-        $\iff x \in (A \backslash B) \cup (A \backslash C)$.
+        $\iff x \in (A \backslash B) \cup (A \backslash C)$.\\
+        Nach (ZF1) sind also beide Mengen gleich.
     \end{enumerate}
 \end{proof}
 
@@ -114,31 +105,23 @@ Man bemerke, dass die Paare $(a, b)$ geordnet sind, d.h. wenn $A$, $B$ zwei Elem
 \begin{definition}[Relation]
     Seien $A$, $B$ Mengen. Eine \underline{Relation} $\sim_r$ zwischen $A$ und $B$ ist eine Zuordnungsvorschrift, die zwei Elemente $a \in A$ und $b \in B$ eindeutig entweder in Relation zueinander ($a \sim_r b$ ist wahr), oder nicht in Relation zueinander ($a \sim_r b$ ist falsch) stellt.\\
     Man identifiziert dabei die Relation als Teilmenge $R \subset A \times B$, indem man
-    $$a \sim_r b \text{ ist wahr} \iff (a,b) \in R \subset A \times B$$
+    $$a \sim_r b \text{ ist wahr, oder einfach } a \sim_r b \iff (a,b) \in R \subset A \times B$$
     setzt.\\
-    Wenn $A = B$, dann nennt man $\sim_r$ auch einfach eine Relation auf $A$.
+    Wenn $A = B$ ist, dann nennt man $\sim_r$ auch einfach eine Relation auf $A$.
 \end{definition}
 
-Ihr Existenz erhalten Relationen dadurch, dass sie formal Teilmengen sind. Durch Forderung von weiteren Eigenschaften haben Relationen unterschiedlichste Anwendungen. Es gibt viele Beispiele für Relationen, einige folgend gleich, eines der wichtigsten davon ist die Äquivalenzrelation.
+Ihre Existenz erhalten Relationen dadurch, dass sie formal Teilmengen sind. Durch Forderung von weiteren Eigenschaften haben Relationen unterschiedlichste Anwendungen.
+
+Auf Wikipedia unter \href{https://de.wikipedia.org/wiki/Relation_(Mathematik)#Beispiele}{Relationen} (und verlinkte Artikel) findet man sehr anschauliche Beispiele für Relationen (größtenteils mit fragwürdiger mathematischer Relevanz). Es gibt aber auch viele anwendungsbezogene Beispiele für Relationen, eines der wichtigsten davon ist die Äquivalenzrelation.
 
 \begin{definition}[Äquivalenzrelation] %vgl Def 2.1
-    Sei $X$ eine Menge. $\sim$ heißt \underline{Äquivalenzrelation} auf $X$, falls folgende Eigenschaften gelten:
+    Sei $X$ eine Menge. Eine Relation $\sim$ auf $X$ heißt \underline{Äquivalenzrelation}, falls folgende Eigenschaften gelten:
     \begin{enumerate}[label=(Ä\arabic*)]
         \item \underline{reflexiv}: $\forall x \in X: x \sim x$
         \item \underline{symmetrisch}: $\forall x, y \in X: x \sim y \iff y \sim x$
         \item \underline{transitiv}: $\forall x, y, z \in X: x \sim y \land y \sim z \implies x \sim z$
     \end{enumerate}
 \end{definition}
-
-\begin{query}
-    Hier könnte man sich auch
-    \begin{enumerate}
-        \item \emph{reflexiv}: \dots
-        \item \emph{symmetrisch}: \dots
-        \item \emph{transitiv}: \dots
-    \end{enumerate}
-    überlegen?
-\end{query}
 
 \begin{definition}[Äquivalenzklassen]
     \label{def-equivalence-class}
@@ -149,76 +132,332 @@ Ihr Existenz erhalten Relationen dadurch, dass sie formal Teilmengen sind. Durch
 \end{definition}
 
 \begin{lemma}[Äquivalenzklassen sind wohldefiniert]
-    Sei $X$ eine Menge mit Äquivalenzrelation $\sim$. Dann sind die Äquivalenzklassen, d.h. die Elemente von $\faktor{X}{\sim}$, nichtleer und disjunkt.
+    Sei $X$ eine Menge mit Äquivalenzrelation $\sim$.
+    
+    Dann sind die Äquivalenzklassen, d.h. die Elemente von $\faktor{X}{\sim}$, nichtleer, abgeschlossen, und disjunkt.
 \end{lemma}
+Wir führen diesen Beweis sehr ausführlich durch, um zu zeigen, wie man mathematisch rigoros arbeitet.
 \begin{proof}
     Sei $x \in X$.\\
-    \emph{nichtleer}: Da $x \in X$, gilt nach (Ä1) $x \sim x$ und damit nach Def. \ref{def-equivalence-class} $x \in [x]$.\\
-    \emph{disjunkt}: Sei nun $y \in X$, dann ist $y \in [y]$.\\
-    Nehme an es gelte $x \sim y \implies y \in [x]$. Nach (Ä2) ist dann auch $y \sim x \implies x \in [y]$.\\
-    Nun gilt für jedes $z \in X$:
 
-    \qquad Falls $z \in [x] \implies x \sim z, y \sim x \implies y \sim z \implies z \in [x]$.
+    \underline{nichtleer}: Da $x \in X$, gilt nach (Ä1) $x \sim x$ und damit nach Def. \ref{def-equivalence-class} $x \in [x]$.
+    \pushQED{\subqed}\popQED\\
 
-    \qquad Falls $z \in [y] \implies y \sim z, x \sim y \implies x \sim z \implies z \in [y]$.
+    Sei nun auch $y \in X$.
+
+    \underline{abgeschlossen}: Das bedeutet, wenn $y \in [x]$, dann ist $[x] = [y]$, d.h. jede Äquivalenzklasse bleibt "unter sich".
+
+    Sei also $y \in [x]$.\\
+    Wir zeigen beide Mengeninklusionen $[x] \subset [y]$ und $[y] \subset [x]$, daraus folgt $[x] = [y]$ nach (ZF1).
+
+    "$\subset$": Die Annahme ist $y \in [x]$.\\
+    Nach der Definition von Äquivalenzklassen \ref{def-equivalence-class} bedeutet das $x \sim y$.\\
+    Wegen Symmetrie (Ä2) folgt dann auch $y \sim x$.
+
+    Sei nun weiter $z \in [x]$.\\
+    Nach \ref{def-equivalence-class} bedeutet das wieder $x \sim z$.
     
-    Insgesamt gilt also $\forall z \in X: z \in [x] \iff z \in [y]$, und damit $[x] = [y]$.\\
-    Durch Kontraposition folgt, dass zwei verschiedene Äquivalenzklassen $[x], [w]$ mit $x \nsim w$ disjunkt sind.
+    Da wir nun $y \sim x$ und $x \sim z$ haben, gilt mit Transitivität (Ä3) $y \sim z$.\\
+    Das ist aber nach \ref{def-equivalence-class} wieder die Definition von $z \in [y]$.
+    
+    Insgesamt haben wir $y \in [x] \implies y \in [z]$ gezeigt.\\
+    Es gilt also nach \ref{subset-union-cap} $[x] \subset [y]$.
+
+    Sei nun $z \in [y] \implies y \sim z$, da $x \sim y \implies x \sim z \implies z \in [x]$.
+    
+    Es gilt also auch $[y] \subset [x]$, und insgesamt damit $[x] = [y]$.
+    \pushQED{\subqed}\popQED
+
+    \underline{disjunkt}: Sei wieder $y \in X$, dann ist $y \in [y]$.
+
+    Zu zeigen ist, dass wenn $x \nsim y$ (d.h. $y \notin [x]$), dann folgt $[x] \cap [y] = \e$.
+
+    Wir zeigen die Kontraposition: $[x] \cap [y] \neq \e \implies x \sim y$.
+
+    Sei nun $[x] \cap [y] \neq \e$, dann $\exists z \in [x] \cap [y]$. Wähle so ein $z \in [x] \cap [y]$ beliebig.
+
+    Mit $z \in [x] \implies x \sim z$, und mit $z \in [y] \implies y \sim z \implies z \sim y \implies x \sim z$.
 \end{proof}
 
-\begin{definition}[Halbordnungsrelation, halbgeordnete Menge]
-    der Begriff "Poset" ist eigentlich auch ganz lustig\footnote{Hassel Diagramme}
+\begin{query}
+    Wie sind die Zeilenabstände in dem Beweis? Ist leicht lesbar so, aber das Dokument wird schon ziemlich lang ($\sim$ paar hundert Seiten nur für Hoema 1) werden wenn ich das durchziehe.
+
+    Ein alternativer Vorschlag, der die Länge nicht wirklich verändert, aber dafür zusammengehörende Zeilen enger rückt auf Kosten der Lesbarkeit:
+\end{query}
+
+\begin{example}
+    Äquivalenzklassen
+    \begin{enumerate}
+        \item Restklassen
+    \end{enumerate}
+\end{example}
+
+\begin{definition}[Halbordnungsrelation, halbgeordnete Menge, Totalordnungsrelation]
+    Sei $X$ eine Menge. Eine Relation $\preceq$ auf $X$ heißt \underline{Halbordnungsrelation} (oder \underline{Ordnungsrelation}), wenn gilt:
+    \begin{enumerate}[label=(H\arabic*)]
+        \item \underline{reflexiv}: $\forall x \in X: x \preceq x$
+        \item \underline{antisymmetrisch}: $\forall x, y \in X: x \preceq y \land y \preceq x \implies x = y$
+        \item \underline{transitiv}: $\forall x, y, z \in X: x \preceq y \land y \preceq z \implies x \preceq z$
+    \end{enumerate}
+    Dann heißt das Tupel $(X, \preceq)$ \underline{halbgeordnete Menge} (\underline{Poset} von engl. "partially ordered set")\footnote{Endliche Posets können durch sogenannte Hasse-Diagramme dargestellt werden, das sind flow charts, in denen Elemente durch Knotenpunkte, und Relationen $x \preceq y$ durch Pfeile von $x$ nach $y$ dargestellt werden.}.
+
+    Eine Halbordnungsrelation heißt \underline{Totalordnungsrelation}, falls zusätzlich gilt:
+    \begin{enumerate}[label=(T)]
+        \item $\forall x, y \in X: x \preceq y \lor y \preceq x$
+    \end{enumerate}
+    Eine nichtleere, total geordnete Teilmenge einer halbgeordneten Menge heißt \underline{Kette}.
 \end{definition}
 
-\begin{definition}[Ordnungsrelation, Totalordnungsrelation]
-    
-\end{definition}
+\begin{example}
+    \label{exa-posets}
+    \begin{itemize}
+        \item $(\R, \leq)$ ist ein Poset, sogar total
+        \item $(X, \preceq)$ mit $x \preceq y \iff x = y$ ist ein Poset, aber nicht total
+        \item "ganzzahliger Teiler von"
+        \item $A \subset X$ ist poset
+    \end{itemize}
+\end{example}
 
 \begin{query}
     Warum trinkst Du immer noch keinen Kaffee?
 \end{query}
 
 \begin{definition}[strenge Halbordnungsrelation, strenge Totalordnungsrelation]
-    
+    Sei $X$ eine Menge. Eine Relation $\prec$ auf $X$ heißt \underline{strenge Halbordnungsrelation}, wenn gilt:
+    \begin{enumerate}[label=(\arabic*)]
+        \item \underline{irreflexiv}: $\forall x \in X: x \not\prec x$
+        \item \underline{asymmetrisch}: $\forall x, y \in X: x \prec y \implies y \not\prec x$
+        \item \underline{transitiv}: $\forall x, y, z \in X: x \prec y \land y \prec z \implies x \prec z$
+    \end{enumerate}
+
+    $\prec$ heißt \underline{strenge Totalordnungsrelation} auf $X$, wenn zusätzlich gilt:
+    \begin{enumerate}[label=(\arabic*), start=4]
+        \item $\forall x, y \in X$ gilt genau eine der folgenden drei Eigenschaften: $x \prec y$, oder $y \prec x$, oder $x = y$
+    \end{enumerate}
 \end{definition}
+
+\begin{example}
+    strenge Halbordnungen und Totalordnungen
+\end{example}
+
+\begin{definition}[obere Schranke, Maximum]
+    \label{def-upper-boundary}
+    Sei $(X, \preceq)$ eine halbgeordnete Menge, und $A \subset X$. Dann heißt $a \in X$
+    \begin{enumerate}
+        \item \underline{obere Schranke} von $A$, wenn $\forall x \in A: x \preceq a$.
+        
+        Gilt zusätzlich $a \in A$, dann heißt $a$ \underline{größtes Element} oder \underline{Maximum} von $A$. In diesem Fall schreiben wir $a = \max(A)$.
+        \item \underline{untere Schranke} von $A$, wenn $\forall x \in A: a \preceq x$.
+        
+        Gilt zusätzlich $a \in A$, dann heißt $a$ \underline{kleinstes Element} von $A$. In diesem Fall schreiben wir $a = \min(A)$.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Im Allgemeinen sind (hier und in den folgenden Definitionen) beide Konzepte identisch. Zu jeder Halbordnung kann man nämlich eine umgedrehte Halbordnung $\succeq$ definieren, indem man $x \succeq y \iff y \preceq x$ setzt. Dann ist die erste Bedingung $a \succeq x$ und die zweite Bedingung $x \succeq a$. Daraus sieht man sofort, dass eine obere Schranke bezüglich $\preceq$ eine untere Schranke bezüglich $\succeq$ ist, etc.
+\end{remark}
+
+\begin{example}
+    boundaries, Min, Max
+\end{example}
+
+\begin{lemma}[lemma]
+    \label{lem-upper-bound-unique}
+    Sei $(X, \preceq)$ eine halbgeordnete Menge.
+    
+    Falls eine obere Schranke von $X$ existiert, dann ist diese eindeutig.
+\end{lemma}
+\begin{proof}
+    Seien $a, b \in X$ obere Schranken von $X$.
+
+    $a$ ist obere Schranke $\implies \forall x \in X: x \preceq a$. Wenn wir $x = b$ einsetzen $\implies b \preceq a$.
+    
+    $b$ ist obere Schranke $\implies \forall x \in X: x \preceq b$. Wenn wir $x = a$ einsetzen $\implies a \preceq b$.
+
+    Aus beiden Aussagen zusammen folgt mit (H2) $\implies a = b$.
+\end{proof}
+
+Analog ist auch eine untere Schranke von $X$, falls sie existiert, eindeutig.
+
+\begin{remark}
+    \label{rem-upper-bound-unique}
+    Wir bemerken, dass sich diese Aussage nur auf eine Schranke der kompletten Menge bezieht. Schranken von $A \subset X$ müssen nicht eindeutig sein, da sie nicht in $A$ liegen müssen:
+    
+    Zum Beispiel sind in $(\R, \leq)$ mit $[0, 1] \subset \R$ sowohl $1 \in \R$ als auch $2 \in \R$ (und analog jede reelle Zahl $\geq 1$) obere Schranken von $[0, 1]$, aber es gibt nur eine obere Schranke von $[0, 1]$, die in $[0, 1]$ liegt, nämlich $1$.
+
+    Falls es allerdings eine obere Schranke von $A$ gibt, die in $A$ liegt, dann ist diese wieder eindeutig, da $(A, \preceq)$ nach \ref{exa-posets} wieder eine halbgeordnete Menge ist.
+\end{remark}
+
+\begin{definition}[maximales Element]
+    \label{def-maximal-element}
+    Sei $(M, \preceq)$ eine halbgeordnete Menge, und $A \subset M$. Dann heißt $a \in A$
+    \begin{enumerate}
+        \item \underline{maximales Element} von $A$, falls $\forall x \in A: a \preceq x \implies a = x$.
+        \item \underline{minimales Element} von $A$, falls $\forall x \in A: x \preceq a \implies a = x$.
+    \end{enumerate}
+\end{definition}
+
+Ein maximales Element ist eine schwächere Bedingung als eine obere Schranke, da anders als in \ref{def-upper-boundary} keine Vergleichbarkeit gefordert wird. Stattdessen muss ein maximales Element nur größer als alle Elemente sein, mit denen es vergleichbar ist. Ein einfaches Beispiel verdeutlicht den Unterschied:
+
+\begin{example}
+    $X = \{ \e, \{1\}, \{2\}, \{3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}\}$ mit der Relation $\subset$.
+
+    Dann sind $\{1, 2\}$, $\{1, 3\}$, und $\{2, 3\}$ maximale Elemente, da sie jedes andere Element entweder enthalten, z.B. $\e \subset \{1, 2\}$ und $\{2\} \subset \{1, 2\}$, oder nicht mit ihm vergleichbar sind, z.B. $\{1, 2\} \not\subset \{1, 3\}$ und $\{1, 3\} \not\subset \{1, 2\}$.
+
+    An diesem Beispiel sehen wir auch, dass maximale Elemente aufgrund fehlender Vergleichbarkeit nicht eindeutig sein müssen.
+
+    Wenn wir aber noch $\{1, 2, 3\}$ zur Menge $X$ hinzufügen, dann gibt es nur noch ein maximales Element, nämlich $\{1, 2, 3\}$. Dieses ist auch eine obere Schranke, da es alle andere Elemente enthält.
+    
+    Dieser Zusammenhang gilt übrigens auch im Allgemeinen:
+\end{example}
+
+\begin{lemma}[lemma]
+    \label{lem-bound-max-el}
+    Sei $(M, \preceq)$ eine halbgeordnete Menge, $A \subset M$, und $a \in M$.
+
+    Wenn $a$ obere Schranke von $A$ ist, dann ist $a$ maximales Element von $A$.
+\end{lemma}
+\begin{proof}
+    Sei $a \in M$ obere Schranke von $A$.
+    
+    Zu zeigen ist, dass $\forall x \in A$ gilt: $a \preceq x \implies a = x$.
+
+    Sei also $x \in A$ mit $a \preceq x$.
+    
+    Da $a$ obere Schranke von $A$ ist, gilt auch $x \preceq a \forall x \in A$.
+
+    Mit Antisymmetrie (H2) folgt $a = x$, also ist $a$ maximales Element von $A$.
+\end{proof}
+
+\begin{lemma}[lemma]
+    \label{lem-maximum-max-el}
+    Sei $(M, \preceq)$ eine halbgeordnete Menge, $a \in M$, und $A \subset M$.
+
+    Wenn $a$ Maximum von $A$ ist, dann ist $a$ das eindeutige maximale Element von $A$.
+\end{lemma}
+\begin{query}
+    Das wäre eine gute Aufgabe für den Leser?
+\end{query}
+\begin{proof}
+    Sei $a$ Maximum von $A$. Dann ist $a$ nach \ref{def-upper-boundary} auch obere Schranke von $A$. Nach \ref{lem-bound-max-el} ist $a$ maximales Element von $A$.
+
+    Als Maximum muss $a$ wiederum per Definition in $A$ liegen, und als obere Schranke von $A$ in $A$ ist damit $a$ nach \ref{lem-upper-bound-unique} / \ref{rem-upper-bound-unique} eindeutig.
+\end{proof}
+
+\begin{example}
+    untere, obere schr
+\end{example}
+
+\begin{definition}[Infimum, Supremum]
+    Sei $(M, \preceq)$ eine halbgeordnete Menge, $a \in M$, und $A \subset M$.
+    \begin{enumerate}
+        \item Ist $a$ obere Schranke von $A$, dann heißt $a$ \underline{Supremum} von $A$, falls $\forall x \in M$ gilt: $x$ ist obere Schranke von $A \implies a \preceq x$. In diesem Fall schreiben wir $a = \sup(A)$.
+        \item Ist $a$ untere Schranke von $A$, dann heißt $a$ \underline{Infimum} von $A$, falls $\forall x \in M$ gilt: $x$ ist untere Schranke von $A \implies x \preceq a$. In diesem Fall schreiben wir $a = \inf(A)$.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    inf, sup
+\end{example}
+
+\begin{definition}[induktiv geordnet]
+     Eine eine halbgeordnete Menge $(M, \preceq)$ heißt \underline{induktiv geordnet}, wenn zu jeder Kette in $M$ eine obere Schranke in $M$ existiert.
+\end{definition}
+
+\begin{example}
+    $Pot(X), \subset$ induktiv
+    
+    $\N, \leq$ nicht induktiv
+
+    $[0, 1], [0, 1)$
+\end{example}
 
 \begin{definition}[Wohlordnungsrelation]
-    
+    Sei $X$ eine Menge mit Totalordnungsrelation $\preceq$. Dann heißt $\preceq$ \underline{Wohlordnungsrelation} und $(X, \preceq)$ \underline{wohlgeordnete Menge}, falls zusätzlich gilt:
+    \begin{enumerate}[label=(W)]
+        \item In jeder nichtleeren Teilmenge von $X$ existiert ein Minimum bezüglich $\preceq$.
+    \end{enumerate}
 \end{definition}
 
+\begin{remark}
+    Eine Wohlordnung kann man als eine \emph{kanonische} (d.h. für die menschliche Intuition die natürlichste Wahl) Reihenfolge von Elementen in $X$ verstehen: Für die Teilmenge $X \subset X$ gibt (W) einem ein Minimum $w_1$, dieses nimmt man als erstes Element in der Reihenfolge. Dann gibt (W) einem für $X \backslash \{w_1\} \subset X$ wieder ein Minimum $w_2$, dann für $X \backslash \{w_1, w_2\}$ ein Minimum $w_3$, und so weiter. Durch Induktion\footnote{Endliche, natürliche, oder transfinite Induktion, je nach Kardinalität von $X$, siehe \ref{REF}.} kann man alle Elemente von $X$ relativ zueinander ordnen: $w_1, w_2, w_3, ...$
+
+    Die Existenz einer Wohlordnung ist für endliche Posets trivial: Man zählt die Elemente einfach in einer beliebigen Reihenfolge auf, und definiert sich entsprechend $x < y \iff x$ in der Aufzählung vor $y$ steht. Die gewählte Aufzählung ist dann auch schon die Wohlordnung. Für gewisse unendliche Mengen kann man auch eine Wohlordnung angeben, z.B. für $(\N, <)$ ist die Aufzählung $\{0, 1, 2, 3, ...)\}$ eine mögliche Wohlordnung. $(\Z, <)$ und $(\Q, <)$ können auch wohlgeordnet werden, siehe dazu den Beweis von \ref{theorem-cantor-1}. Die Existenz einer Wohlordnung für alle unendlichen Mengen benötigt ein zusätzliches Axiom, siehe \ref{chapter-tenth-axiom}.
+\end{remark}
 
 
 
 \section{Funktionen}
 
 \begin{definition}[Funktion] %vlg Def 2.1
+    \label{def-function}
     Seien $X$, $Y$ Mengen. Eine \emph{Abbildungsvorschrift} $f: X \arr Y$ ist eine Vorschrift, die Elemente $x$ in $X$ nimmt, und ihnen Elemente $f(x)$ in $Y$ zuordnet. Diese Zuordnung kann erstmal beliebig sein. Eine Abbildungsvorschrift heißt \emph{wohldefiniert}, wenn sie folgende zwei Eigenschaften erfüllt:
     \begin{itemize}
         \item \underline{linkstotal}: $\forall x \in X \exists y \in Y: f(x) = y$, das heißt jedes $x$ in $X$ wird auf ein $y$ abgebildet, das auch in $Y$ liegt.
         \item \underline{rechtseindeutig}: $\forall x \in X \forall y_1, y_2 \in Y: f(x) = y_1 \land f(x) = y_2 \implies y_1 = y_2$. Das bedeutet jedes $x$ wird nur auf ein $y$ abgebildet, und nicht auf zwei verschiedene (oder was die logische Aussage bedeutet, wenn es zwei $y$s gibt auf die $x$ abgebildet wird, dann sind beide das Gleiche $y$).
     \end{itemize}
-    Eine wohldefinierte Abbildungsvorschrift $f: X \arr Y$ heißt \underline{Funktion} (oder \underline{Abbildung}). $X$ heißt \underline{Definitionsmenge} (\underline{Definitionsbereich}) von $f$, $Y$ heißt \underline{Bildmenge} (\underline{Zielmenge}) von $f$.
+    Eine wohldefinierte Abbildungsvorschrift $f: X \arr Y$ heißt \underline{Funktion} (oder \underline{Abbildung}).
+    
+    $X$ heißt \underline{Definitionsmenge} (\underline{Definitionsbereich}) von $f$, $Y$ heißt \underline{Bildmenge} (\underline{Zielmenge}) von $f$.
+
+    Die Menge $\{(x, f(x)) | x \in X\}$ heißt \underline{Graph} von $f$.
 \end{definition}
 
 \begin{remark}
-    Funktionen sind keine fundamental neuen Objekte, sondern werden aus Relationen konstruiert: Funktion $f$ ist über eine Relation $R_f \subset X \times Y$ def durch $f(x) = y \iff (x, y) \in R_f$. Damit sind Funktionen also im Grunde wieder Mengen, und benötigen keine zusätzlichen Axiome um ihre Existenz zu begründen.
+    Funktionen sind keine fundamental neuen Objekte, sondern werden aus Relationen konstruiert: Formal ist eine Funktion $f$ über eine Relation $R_f \subset X \times Y$ mittels der Identifikation $f(x) = y \iff (x, y) \in R_f$ definiert. $R_f$ ist der Graph von $f$. Damit sind Funktionen also im Grunde wieder Mengen, und benötigen keine zusätzlichen Axiome, um ihre Existenz zu begründen.
 \end{remark}
 
 \begin{example}
-    \begin{itemize}
-        \item ein paar super einfach Beispiele mit Mengen die nur 3, 4 Elemente haben, dann ein zwei Bsp mit $\R$
-    \end{itemize}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Auf den zwei Mengen $X = \{1, \sqrt{\pi}, \text{Gurau}, \text{\faCoffee} \}$, $Y = \{\text{rational}, \text{irrational},$
+        $\text{Vorlesung}, \text{trinken}\}$ definieren wir zwei bijektive Funktionen:
+        
+        $f: X \arr Y$ über
+        \begin{itemize}[label=]
+            \item $f(1) = \text{rational}$
+            \item $f(\sqrt{\pi}) = \text{irrational}$
+            \item $f(\text{Gurau}) = \text{Vorlesung}$
+            \item $f(\text{\faCoffee}) = \text{trinken}$
+        \end{itemize}
+        und $g: X \arr Y$ über
+        \begin{itemize}[label=]
+            \item $g(1) = \text{Vorlesung}$
+            \item $g(\sqrt{\pi}) = \text{rational}$
+            \item $g(\text{Gurau}) = \text{trinken}$
+            \item $g(\text{\faCoffee}) = \text{irrational}$
+        \end{itemize}
+        Für uns Menschen sieht die Funktion $f$ nach einer sinnvollen Zuordnung aus, die Funktion $g$ dagegen völlig unsinnig. Aus mathematischer Sicht sind allerdings beide Funktionen absolut gleichwertig, nämlich wohldefiniert und bijektiv.\\
+        Oft haben mathematische Konstrukte eine Motivation, die auf nicht streng logischer Intuition beruht oder aus der weltlichen Anschauung kommt, aber das ist eben nicht immer so. Und auf keinen Fall darf man Mathematik danach beurteilen, ob sie intuitiv Sinn ergibt, sondern nur ob sie logisch Sinn ergibt.
+    \end{enumerate}
 \end{example}
 
-\begin{definition}[rund um Funktionen]
-    Seien $X$, $Y$, $Z$ Mengen, und $f: X \arr Y$, $g: Y \arr Z$ Funktionen.
+\begin{definition}[Bild, Urbild]
+    Seien $X$, $Y$ Mengen und $f: X \arr Y$ eine Funktion. Seien weiter $U \subset X$ und $V \subset Y$ Teilmengen.
     \begin{enumerate}
-        \item Bild, Urbild
-        \item Einschränkung
-        \item Identität
-        \item Komposition
+        \item Das \underline{Bild} von $U$ unter $f$ ist die Menge $f(U) = \{f(x) \in Y | x \in U\}$.
+        \item Das \underline{Urbild} von $V$ unter $f$ ist die Menge $f\m(V) = \{x \in X | \exists y \in V: f(x) = y\}$.
     \end{enumerate}
 \end{definition}
+
+\begin{definition}[neue Funktionen]
+    \begin{enumerate}
+        \item Die \underline{Einschränkung} von $f$ auf $U$ ist die Funktion $f|_U: U \arr Y$ definiert durch $f|_U(x) = f(x)$, $x \in U$.
+        \item kanonische Einbettung
+        \item Die \underline{Identität} auf einer beliebigen Menge $X$ ist die Funktion $id_X: X \arr X$ definiert durch $id_X(x) = x \forall x \in X$.\\
+        Sei weiter $Z$ eine Menge und $g: Y \arr Z$ eine Funktion.
+        \item Die \underline{Komposition} von $f$ und $g$ ist die Funktion $g \circ f: X \arr Z$ definiert durch $(g \circ f)(x) = f(g(x))$, $x \in X$.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}[Diese Funktionen sind wohldef]
+    trivial
+\end{lemma}
+
+\begin{itemize}
+    \item Indexmenge, Familie von Elementen / Funktionen
+    \item Verein, Schnitte
+    \item Verhalten unter $f$
+\end{itemize}
 
 \begin{example}
     möglicherweise selbe Beispiele wie in der Bem davor nochmal aufgreifen
@@ -227,9 +466,13 @@ Ihr Existenz erhalten Relationen dadurch, dass sie formal Teilmengen sind. Durch
 \begin{definition}[injektiv, surjektiv, bijektiv]
     Seien $X$, $Y$ Mengen, und $f: X \arr Y$ eine Funktion.
     \begin{enumerate}
-        \item injektiv
-        \item surjektiv
-        \item bijektiv
+        \item $f$ heißt \underline{injektiv}, wenn gilt: $\forall x, y \in X: x \neq y \implies f(x) \neq f(y)$.\\
+        Injektivität bedeutet, dass die Funktion jedes Element in der Zielmenge höchstens einmal "trifft".\\
+        Oft lässt sich Injektivität leichter durch die Kontraposition der Aussage zeigen: $\forall x, y \in X: f(x) = f(y) \implies x = y$.
+        \item $f$ heißt \underline{surjektiv}, wenn gilt: $\forall y \in Y \exists x \in X: f(x) = y$.\\
+        Surjektivität bedeutet, dass die Funktion jedes Element in der Zielmenge mindestens einmal "trifft".
+        \item $f$ heißt \underline{bijektiv}, wenn $f$ injektiv und surjektiv ist.\\
+        Bijektivität bedeutet also, dass die Funktion jedes Element in der Zielmenge genau einmal "trifft", und damit eine eins-zu-eins-Abbildung ist.
     \end{enumerate}
 \end{definition}
 
@@ -237,27 +480,451 @@ Ihr Existenz erhalten Relationen dadurch, dass sie formal Teilmengen sind. Durch
     je mehr Bsp desto besser. wie wäre es mit ein paar Bildern?
 \end{example}
 
-\begin{definition}[Umkehrfunktion]
-    Seien $X$, $Y$ Mengen, und $f: X \arr Y$ eine Funktion.
+\begin{remark}
+    Offensichtlich kann eine Funktion $f: X \arr Y$ zwischen zwei endlichen Mengen nur...
+    \begin{itemize}
+        \item injektiv sein, wenn $X$ nicht mehr Elemente als $Y$ hat.
+        \item surjektiv sein, wenn $Y$ nicht mehr Elemente als $X$ hat.
+        \item bijektiv sein, wenn $X$ und $Y$ genau gleich viele Elemente haben.
+    \end{itemize}
+    Für unendliche Mengen muss man etwas vorsichtiger sein, weil es nichttrivial ist zu sagen, "wie viele" Elemente zwei unendliche Menge im Vergleich zueinander haben. Später werden wir, motiviert durch den Fall von endlichen Mengen, die Existenz von bijektiven Funktionen verwenden, um zu definieren, dass zwei unendliche Mengen gleich groß sind.
+\end{remark}
+
+\begin{lemma}[lemma]
+    Seien $f: X \arr Y$, $g: Y \arr Z$ Funktionen. Dann gilt:
     \begin{enumerate}
-        \item linksinverses
-        \item rechtsinverses
-        \item inverses
+        \item $f$ und $g$ sind injektiv $\implies g \circ f$ ist injektiv.
+        \item $f$ und $g$ sind surjektiv $\implies g \circ f$ ist surjektiv.
+        \item $f$ und $g$ sind bijektiv $\implies g \circ f$ ist bijektiv.
+    \end{enumerate}
+\end{lemma}
+
+\begin{definition}[Umkehrfunktion]
+    Seien $X$, $Y$ Mengen, und $f: X \arr Y$ eine Funktion. Sei weiter $g: Y \arr X$ eine Funktion.
+    \begin{enumerate}
+        \item $g$ heißt \underline{linksinverse Funktion} von $f$, wenn $g \circ f = id_X$.
+        \item $g$ heißt \underline{rechtsinverse Funktion} von $f$, wenn $f \circ g = id_Y$.
+        \item $g$ heißt \underline{inverse Funktion} (oder \underline{Umkehrabbildung}) von $f$, wenn $g$ linksinverse und rechtsinverse Funktion von $f$ ist. In diesem Fall nennen wir $f$ \underline{invertierbar}.
+        
+        Falls die inverse Funktion existiert, bezeichnen wir diese auch $f\m$.
     \end{enumerate}
 \end{definition}
 
+Inverse müssen nicht immer existieren.
+
+Bem: Urbild / Umkehrabb!
+
 \begin{example}
-    hier wäre Bsp für Fkt die nur in eine Richtung invertierbar wären interessant.
+    hier wäre Bsp für Fkt die nur in eine Richtung invertierbar wären interessant. Aber auch bijektiv und gar nicht invertierbar
 \end{example}
 
 \begin{lemma}[Existenz von Umkehrabbildungen]
-    Das finde ich wirklich wichtig, weil es langsam Überzeit wird, dass der Leser seinen ersten Beweis sieht!!
+    \label{lem-existence-inverse-function}
+    Sei $f: X \arr Y$ eine Funktion. Dann gilt:
+    \begin{enumerate}
+        \item $f$ ist injektiv $\iff f$ ist linksinvertierbar.
+        \item $f$ ist surjektiv $\iff f$ ist rechtsinvertierbar.
+        \item $f$ ist bijektiv $\iff f$ ist invertierbar.
+    \end{enumerate}
 \end{lemma}
+
+\section{Das zehnte Axiom}
+
+\begin{axiom}[Lemma von Zorn]
+    \label{lemma-von-zorn}
+    In jeder nichtleeren, induktiv geordneten Menge existiert ein maximales Element.
+\end{axiom}
+
+\begin{axiom}[Wohlordnungssatz]
+    \label{wohlordnungssatz}
+    Auf jeder Menge existiert eine Wohlordnungsrelation.
+\end{axiom}
 
 \begin{axiom}[Auswahlaxiom]
     \label{axiom-of-choice}
+    Ist $I$ eine Indexmenge, und $(X_i)_{i \in I}$ eine Familie von nichtleeren, paarweise disjunkten Mengen, dann existiert eine Abbildung $f: I \arr \cup_{i \in I}X_i$ mit $f(i) \in X_i \forall i \in I$.
 \end{axiom}
 
-%\begin{definition}
-%    \label{natural-induction}
-%\end{definition}
+\begin{theorem}[C]
+    Das Lemma von Zorn, der Wohlordnungssatz, und das Auswahlaxiom sind innerhalb der ZF-Mengenlehre äquivalent.
+\end{theorem}
+\begin{proof}
+    trivial $\sim GURAU$
+\end{proof}
+
+\begin{query}
+    Wäre hier das Unterkapitel über Gruppen, Halbgruppen etc sinnvoll? Oder erst nach Zahlen? Gurau streut das so irgendwie rein, aber ich halte das für nicht sinnvoll.
+\end{query}
+
+
+
+\section{Gruppen und Körper}
+
+\begin{definition}[Innere Verknüpfung]
+    Sei $M \neq \e$ eine Menge.
+
+    Eine \underline{innere Verknüpfung} auf $M$ ist eine Abbildung $\star: M \times M \arr M$.
+
+    Wir schreiben $a \star b = \star(a, b)$.
+\end{definition}
+
+\begin{example}
+    iwas triviales
+    plus, mal
+    Verkettung
+
+    nicht-Beispiel: $\N$ mit minus
+\end{example}
+
+\begin{definition}[Halbgruppe]
+    Ein Tupel $(M, \star)$ aus einer Menge $M$ und einer inneren Verknüpfung heißt \underline{Halbgruppe}, falls $\star$ assoziativ ist:
+
+    $$\forall a, b, c \in M: (a \star b) \star c = a \star (b \star c).$$
+
+    Dabei bedeuten die Klammern $()$, dass der Ausdruck innerhalb der Klammern zuerst ausgewertet wird. Wenn die Reihenfolge egal ist, dann lässt man die Klammern auch manchmal weg.
+\end{definition}
+
+\begin{example}
+    $\N$ mit plus oder mal
+    $\R$ mit plus oder mal
+    Pot mit $\cap$
+    
+    was nicht assoziatives? --> vielleicht a hoch b (Matrixmult zu früh)
+\end{example}
+
+\begin{definition}[neutrales Element]
+    Sei $(M, \star)$ eine Halbgruppe.
+
+    $e \in M$ heißt \underline{neutrales Element}, falls gilt: $\forall a \in M: a \star e = a = e \star a$.
+
+    Eine Halbgruppe, in der ein neutrales Element existiert, heißt \underline{Monoid}.
+\end{definition}
+
+\begin{lemma}[neutrales eindeutig]
+    Sei $(M, \star)$ ein Monoid. Dann ist das neutrale Element eindeutig.
+\end{lemma}
+\begin{proof}
+    Seien $e_1, e_2$ neutrale Elemente. Dann gilt:
+
+    $e_1 = e_1 \star e_2 = e_2$.
+
+    Dabei haben wir im ersten Schritt ausgenutzt, dass $e_2$ neutrales Element ist, und im zweiten Schritt, dass $e_1$ neutrales Element ist.
+\end{proof}
+
+\begin{example}
+    $\R$ mit plus oder mal
+
+    kein Monoid: $\N \backslash 0$ mit plus
+\end{example}
+
+\begin{definition}[Gruppe]
+    Sei $(M, \star)$ ein Monoid mit neutralem Element $e$.
+    \begin{enumerate}
+        \item $a \in M$ heißt \underline{invertierbar}, falls $\exists b \in M: a \star b = e = b \star a$. $b$ heißt die \underline{Inverse} zu $a$.
+        \item $(M, \star)$ heißt \underline{Gruppe}, falls jedes Element in $M$ invertierbar ist.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}[inverse eindeutig]
+    Sei $(M, \star)$ ein Monoid mit neutralem Element $e$.
+
+    Falls $a \in M$ invertierbar ist, dann ist die Inverse zu $a$ eindeutig.
+\end{lemma}
+\begin{proof}
+    Seien $b_1, b_2$ Inverse zu $a$. Dann gilt:
+
+    $b_1 = b_1 \star e = b_1 \star (a \star b_2) = (b_1 \star a) \star b_2 = e \star b_2 = b_2$.
+
+    Dabei haben wir im zweiten Schritt verwendet, dass $b_2$ Inverse zu $a$ ist, im dritten Schritt die Assoziativität, und im vierten Schritt, dass $b_1$ Inverse zu $a$ ist.
+\end{proof}
+
+Im Allgemeinen schreibt man $b = a\m$. Man schreibt auch $b = -a$, falls $\star$ eine Addition ist, und $b = \frac{1}{a}$, falls $\star$ eine Multiplikation ist.
+
+\begin{example}
+    Bsp für Inverse in nur eine Richtung: Funktion?
+    
+    $\Z$ mit plus
+    $\Q \backslash 0$
+
+    keine Gruppe: $\Z$ mit mal
+\end{example}
+
+\begin{lemma}[Rechenregeln für Gruppen]
+    Sei $(M, \star)$ eine Gruppe mit neutralem Element $e$.
+    
+    Dann gilt $\forall a, b, c \in M$:
+    \begin{enumerate}
+        \item \underline{Kürzen}: $a \star b = a \star c \implies b = c$, und analog $a \star c = b \star c \implies a = b$.
+        \item $a \star b = e \implies b = a\m$.
+        \item $(a\m)\m = a$.
+        \item \underline{Regel von Hemd und Jacke}: $(a \star b)\m = b\m \star a\m$.
+
+        Der Name kommt daher, dass man beim Anziehen zuerst das Hemd und dann die Jacke anzieht, aber beim Ausziehen zuerst die Jacke und dann das Hemd.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Seien $a, b, c \in M$ beliebig.
+    \begin{enumerate}
+        \item Es gelte $a \star b = a \star c$. Da $M$ eine Gruppe ist, existiert $a\m$, und wir können es von links an die Gleichung anknüpfen:
+
+        $a\m \star (a \star b) = a\m \star (a \star c)$. Mit Assoziativität folgt:
+
+        $b = e \star b = (a\m \star a) \star b = (a\m \star a) \star c = e \star c = c$.
+
+        Die andere Kürzungsregel folgt analog.
+        \item Es gelte $a \star b = e$. Es gilt auch $e = a \star a\m$. Aus (i) folgt $b = a\m$.
+        \item Per Definition gilt $a \star a\m = e = a\m \star a$. Nach derselben Definition, nur andersherum gelesen, bedeutet das aber auch, dass $a$ die Inverse zu $a\m$ ist, d.h. $a = (a\m)\m$.
+        \item Es gilt: $(a \star b) \star (b\m \star a\m) = a \star (b \star b\m) \star a\m = a \star e \star a\m = a \star a\m = e$.
+
+        Analog gilt auch: $(b\m \star a\m) \star (a \star b) = b\m \star e \star b = e$.
+
+        Per Definition ist damit $(b\m \star a\m) = (a \star b)\m$.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}[abelsche Gruppe]
+    $(M, \star)$ Halbgruppe, Monoid, oder Gruppe, heißt \underline{kommutativ} oder \underline{abelsch}, falls gilt:
+
+    $$\forall a, b \in M: a \star b = b \star a.$$
+\end{definition}
+
+Manchmal hilft eine dumme Eselsbrücke:
+\begin{align*}
+    & \text{\textbf{K}} \quad \text{ommutativ}\\
+    & \text{\textbf{A}} \quad \text{ssoziativ}\\
+    & \text{\textbf{\,I}} \quad \, \text{nverse}\\
+    & \text{\textbf{N}} \quad \text{eutrales Element}\\[0.5\baselineskip]
+    \implies & \text{\textbf{A B E L}}\\
+\end{align*}
+
+\begin{query}
+    Darf ich "dumme Eselsbrücke" schreiben?
+
+    Wir mein Oberstufen Physiklehrer immer gesagt hat: Je dümmer die Brücke, desto leichter kommt der Esel drüber...
+\end{query}
+
+\begin{example}
+    $\R$ mit plus
+    Permutationen
+
+    keine abelsche Gruppe: Matrixmultiplikation?
+    Funktionverknüpfung!
+    $(\{f: \R \arr \R | f \text{ ist bijektiv}\}, \circ)$ ist eine nichtabelsche Gruppe:
+    \begin{itemize}[label=]
+        \item $(h \circ (g \circ f))(x) = (h(g(f(x)))) = ((h \circ g) \circ f)(x) \implies$ assoziativ
+        \item Neutrales Element: $id_{\R}: x \mapsto x$
+        \item Inverse $f\m$ existiert nach \ref{lem-existence-inverse-function}, da $f$ bijektiv ist
+        \item Aber Verknüpfung von Funktionen ist i.A. nicht kommutativ, z.B. $f, g: \R \arr \R$ mit $f(x) = 2x$ und $g(x) = x + 1$ (beide sind bijektiv), dann ist $(g \circ f)(x) = 2x + 1$ aber $(f \circ g)(x) = 2x + 2$.
+    \end{itemize}
+\end{example}
+
+\begin{query}
+    Faktorgruppe? d.h. $\faktor{G}{N} = \{a \star N\}$ mit $N \subset G$
+
+    Braucht:
+
+    - Untergruppe
+
+    - Normalteiler
+    
+    ist es das wert?
+\end{query}
+Bis jetzt haben wir uns Mengen mit einer Verknüpfung angeschaut. Viele relevante Mengen (in erster Linie Zahlen, aber später werden wir auch noch weitere Beispiele kennenlernen) haben allerdings zwei elementare Verknüpfungen. Das führt zur Definition eines Körpers (engl. \emph{field}), wofür unser motivierendes Beispiel die reellen Zahlen mit Addition und Multiplikation sind.
+
+\begin{definition}[Ring]
+    Sei $(R, +, \cdot)$ ein Tupel aus einer Menge $R$, und zwei inneren Verknüpfungen $+(a, b) = a + b$ ("Addition") und $\cdot(a, b) = a \cdot b$ ("Multiplikation").
+    
+    Das Tupel heißt \underline{Ring}, falls gilt:
+    \begin{enumerate}[label=(R\arabic*)]
+        \item $(R, +)$ ist kommutative Gruppe
+        \item $(R, \cdot)$ ist Halbgruppe
+        \item Es gelten die Distributivgesetze: $\forall a, b, c \in R$ ist
+        \begin{itemize}[label=]
+            \item $a \cdot (b + c) = a \cdot b + a \cdot c$
+            \item $(a + b) \cdot c = a \cdot c + b \cdot c$
+        \end{itemize}
+        Um Klammern zu sparen, definieren wir hierbei, dass Multiplikation vor Addition ausgeführt wird.
+    \end{enumerate}
+    Ein Ring heißt \underline{kommutativ}, falls $(R, \cdot)$ kommutative Halbgruppe ist.
+
+    Ein Ring heißt \underline{Ring mit Eins}, falls $(R, \cdot)$ ein Monoid ist.
+\end{definition}
+
+\begin{shadedbox}
+    \textbf{Notation:}
+
+    Das neutrale Element der Addition nennen wir $0$ oder $0_R$.
+    
+    Das neutrale Element der Multiplikation, falls es existiert, nennen wir $1$ oder $1_R$.
+    
+    Die Inverse zu $a \in R$ bezüglich der Addition bezeichnen wir mit $-a$, und wir schreiben $a + (-b) = a - b$.
+    
+    Die Inverse zu $a$ bezüglich der Multiplikation, falls diese existiert, bezeichnen wir diese mit $a\m$.
+    
+    Wir bemerken allerdings, dass die Schreibweise $a \cdot b\m = \frac{a}{b} = b\m \cdot a$ nur in einem kommutativen Ring Sinn ergibt.
+\end{shadedbox}
+
+\begin{example}
+    Nullring hahaha
+    
+    $\Z$, $\Q$, $\R$ sind komm R mit Eins
+
+    $2\Z$ Ring ohne Eins
+
+    $f, +, \circ$ nicht komm Ring mit Eins? wenn $f$ Gruppem Homo
+    $g \circ (f_1 + f_2)(x) = g(f_1(x) + f_2(x))$
+    zu viel Einführungsarbeit?
+\end{example}
+
+\begin{lemma}[lemma]
+    Sei $(R, +, \cdot)$ ein Ring. Dann gelten $\forall a, b \in R$ folgende Rechenregeln:
+    \begin{enumerate}
+        \item $0_R \cdot a = 0_R = a \cdot 0_R$
+        \item $a \cdot (-b) = - (a \cdot b) = (-a) \cdot b$
+        \item Falls $R \neq \{0_R\}$ Ring mit Eins ist, dann ist $0_R \neq 1_R$.
+    \end{enumerate}
+\end{lemma}
+
+Zwei äquivalente Wege:
+
+\begin{definition}[Körper]
+    Sei $(K, +, \cdot)$ ein Tupel aus einer Menge $K$, und zwei inneren Verknüpfungen $+(a, b) = a + b$ ("Addition") und $\cdot(a, b) = a \cdot b$ ("Multiplikation").
+    
+    Das Tupel heißt \underline{Körper}, falls gilt:
+    \begin{enumerate}[label=(K\arabic*)]
+        \item $(K, +)$ ist kommutative Gruppe mit neutralem Element $0_K$
+        \item $(K \backslash \{0_K\}, \cdot)$ ist kommutative Gruppe mit neutralem Element $1_K$
+        \item Es gelten die Distributivgesetze: $\forall a, b, c \in R$ ist
+        \begin{itemize}[label=]
+            \item $a \cdot (b + c) = a \cdot b + a \cdot c$
+            \item $(a + b) \cdot c = a \cdot c + b \cdot c$
+        \end{itemize}
+    \end{enumerate}
+    In der Literatur findet man oft die Schreibweise $K^* = K \backslash \{0_K\}$.
+\end{definition}
+
+\begin{definition}[Körper]
+    Ein Ring $(K, +, \cdot)$ heißt \underline{Körper}, falls zusätzlich gilt:
+    \begin{enumerate}[label=(K\arabic*)]
+        \item $(K, +, \cdot)$ ist kommutativer Ring mit Einselement $1_K$ und Nullelement $0_K$
+        \item $1_K \neq 0_K$
+        \item $\forall a \in K \backslash \{0_K\}$ existiert eine multiplikative Inverse $a\m \in K$
+    \end{enumerate}
+    In der Literatur findet man oft die Schreibweise $K^* = K \backslash \{0_K\}$.
+\end{definition}
+
+\begin{example}
+    - Aus (K2) folgt bereits, dass $0_K \neq 1_K$, d.h. ein Körper muss mindestens zwei Elemente haben. Dementsprechend kann der Nullring kein Körper sein.
+
+    - $\Q$, $\R$ Körper, $\Z$ kein Körper
+
+    - Restklassenring i.A. kein Körper: z.B. in $\Z_4$ hat $[2]$ keine mult Inverse
+\end{example}
+
+
+
+
+\section{Zahlen}
+\label{sec-numbers}
+
+Zahlen sind intrinsisch motiviert. Zuerst einmal sind die natürlich Zahlen $\N$ ein mathematisches Mittel, um Objekte in der physischen Welt zu zählen\footnote{Man kann auch nur Objekte in der mathematischen Welt zählen, wenn man so sehr darin gefangen steckt.}. Diese werden mit negativen Zahlen zu den ganzen Zahlen $\Z$ erweitert, um Prozesse der Subtraktion zu beschreiben. Hier haben wir Subtraktion als inverse Operation zur Addition eingeführt, wodurch negative Zahlen mathematisch von der Forderung der Abgeschlossenheit bezüglich Subtraktion kommen, sie haben aber auch eine nichtmathematische Motivation (z.B. Schulden). Rationale Zahlen $\Q$ sind nichtmathematisch die Konsequenz davon, Zahlen für physische Messungen zu verwenden, für die ganze Zahlen nicht präzise genug sind, oder mathematisch aus der Forderung der Existenz von multiplikativen Inversen.
+
+Relle Zahlen $\R$ haben wenig nichtmathematische Motivation. Auch wenn die Existenz von nicht rationalen (irrationalen) Zahlen wie $\sqrt{2}$ oder $\pi$ bereits seit der Antike bekannt ist, haben diese ihre Relevanz doch eher als mathematischen Vervollständigung von $\Q$, als als Messergebnisse in der physischen Welt. Die komplexen Zahlen $\C$ sind rein mathematisch motiviert als algebraische Vervollständigung von $\R$.
+
+\begin{definition}[Natürliche Zahlen]
+    \label{def-natural-numbers}
+    Intuitiv kann man die natürlichen Zahlen fordern, indem man $0$ als "nichts" definiert, $1$ als "eines", und von da an jede kommende Zahl als "die Zahl davor $+ 1$". Mathematisch wäre streng genommen nichts falsch damit. Der einzige ästhetische Mangel ist, dass man dazu ein zusätzliches Axiom bräuchte, was aber nicht nötig ist, da man die intrinsisch bekannte Struktur der natürlichen Zahlen mit den bereits bekannten Axiomen konstruieren kann. Das macht man genauso, wie beschrieben, d.h. man fängt mit "nichts" an und geht jeweils Schritt für Schritt weiter "hoch". Dafür verwendet man die Existenz der leeren Menge (ZF5) sowie ein bisschen Trixerei mit Mengenklammern. Dann definiert man sich die \underline{natürlichen Zahlen} über eine Identifikation:
+    \begin{itemize}[label=]
+        \item $0 = \e$ für $n = 0$,
+        \item der \underline{Nachfolger} von $n$ ist definert als $n \cup \{n\}$,
+        \item $\N$ ist definiert als die kleinste Menge, die $0$ und alle Nachfolger enthält.
+    \end{itemize}
+    Dann ist z.B. $1 = \e \cup \{\e\} = \{\e\}$, $2 = \{ \e, \{\e\} \}$, $3 = \{ \e, \{ e \}, \{\e, \{\e\}\} \}$ etc. Dann ist $n$ definiert als die Menge, die genau $n$ Elemente enthält.
+    
+    Wir bemerken, dass $\N$ nach (ZF7) existiert und wohldefiniert ist.
+\end{definition}
+
+\begin{definition}[Ganze Zahlen]
+    $\Z$
+\end{definition}
+
+\begin{definition}[Rationale Zahlen]
+    $\Q$
+\end{definition}
+
+\begin{proposition}[$\Q$ ist abzählbar]
+    
+\end{proposition}
+
+\begin{definition}[Reelle Zahlen]
+    $\R$
+\end{definition}
+
+\begin{proposition}[Existenz von Suprema in $\R$]
+    
+\end{proposition}
+
+\begin{definition}[Kardinalität]
+    \label{def-cardinality}
+    Sei $A$ eine Menge. Dann bezeichnen wir mit $|A|$ die \underline{Kardinalität} (oder \underline{Mächtigkeit}) von $A$. Wir nennen $A$:
+    \begin{itemize}
+        \item \underline{endlich} mit $|A| = n$, falls $A \cong \{1, ..., n\}$ mit $n \in \N$, oder mit $|A| = 0$ falls $A = \e$.
+        \item \underline{abzählbar unendlich}, falls $A \cong \N$.
+        \item \underline{überabzählbar}, sonst.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[$\Q$ ist abzählbar]
+    \label{theorem-cantor-1}
+
+\end{theorem}
+
+\begin{theorem}[$\R$ ist überabzählbar]
+    \label{theorem-cantor-2}
+
+\end{theorem}
+
+\begin{proposition}[$\R$ erfüllt die Archimedische Eigenschaft]
+    
+\end{proposition}
+
+\begin{theorem}[$\Q$ liegt dicht in $\R$]
+    
+\end{theorem}
+
+\begin{definition}[Unendlich]
+    $$|A| = \infty bEcAuSeInFiNiTyIsAnUmBeR!1!$$
+\end{definition}
+
+\begin{proposition}[Satz von Cantor]
+    don't go insane!
+\end{proposition}
+
+\begin{definition}[Komplexe Zahlen]
+    $\C$
+\end{definition}
+
+\begin{definition}[Eigenschaften von komplexen Zahlen]
+    \begin{enumerate}
+        \item re, im
+        \item cc
+        \item Betrag
+        \item Winkel, Radialdarstellung
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}[lemma]
+    mult inverses
+\end{lemma}
+
+\begin{definition}[Potenz, Wurzel]
+    
+\end{definition}
+
+
+
+\section{GURAU}
+
+\begin{definition}[ordinals, cardinals]
+    vlt soll ich einfach auf das Originalscript verweisen?
+\end{definition}
