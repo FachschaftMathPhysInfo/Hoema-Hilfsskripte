@@ -24,6 +24,12 @@ Kapitel 2
 
 - Beweis schöner machen
 
+- counter für exercises
+
+- Lösungen
+
+- Gruppenhomo
+
 
 kleinere Dinge
 

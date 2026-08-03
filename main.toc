@@ -5,5 +5,5 @@
 \contentsline {section}{\numberline {0.4}Das zehnte Axiom}{13}{section.0.4}%
 \contentsline {section}{\numberline {0.5}Gruppen und Körper}{14}{section.0.5}%
 \contentsline {section}{\numberline {0.6}Zahlen}{19}{section.0.6}%
-\contentsline {section}{\numberline {0.7}GURAU}{22}{section.0.7}%
-\contentsline {chapter}{\numberline {1}auxies.aux}{23}{chapter.1}%
+\contentsline {section}{\numberline {0.7}GURAU}{28}{section.0.7}%
+\contentsline {chapter}{\numberline {1}auxies.aux}{31}{chapter.1}%

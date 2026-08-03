@@ -4,7 +4,7 @@
 
 Mengen sind ein zentrales Konzept, auf dem die ganze Mathematik beruht. Grob gesprochen handelt es sich um eine Zusammenfassung von Objekten, die man \emph{Elemente} nennt, zu einem einzigen neuen Objekt, der \emph{Menge}. Für eine Menge $M$, die z.B. ein Element namens $x$ enthält, schreibt man $x \in M$ (sprich "x Element M" oder "x in M"). Wenn man alle Elemente einer Menge explizit kennt, beispielsweise $x$, $y$, $z$, dann kann man die Menge auch explizit durch $M = \{x, y, z\}$ mit sogenannten Mengenklammern $\{$...$\}$ oder $\{$ .. $\}$ angeben. Die Elemente können beliebige viele oder beliebig wenige sein, und sie müssen nicht intuitiv sinnvoll zusammenpassen: zum Beispiel ist $\{1, \sqrt{\pi}, \text{Gurau}, \text{\faCoffee} \}$ eine völlig valide Menge.
 
-Mengen sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definiert werden. Stattdessen werden sie indirekt definiert, indem mit den Gesetzen der Logik alle Eigenschaften axiomatisch aufgelistet werden, die Mengen erfüllen sollen. Das resultierende System nennt man \underline{ZF-Mengenlehre}, nach den Mathematikern Ernst Zermelo und Abraham Fraenkel. Aber zuerst definieren wir etwas Notation:\\
+Mengen sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definiert werden. Stattdessen werden sie indirekt definiert, indem mit den Gesetzen der Logik alle Eigenschaften axiomatisch aufgelistet werden, die Mengen erfüllen sollen. Das resultierende System nennt man \underline{ZF-Mengenlehre}, nach den Mathematikern Ernst Zermelo und Abraham Fraenkel. Aber zuerst definieren wir etwas Notation:
 
 \begin{definition}[Teilmenge, Vereinigungsmenge, Schnittmenge]
     \label{subset-union-cap}
@@ -37,7 +37,9 @@ Natürlich ergeben diese Definitionen streng genommen erst Sinn, sobald man die 
         \item \underline{Aussonderungsaxiom}: Wenn $A$ eine Menge ist, und $P(x)$ eine Eigenschaft\footnote{Logisch streng genommen ist $P$ ein \emph{Prädikat}.}, die Elemente $x$ von $A$ entweder erfüllen oder nicht erfüllen können, dann ist $\{x \in A | P(x)\}$ eine Menge. Die Notation $x \in A | P(x)$ bedeutet "x in A, für die gilt: P(x)". Logisch ist das wieder definiert durch $x \in A \land P(x)$, aber der senkrechte Strich trennt optisch die Elemente der Menge von den Bedingungen, die diese erfüllen.
         \item \underline{Vereinigungsaxiom}: Wenn $A$ eine Menge ist, die aus Mengen besteht, dann ist $\bigcup A \defeq \{x | x \in B \land D \in A\}$ eine Menge.
         \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennen wir die \underline{leere Menge} und schreibt $\e$ oder $\{\}$. Formal ist die Aussage $\exists \e: \forall x: x \notin \e$. Die leere Menge ist die einzige explizite Menge, deren Existenz axiomatisiert wird. Alle weiteren expliziten Mengen müssen also mit Hilfe der anderen Axiome aus der leeren Menge konstruiert werden.
-        \item \underline{Potenzmengenaxiom}: Für jede Menge $A$ existiert eine Menge, die alle Teilmengen von $A$ enthält. Diese nennen wir die Potenzmenge $\mathscr{P}(A)$. Dann ist $\mathscr{P}(A) = \{B | B \subset A\}$.
+        \item \underline{Potenzmengenaxiom}: Für jede Menge $A$ existiert eine Menge, die genau alle Teilmengen von $A$ enthält. Diese nennen wir die Potenzmenge $\Pot(A)$.
+        
+        Wir schreiben: $\Pot(A) = \{B | B \subset A\}$.
         \item \underline{Unendlichkeitsaxiom}: Sei $A$ eine beliebige Menge. Dann existiert eine Menge $B$ mit $\e \in B$, und $A \in B \implies A \cup \{A\} \in B$.\\
         Man bemerke, dass mit $A \arr A \cup \{A\} \in B$ die Voraussetzung für das Unendlichkeitsaxiom wieder erfüllt ist, damit gilt also auch $A \cup \{A\} \cup \{A \cup \{A\}\} \in B$. Diese Kette lässt sich \underline{induktiv}, d.h. durch wiederholtes Ausführen desselben Argumentes, beliebig weit fortsetzen. $B$ enthält also, sofern es mindestens ein $A$ enthält, gleich unendlich viele Mengen.
         \item \underline{Ersetzungsaxiom}: Ist $A$ eine Menge, und $f$ eine Vorschrift, die jede Menge $x \in A$ eindeutig durch eine andere Menge $f(x)$ ersetzt (d.h. $f$ ist eine \emph{Funktion}, Def. \ref{def-function}), dann ist das Bild von $f$ definiert als $f(A) = \{f(x) | x \in A\}$ wieder eine Menge.
@@ -552,10 +554,6 @@ Bem: Urbild / Umkehrabb!
     trivial $\sim GURAU$
 \end{proof}
 
-\begin{query}
-    Wäre hier das Unterkapitel über Gruppen, Halbgruppen etc sinnvoll? Oder erst nach Zahlen? Gurau streut das so irgendwie rein, aber ich halte das für nicht sinnvoll.
-\end{query}
-
 
 
 \section{Gruppen und Körper}
@@ -575,6 +573,18 @@ Bem: Urbild / Umkehrabb!
 
     nicht-Beispiel: $\N$ mit minus
 \end{example}
+
+\begin{definition}["Was man einmal kann, kann man auch endlich oft"]
+    Sei $\star$ eine innere Verknüpfung auf einer Menge $M$, und $(a_i)_{i \in \{1, ..., n\}}$ eine Familie von Elementen aus $M$. Dann setzen wir:
+    $$\bigstar_{i = 1}^n a_i = a_1 \star ... \star a_n$$
+    mit Auseinanderführung von links nach rechts.
+\end{definition}
+
+\begin{query}
+    Ist das sinnvoll? Wir haben schon $\bigcup_i$ und $\bigcap_i$ im Unterkapitel davor. Ich weiß aber nicht, ob irgendwann später noch weitere Operationen kommen, und ob die Notation dann klar ist oder jedes Mal neu eingeführt werden soll
+
+    Edit: Ich tendiere dazu es wegzulassen
+\end{query}
 
 \begin{definition}[Halbgruppe]
     Ein Tupel $(M, \star)$ aus einer Menge $M$ und einer inneren Verknüpfung heißt \underline{Halbgruppe}, falls $\star$ assoziativ ist:
@@ -707,7 +717,7 @@ Manchmal hilft eine dumme Eselsbrücke:
     $\R$ mit plus
     Permutationen
 
-    keine abelsche Gruppe: Matrixmultiplikation?
+    keine abelsche Gruppe: Matrixmultiplikation?\\
     Funktionverknüpfung!
     $(\{f: \R \arr \R | f \text{ ist bijektiv}\}, \circ)$ ist eine nichtabelsche Gruppe:
     \begin{itemize}[label=]
@@ -801,24 +811,28 @@ Zwei äquivalente Wege:
         \end{itemize}
     \end{enumerate}
     In der Literatur findet man oft die Schreibweise $K^* = K \backslash \{0_K\}$.
+
+    Manchmal schreiben wir auch "sei $K$ ein Körper" statt "sei $(K, +, \cdot)$ ein Körper".
 \end{definition}
 
-\begin{definition}[Körper]
-    Ein Ring $(K, +, \cdot)$ heißt \underline{Körper}, falls zusätzlich gilt:
-    \begin{enumerate}[label=(K\arabic*)]
-        \item $(K, +, \cdot)$ ist kommutativer Ring mit Einselement $1_K$ und Nullelement $0_K$
-        \item $1_K \neq 0_K$
-        \item $\forall a \in K \backslash \{0_K\}$ existiert eine multiplikative Inverse $a\m \in K$
+\begin{remark}[Körper]
+    \label{remark-körper}
+    \begin{enumerate}
+        \item Aus (K2) folgt bereits, dass $0_K \neq 1_K$, d.h. ein Körper muss mindestens zwei Elemente haben.
+        \item Der Leser kann sich selbst überzeugen, dass gilt:
+        \begin{flushright}
+            $(K, +, \cdot)$ ist Körper $\iff (K, +, \cdot)$ ist kommutativer Ring mit Eins, es gilt $0_K \neq 1_K$, und $\forall a \in K^*$ existiert eine multiplikative Inverse $a\m \in K$.
+        \end{flushright}
     \end{enumerate}
-    In der Literatur findet man oft die Schreibweise $K^* = K \backslash \{0_K\}$.
-\end{definition}
+\end{remark}
 
 \begin{example}
-    - Aus (K2) folgt bereits, dass $0_K \neq 1_K$, d.h. ein Körper muss mindestens zwei Elemente haben. Dementsprechend kann der Nullring kein Körper sein.
+    - Wegen \ref{remark-körper} kann der Nullring kein Körper sein.
 
+    - Es existiert aber ein Körper mit genau zwei Elementen: Z.B. $\Z_2$
     - $\Q$, $\R$ Körper, $\Z$ kein Körper
 
-    - Restklassenring i.A. kein Körper: z.B. in $\Z_4$ hat $[2]$ keine mult Inverse
+    - Restklassenring i.A. sind kein Körper: z.B. in $\Z_4$ hat $[2]$ keine mult Inverse
 \end{example}
 
 
@@ -827,42 +841,125 @@ Zwei äquivalente Wege:
 \section{Zahlen}
 \label{sec-numbers}
 
-Zahlen sind intrinsisch motiviert. Zuerst einmal sind die natürlich Zahlen $\N$ ein mathematisches Mittel, um Objekte in der physischen Welt zu zählen\footnote{Man kann auch nur Objekte in der mathematischen Welt zählen, wenn man so sehr darin gefangen steckt.}. Diese werden mit negativen Zahlen zu den ganzen Zahlen $\Z$ erweitert, um Prozesse der Subtraktion zu beschreiben. Hier haben wir Subtraktion als inverse Operation zur Addition eingeführt, wodurch negative Zahlen mathematisch von der Forderung der Abgeschlossenheit bezüglich Subtraktion kommen, sie haben aber auch eine nichtmathematische Motivation (z.B. Schulden). Rationale Zahlen $\Q$ sind nichtmathematisch die Konsequenz davon, Zahlen für physische Messungen zu verwenden, für die ganze Zahlen nicht präzise genug sind, oder mathematisch aus der Forderung der Existenz von multiplikativen Inversen.
+Zahlen sind intrinsisch motiviert. Zuerst einmal sind die natürlich Zahlen $\N$ ein mathematisches Mittel, um Objekte in der physischen Welt zu zählen\footnote{Man kann auch nur Objekte in der mathematischen Welt zählen, wenn man zu sehr darin gefangen steckt.}, wie z.B. Anzahl Kaffeetassen pro Tag. Diese werden mit negativen Zahlen zu den ganzen Zahlen $\Z$ erweitert, um Prozesse der Subtraktion zu beschreiben. Hier haben wir Subtraktion als inverse Operation zur Addition eingeführt, wodurch negative Zahlen mathematisch von der Forderung der Abgeschlossenheit bezüglich Subtraktion kommen, sie haben aber auch eine nichtmathematische Motivation (z.B. Schulden). Rationale Zahlen $\Q$ sind nichtmathematisch die Konsequenz davon, Zahlen für physische Messungen zu verwenden, für die ganze Zahlen nicht präzise genug sind, oder mathematisch aus der Forderung der Existenz von multiplikativen Inversen.
 
-Relle Zahlen $\R$ haben wenig nichtmathematische Motivation. Auch wenn die Existenz von nicht rationalen (irrationalen) Zahlen wie $\sqrt{2}$ oder $\pi$ bereits seit der Antike bekannt ist, haben diese ihre Relevanz doch eher als mathematischen Vervollständigung von $\Q$, als als Messergebnisse in der physischen Welt. Die komplexen Zahlen $\C$ sind rein mathematisch motiviert als algebraische Vervollständigung von $\R$.
+Relle Zahlen $\R$ haben eine eher begrenzte nichtmathematische Motivation. Auch wenn die Existenz von nicht rationalen (irrationalen) Zahlen wie $\sqrt{2}$ oder $\pi$ bereits seit der Antike bekannt ist, haben diese ihre Relevanz doch eher als mathematischen Vervollständigung von $\Q$, als als präzise Messergebnisse in der physischen Welt. Die komplexen Zahlen $\C$ sind rein mathematisch motiviert als algebraische Vervollständigung von $\R$.
 
 \begin{definition}[Natürliche Zahlen]
-    \label{def-natural-numbers}
-    Intuitiv kann man die natürlichen Zahlen fordern, indem man $0$ als "nichts" definiert, $1$ als "eines", und von da an jede kommende Zahl als "die Zahl davor $+ 1$". Mathematisch wäre streng genommen nichts falsch damit. Der einzige ästhetische Mangel ist, dass man dazu ein zusätzliches Axiom bräuchte, was aber nicht nötig ist, da man die intrinsisch bekannte Struktur der natürlichen Zahlen mit den bereits bekannten Axiomen konstruieren kann. Das macht man genauso, wie beschrieben, d.h. man fängt mit "nichts" an und geht jeweils Schritt für Schritt weiter "hoch". Dafür verwendet man die Existenz der leeren Menge (ZF5) sowie ein bisschen Trixerei mit Mengenklammern. Dann definiert man sich die \underline{natürlichen Zahlen} über eine Identifikation:
-    \begin{itemize}[label=]
-        \item $0 = \e$ für $n = 0$,
-        \item der \underline{Nachfolger} von $n$ ist definert als $n \cup \{n\}$,
-        \item $\N$ ist definiert als die kleinste Menge, die $0$ und alle Nachfolger enthält.
+    Wir definieren die \underline{natürlichen Zahlen} $\N$, indem wir mit der Forderung $0 \in \N$ anfangen, und schrittweise $+1$ aufaddieren und für $n \in \N$ auch $(n+1) \in \N$ fordern. Weil man das nicht für unendlich viele Zahlen machen kann, brauchen wir eine implizite Konstruktion, nämlich die \underline{Peano-Axiome}:
+    \begin{itemize}
+        \item $\N$ ist eine Menge, die ein Element $0$ enthält.
+        \item Es existiert eine Funktion $S: \N \arr \N$, die wir \underline{Nachfolgerfunktion} nennen.
+        
+        \emph{Diese bildet $n \in \N$ auf seinen Nachfolger $S(n)$ ab. Damit wollen wir $S(n) = n+1$ formalisieren.}
+        \item $S$ ist injektiv, d.h. $n \neq m \implies S(n) \neq S(m)$.
+        \item $0$ ist kein Nachfolger, d.h. $0 \notin S(\N)$.
+        
+        \emph{Diese beiden Forderungen vermeiden Zirkulation wie z.B. in $\Z_2$, wo $1 + 1 = 2 \equiv 0$ gilt.}
+        \item Es gilt das \underline{Induktionsaxiom}:
+
+        Falls $N \subset \N$ ist mit $0 \in N$, und falls $n \in N \implies S(n) \in N$ gilt, dann ist $N = \N$.
+
+        \emph{Die Gütligkeit des Induktionsaxioms folgt unter anderem aus dem Unendlichkeitsaxiom (ZF7) sowie nötigen Eindeutigkeitsaxiomen.}
     \end{itemize}
-    Dann ist z.B. $1 = \e \cup \{\e\} = \{\e\}$, $2 = \{ \e, \{\e\} \}$, $3 = \{ \e, \{ e \}, \{\e, \{\e\}\} \}$ etc. Dann ist $n$ definiert als die Menge, die genau $n$ Elemente enthält.
-    
-    Wir bemerken, dass $\N$ nach (ZF7) existiert und wohldefiniert ist.
+    Die Peano-Axiome erscheinen in der Literatur in teils sehr unterschiedlicher Gruppierung und Reihenfolge, darum haben wir auf eine Nummerierung verzichtet.
+
+    Auf den natürlichen Zahlen können wir Addition $+$, Multiplikation $\cdot$, und eine Ordnungsrelation $\leq$ so definieren, dass sie genau dem bekannten und gewünschten Verhalten entsprechen. Dafür verwendet man die Nachfolgerfunktion, z.B. definiert man $n + m$ iterativ, indem man zuerst $n + 0 = 0$ definiert, und dann $n + (k + 1) = (n + k) + 1 = S(n + k)$ aus $n + k$ folgert. Die exakten Definitionen können in \cite{GURAU} nachgelesen werden.
 \end{definition}
+
+\begin{remark}
+    \cite{GURAU} definiert die natürlichen Zahlen anders, indem er mithilfe der ZF-Axiome explizit eine Menge konstruiert, die alle Eigenschaften der natürlichen Zahlen erfüllen, und dann eine Identifikation mit $\N$ macht (explizit $\e = 0$, $\{\e\} = 1$, $\{ \e, \{\e\}\} = 2$ etc). Das hat den ästhetischen Vorteil, dass zusätzlich zu den ZF-Axiomen keine weiteren Axiome benötigt werden, um die Existenz von $\N$ zu zeigen. Das ist aber auch hier nicht der Fall, denn die Peano-Axiome (bzw. die Existenz einer Menge $\N$, die die Peano-Axiome erfüllt) sind innerhalb der ZF-Mengenlehre keine echten Axiome, können daraus gefolgert werden.
+\end{remark}
+
+\begin{EXERCISE}
+    \label{exercise-structure-of-n}
+    Was ist die größte algebraische Struktur, die $(\N, +, \cdot)$ erfüllt?
+\end{EXERCISE}
+
+\begin{remark}
+    \textbf{Natürliche Zahlen und die Null}
+
+    Mathematiker sind sich nicht einig, ob die $0$ ein Element der natürlichen Zahlen sein sollte. Manche Autoren, so auch wir oder Gurau, definieren deswegen $\N$ als natürliche Zahlen mit $0$ und schreiben $\N^*$ für die natürlichen Zahlen ohne $0$, andere Autoren definieren $\N$ als natürliche Zahlen ohne $0$ und schreiben $\N_0$ für die natürlichen Zahlen mit $0$. $\N^*$ und $\N_0$ bedeuten immer dasselbe, aber wofür $\N$ steht, muss der Leser bei jeder Literatur neu nachschauen, oder aus dem Kontext erschließen.
+\end{remark}
+
+Wie bereits angemerkt, ist die Definition der natürlichen Zahlen eng verknüpft mit dem Prinzip der vollständigen Induktion. Diesen Zusammenhang können wir jetzt formalisieren:
+
+\begin{theorem}[Vollständige Induktion]
+    Sei $A(n)$ eine Aussageform, die von $n \in \N$ abhängt. Es gelte:
+    \begin{enumerate}
+        \item \underline{Induktionsanfang}: $A(0)$ ist wahr.
+        \item \underline{Induktionsschritt}: $\forall n \in \N$ gilt: $A(n)$ ist wahr $\implies A(n+1)$ ist wahr.
+    \end{enumerate}
+    Dann ist $A(n)$ wahr $\forall n \in \N$.
+\end{theorem}
+\begin{proof}
+    Wir setzen $N = \{n \in \N | A(n) \text{ ist wahr}\}$.
+    
+    Wegen (i) ist $0 \in N$. Wegen (ii) gilt $n \in N \implies (n+1) \in N$.
+
+    Aus dem Induktionsaxiom folgt $N = \N$, also ist $A(n)$ wahr $\forall n \in \N$.
+\end{proof}
+
+Wie der Leser in \ref{exercise-structure-of-n} bewiesen hat, bildet $(\N, +)$ fast eine kommutative Gruppe, nur die additiven Inversen $-n$ zu $n \neq 0$ fehlen. Wenn wir diese, axiomatisch wie oben, hinzufügen, dann erhalten wir die ganzen Zahlen:
 
 \begin{definition}[Ganze Zahlen]
-    $\Z$
+    Wir definieren $\Z$ als den kleinsten kommutativen Ring mit Eins, der $\N$ mit der entsprechenden Addition und Multiplikation enthält.
 \end{definition}
+
+Diese Definition ist äquivalent zu Definition 2.5 in \cite{GURAU}.
+
+Um aus dem Ring der ganzen Zahlen einen Körper zu machen, fehlen nur noch die multiplikativen Inversen $b\m$ zu $b \neq 0$. Fügt man diese, wieder axiomatisch, hinzu, dann kommen damit auch automatisch Brüche der Form $\frac{a}{b}$. Daraus erhalten wir die rationalen Zahlen:
 
 \begin{definition}[Rationale Zahlen]
-    $\Q$
+    Wir definieren $\Q$ als den kleinsten Körper, der $\Z$ mit der entsprechenden Addition und Multiplikation enthält.
 \end{definition}
 
-\begin{proposition}[$\Q$ ist abzählbar]
-    
-\end{proposition}
+\begin{remark}
+    Wir können jede rationale Zahl $r$ als $r = \frac{p}{q}$ mit $p \in \Z$ und $q \in \N^*$ darstellen.
+\end{remark}
+
+Aus den rationalen Zahlen die reellen Zahlen zu definieren, erfordert wieder etwas mehr Arbeit. Zur Motivation sei angemerkt, dass wie bereits angemerkt die rationalen Zahlen nicht vollständig sind, z.B. hat die Gleichung $x^2 = 2$ keine Lösung in $\Q$. Um dieses Unvollständigkeit zu formalisieren, bemerken wir, dass die Lösung dieser Gleichung, wenn sie existiert, das Supremum der Menge $\{x \in \Q | x^2 < 2\}$ wäre. Diese Forderung weiten wir nun auf alle Mengen aus, die wir in nach oben beschränkter Form schreiben können:
+
+\begin{definition}[vollständig]
+    Eine total geordnete Menge $(M, \leq)$ heißt \underline{vollständig} (oder \underline{ordnungsvollständig}), wenn jede nichtleere, nach oben beschränkte Teilmenge von $M$ ein Supremum besitzt.
+\end{definition}
+
+Wenn wir die Existenz dieser Suprema für $\Q$ fordern, dann erhalten wir die reellen Zahlen:
 
 \begin{definition}[Reelle Zahlen]
-    $\R$
+    Wir definieren $\R$ als den vollständigen Körper, der $\Q$ mit der entsprechenden Ordnungsrelation $\leq$ enthält.
 \end{definition}
 
-\begin{proposition}[Existenz von Suprema in $\R$]
+\cite{GURAU} konstruiert $\Z$, $\Q$, und $\R$ wieder explizit. Insbesondere noch auf Dedekind Schnitte eingehen!
+
+Wenn man eine Menge (oder ein sonstiges Objekt) implizit durch Angabe der Eigenschaften, die diese erfüllt, definiert, dann muss man natürlich zeigen, warum diese Menge existiert, und warum sie eindeutig ist. Ansonsten ergibt die Definition keinen Sinn.
+
+\begin{theorem}[Zahlen]
+    Die oben definierten Mengen $\N$, $\Z$, $\Q$, und $\R$ existieren, und sind eindeutig bis auf Isomorphie. Dabei bedeutet Isomorphie eine eins-zu-eins-Zuordnung, die die Rechenregeln unverändert lässt.
+\end{theorem}
+\begin{proof}
+    Führen wir hier nicht aus. Der motivierte Leser kann den Beweis in \cite{Amann-Escher}, Seiten 32-37 und 90-101, nachlesen.
+\end{proof}
+
+\begin{proposition}[$\R$ erfüllt die \underline{Archimedische Eigenschaft}]
+    Seien $x, y \in \R$ mit $0 < x < y$.
     
+    Dann $\exists n \in \N$ mit $y < n \cdot x$.
 \end{proposition}
+
+\begin{definition}[Unendlich]
+    Wir definieren:
+
+    $\infty = sup(\R)$
+
+    $- \infty = inf(\R)$
+\end{definition}
+
+\begin{remark}
+    Vorsicht: $\infty$ ist keine Zahl! Man kann $\infty$ nicht in sinnvoller Weise zu $\R$ hinzufügen.
+
+    Paar Rechenbeispiele wie es schief läuft?
+\end{remark}
 
 \begin{definition}[Kardinalität]
     \label{def-cardinality}
@@ -874,57 +971,271 @@ Relle Zahlen $\R$ haben wenig nichtmathematische Motivation. Auch wenn die Exist
     \end{itemize}
 \end{definition}
 
+\begin{remark}
+    Ordinalzahlen sind Erweiterungen des Begriffs der natürlichen Zahlen. Wir nennen eine Ordinalszahl $\lambda$, und ihren Nachfolger $\lambda + 1 = \lambda \cup \{\lambda\}$. Zum Beispiel ist $\N$ selbst eine Ordinalzahl, es gibt aber noch größere Ordinalzahlen.
+
+    Kardinalzahlen sind Erweiterungen des Begriffs der Kardinalität $|A|$ auf unendliche Mengen. Wir definieren eine Äquivalenzrelation: $A \sim B \iff A \cong B$. Die Äquivalenzklasse $[A]$ nennen wir die Kardinalzahl von $A$. Zum Beispiel nennen wir $[\N] = \aleph_0$ und $[\R] = \aleph_1$, dann gilt $\aleph_1 = 2^{\aleph_0}$.
+
+    Mehr dazu in \cite{GURAU}.
+\end{remark}
+
+\begin{proposition}[Satz von Cantor]
+    \label{theorem-cantors-theorem}
+    Sei $X$ eine Menge, und $f: X \arr \Pot(X)$ eine Funktion.
+
+    Dann ist $f$ nicht surjektiv, und es gilt $|X| < |\Pot(X)|$.
+\end{proposition}
+Das ist unser erster Beweis, der eine \emph{Hilfskonstruktion} verwendet. Hilfskonstruktionen sind für viele fortgeschrittene Beweise absolut unumgänglich. Wenn man vor einem Beweis oder einer Aufgabe sitzt, dann sagt einem aber oft niemand, ob man eine Hilfskonstruktion braucht, und wenn ja welche. Deswegen ist es wichtig, dass man früh anfängt, seine mathematische Intuition zu fördern, um schneller auf die richtigen Ideen zu kommen.
+
+\begin{query}
+    Welches Format ist schöner: Das hier...
+\end{query}
+
+\begin{proof}
+    \underline{$f$ ist surjektiv}: Durch Widerspruch.
+
+    \begin{itemize}[label=]
+        \item Angenommen, $f$ sei nicht surjektiv.
+
+        Wir definieren die folgende Menge: $B = \{x \in X | x \notin f(x)\}$ (unsere Hilfskonstruktion).
+        
+        Wir bemerken, dass $f(x)$ kein Rechtschreibfehler ist: Weil $f$ eine Funktion von $X$ nach $\Pot(X)$ ist, ist $f(x)$ eine Teilmenge von $X$.
+
+        Offensichtlich gilt $B \subset X$, und damit $B \in \Pot(X)$.
+
+        Da $f$ nach Annahme surjektiv ist, muss es also ein $y \in X$ geben mit $f(y) = B$.
+
+        Für dieses $y$ gilt dann nach Konstruktion von $B$ aber $y \in B \implies y \notin f(y) = B$, und genauso $y \notin B \implies y \in f(y) = B$.\absurdum
+
+        Also kann $f$ nicht surjektiv sein.
+    \end{itemize}
+
+    \underline{ungleiche Kardinalität}:
+    
+    \begin{itemize}[label=]
+        \item Da nach Teil 1 keine surjektive Abbildung $X \arr \Pot(X)$ existieren kann, existiert auch keine bijektive Abbildung, daher muss $|X| \neq |\Pot(X)|$ gelten.
+
+        Dass $|X|$ also kleiner als $|\Pot(X)|$ sein muss, ist intuitiv klar. Formal zeigt man das mithilfe der Einbettung $\iota: X \arr \Pot(X)$ über $\iota(x) = \{x\}$.
+        
+        Da $\{x\} = \{y\} \implies x = y$ gilt, ist $\iota$ injektiv, darum muss $|X| \leq |\Pot(X)|$ gelten, und deswegen insgesamt $|X| < |\Pot(X)|$.
+    \end{itemize}
+\end{proof}
+
+\addtocounter{query}{-1}
+\begin{query}
+    ... oder das hier?
+\end{query}
+
+\begin{proof}
+    \underline{$f$ ist surjektiv}: Durch Widerspruch.
+
+
+    Angenommen, $f$ sei nicht surjektiv.
+
+    Wir definieren die folgende Menge: $B = \{x \in X | x \notin f(x)\}$ (unsere Hilfskonstruktion).
+    
+    Wir bemerken, dass $f(x)$ kein Rechtschreibfehler ist: Weil $f$ eine Funktion von $X$ nach $\Pot(X)$ ist, ist $f(x)$ eine Teilmenge von $X$.
+
+    Offensichtlich gilt $B \subset X$, und damit $B \in \Pot(X)$.
+
+    Da $f$ nach Annahme surjektiv ist, muss es also ein $y \in X$ geben mit $f(y) = B$.
+
+    Für dieses $y$ gilt dann nach Konstruktion von $B$ aber $y \in B \implies y \notin f(y) = B$, und genauso $y \notin B \implies y \in f(y) = B$.\absurdum
+
+    Also kann $f$ nicht surjektiv sein.
+
+    \underline{ungleiche Kardinalität}:
+    
+    Da nach Teil 1 keine surjektive Abbildung $X \arr \Pot(X)$ existieren kann, existiert auch keine bijektive Abbildung, daher muss $|X| \neq |\Pot(X)|$ gelten.
+
+    Dass $|X|$ also kleiner als $|\Pot(X)|$ sein muss, ist intuitiv klar. Formal zeigt man das mithilfe der Einbettung $\iota: X \arr \Pot(X)$ über $\iota(x) = \{x\}$.
+    
+    Da $\{x\} = \{y\} \implies x = y$ gilt, ist $\iota$ injektiv, darum muss $|X| \leq |\Pot(X)|$ gelten, und deswegen insgesamt $|X| < |\Pot(X)|$.
+\end{proof}
+
+\begin{EXERCISE}
+    Sei $X$ eine endliche Menge. Zeigen Sie, dass gilt: $|\Pot(X)| = 2^{|X|}$.
+\end{EXERCISE}
+
+Mit der geleisteten Vorarbeit kommen wir nun endlich zu den ersten Theoremen, die weitreichende Implikationen haben:
+
 \begin{theorem}[$\Q$ ist abzählbar]
     \label{theorem-cantor-1}
-
+    Es gibt eine Bijektion $f: \N \arr \Q$.
 \end{theorem}
+Das ist eine völlig unintuitive Aussage. Naiv geht man davon aus, dass es "viel mehr" rationale Zahlen gibt als natürliche, z.B. gibt es ja schon im Intervall $[0, 1]$ nur zwei natürliche Zahlen, aber unendlich viele rationale. Trotzdem gibt es insgesamt von beiden genau gleich viele, nämlich abzählbar unendlich viele.
+\begin{proof}
+    Wir zeigen die Aussage in drei Schritten.
+
+    \underline{Schritt 1:} $\Z$ ist abzählbar.
+    
+    $n \in \N$ (bzw. $n \in \Z$) heißt \underline{gerade}, falls es ein $k \in \N$ bzw. $k \in \Z$ gibt mit $n = 2k$.
+
+    $n \in \N$ (bzw. $n \in \Z$) heißt \underline{ungerade}, falls es ein $k \in \N$ bzw. $k \in \Z$ gibt mit $n = 2k + 1$.
+
+    Wir definieren eine Bijektion $f: \N \arr \Z$, indem wir $\N$ in gerade und in ungerade Zahlen aufteilen. Die geraden Zahlen bilden wir dann auf $\Z_{\leq 0}$ ab, und die ungeraden auf $\Z_{< 0}$:
+
+    $f: n \mapsto \{ \frac{n}{2} = k$, falls $n$ gerade \}\\
+    $\{ - \frac{n + 1}{2} = -k$, falls $n$ ungerade \}
+
+    Aus der Definition sieht man sofort, dass $f$ wohldefiniert ist, weil $\pm k \in \Z$ liegt für $k \in \N$.
+
+    $f$ ist offensichtlich injektiv: Wenn für gerade $n_1 = 2 k_1 \neq n_2 = 2 k_2$, dann ist $f(n_1) = k_1 \neq k_2 = f(n_2)$, analog für ungerade $n_1$ und $n_2$, und falls $n_1$ gerade und $n_2$ ungerade (oder andersrum), dann gilt sowieso $f(n_1) \neq f(n_2)$ wegen unterschiedlicher Vorzeichen.
+
+    $f$ ist surjektiv: Sei $w \in \Z$.
+    \begin{enumerate}[label=Fall \arabic*:]
+        \item $w \leq 0$. Dann ist $n = 2w \in \N$ mit, da $n$ gerade, $f(n) = \frac{2 w}{2} = w$.
+        \item $w < 0$. Da $-2w \leq 2$ ist $n = -2w - 1 \in \N$  mit, da $n$ ungerade, $f(n) = - \frac{-2w - 1 + 1}{2} = w$.
+    \end{enumerate}
+
+    Also ist $f$ bijektiv.
+
+    \underline{Schritt 2}: $\Q_{\leq 0}$ ist abzählbar.
+
+    ("Cantors erstes Diagonalverfahren")
+
+    Man ordnet $\Q_{\leq 0} = \{ \frac{p}{q} | p \in \N, q \in \N^* \}$ in einem (unendlichen) quadratischen Muster an:
+
+    In der ersten Zeile $\frac{0}{1}, \frac{0}{2}, \frac{0}{3}, ...$
+
+    In der zweiten Zeile $\frac{1}{1}, \frac{1}{2}, \frac{1}{3}, ...$
+
+    In der dritten Zeile $\frac{2}{1}, \frac{2}{2}, \frac{2}{3}, ...$
+
+    Dann streicht man von diesem Muster alle Zahlen weg, die doppelt vorkamen.
+
+    Um seine Bijektion zu finden, geht man in Diagonalen durch das Muster durch, und bildet $n$ ab auf die $n$-te\footnote{Oder auf die ($n+1$)-te, wenn man nicht wie jeder normale Mathematiker bei $0$ anfängt zu zählen.} übrig gebliebene Zahl.
+
+    Das Schema ist offensichtlich injektiv, und weil jede Diagonale mit einem endlichen Anfangspunkt endlich ist, erreicht man jede endliche rationale Zahl nach endlich vielen Schritten. Deswegen muss das Schema auch surjektiv sein.
+
+    \underline{Schritt 3}: $\Q$ ist abzählbar.
+
+    Folgt durch eine Kette von Bijektionen:
+    
+    $\N \quad \cong \quad \Z \quad = \quad (-\N^*) \cup \N \quad \cong \quad \Q_{< 0} \cup \Q_{\leq 0} \quad = \quad \Q$.
+
+    Dabei folgt die erste Bijektion aus Schritt 1, und die zweite Bijektion aus zweimaliger Anwendung von Schritt 2.
+\end{proof}
 
 \begin{theorem}[$\R$ ist überabzählbar]
     \label{theorem-cantor-2}
-
+    Es gibt keine Bijektion $f: \N \arr \R$.
 \end{theorem}
+Wie schwer zu glauben dieser Satz im Vergleich zum vorherigen ist, bleibt dem Leser selbst überlassen, aber eine leicht zu ratende Aussage ist es trotzdem nicht. Eine direkte Folgerung ist nämlich, dass es keine Bijektion $\Q \arr \R$ gibt. Obwohl es unendlich viele rationale und unendlich viele reelle Zahlen gibt (sogar schon in jedem Intervall mit positiver Länge), gibt es trotzdem echt mehr reelle Zahlen als rationale.
+\begin{proof}
 
-\begin{proposition}[$\R$ erfüllt die Archimedische Eigenschaft]
-    
-\end{proposition}
+    Durch Widerspruch:
+
+    ("Cantors zweites Diagonalverfahren")
+
+    Man nehme an, $\R$ sei abzählbar. Dann ist auch $[0, 1) \subset \R$ abzählbar.
+
+    Dann finden wir eine Bijektion zwischen $\N$ und $[0, 1)$. Diese schreiben wir in Dezimalschreibweise auf, wieder in einem unendlichen quadratischen Muster, z.B.:
+    \begin{align}
+        &0 \arr 0,\mathbf{\textcolor{red}{0}}32568904351903...\\
+        &1 \arr 0,5\mathbf{\textcolor{red}{7}}3485439058903...\\
+        &2 \arr 0,43\mathbf{\textcolor{red}{1}}438902849030...\\
+        &3 \arr 0,438\mathbf{\textcolor{red}{0}}34893289844...\\
+        &4 \arr 0,3547\mathbf{\textcolor{red}{4}}8937501394...\\
+        &...
+    \end{align}
+    Als nächstes geht man die Hauptdiagonale der Nachkommastellen durch, in diesem Beispiel $07104...$
+
+    Daraus konstruiert man sich eine weitere reelle Zahl $x$, indem man an $n$-ter Nachkommastelle eine $0$ wählt, falls die Hauptdiagonale an $n$-ter Stelle keine $0$ hat, und stattdessen eine $1$ wählt, falls die Hauptdiagonale an $n$-ter Stelle eine $0$ hat. In diesem Beispiel wäre das: $x = 0,10010...$
+
+    Dieses $x$ kann nicht im Bild der Bijektion sein, da es von jeder Zahl auf der rechten Seite im Muster mindestens eine Nachkommastelle verschieden hat. Also kann die Bijektion nicht surjektiv sein.\absurdum
+
+    Also ist $[0, 1)$ überabzählbar, also ist $\R$ überabzählbar.
+\end{proof}
+
+\begin{remark}
+    Im Muster des Beweises haben wir noch viel mehr gezeigt: Nämlich, dass es mehr irrationale Zahlen in $[0, 1)$ (oder sogar in einem beliebigen Intervall mit positiver Länger) gibt als rationale Zahlen in $\R$.
+\end{remark}
 
 \begin{theorem}[$\Q$ liegt dicht in $\R$]
     
 \end{theorem}
 
-\begin{definition}[Unendlich]
-    $$|A| = \infty bEcAuSeInFiNiTyIsAnUmBeR!1!$$
-\end{definition}
-
-\begin{proposition}[Satz von Cantor]
-    don't go insane!
-\end{proposition}
+Die komplexen Zahlen stammen historisch aus der Realisierung, dass die Lösung für gewisse kubische Gleichungen (d.h. Gleichungen der Form $a \cdot x^3 + b \cdot x^2 + c \cdot x + d = 0$) nur berechnet werden können, wenn man die Existenz von Wurzeln aus negativen Zahlen zulässt, obgleich wenn besagte Wurzeln in der Lösung nicht vorkommen. Das führt zur Einführung der imaginären Einheit, die ihren Namen daher erhält, dass sie die Seitenlänge eines Quadrates mit negativem Flächeninhalt beschreibt, was empirisch nicht möglich scheint.
 
 \begin{definition}[Komplexe Zahlen]
-    $\C$
+    Wir definieren $i = \sqrt{-1}$ und $\C = \R + i \R$.
 \end{definition}
 
 \begin{definition}[Eigenschaften von komplexen Zahlen]
+    Sei $z \in \C$. Dann ist $z = x + iy$ mit $x, y \in \R$. Wir nennen:
     \begin{enumerate}
-        \item re, im
-        \item cc
-        \item Betrag
-        \item Winkel, Radialdarstellung
+        \item $x = re(z)$ den \underline{Realteil} von $z$, und $y = im(z)$ den \underline{Imaginärteil} von $z$
+        \item $\bar{z} = x - iy$ die \underline{komplex Konjugierte} (oder \underline{c.c.}) zu $z$
+        \item $|z| = \sqrt{x^2 + y^2}$ den Betrag von $z$
     \end{enumerate}
 \end{definition}
 
-\begin{lemma}[lemma]
-    mult inverses
+\begin{lemma}[Polardarstellung]
+    Sei $z \in \C$. Dann ist $z = r \cdot e^{i \phi}$ mit $r = |z|$, $\phi = \arctan(\frac{y}{x}$, und $e^{i \phi} = \cos(\phi) + i \sin(\phi)$.
 \end{lemma}
+\begin{proof}
+    Elementare Geometrie. Bzw. wir haben cos und sin noch nicht definiert haha.
+\end{proof}
+
+\begin{query}
+    Wir wäre es stattdessen damit daraus eine Definition zu machen, zu sagen die Motivation ist graphisch, aber formaler Beweis kann erst später gemacht werden?
+\end{query}
+
+\begin{lemma}[lemma]
+    $\C$ hat Multiplikationsstruktur $(x_1 + iy_1)(x_2 + iy_2) = (x_1 x_2 - y_1 y_2) + i(x_1 y_2 + x_2 y_1)$ und ist damit Körper.
+
+    Oder etwas ähnlich?
+
+    $\C$ hat eine geschlossene Mult struktur und ist Körper?
+\end{lemma}
+\begin{proof}
+    $z\m = \frac{z \bar{z}}{|z|^2}$ done.
+\end{proof}
 
 \begin{definition}[Potenz, Wurzel]
-    
+    Sei $z \in \C$.
+
+    $z^n = z \cdot ... \cdot z$ (n-mal)
+
+    $z^{\frac{1}{n}}$ Umkehrfunktion davon
+
+    Wurzelzweige: brauchen Exponentialfunktion :/
 \end{definition}
 
 
 
 \section{GURAU}
 
-\begin{definition}[ordinals, cardinals]
-    vlt soll ich einfach auf das Originalscript verweisen?
+Intuitiv kann man die natürlichen Zahlen fordern, indem man $0$ als "nichts" definiert, $1$ als "eines", und von da an jede kommende Zahl als "die Zahl davor $+ 1$"\footnote{Formal machen das die Peano-Axiome.}. Mathematisch wäre streng genommen nichts falsch damit, und für ein mathematisches Verständnis ist die formale Definition auch nicht entscheidend. Der ästhetische Mangel ist allerdings, dass man dazu ein zusätzliches Axiom bräuchte, was aber nicht nötig ist, da man die intrinsisch bekannte Struktur der natürlichen Zahlen mit den bereits bekannten Axiomen konstruieren kann. Das macht man genauso wie beschrieben, d.h. man fängt mit "nichts" an und geht jeweils Schritt für Schritt weiter "hoch". Dafür verwendet man die Existenz der leeren Menge (ZF5) sowie ein bisschen Trixerei mit Mengenklammern.
+
+\begin{definition}[Natürliche Zahlen]
+    \label{def-natural-numbers}
+    Man definiert die \underline{natürlichen Zahlen} über eine Identifikation:
+    \begin{itemize}%[label=-]
+        \item $0 = \e$\quad für $n = 0$,
+        \item der \underline{Nachfolger} von $n$ ist definert als $S(n) = n \cup \{n\}$,
+        \item $\N$ ist definiert als die kleinste Menge, die $0$ und alle iterativen Nachfolger enthält.
+    \end{itemize}
+    Dann ist z.B. $1 = \e \cup \{\e\} = \{\e\}$, $2 = \{ \e, \{\e\} \}$, $3 = \{ \e, \{ \e \}, \{\e, \{\e\}\} \}$ etc. Damit ist $n$ definiert als eine Menge, die genau $n$ Elemente enthält. $S(n)$ ist die formale Definition von $n + 1$.
+    
+    Wir bemerken, dass $\N$ nach (ZF7) existiert und wohldefiniert ist.
+\end{definition}
+
+Als nächstes möchte man \emph{natürlich} eine Addition und Multiplikation definieren, die dem bekannten Verhalten entspricht: Wenn man z.B. heute $n$ Tassen Kaffe trinkt und morgen $m$ Tassen Kaffee, dann hat man zusammen $m + n$ Tassen Kaffee getrunken. Oder wenn man $n$ Tassen Kaffee am Tag für $k$ Tage in Folge trinkt, dann sind das insgesamt $n \cdot k$ Tassen Kaffee. Dafür macht man sich die Definition des Nachfolgers zunutze: Für $n, m \in \N$ kann man sich zuerst $n + 0$ definieren, und dann mithilfe des Nachfolgers so lange $+1$ aufaddieren, bis man bei $n + m$ angekommen ist. Genauso macht man es mit $n \cdot 0$ bis $n \cdot m$.
+
+\begin{definition}[Addition und Multiplikation auf $\N$]
+    Seien $n, m, \in \N$. Wir definieren:
+    \begin{itemize}
+        \item $n + 0 = n$
+        \item $n + S(m) = S(n + m)$
+    \end{itemize}
+    Also $n + 1 = n + S(0) = S(n + 0) = S(n)$, $n + 2 = n + S(1) = S(n + 1)$ etc. Die induktive Kette ist auf ganz $\N$ wohldefiniert, weil sie für jedes feste Paar $n, m \in N$ nur endlich viele Schritte benötigt.
+    \begin{itemize}
+        \item $n \cdot 0 = 0$
+        \item $n \cdot S(m) = n + n \cdot m$
+    \end{itemize}
+    Daraus folgt $n \cdot 1 = n \cdot S(0) = n + c \cdot 0 = n$, daraus folgt $n \cdot 2 = n \cdot S(1) = n + n \cdot 1 = n + n$ etc. Die induktive Kette ist anaolog zu oben wieder auf ganz $\N$ wohldefiniert.
+
+    Dann sind $+$ und $\cdot$ wohldefinierte innere Verknüpfungen auf $\N$. Wir schreiben auch $n \cdot m = n m$.
 \end{definition}
