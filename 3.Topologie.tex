@@ -1,0 +1,382 @@
+\chapter{Topologie}
+
+\begin{query}
+    Wie wäre es, statt am Anfang jedes Kapitels ein Inhaltsverzeichnis einzufügen, dass ich ein Stichwortverzeichnis der wichtigsten Definitionen, Lemmata, und Sätze gebe?
+
+    Also Bsp mal angenommen das Kapitel wäre (Auszug aus Mengen und Zahlen, 1 von 6 Unterkapiteln):
+    \begin{itemize}
+        \item Innere Verknüpfung
+        \item Halbgruppe
+        \item Monoid
+        \item Lemma: neutrales Element eindeutig
+        \item Gruppe
+        \item Lemma: Inverse eindeutig
+        \item Lemma: Rechenregeln für Gruppen
+        \item Abelsche Gruppe
+        \item Gruppenhomomorphismus
+        \item Lemma: Eigenschaften von Gruppenhomomorphismen
+        \item Ring
+        \item Lemma: Rechenregeln in Ringen
+        \item Körper
+    \end{itemize}
+    Dann sähe meine Übersicht vlt so aus (jeweils mit Links):
+    \begin{itemize}
+        \item Gruppe
+        \item Lemma: Rechenregeln für Gruppen
+        \item Abelsche Gruppe
+        \item Gruppenhomomorphismus
+        \item Lemma: Eigenschaften von Gruppenhomomorphismen
+        \item Körper
+    \end{itemize}
+
+    Dann müsste ich mich aber entscheiden, was wichtig genug ist um auf das Verzeichnis zu kommen und was nicht, und das traue ich mir nicht zu. Zum Beispiel bin ich jetzt schon wenn ich mit dem Beispiel fertig bin überzeugt dass das keine gute Idee ist. Und das war noch eins der "klarsten", im Kapitel über Zahlen wird es viel schwerer Sachen rauszukürzen.
+
+    Aber ich lasse die Frage und das Beispiel trotzdem mal drin, weil es einen guten Eindruck davon vermittelt, wie lang so ein Inhaltsverzeichnis am Kapitelanfang wäre.
+\end{query}
+
+some motivational words
+
+\section{Grundlegende Begriffe}
+
+Längere Motivation: Offene Intervalle
+
+\begin{definition}[Topologie]
+    Sei $X$ eine Menge, und $\T \subset \Pot(X)$ ein Mengensystem, d.h. eine Menge, deren Elemente Teilmengen von $X$ sind. Wir können also Teilmengen $U \subset X$ danach bewerten, ob sie Elemente in $\T$ oder nicht sind.
+    
+    $\T$ heißt \underline{Topologie} und das Tupel $(X, \T)$ \underline{topologischer Raum}, falls gilt:
+    \begin{enumerate}[label=(T\arabic*)]
+        \item $\e, X \in \T$
+        \item $(U_{\alpha})_{\alpha \in I} \subset \T \implies \bigcup\limits_{\alpha \in I} U_{\alpha} \in \T$
+        \item $(U_i)_{i \in \llbracket 1, n \rrbracket} \subset \T \implies \bigcap\limits_{1 = 1}\limits^n U_i \in \T$
+    \end{enumerate}
+    Wie die Indizes andeuten, kann dabei die Vereinigung in (T2) beliebig (auch überabzählbar) sein, der Schnitt in (T3) aber höchstens endlich.
+
+    Mengen $U \in \T$ nennen wir \underline{offen}.
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item Die Menge aller offenen Intervalle auf $\R$ bildet eine Topologie. Dabei zählen wir Mengen der Form $(a, \infty)$, $(-\infty, b)$, und $(- \infty, \infty) = \R$ auch als offene Intervalle.
+        \item Für jede Menge $X$ kann man zwei triviale Topologien definieren:
+        \begin{itemize}
+            \item Die \underline{diskrete Topologie} $\T_{disk} = \Pot(X)$, d.h. jede Menge ist offen.
+            \item Die \underline{Klumpentopologie} $\T_{triv} = \{\e, X\}$ (\underline{triviale Topologie}, \underline{indiskrete Topologie}), d.h. nur die leere Menge und die "ganze Menge" sind offen.
+        \end{itemize}
+        Beide erfüllen trivialerweise (T1-T3).
+        \item $\T = (\e, \{0\}, \R^*, \R)$ ist eine Topologie auf $\R$:
+        \begin{itemize}%[label=]
+            \item $\e \cup \{0\} = \{0\} \in \T$, $\{0\} \cup \R^* = \R \in \T$, usw
+            \item $\R \cap \{0\} = \{0\} \in \T$, $\R^* \cap \{0\} = \e \in \T$, usw
+        \end{itemize}
+        Die letzten drei Beispiele waren zugegebenermaßen eher konstruiert und weniger anwendungsbezogen. Das nächste Beispiel ist allerdings sehr relevant:
+        \item Die Menge aller offenen Intervalle $(a, b)$ in $\R$ bildet eine Topologie. Dabei zählen wir Mengen der Form $(a, \infty)$, $(-\infty, b)$, und $(- \infty, \infty) = \R$, sowie disjunkte Vereinigungen von offenen Intervallen, auch als offene Intervalle.
+        
+        Der Leser kann sich (z.B. durch Skizzen) selbst überzeugen, dass es sich um eine Topologie handelt. Formal werden wir (T1-T3) hier nicht nachprüfen, aber wir nehmen schonmal vorweg, dass es sich um einen Spezialfall von metrischer Topologie handelt. Damit folgt die Behauptung aus \ref{lem-metric-induces-topology}.
+    \end{enumerate}
+\end{example}
+
+MEHR BEISPIELE?
+
+\begin{definition}[offene Umgebung]
+    Sei $(X, \T)$ ein topologischer Raum und $x \in X$.
+
+    Eine \underline{offene Umgebung} von $x$ ist eine Menge $U \in \T$ mit $x \in U$.
+\end{definition}
+
+ein paar Worte über Bedeutung auf $\R^n$: immer größer als $x$, aber trotzdem beliebig klein.
+
+Feinere / gröbere Topologien?
+
+Basis hier? oder unten?
+
+\begin{definition}[Hausdorff Eigenschaft]
+    Ein metrischer Raum $(X, \T)$ heißt \underline{Hausdorff-Raum}, falls man zwei beliebige Punkte durch offene Mengen trennen kann:
+
+    $\forall x, y \in X$ mit $x \neq y$ $\exists$ offene Umgebungen $U_x, U_y \in T$ von $x, y$ mit $U_x \cap V_y = \e$.
+\end{definition}
+
+\begin{example}
+    $\T_{disk}$ HD, $\T_{triv}$ nicht HD
+
+    offene Intervalle HD
+
+    Das Problem von Räumen, die nicht Hausdorff sind:
+    Zwei Kopien von $\R$...
+\end{example}
+
+\begin{definition}[abgeschlossene Mengen]
+    Sei $(X, \T)$ ein topologischer Raum. Eine Menge $A \subset X$ heißt \underline{abgeschlossen}, falls $A^C$ offen ist.
+\end{definition}
+
+\begin{definition}[Unterraum]
+    Sei $(X, \T)$ ein topologischer Raum, und $A \subset X$.
+
+    Dann heißt $\T_A = \{U \cap A | U \in \T\}$ die \underline{Unterraumtopologie}, die von $X$ auf $A$ induziert wird.
+
+    Mengen $U \in \T_A$ nennen wir \underline{offen in $A$} (oder \underline{relativ offen}).
+    
+    Mengen $A$ mit $A^C \in \T_A$ nennen wir \underline{abgeschlossen in $A$} (oder \underline{relativ abgeschlossen}).
+\end{definition}
+
+\begin{exercise}
+    Zeigen Sie, dass $\T_A$ wieder eine Topologie ist.
+\end{exercise}
+
+\begin{definition}[accumulation point, innerer Punkt, isolated point]
+    $\equiv$
+
+    test$\iff \hspace{-17pt} \not \hspace{17pt}$test
+\end{definition}
+
+\begin{definition}[Inneres, Abschluss, Rand]
+    Sei $(X, \T)$ ein topologischer Raum, und $U \subset X$.
+\end{definition}
+
+- Beispiele mit trivialen Topologien
+
+\begin{lemma}[Inneres ist offen]
+    
+\end{lemma}
+
+\begin{lemma}[Abschluss ist abgeschlossen]
+    
+\end{lemma}
+
+\begin{corollary}[Rand]
+    trivial
+\end{corollary}
+
+Warnungen? "we stress that..."
+
+\begin{definition}[zusammenhängend]
+    Sei $(X, \T)$ ein topologischer Raum.
+    
+    Eine Menge $Y \subset X$ heißt \underline{zusammenhängend}, falls man sie nicht in offene disjunkte Mengen teilen kann:
+
+    $\not\exists U, V \in \T: Y \subset U \cup V$ und $U \cap V = \e$.
+\end{definition}
+
+\begin{definition}[wegzusammenhängend]
+    Vielleicht erst später? vlt in einem Kapitel über Kurven in $\R^n$?
+\end{definition}
+
+\begin{lemma}[wegzusammenhängend impliziert zusammenhängend]
+    
+\end{lemma}
+
+\begin{definition}[kompakt]
+    Sei $(X, \T)$ ein topologischer Raum.
+
+    Eine Menge $C \subset X$ heißt \underline{kompakt}, falls für jede offene Überdeckung von $C$ eine endliche Teilüberdeckung existiert:
+
+    $\forall (U_{\alpha})_{\alpha \in I}$ mit $C \subset \bigcup\limits_{\alpha \in I} U_{\alpha}$ $\exists \alpha_1, ..., \alpha_n \in I: C \subset \bigcup\limits_{i=1}^{n} U_{\alpha_i}$.
+\end{definition}
+
+\begin{lemma}[abgeschlossene Teilmengen kompakter Mengen sind kompakt]
+    zwei Aussagen
+\end{lemma}
+
+\begin{proposition}[Punktkompaktifizierung]
+    Sei $(X, \T)$ ein topologischer Raum, und $Y \subset X$ beliebig.
+
+    Wir können aus $Y$ durch Hinzunahme eines einzigen Punktes, den wir $\infty$ nennen\footnote{Dabei soll/muss $\infty$ nicht das bekannte "unendlich" sein, sondern ein beliebiger Punkt, der nicht in $X$ liegt. Dass man diesen auch mit $\infty$ bezeichnet, kommt daher, dass er bezüglich der neu kontruierten Topologie von $X \cup \{\infty\}$ als "unendlich weit weg" von $X$ interpretiert werden kann.}, eine kompakte Menge $\bar{Y} = Y \cup \{\infty\}$ machen.
+\end{proposition}
+
+
+
+
+\section{Folgentopologie und Metrische Topologie}
+
+\textbf{Folgentopologie}
+
+\begin{query}
+    Hierfür brauche ich mindestens Konvergenz von Folgen. Wo soll ich das einführen? Optionen die ich sehe:
+    \begin{enumerate}[label=\thequery.\arabic*.]
+        \item Find ich am sinnvollsten: Kapitel Topologie und Folgen zu einem Riesenkapitel mergen und Stoff relativ zueinander umordnen dass es halbwegs aufeinander aufbaut
+        \item Finde ich am sinnvollsten 2: Kapitel Topologie und Folgen vertauschen
+        \item Konvergenzbegriff hier einführen, kurz erklären mit Beispielen, dann mit Folgentopologie weitermachen \& den Rest von Folgen im nächsten Kapitel machen
+        \item In Kapitel "Mengen und Zahlen" werden sowieso Familien und Folgen definiert (aber nichts größer damit gemacht), da könnte ich auch eine Definition von Konvergenz von Folgen dazu packen
+        \item Halte ich für nicht sinnvoll: Folgentopologie hier rauslassen und in Kapitel Folgen nachholen
+    \end{enumerate}
+\end{query}
+
+\begin{definition}[Folgentopologie]
+    abgeschlossen bzgl eines Konvergenzbegriffes
+\end{definition}
+
+\begin{definition}[Folgenkompakt]
+    
+\end{definition}
+
+noch Sachen aus Gurau Kapitel 4?
+
+
+
+\textbf{Metrische Topologie}
+
+
+\begin{definition}[Metrischer Raum]
+    
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item Dirac Metrik
+        \item Betrag auf $\R$
+        \item Betrag auf $\R^n$
+        \item $p$-Norm und $\infty$-Norm auf $\R^n$
+    \end{enumerate}
+\end{example}
+
+\begin{definition}[offener Ball]
+    Sei $(X, d)$ ein metrischer Raum, und $x \in X$.
+
+    Der \underline{offene Ball} mit Radius $r$ um den Punkt $x$ ist die Menge $B_r(x) = \{y \in X | d(x,y) < r\}$.
+
+    Der \underline{abgeschlossene Ball} mit Radius $r$ um den Punkt $x$ ist die Menge $\bar{B}_r(x) = \{y \in X | d(x,y) \leq r\}$.
+\end{definition}
+
+\begin{proposition}[Metrik induziert Topologie]
+    \label{lem-metric-induces-topology}
+    Sei $(X, d)$ ein metrischer Raum.
+
+    Dann trägt $X$ eine kanonisch induzierte Topologie $\T_d$ definiert durch $U \in \T_d \iff \forall x \in U \exists \epsilon > 0: B_{\epsilon}(x) \subset U$.
+\end{proposition}
+
+\begin{lemma}[metrischer Rand]
+    Sei $(X, d)$ ein metrischer Raum mit induzierter Topologie $\T_d$.
+
+    Dann gilt bezüglich dieser Topologie
+    \begin{enumerate}
+        \item Für $Y \subset X$: $y \in \partial Y \iff \forall \epsilon > 0$
+        \item Für Bälle: $B_r(x)$ ist offen ($\implies B_r(x)^o = B_r(x)$)
+        \item Für Bälle: $\bar{B}_r(x)$ ist abgeschlossen ($\implies \bar{B}_r(x) = \bar{B_r(x)}$)
+        \item muss schauen ob ich noch mehr von diesen $\partial Y = \bar{Y} \backslash Y^o$ etc Miniaussagen reinpacken will, und wie viele davon spezifisch für metrische Räume sind
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Hausaufgabe?
+\end{proof}
+
+\begin{example}
+    $\R^2$ mit Halbebene $\{x > 0\}$ ist ein MEGA gutes Beispiel
+\end{example}
+
+\begin{lemma}[Metrisch $\implies$ Hausdorff]
+    Sei $(X, d)$ ein metrischer Raum mit induzierter Topologie $\T_d$.
+
+    Dann ist $(X, \T_d)$ ein Hausdorr-Raum.
+\end{lemma}
+\begin{proof}
+    Seien $x, y \in X$, $x \neq y$.
+
+    Wir müssen zwei offene, nichtleere Mengen finden, die $x$ und $y$ trennen. Dazu verwenden wir die Metrik:
+
+    Wir setzen $d = d(x,y)$, dann ist $d > 0$ wegen (M1).
+
+    Dazu betrachten wir die beiden offenen Bälle $B_{\frac{d}{2}}(x)$ und $B_{\frac{d}{2}}(y)$.
+
+    Offensichtlich gilt $B_{\frac{d}{2}}(x) \neq \e \neq B_{\frac{d}{2}}(y)$, da $d(x, x) = 0 < d \implies x \in B_{\frac{d}{2}}(x)$ und analog für $B_{\frac{d}{2}}(y)$.
+
+    Jetzt wollen wir zeigen, dass der Schnitt leer ist. Dazu nehmen wir an, es gäbe ein $z \in B_{\frac{d}{2}}(x) \cap B_{\frac{d}{2}}(y)$. Dieses $z$ kann es offensichlicht nicht geben, da es näher als $\frac{d}{2}$ an $x$ und näher als $\frac{d}{2}$ an $y$ liegen müsste.
+    
+    Das formalisieren wir mit der Dreiecksungleichung: $d = d(x, y) \leq d(x, z) + d(z, y) < \frac{d}{2} + \frac{d}{2} = d$.\absurdum
+
+    Also gibt es $z$ nicht und $B_{\frac{d}{2}}(x) \cap B_{\frac{d}{2}}(y) = \e$.
+
+    Damit haben wir unsere Mengen gefunden.
+\end{proof}
+
+\begin{query}
+    nicht sicher ob das hier hingehört, aber Gurau macht das
+\end{query}
+
+\begin{definition}[Norm]
+    \begin{enumerate}[label=(N\arabic*)]
+        \item positiv definit
+        \item Skalare mit Betrag rausziehen
+        \item Dreiecks ungl
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Normäquivalenz]
+    Zwei Normen $|\cdot|_1$, $|\cdot|_2$ heißen \underline{äquivalent}, falls $\exists c, C > 0: c |\cdot|_1 \leq |\cdot|_2 \leq |C \cdot|_1$.
+\end{definition}
+
+\begin{example}
+    
+\end{example}
+
+\begin{proposition}[Auf $\R^n$ sind alle Normen äquivalent]
+    Es reich z.z. dass alle Normen äquivalent zur Standardnorm sind.
+\end{proposition}
+
+Basis hier? oder oben?
+
+\begin{lemma}[$\Q$ liegt dicht in $\R$]
+    Bezüglich der Standardtopologie gilt $\bar{\Q} = \R$.
+\end{lemma}
+
+
+
+\section{Stetigkeit}
+
+\begin{definition}[$\epsilon$-$\delta$-Stetigkeit]
+    $$\forall \epsilon > 0 \exists \delta > 0 \forall x \in D: |x-x_0| < \delta \implies |f(x)-f(x_0)| < \epsilon$$
+\end{definition}
+
+- Erklärung
+- Zwei Bilder
+
+\begin{definition}[topologische Stetigkeit]
+    Seien $(X, \T_X)$ und $(Y, \T_Y)$ topologische Räume, und $f: X \arr Y$ eine Funktion.
+
+    $f$ heißt stetig, falls gilt: $V \in \T_Y \implies f\m(V) \in \T_X$.
+\end{definition}
+
+\begin{definition}[Folgenstetigkeit]
+    $f: X \arr Y$ heißt \underline{folgenstetig}, falls $\forall (x_n)_{n \in \N}$ mit Grenzwert in $X$ gilt: $\lim_{n \arr \infty} f(x_n) = f(\lim_{n \arr \infty}x_n)$.
+\end{definition}
+
+\begin{lemma}[stetige Bilder kompakter Mengen sind kompakt]
+    
+\end{lemma}
+
+\begin{lemma}[Metrik ist stetig]
+    
+\end{lemma}
+
+\begin{remark}
+    flow chart ansprechen, Sorgenfrey Topologie
+\end{remark}
+
+\begin{definition}[Gleichmäßige Stetigkeit]
+    $$\forall \epsilon > 0 \exists \delta > 0 \forall x, y \in D: |x-y| < \delta \implies |f(x)-f(y)| < \epsilon$$
+\end{definition}
+
+\begin{lemma}[gleichmäßig stetig $\implies$ stetig]
+        
+\end{lemma}
+
+\begin{example}
+    \begin{enumerate}
+        \item $id$ ist gleichmäßig stetig
+        \item $f: \R_+ \arr \R_+, \quad f(x) = \frac{1}{x}$ ist stetig aber nicht gleichmäßig stetig
+    \end{enumerate}
+\end{example}
+
+\begin{definition}[Lipschitz Stetigkeit]
+    $$\exists L \leq 0: \forall x, y \in D: |f(x)-f(y)| < L \cdot |x-y|$$
+\end{definition}
+
+\begin{lemma}[Lipschitz stetig $\implies$ gleichmäßig stetig]
+    
+\end{lemma}
+
+\begin{example}
+    \begin{enumerate}
+        \item $id$ ist Lipschitz stetig
+        \item $f: \R_+ \arr \R_+, \quad f(x) = \sqrt{x}$ ist gleichmäßig aber nicht Lipschitz ($x=0$)
+        \item Polynome sind Lipschitz auf $[a, b]$, nicht Lipschitz auf $\R$ (Problem $\infty$)
+    \end{enumerate}
+\end{example}

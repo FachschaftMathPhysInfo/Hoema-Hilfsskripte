@@ -40,6 +40,46 @@
       \field{title}{HoMa}
       \field{year}{1000BC}
     \endentry
+    \entry{Amann-Escher-1}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=05b5e57b1f4739c8de596a91d4134ec5}{%
+           family={Amann},
+           familyi={A\bibinitperiod},
+           given={Herbert},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0672f87e227433edd60889b04c34b756}{%
+           family={Escher},
+           familyi={E\bibinitperiod},
+           given={Joachim},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Nature}%
+      }
+      \strng{namehash}{a4b532165ab55bcb9a4bdf12c920482d}
+      \strng{fullhash}{a4b532165ab55bcb9a4bdf12c920482d}
+      \strng{fullhashraw}{a4b532165ab55bcb9a4bdf12c920482d}
+      \strng{bibnamehash}{a4b532165ab55bcb9a4bdf12c920482d}
+      \strng{authorbibnamehash}{a4b532165ab55bcb9a4bdf12c920482d}
+      \strng{authornamehash}{a4b532165ab55bcb9a4bdf12c920482d}
+      \strng{authorfullhash}{a4b532165ab55bcb9a4bdf12c920482d}
+      \strng{authorfullhashraw}{a4b532165ab55bcb9a4bdf12c920482d}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Analysis I}
+      \field{year}{2005}
+      \verb{doi}
+      \verb 10.1007/b137107
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/book/10.1007/b137107
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/book/10.1007/b137107
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

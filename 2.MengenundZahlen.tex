@@ -384,7 +384,7 @@ Ein maximales Element ist eine schwächere Bedingung als eine obere Schranke, da
 \begin{remark}
     Eine Wohlordnung kann man als eine \emph{kanonische} (d.h. für die menschliche Intuition die natürlichste Wahl) Reihenfolge von Elementen in $X$ verstehen: Für die Teilmenge $X \subset X$ gibt (W) einem ein Minimum $w_1$, dieses nimmt man als erstes Element in der Reihenfolge. Dann gibt (W) einem für $X \backslash \{w_1\} \subset X$ wieder ein Minimum $w_2$, dann für $X \backslash \{w_1, w_2\}$ ein Minimum $w_3$, und so weiter. Durch Induktion\footnote{Endliche, natürliche, oder transfinite Induktion, je nach Kardinalität von $X$, siehe \ref{REF}.} kann man alle Elemente von $X$ relativ zueinander ordnen: $w_1, w_2, w_3, ...$
 
-    Die Existenz einer Wohlordnung ist für endliche Posets trivial: Man zählt die Elemente einfach in einer beliebigen Reihenfolge auf, und definiert sich entsprechend $x < y \iff x$ in der Aufzählung vor $y$ steht. Die gewählte Aufzählung ist dann auch schon die Wohlordnung. Für gewisse unendliche Mengen kann man auch eine Wohlordnung angeben, z.B. für $(\N, <)$ ist die Aufzählung $\{0, 1, 2, 3, ...)\}$ eine mögliche Wohlordnung. $(\Z, <)$ und $(\Q, <)$ können auch wohlgeordnet werden, siehe dazu den Beweis von \ref{theorem-cantor-1}. Die Existenz einer Wohlordnung für alle unendlichen Mengen benötigt ein zusätzliches Axiom, siehe \ref{chapter-tenth-axiom}.
+    Die Existenz einer Wohlordnung ist für endliche Posets trivial: Man zählt die Elemente einfach in einer beliebigen Reihenfolge auf, und definiert sich entsprechend $x < y \iff x$ in der Aufzählung vor $y$ steht. Die gewählte Aufzählung ist dann auch schon die Wohlordnung. Für gewisse unendliche Mengen kann man auch eine Wohlordnung angeben, z.B. für $\N$ ist die Aufzählung $\{0, 1, 2, 3, ...)\}$ eine mögliche Wohlordnung mit der Wohlordnugnsrelation $<$. $Z$ und $Q$ können auch wohlgeordnet werden, siehe dazu den Beweis von \ref{theorem-cantor-1}, allerdings ist $<$ keine Wohlordnungsrelation mehr, weil $\Z$ und $\Q$ kein Minimum bezüglich $<$ haben. Die Existenz einer Wohlordnung für alle unendlichen Mengen, insbesondere für überabzählbare Mengen (\ref{def-cardinality}), benötigt ein zusätzliches Axiom (\ref{chapter-tenth-axiom}).
 \end{remark}
 
 
@@ -470,7 +470,7 @@ Ein maximales Element ist eine schwächere Bedingung als eine obere Schranke, da
     \begin{enumerate}
         \item $f$ heißt \underline{injektiv}, wenn gilt: $\forall x, y \in X: x \neq y \implies f(x) \neq f(y)$.\\
         Injektivität bedeutet, dass die Funktion jedes Element in der Zielmenge höchstens einmal "trifft".\\
-        Oft lässt sich Injektivität leichter durch die Kontraposition der Aussage zeigen: $\forall x, y \in X: f(x) = f(y) \implies x = y$.
+        Manchmal lässt sich Injektivität leichter durch die Kontraposition der Aussage zeigen: $\forall x, y \in X: f(x) = f(y) \implies x = y$.
         \item $f$ heißt \underline{surjektiv}, wenn gilt: $\forall y \in Y \exists x \in X: f(x) = y$.\\
         Surjektivität bedeutet, dass die Funktion jedes Element in der Zielmenge mindestens einmal "trifft".
         \item $f$ heißt \underline{bijektiv}, wenn $f$ injektiv und surjektiv ist.\\
@@ -531,6 +531,7 @@ Bem: Urbild / Umkehrabb!
 \end{lemma}
 
 \section{Das zehnte Axiom}
+\label{chapter-tenth-axiom}
 
 \begin{axiom}[Lemma von Zorn]
     \label{lemma-von-zorn}
@@ -871,10 +872,10 @@ Relle Zahlen $\R$ haben eine eher begrenzte nichtmathematische Motivation. Auch 
     \cite{GURAU} definiert die natürlichen Zahlen anders, indem er mithilfe der ZF-Axiome explizit eine Menge konstruiert, die alle Eigenschaften der natürlichen Zahlen erfüllen, und dann eine Identifikation mit $\N$ macht (explizit $\e = 0$, $\{\e\} = 1$, $\{ \e, \{\e\}\} = 2$ etc). Das hat den ästhetischen Vorteil, dass zusätzlich zu den ZF-Axiomen keine weiteren Axiome benötigt werden, um die Existenz von $\N$ zu zeigen. Das ist aber auch hier nicht der Fall, denn die Peano-Axiome (bzw. die Existenz einer Menge $\N$, die die Peano-Axiome erfüllt) sind innerhalb der ZF-Mengenlehre keine echten Axiome, können daraus gefolgert werden.
 \end{remark}
 
-\begin{EXERCISE}
+\begin{exercise}
     \label{exercise-structure-of-n}
     Was ist die größte algebraische Struktur, die $(\N, +, \cdot)$ erfüllt?
-\end{EXERCISE}
+\end{exercise}
 
 \begin{remark}
     \textbf{Natürliche Zahlen und die Null}
@@ -885,6 +886,7 @@ Relle Zahlen $\R$ haben eine eher begrenzte nichtmathematische Motivation. Auch 
 Wie bereits angemerkt, ist die Definition der natürlichen Zahlen eng verknüpft mit dem Prinzip der vollständigen Induktion. Diesen Zusammenhang können wir jetzt formalisieren:
 
 \begin{theorem}[Vollständige Induktion]
+    \label{theorem-natural-induction}
     Sei $A(n)$ eine Aussageform, die von $n \in \N$ abhängt. Es gelte:
     \begin{enumerate}
         \item \underline{Induktionsanfang}: $A(0)$ ist wahr.
@@ -938,7 +940,7 @@ Wenn man eine Menge (oder ein sonstiges Objekt) implizit durch Angabe der Eigens
     Die oben definierten Mengen $\N$, $\Z$, $\Q$, und $\R$ existieren, und sind eindeutig bis auf Isomorphie. Dabei bedeutet Isomorphie eine eins-zu-eins-Zuordnung, die die Rechenregeln unverändert lässt.
 \end{theorem}
 \begin{proof}
-    Führen wir hier nicht aus. Der motivierte Leser kann den Beweis in \cite{Amann-Escher}, Seiten 32-37 und 90-101, nachlesen.
+    Führen wir hier nicht aus. Der motivierte Leser kann den Beweis in \cite{Amann-Escher-1}, Seiten 32-37 und 90-101, nachlesen.
 \end{proof}
 
 \begin{proposition}[$\R$ erfüllt die \underline{Archimedische Eigenschaft}]
@@ -950,9 +952,9 @@ Wenn man eine Menge (oder ein sonstiges Objekt) implizit durch Angabe der Eigens
 \begin{definition}[Unendlich]
     Wir definieren:
 
-    $\infty = sup(\R)$
+    $\infty = \sup(\R)$
 
-    $- \infty = inf(\R)$
+    $- \infty = \inf(\R)$
 \end{definition}
 
 \begin{remark}
@@ -1053,9 +1055,9 @@ Das ist unser erster Beweis, der eine \emph{Hilfskonstruktion} verwendet. Hilfsk
     Da $\{x\} = \{y\} \implies x = y$ gilt, ist $\iota$ injektiv, darum muss $|X| \leq |\Pot(X)|$ gelten, und deswegen insgesamt $|X| < |\Pot(X)|$.
 \end{proof}
 
-\begin{EXERCISE}
+\begin{exercise}
     Sei $X$ eine endliche Menge. Zeigen Sie, dass gilt: $|\Pot(X)| = 2^{|X|}$.
-\end{EXERCISE}
+\end{exercise}
 
 Mit der geleisteten Vorarbeit kommen wir nun endlich zu den ersten Theoremen, die weitreichende Implikationen haben:
 
@@ -1106,7 +1108,7 @@ Das ist eine völlig unintuitive Aussage. Naiv geht man davon aus, dass es "viel
 
     Um seine Bijektion zu finden, geht man in Diagonalen durch das Muster durch, und bildet $n$ ab auf die $n$-te\footnote{Oder auf die ($n+1$)-te, wenn man nicht wie jeder normale Mathematiker bei $0$ anfängt zu zählen.} übrig gebliebene Zahl.
 
-    Das Schema ist offensichtlich injektiv, und weil jede Diagonale mit einem endlichen Anfangspunkt endlich ist, erreicht man jede endliche rationale Zahl nach endlich vielen Schritten. Deswegen muss das Schema auch surjektiv sein.
+    Das Schema ist offensichtlich injektiv. Weil jede Diagonale mit einem endlichen Anfangspunkt endlich ist, erreicht man jede endliche rationale Zahl nach endlich vielen Schritten. Deswegen muss das Schema auch surjektiv sein.
 
     \underline{Schritt 3}: $\Q$ ist abzählbar.
 
@@ -1162,17 +1164,24 @@ Die komplexen Zahlen stammen historisch aus der Realisierung, dass die Lösung f
     Wir definieren $i = \sqrt{-1}$ und $\C = \R + i \R$.
 \end{definition}
 
+\begin{corollary}["für Marco"]
+    Diese Definition ist logisch und ergibt Sinn.
+\end{corollary}
+\begin{proof}
+    Klar.
+\end{proof}
+
 \begin{definition}[Eigenschaften von komplexen Zahlen]
     Sei $z \in \C$. Dann ist $z = x + iy$ mit $x, y \in \R$. Wir nennen:
     \begin{enumerate}
         \item $x = re(z)$ den \underline{Realteil} von $z$, und $y = im(z)$ den \underline{Imaginärteil} von $z$
         \item $\bar{z} = x - iy$ die \underline{komplex Konjugierte} (oder \underline{c.c.}) zu $z$
-        \item $|z| = \sqrt{x^2 + y^2}$ den Betrag von $z$
+        \item $|z| = \sqrt{x^2 + y^2}$ den \underline{Betrag} von $z$
     \end{enumerate}
 \end{definition}
 
 \begin{lemma}[Polardarstellung]
-    Sei $z \in \C$. Dann ist $z = r \cdot e^{i \phi}$ mit $r = |z|$, $\phi = \arctan(\frac{y}{x}$, und $e^{i \phi} = \cos(\phi) + i \sin(\phi)$.
+    Sei $z \in \C$. Dann ist $z = r \cdot e^{i \phi}$ mit $r = |z|$, $\phi = \arctan(\frac{y}{x})$, und $e^{i \phi} = \cos(\phi) + i \sin(\phi)$.
 \end{lemma}
 \begin{proof}
     Elementare Geometrie. Bzw. wir haben cos und sin noch nicht definiert haha.

@@ -68,19 +68,39 @@
 
 \theoremstyle{definition}
 \newtheorem{Theorem}{Theorem}[chapter]
+% das erste {Theorem} ist der wrapper für unten
+% das zweite {Theorem} ist der Anzeigetext
+% [chapter] definiert einen neuen counter der 1.1, 1.2, 2.1 etc nummeriert
 \newtheorem{Definition}[Theorem]{Definition}
+% {Definition} ist der wrapper für unten
+% [Theorem] sagt er soll denselben counter wie für Theoreme verwenden, d.h. man hat dann Def 1.1, Def 1.2, Theorem 1.3 etc.
+% {Definition} ist der Anzeigetext
 \newtheorem{Example}[Theorem]{Beispiel}
 \newtheorem{Corollary}[Theorem]{Korollar}
 \newtheorem{Remark}[Theorem]{Bemerkung}
 \newtheorem{Proposition}[Theorem]{Proposition}
 \newtheorem{Lemma}[Theorem]{Lemma}
-\newtheorem{exercise}[Theorem]{Aufgabe}
+\newtheorem{Exercise}{Aufgabe}[chapter]
+% das definiert einen neuen counter für Aufgaben, d.h. Def 1.1, Def 1.2, Theorem 1.3, Aufgabe 1.1
 \newtheorem{Axiom}[Theorem]{Axiom}
 
 \definecolor{shadecolor}{RGB}{238,233,233}
 
+% der Teil kreiert jetzt farbige Boxen in die die Theoreme etc reinge-wrapped werden
 \newenvironment{theorem}[1][]{\colorlet{shadecolor}{yellow!15} \begin{shaded} \begin{Theorem}[#1]}{\end{Theorem} \end{shaded}}
-\newenvironment{corollary}[1][]{\colorlet{shadecolor}{green!10} \begin{shaded} \begin{Corollary}[#1]}{\end{Corollary} \end{shaded}}
+% \newenvironment{theorem} bestimmt wie man es später aufruft: \begin{theorem} ... \end{theorem}
+% \{yellow!15} ist die Farbe der Box, bedeutet 15% yellow 85% white
+% 
+% [#1] ist ein Argument für das Theorem, d.h. man hat später
+% \begin{theorem}[Satz von Kaffee] ... \end{theorem}
+% und dann wird:
+% Theorem 1.1. (Satz von Kaffee). ...
+% angezeigt.
+% Das Argument ist leider nicht optional, d.h. man muss jedes Mal \begin{theorem}[hier] irgendwas reinschreiben.
+% \begin{theorem} oder \begin{theorem}[] kompiliert nicht.
+% Ich weiß noch nicht, wie ich das optional machen kann, ohne zwei verschiedene environments zu coden.
+
+\newenvironment{corollary}[1][]{\colorlet{shadecolor}{gray!15} \begin{shaded} \begin{Corollary}[#1]}{\end{Corollary} \end{shaded}}
 \newenvironment{proposition}[1][]{\colorlet{shadecolor}{gray!15} \begin{shaded} \begin{Proposition}[#1]}{\end{Proposition} \end{shaded}}
 \newenvironment{lemma}[1][]{\colorlet{shadecolor}{gray!15} \begin{shaded} \begin{Lemma}[#1]}{\end{Lemma} \end{shaded}}
 
@@ -92,8 +112,9 @@
 
 \newenvironment{shadedbox}{\colorlet{shadecolor}{gray!15}  \begin{shaded}{} }{ \end{shaded} }
 \newenvironment{redbox}{\colorlet{shadecolor}{red!15}  \begin{shaded}{} }{ \end{shaded} }
-\newenvironment{QUESTION}{\colorlet{shadecolor}{gray!15} \begin{shaded}{Question: } }{ \end{shaded} }
-\newenvironment{EXERCISE}{\colorlet{shadecolor}{gray!15} \begin{shaded}{Exercise:} }{ \end{shaded} }
+%\newenvironment{QUESTION}{\colorlet{shadecolor}{gray!15} \begin{shaded}{Question: } }{ \end{shaded} }
+% brauche ich gerade nicht
+\newenvironment{exercise}{\colorlet{shadecolor}{green!12} \begin{shaded} \begin{Exercise} }{\end{Exercise} \end{shaded} }
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.5em}
@@ -117,10 +138,11 @@
 \newcommand{\arr}{\longrightarrow}
 \newcommand{\m}{^{-1}}
 \newcommand{\Pot}{\mathcal{P}\hspace{-1pt}ot\hspace{1pt}}
-\newcommand{\absurdum}{{\quad \huge $\lightning$}}
+\newcommand{\T}{\mathcal{T}}
 
 \newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.}\hbox{\scriptsize.}}} =}
 
+\newcommand{\absurdum}{{\quad \huge $\lightning$}}
 \renewcommand{\qedsymbol}{$\blacksquare$}
 \newcommand{\subqed}{\hfill$\diamond$}
 
@@ -134,6 +156,7 @@
 
 \newcounter{query}
 \newenvironment{query} {\refstepcounter{query} \par\medskip \begin{redbox} \noindent \textbf{\textcolor{purple}{\thequery. }} \begingroup \color{purple} \large \ignorespaces} {\par \endgroup \end{redbox} \medskip \ignorespacesafterend}
+% Das environment habe ich gecoded, um während des Schreibens Fragen, die ich nicht spontan klären oder entscheiden kann, reinzuschreiben, damit ich aufhör drüber nachzudenken und sie später aufgreifen kann. wird mit \begin{query} ... \end{query} aufgerufen. Das ist mega markant und fällt beim Korrekturlesen sofort auf.
 
 
 \setlist[enumerate,1]{label=(\roman*)}
@@ -153,7 +176,9 @@
 
 %\include{1.Logik}
 
-\include{2.MengenundZahlen}
+%\include{2.MengenundZahlen}
+
+\include{3.Topologie}
 
 \include{AUXIES}
 

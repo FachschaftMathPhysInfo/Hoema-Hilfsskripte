@@ -30,6 +30,13 @@ Kapitel 2
 
 - Gruppenhomo
 
+- Familien
+
+- Folgen
+
+- M / X konsistent machen
+
+
 
 kleinere Dinge
 
@@ -50,6 +57,8 @@ kleinere Dinge
 - schöneres \cap etc mit Text direkt drunter
 
 - "Nachrechnen" Beweis schöner
+
+- Liste mit Literatur, Empfehlungen
 
 
 Fragen zum ganzen Dokument

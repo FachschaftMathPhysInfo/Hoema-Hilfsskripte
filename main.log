@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.11)  3 AUG 2026 08:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.11)  9 AUG 2026 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -902,33 +902,34 @@ Package: thm-amsthm 2023/02/17 v0.75
 \thmt@style@headstyle=\toks50
 ))
 \c@Theorem=\count455
-\c@query=\count456
-\@quotelevel=\count457
-\@quotereset=\count458
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 142.
+\c@Exercise=\count456
+\c@query=\count457
+\@quotelevel=\count458
+\@quotereset=\count459
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 165.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./main.aux (./2.MengenundZahlen.aux) (./AUXIES.aux))
+) (./main.aux (./3.Topologie.aux) (./AUXIES.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -966,16 +967,16 @@ LaTeX Font Info:    ... okay on input line 142.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count459
+\scratchcounter=\count460
 \scratchdimen=\dimen298
 \scratchbox=\box76
-\nofMPsegments=\count460
-\nofMParguments=\count461
+\nofMPsegments=\count461
+\nofMParguments=\count462
 \everyMPshowfont=\toks51
-\MPscratchCnt=\count462
+\MPscratchCnt=\count463
 \MPscratchDim=\dimen299
-\MPnumerator=\count463
-\makeMPintoPDFobject=\count464
+\MPnumerator=\count464
+\makeMPintoPDFobject=\count465
 \everyMPtoPDFconversion=\toks52
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -986,24 +987,24 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 142.
+Package hyperref Info: Link coloring OFF on input line 165.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 142.
-Package microtype Info: Applying patch `item' on input line 142.
-Package microtype Info: Applying patch `toc' on input line 142.
-Package microtype Info: Applying patch `eqnum' on input line 142.
-Package microtype Info: Applying patch `footnote' on input line 142.
-Package microtype Info: Applying patch `verbatim' on input line 142.
+LaTeX Info: Redefining \microtypecontext on input line 165.
+Package microtype Info: Applying patch `item' on input line 165.
+Package microtype Info: Applying patch `toc' on input line 165.
+Package microtype Info: Applying patch `eqnum' on input line 165.
+Package microtype Info: Applying patch `footnote' on input line 165.
+Package microtype Info: Applying patch `verbatim' on input line 165.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 142.
+LaTeX Info: Redefining \showhyphens on input line 165.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1023,8 +1024,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 142.
-Package biblatex Info: Reference segment=0 on input line 142.
+Package biblatex Info: Reference section=0 on input line 165.
+Package biblatex Info: Reference segment=0 on input line 165.
  (./main.toc
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/ot1lmr.fd
@@ -1076,120 +1077,79 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [2
 
 ]
-\openout2 = `2.MengenundZahlen.aux'.
+\openout2 = `3.Topologie.aux'.
 
- (./2.MengenundZahlen.tex
+ (./3.Topologie.tex
 Coffee 0.
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on input line 5.
-(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree0.fd)
-Package hyperref Info: bookmark level for unknown Definition defaults to 0 on input line 9.
- [1
-
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free0.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-Package hyperref Info: bookmark level for unknown Axiom defaults to 0 on input line 31.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 37.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 37.
- [2]
-Package hyperref Info: bookmark level for unknown Remark defaults to 0 on input line 53.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 54.
- (/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 8.
+(/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package hyperref Info: bookmark level for unknown Example defaults to 0 on input line 72.
-Package hyperref Info: bookmark level for unknown Lemma defaults to 0 on input line 75.
- [3{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [4]
+) [1
+
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+Package hyperref Info: bookmark level for unknown Definition defaults to 0 on input line 43.
+Package hyperref Info: bookmark level for unknown Example defaults to 0 on input line 58.
+ [2{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [3]
+Package hyperref Info: bookmark level for unknown Exercise defaults to 0 on input line 122.
+Package hyperref Info: bookmark level for unknown Lemma defaults to 0 on input line 137.
+Package hyperref Info: bookmark level for unknown Corollary defaults to 0 on input line 145.
+ [4]
+Package hyperref Info: bookmark level for unknown Proposition defaults to 0 on input line 179.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 185.
- [5] [6] [7] [8]
-
-LaTeX Warning: Reference `REF' on page 9 undefined on input line 385.
-
-
-LaTeX Warning: Reference `chapter-tenth-axiom' on page 9 undefined on input line 387.
-
-[9] [10] [11] [12]
-Package hyperref Info: bookmark level for unknown Theorem defaults to 0 on input line 550.
- [13] [14] [15] [16] [17] [18] [19] [20] [21]
-Package hyperref Info: bookmark level for unknown Proposition defaults to 0 on input line 944.
- [22] [23]
+(Font)              <9> on input line 182.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.74> on input line 1008.
+(Font)              <5> on input line 182.
+ [5] [6]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 1008.
-
-pdfTeX warning (ext4): destination with the same identifier (name{query.8}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1025 \begin{query}
-                     [24] [25] [26] [27] [28]) [29]
+(Font)              <20.74> on input line 283.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 283.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 283.
+ [7] [8]
+Package hyperref Info: bookmark level for unknown Remark defaults to 0 on input line 350.
+) [9]
 \openout2 = `AUXIES.aux'.
 
- (./AUXIES.tex [30
+ (./AUXIES.tex [10
 
 
 
 
 ]
 Coffee 1.
-[31]) [32
+[11]) [12
 
 
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 166.
- (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [33
 
-] (./main.aux (./2.MengenundZahlen.aux) (./AUXIES.aux))
+LaTeX Warning: Empty bibliography on input line 191.
 
-LaTeX Warning: There were undefined references.
-
+(./main.aux (./3.Topologie.aux) (./AUXIES.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D0BDCD278FD5A024ECB83F3186025DBD;975.
+(rerunfilecheck)             Checksum: 827C8D0E03F5F53086DE7AB6D56575DD;705.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40375 strings out of 476041
- 787537 string characters out of 5793174
- 1866388 words of memory out of 6000000
- 59543 multiletter control sequences out of 15000+600000
- 648283 words of font info for 274 fonts, out of 8000000 for 9000
+ 39638 strings out of 476041
+ 775173 string characters out of 5793174
+ 1865388 words of memory out of 6000000
+ 59171 multiletter control sequences out of 15000+600000
+ 604271 words of font info for 190 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 84i,12n,89p,1082b,1292s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Remark.0.68} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Example.0.13} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Definition.0.1} has been referenced but does not exist, replaced by a fixed one
-
+ 84i,9n,89p,1082b,830s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
-</usr/share/texlive/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on main.pdf (35 pages, 473745 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb>
+Output written on main.pdf (14 pages, 296151 bytes).
 PDF statistics:
- 751 PDF objects out of 1000 (max. 8388607)
- 656 compressed objects within 7 object streams
- 346 named destinations out of 1000 (max. 500000)
- 74325 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 357 PDF objects out of 1000 (max. 8388607)
+ 298 compressed objects within 3 object streams
+ 140 named destinations out of 1000 (max. 500000)
+ 51253 words of extra memory for PDF output out of 51595 (max. 10000000)
 
