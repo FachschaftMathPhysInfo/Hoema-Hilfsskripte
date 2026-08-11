@@ -36,13 +36,21 @@ Kapitel 2
 
 - M / X konsistent machen
 
+- Intervalle und [|0,n|] definieren
+
+- transfinite Induktion
+
+
+
+Kapitel 3
+
+- Normen in späterem Kapitel, verweis dazu
+
 
 
 kleinere Dinge
 
 - schöneres ==> Symbol
-
-- schöneres leere Menge Symbol
 
 - underline konsistent machen
 

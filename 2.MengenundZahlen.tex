@@ -36,7 +36,7 @@ Natürlich ergeben diese Definitionen streng genommen erst Sinn, sobald man die 
         \item \underline{Paarmengenaxiom}: Wenn $A$, $B$ Mengen sind, dann ist $\{A, B\}$ eine Menge.
         \item \underline{Aussonderungsaxiom}: Wenn $A$ eine Menge ist, und $P(x)$ eine Eigenschaft\footnote{Logisch streng genommen ist $P$ ein \emph{Prädikat}.}, die Elemente $x$ von $A$ entweder erfüllen oder nicht erfüllen können, dann ist $\{x \in A | P(x)\}$ eine Menge. Die Notation $x \in A | P(x)$ bedeutet "x in A, für die gilt: P(x)". Logisch ist das wieder definiert durch $x \in A \land P(x)$, aber der senkrechte Strich trennt optisch die Elemente der Menge von den Bedingungen, die diese erfüllen.
         \item \underline{Vereinigungsaxiom}: Wenn $A$ eine Menge ist, die aus Mengen besteht, dann ist $\bigcup A \defeq \{x | x \in B \land D \in A\}$ eine Menge.
-        \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennen wir die \underline{leere Menge} und schreibt $\e$ oder $\{\}$. Formal ist die Aussage $\exists \e: \forall x: x \notin \e$. Die leere Menge ist die einzige explizite Menge, deren Existenz axiomatisiert wird. Alle weiteren expliziten Mengen müssen also mit Hilfe der anderen Axiome aus der leeren Menge konstruiert werden.
+        \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennen wir die \underline{leere Menge} und schreiben $\e$ oder $\{\}$. Formal ist die Aussage $\exists \e: \forall x: x \notin \e$. Die leere Menge ist die einzige explizite Menge, deren Existenz axiomatisiert wird. Alle weiteren expliziten Mengen müssen also mit Hilfe der anderen Axiome aus der leeren Menge konstruiert werden.
         \item \underline{Potenzmengenaxiom}: Für jede Menge $A$ existiert eine Menge, die genau alle Teilmengen von $A$ enthält. Diese nennen wir die Potenzmenge $\Pot(A)$.
         
         Wir schreiben: $\Pot(A) = \{B | B \subset A\}$.
@@ -382,7 +382,7 @@ Ein maximales Element ist eine schwächere Bedingung als eine obere Schranke, da
 \end{definition}
 
 \begin{remark}
-    Eine Wohlordnung kann man als eine \emph{kanonische} (d.h. für die menschliche Intuition die natürlichste Wahl) Reihenfolge von Elementen in $X$ verstehen: Für die Teilmenge $X \subset X$ gibt (W) einem ein Minimum $w_1$, dieses nimmt man als erstes Element in der Reihenfolge. Dann gibt (W) einem für $X \backslash \{w_1\} \subset X$ wieder ein Minimum $w_2$, dann für $X \backslash \{w_1, w_2\}$ ein Minimum $w_3$, und so weiter. Durch Induktion\footnote{Endliche, natürliche, oder transfinite Induktion, je nach Kardinalität von $X$, siehe \ref{REF}.} kann man alle Elemente von $X$ relativ zueinander ordnen: $w_1, w_2, w_3, ...$
+    Eine Wohlordnung kann man als eine \emph{kanonische} (d.h. für die menschliche Intuition die natürliche Wahl) Reihenfolge von Elementen in $X$ verstehen: Für die Teilmenge $X \subset X$ gibt (W) einem ein Minimum $w_1$, dieses nimmt man als erstes Element in der Reihenfolge. Dann gibt (W) einem für $X \backslash \{w_1\} \subset X$ wieder ein Minimum $w_2$, dann für $X \backslash \{w_1, w_2\}$ ein Minimum $w_3$, und so weiter. Durch Induktion\footnote{Endliche, natürliche, oder transfinite Induktion, je nach Kardinalität von $X$, siehe \ref{def-cardinality}, \ref{theorem-natural-induction}, \ref{remark-transfinite-induction}.} kann man alle Elemente von $X$ relativ zueinander ordnen: $w_1, w_2, w_3, ...$
 
     Die Existenz einer Wohlordnung ist für endliche Posets trivial: Man zählt die Elemente einfach in einer beliebigen Reihenfolge auf, und definiert sich entsprechend $x < y \iff x$ in der Aufzählung vor $y$ steht. Die gewählte Aufzählung ist dann auch schon die Wohlordnung. Für gewisse unendliche Mengen kann man auch eine Wohlordnung angeben, z.B. für $\N$ ist die Aufzählung $\{0, 1, 2, 3, ...)\}$ eine mögliche Wohlordnung mit der Wohlordnugnsrelation $<$. $Z$ und $Q$ können auch wohlgeordnet werden, siehe dazu den Beweis von \ref{theorem-cantor-1}, allerdings ist $<$ keine Wohlordnungsrelation mehr, weil $\Z$ und $\Q$ kein Minimum bezüglich $<$ haben. Die Existenz einer Wohlordnung für alle unendlichen Mengen, insbesondere für überabzählbare Mengen (\ref{def-cardinality}), benötigt ein zusätzliches Axiom (\ref{chapter-tenth-axiom}).
 \end{remark}
@@ -902,6 +902,11 @@ Wie bereits angemerkt, ist die Definition der natürlichen Zahlen eng verknüpft
     Aus dem Induktionsaxiom folgt $N = \N$, also ist $A(n)$ wahr $\forall n \in \N$.
 \end{proof}
 
+\begin{remark}
+    \label{remark-transfinite-induction}
+    Transfinite Induktion: für alle total geordneten Mengen
+\end{remark}
+
 Wie der Leser in \ref{exercise-structure-of-n} bewiesen hat, bildet $(\N, +)$ fast eine kommutative Gruppe, nur die additiven Inversen $-n$ zu $n \neq 0$ fehlen. Wenn wir diese, axiomatisch wie oben, hinzufügen, dann erhalten wir die ganzen Zahlen:
 
 \begin{definition}[Ganze Zahlen]
@@ -1086,8 +1091,8 @@ Das ist eine völlig unintuitive Aussage. Naiv geht man davon aus, dass es "viel
 
     $f$ ist surjektiv: Sei $w \in \Z$.
     \begin{enumerate}[label=Fall \arabic*:]
-        \item $w \leq 0$. Dann ist $n = 2w \in \N$ mit, da $n$ gerade, $f(n) = \frac{2 w}{2} = w$.
-        \item $w < 0$. Da $-2w \leq 2$ ist $n = -2w - 1 \in \N$  mit, da $n$ ungerade, $f(n) = - \frac{-2w - 1 + 1}{2} = w$.
+        \item $w \geq 0$. Dann ist $n = 2w \in \N$ mit, da $n$ gerade, $f(n) = \frac{2 w}{2} = w$.
+        \item $w < 0$. Da $-2w \geq 2$ ist $n = -2w - 1 \in \N$  mit, da $n$ ungerade, $f(n) = - \frac{-2w - 1 + 1}{2} = w$.
     \end{enumerate}
 
     Also ist $f$ bijektiv.
@@ -1114,7 +1119,7 @@ Das ist eine völlig unintuitive Aussage. Naiv geht man davon aus, dass es "viel
 
     Folgt durch eine Kette von Bijektionen:
     
-    $\N \quad \cong \quad \Z \quad = \quad (-\N^*) \cup \N \quad \cong \quad \Q_{< 0} \cup \Q_{\leq 0} \quad = \quad \Q$.
+    $\N \quad \cong \quad \Z \quad = \quad (-\N^*) \cup \N \quad \cong \quad \Q_{< 0} \cup \Q_{\geq 0} \quad = \quad \Q$.
 
     Dabei folgt die erste Bijektion aus Schritt 1, und die zweite Bijektion aus zweimaliger Anwendung von Schritt 2.
 \end{proof}
@@ -1199,7 +1204,7 @@ Die komplexen Zahlen stammen historisch aus der Realisierung, dass die Lösung f
     $\C$ hat eine geschlossene Mult struktur und ist Körper?
 \end{lemma}
 \begin{proof}
-    $z\m = \frac{z \bar{z}}{|z|^2}$ done.
+    $z\m = \frac{\bar{z}}{|z|^2}$ done.
 \end{proof}
 
 \begin{definition}[Potenz, Wurzel]

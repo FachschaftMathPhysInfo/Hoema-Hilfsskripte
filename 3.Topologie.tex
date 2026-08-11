@@ -34,7 +34,9 @@
     Aber ich lasse die Frage und das Beispiel trotzdem mal drin, weil es einen guten Eindruck davon vermittelt, wie lang so ein Inhaltsverzeichnis am Kapitelanfang wäre.
 \end{query}
 
-some motivational words
+some motivational words:
+
+Topology is one of the most difficult to grasp topics you will meet in HoeMa 1. But fear not, for it is nothing compared to the pure desperation that is Differential Geometry in HoeMa 2. Some of you might drop out, actually most of you will drop out, but that is a sacrifice that Gurau is willing to make!
 
 \section{Grundlegende Begriffe}
 
@@ -56,26 +58,59 @@ Längere Motivation: Offene Intervalle
 
 \begin{example}
     \begin{enumerate}
-        \item Die Menge aller offenen Intervalle auf $\R$ bildet eine Topologie. Dabei zählen wir Mengen der Form $(a, \infty)$, $(-\infty, b)$, und $(- \infty, \infty) = \R$ auch als offene Intervalle.
         \item Für jede Menge $X$ kann man zwei triviale Topologien definieren:
         \begin{itemize}
             \item Die \underline{diskrete Topologie} $\T_{disk} = \Pot(X)$, d.h. jede Menge ist offen.
             \item Die \underline{Klumpentopologie} $\T_{triv} = \{\e, X\}$ (\underline{triviale Topologie}, \underline{indiskrete Topologie}), d.h. nur die leere Menge und die "ganze Menge" sind offen.
         \end{itemize}
         Beide erfüllen trivialerweise (T1-T3).
-        \item $\T = (\e, \{0\}, \R^*, \R)$ ist eine Topologie auf $\R$:
+        \item $\T = \{\e, \{0\}, \R^*, \R\}$ ist eine Topologie auf $\R$:
         \begin{itemize}%[label=]
-            \item $\e \cup \{0\} = \{0\} \in \T$, $\{0\} \cup \R^* = \R \in \T$, usw
-            \item $\R \cap \{0\} = \{0\} \in \T$, $\R^* \cap \{0\} = \e \in \T$, usw
+            \item $\e \cup \{0\} = \{0\} \in \T$, \quad $\{0\} \cup \R^* = \R \in \T$, \quad usw
+            \item $\R \cap \{0\} = \{0\} \in \T$, \quad $\R^* \cap \{0\} = \e \in \T$, \quad usw
         \end{itemize}
         Die letzten drei Beispiele waren zugegebenermaßen eher konstruiert und weniger anwendungsbezogen. Das nächste Beispiel ist allerdings sehr relevant:
-        \item Die Menge aller offenen Intervalle $(a, b)$ in $\R$ bildet eine Topologie. Dabei zählen wir Mengen der Form $(a, \infty)$, $(-\infty, b)$, und $(- \infty, \infty) = \R$, sowie disjunkte Vereinigungen von offenen Intervallen, auch als offene Intervalle.
+        \item Die Menge, die alle offenen Intervalle $(a,b)$ in $\R$ sowie beliebige Vereinigungen davon enthält, bildet eine Topologie, die sogenannte \underline{Standardtopologie} von $\R$. Dabei zählen wir Mengen der Form $(a, \infty)$, $(-\infty, b)$, und $(- \infty, \infty) = \R$ auch als offene Intervalle.
         
         Der Leser kann sich (z.B. durch Skizzen) selbst überzeugen, dass es sich um eine Topologie handelt. Formal werden wir (T1-T3) hier nicht nachprüfen, aber wir nehmen schonmal vorweg, dass es sich um einen Spezialfall von metrischer Topologie handelt. Damit folgt die Behauptung aus \ref{lem-metric-induces-topology}.
     \end{enumerate}
 \end{example}
 
-MEHR BEISPIELE?
+Die folgenden zwei Begriffe sind vor allem für Konstruktionen und Beweise hilfreich:
+
+\begin{definition}[gröbere und feinere Topologien]
+    Sei $X$ eine Menge mit zwei Topologien $\T_1, \T_2$.
+
+    Falls $\T_1 \subset \T_2$ gilt, dann heißt $\T_2$ feiner als $\T_1$, und $\T_1$ heißt gröber als $\T_2$.
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item $\T_{triv}$ ist gröber als jede Topologie, da sie nur $X$ und $\e$ enthält.
+        \item $\T_{disk}$ ist feiner als jede Topologie, da sie jede Teilmenge von $X$ enthält.
+        \item $\T = \{\e, \{0\}, \R^*, \R\}$ und die Standardtopologie von $\R$ sind unvergleichbar, da $\{0\} = [0, 0]$ kein offenes Intervall ist, und es offene Intervalle nicht in $\T$ gibt, z.B. $(0, 1)$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}[Basis einer Topologie]
+    Sei $(X, \T)$ ein topologischer Raum. Eine Teilmenge $\mathcal{B} \subset \T$ der Topologie heißt
+    \begin{enumerate}
+        \item \underline{Basis} von $\T$, falls jede offene Menge $U \in \T$ durch eine beliebige Vereinigung $\bigcup\limits_{\alpha \in I} U_{\alpha}$ von Mengen $U_{\alpha} \in \B$ dargestellt werden kann.
+        \item \underline{Subbasis} von $\T$, falls jede offene Menge $U \in \T$ durch eine beliebige Vereinigung von endlichen Schnitten $\bigcap\limits_{\alpha \in I} \left( \bigcap\limits_{i=1}^{n_{\alpha}} U_{\alpha,i} \right)$ von Mengen $U_{\alpha,i} \in \B$ dargestellt werden kann.
+    \end{enumerate}
+\end{definition}
+
+Für Beweise von Eigenschaften, die mit beliebigen Vereinigungen (und endlichen Schnitten) verträglich sind, reicht es oft, diese Eigenschaften nur für eine Basis (Subbasis) zu zeigen. Außerdem reicht es, statt einer ganzen Topologie einfach nur die Basis der Topologie anzugeben, wie wir auch im folgenden Beispiel sehen.
+
+\begin{example}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Offensichtlich ist jede Subbasis auch eine Basis, und jede Topologie ist eine Basis für sich selbst.
+        \item Die Menge aller offene Intervalle $\B = \{(a, b) | a, b \in \R\}$ bilden eine Basis der Standardtopologie von $\R$.
+
+        Eine analoge Subbasis ist z.B. durch die Menge der unbeschränkten Intervalle $\B = \{ (-\infty, b) | b \in \R \} \cup \{ (a, \infty) | a \in \R \}$ gegeben
+        \item Allgemeiner kann man für jede total geordnete Menge $(X, <)$ eine Topologie konstruieren, indem man die Basis $\{ x | a < x < b, \; a, b \in X\}$ oder die Subbasis $\{x | x < b, b \in X\} \cup \{ x | a < x, a \in X\}$ angibt.
+    \end{enumerate}
+\end{example}
 
 \begin{definition}[offene Umgebung]
     Sei $(X, \T)$ ein topologischer Raum und $x \in X$.
@@ -85,14 +120,11 @@ MEHR BEISPIELE?
 
 ein paar Worte über Bedeutung auf $\R^n$: immer größer als $x$, aber trotzdem beliebig klein.
 
-Feinere / gröbere Topologien?
-
-Basis hier? oder unten?
 
 \begin{definition}[Hausdorff Eigenschaft]
-    Ein metrischer Raum $(X, \T)$ heißt \underline{Hausdorff-Raum}, falls man zwei beliebige Punkte durch offene Mengen trennen kann:
+    Ein metrischer Raum $(X, \T)$ heißt \underline{Hausdorff-Raum}, falls man zwei beliebige Punkte durch disjunkte offene Umgebungen trennen kann:
 
-    $\forall x, y \in X$ mit $x \neq y$ $\exists$ offene Umgebungen $U_x, U_y \in T$ von $x, y$ mit $U_x \cap V_y = \e$.
+    $\forall x, y \in X$, $x \neq y$, $\exists$ offene Umgebungen $U_x, U_y \in T$ von $x, y$ mit $U_x \cap V_y = \e$.
 \end{definition}
 
 \begin{example}
@@ -102,11 +134,33 @@ Basis hier? oder unten?
 
     Das Problem von Räumen, die nicht Hausdorff sind:
     Zwei Kopien von $\R$...
+
+    $\R_1$ und $\R_2$
+
+    wir nehmen 
 \end{example}
 
 \begin{definition}[abgeschlossene Mengen]
-    Sei $(X, \T)$ ein topologischer Raum. Eine Menge $A \subset X$ heißt \underline{abgeschlossen}, falls $A^C$ offen ist.
+    Sei $(X, \T)$ ein topologischer Raum. Wir bezeichnen das Komplement von $A \subset X$ mit $X \backslash A = A^C$, wenn klar ist, was der zugrundeliegende Raum $X$ ist.
+    
+    $A$ heißt \underline{abgeschlossen}, falls $A^C$ offen ist.
 \end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item $\e$ und $X$ sind immer abgeschlossen, da $\e^C = X$ und $X^C = \e$ offen sind.
+        
+        In $\T_{triv}$ sind das die einzigen Mengen, die offen und abgeschlossen sind, alle anderen Mengen sind weder offen noch abgeschlossen.
+        
+        In $\T_{disk}$ sind alle Mengen offen und abgeschlossen.
+        \item In der Topologie $\T = \{\e, \{0\}, \R^*, \R\}$ sind auch $\{0\} = (\R^*)^C$ und $\R^* = \{0\}^C$ abgeschlossen.
+        \item In der Standardtopologie von $\R$ sind Mengen wie $(-\infty, a] = (a, \infty)^C$ oder $[a, b] = ((-\infty, a) \cup (b, \infty))^C$ abgeschlossen.
+
+        $\e$ und $\R$ sind die einzigen Mengen, die offen und abgeschlossen sind.
+
+        Mengen wie $(a, b]$ oder $[a, b)$ sind weder offen noch abgeschlossen.
+    \end{enumerate}
+\end{example}
 
 \begin{definition}[Unterraum]
     Sei $(X, \T)$ ein topologischer Raum, und $A \subset X$.
@@ -122,47 +176,128 @@ Basis hier? oder unten?
     Zeigen Sie, dass $\T_A$ wieder eine Topologie ist.
 \end{exercise}
 
-\begin{definition}[accumulation point, innerer Punkt, isolated point]
-    $\equiv$
+\begin{example}
+    Wir betrachten $\R$ mit der Standardtopologie der offenen Intervalle, und $A = [0, 1]$.
 
-    test$\iff \hspace{-17pt} \not \hspace{17pt}$test
+    Dann ist $\T_A = \{U \cap [0, 1] | U \text{ ist offen in } \R \}$.
+
+    Mengen in $\T_A$ können z.B. so aussehen:
+    \begin{itemize}[label=]
+        \item $(a, b) = (a, b) \cap [0, 1]$ mit $0 < a < b < 1$
+        \item $[0, b) = (-\infty, b) \cap [0, 1]$ mit $0 < b < 1$
+        \item $(a, 1] = (a, \infty) \cap [0, 1]$ mit $0 < a < 1$
+        \item $[0, 1] = (-\infty, \infty) \cap [0,1]$
+    \end{itemize}
+    Achtung: $[0, 1]$, $[0, b)$, etc sind offen in $[0, 1]$, aber nicht offen in $\R$!
+\end{example}
+
+Als nächstes führen wir Begriffe ein, die darauf hinzielen sollen, eine beliebige Menge in "Inneres", "Rand", und "Äußeres" zu unterteilen. Motivation sind wieder Intervalle: Z.B. wollen wir bei einem Intervall der Form $[a, b]$ genau das offene Intervall $(a, b)$ als Inneres haben, die beiden Punkte $\{a, b\}$ als Rand, und alles außenrum $[a, b]^C$ als Äußeres. Für allgemeine Mengen ist so eine Klassifizierung allerdings nur möglich, wenn man offene Umgebungen um jeden einzelnen Punkt betrachtet. Dazu fällt uns bei dem Beispiel $[a, b]$ auf, dass bei den Randpunkten $a$ und $b$ immer sowohl Punkte im Innern, als auch Punkte im Äußern in der unmittelbaren Umgebung liegen. Bei einem Punkt $x \in (a, b)$ liegen allerdings nur Punkte in der unmittelbaren Umgebung, die auch in $(a, b)$ liegen. Diese Beobachtung führt uns zur ersten Definition:
+
+\begin{definition}[innerer Punkt, Häufungspunkt, isolierter Punkt]
+    Sei $(X, \T)$ ein topologischer Raum, und $Y \subset X$.
+    
+    $x \in X$ heißt
+    \begin{enumerate}
+        \item \underline{innerer Punkt} von $Y$, falls eine offene Umgebung $U$ von $x$ existiert mit $U \subset Y$.
+        \item \underline{Häufungspunkt} von $Y$, falls $\forall$ offene Umgebung $U$ von $x$ mindestens ein von $x$ verschiedener Punkt in $U$ auch in $Y$ liegt: $(U \cap Y) \backslash \{x\} \neq \e$.
+        \item \underline{isolierter Punkt} von $Y$, falls $x \in Y$, aber $x$ kein Häufungspunkt ist, d.h. $\exists$ offene Umgebung $U$ von $x$ mit $(U \cap Y) \backslash \{x\} = \e$.
+    \end{enumerate}
 \end{definition}
+
+Innere Punkte und isolierte Punkte sind per Definition immer in $Y$, Häufungspunkte können auch in $Y^C$ liegen.
+
+Häufungspunkte und isolierte Punkte sind per Definition disjunkt, aber isolierte Punkte können auch innere Punkte sein.
+
+\begin{example}
+    \begin{enumerate}
+        \item $\T_{disk}$
+        \item $\T_{triv}$
+        \item Standardtopologie von $\R$
+    \end{enumerate}    
+\end{example}
 
 \begin{definition}[Inneres, Abschluss, Rand]
     Sei $(X, \T)$ ein topologischer Raum, und $U \subset X$.
+    \begin{enumerate}
+        \item Das \underline{Innere} (\underline{innere Kern}) $U^o$ von $U$ ist eins von beidem...
+
+        - die größte offene Menge, die in $U$ enthalten ist: $U^o = \bigcup (\Pot(U) \cap \T)$
+
+        - die Menge aller inneren Punkte $U^o = \{x | x \text{ ist innerer Punkt von } U\}$
+        \item Der \underline{Abschluss} (\underline{abgeschlossene Hülle}) $\overline{U}$ (oder $\text{cl}(U)$ für engl. "closure") von $U$ ist eins von beidem...
+
+        - die kleinste abgeschlossene Menge, in der $U$ enthalten ist: $\overline{U} = \bigcap \{ A | U \subset A, A^C \in \T \}$
+
+        - die Vereinigung von $U$ mit seinen Häufungspunkten: $\overline{U} = U \cup \{x | x \text{ ist Häufungspunkt von } U\}$
+        \item Der \underline{Rand} $\partial U$ von $U$ ist eins von beidem...
+
+        - $\partial U = \overline{U} \backslash U^o$
+
+        - die Menge aller \underline{Randpunkte} von $U$, wobei $x$ ein Randpunkt von $U$ ist, wenn $\forall$ offene Umgebung $V$ von $x$ sowohl mindestens ein Punkt von $V$ in $U$ liegt und einer außerhalb: $V \cap U \neq \e \neq V \cap U^C$
+    \end{enumerate}
 \end{definition}
 
-- Beispiele mit trivialen Topologien
-
-\begin{lemma}[Inneres ist offen]
+\begin{query}
+    Ich konnte mich nicht entscheiden, welche der alternativen Def ich jeweils verwenden soll. Danach sollte ein Lemma kommen mit "äquivalent ist die andere Definition".
     
+    Mittlerweile denke ich, vielleicht gebe ich einfach beide Definitionen, und das Lemma ist dann "beide sind äquivalent"?
+
+    Vielleicht mit der Ausnahme der Randpunkte, die sind eher clumsy noch mit reingeschmissen. Meine beiden Vorschläge daher:
+\end{query}
+
+\begin{lemma}[Charakterisierung von Innerem, Abschluss, und Rand]
+    \begin{enumerate}
+        \item Beide Definitionen von $U^o$ sind äquivalent.
+        \item Beide Definitionen von $\overline{U}$ sind äquivalent.
+        \item Ein Punkt $x$ ist genau dann im Rand, wenn $\forall$ offene Umgebung $V$ von $x$ sowohl mindestens ein Punkt von $V$ in $U$ liegt und einer außerhalb: $V \cap U \neq \e \neq V \cap U^C$.
+    \end{enumerate}
+    und die Def von Randpunkt wird oben weggelassen.
 \end{lemma}
 
-\begin{lemma}[Abschluss ist abgeschlossen]
-    
+\begin{lemma}[Charakterisierung von Innerem, Abschluss, und Rand]
+    \begin{enumerate}
+        \item Beide Definitionen von $U^o$ sind äquivalent.
+        \item Beide Definitionen von $\overline{U}$ sind äquivalent.
+        \item Beide Definitionen von $\partial U$ sind äquivalent.
+    \end{enumerate}
+    und die Def von Randpunkt wird entweder in Def Inneres... oder in Def innerer Punkt... mit reingeschrieben.
 \end{lemma}
 
-\begin{corollary}[Rand]
-    trivial
-\end{corollary}
+In beiden Fällen wäre:
 
-Warnungen? "we stress that..."
+\begin{proof}
+    HA.
+\end{proof}
+
+- Beispiele mit trivialen Topologie
+
+\begin{definition}[dicht]
+    Sei $(X, \T)$ ein topologischer Raum, und $U, V \subset X$.
+
+    $U$ liegt \underline{dicht in $V$}, wenn $\bar{U} = V$.
+\end{definition}
+
+\begin{lemma}[Eigenschaften von Innerem, Abschluss, und Rand]
+    \begin{enumerate}
+        \item $U^o$ ist offen
+        \item $\overline{U}$ ist abgeschlossen
+        \item was noch?
+    \end{enumerate}
+    Da kommen i.d.R. immer so 15 auf einmal auf einem der Übungszettel. Bin am Überlegen wie viele davon ich hier erwähne, und wie viele \emph{davon} ich hier beweise. either case...
+\end{lemma}
+\begin{proof}
+    HA.
+\end{proof}
+
+Vielleicht noch ein Vermerk "mehr im GURAU$^{\text{TM}}$ Script"
 
 \begin{definition}[zusammenhängend]
     Sei $(X, \T)$ ein topologischer Raum.
     
     Eine Menge $Y \subset X$ heißt \underline{zusammenhängend}, falls man sie nicht in offene disjunkte Mengen teilen kann:
-
+    
     $\not\exists U, V \in \T: Y \subset U \cup V$ und $U \cap V = \e$.
 \end{definition}
-
-\begin{definition}[wegzusammenhängend]
-    Vielleicht erst später? vlt in einem Kapitel über Kurven in $\R^n$?
-\end{definition}
-
-\begin{lemma}[wegzusammenhängend impliziert zusammenhängend]
-    
-\end{lemma}
 
 \begin{definition}[kompakt]
     Sei $(X, \T)$ ein topologischer Raum.
@@ -173,14 +308,24 @@ Warnungen? "we stress that..."
 \end{definition}
 
 \begin{lemma}[abgeschlossene Teilmengen kompakter Mengen sind kompakt]
-    zwei Aussagen
+    Sei $(X, \T)$ ein topologischer Raum, und $K \subset X$ kompakt. Dann gilt:
+    \begin{enumerate}
+        \item Wenn $A \subset X$ abgeschlossen ist mit $A \subset K$, dann ist $A$ kompakt.
+        \item Wenn $U \subset X$ offen mit $U \subset K$, dann ist $K \backslash U$ kompakt.
+    \end{enumerate}
 \end{lemma}
+\begin{proof}
+    
+\end{proof}
 
 \begin{proposition}[Punktkompaktifizierung]
     Sei $(X, \T)$ ein topologischer Raum, und $Y \subset X$ beliebig.
 
-    Wir können aus $Y$ durch Hinzunahme eines einzigen Punktes, den wir $\infty$ nennen\footnote{Dabei soll/muss $\infty$ nicht das bekannte "unendlich" sein, sondern ein beliebiger Punkt, der nicht in $X$ liegt. Dass man diesen auch mit $\infty$ bezeichnet, kommt daher, dass er bezüglich der neu kontruierten Topologie von $X \cup \{\infty\}$ als "unendlich weit weg" von $X$ interpretiert werden kann.}, eine kompakte Menge $\bar{Y} = Y \cup \{\infty\}$ machen.
+    Wir können aus $Y$ durch Hinzunahme eines einzigen Punktes, den wir $\infty$ nennen\footnote{Dabei soll/muss $\infty$ nicht das bekannte "unendlich" sein, sondern ein beliebiger Punkt, der nicht in $X$ liegt. Dass man diesen auch mit $\infty$ bezeichnet, kommt daher, dass er bezüglich der neu kontruierten Topologie von $X \cup \{\infty\}$ als "unendlich weit weg" von $X$ interpretiert werden kann.}, eine Menge $\overline{Y} = Y \cup \{\infty\}$ mit einer Topologie $\overline{\T}$ konstruieren, bezüglich der $\overline{Y}$ kompakt ist.
 \end{proposition}
+\begin{proof}
+    Stückweise HA?
+\end{proof}
 
 
 
@@ -190,14 +335,7 @@ Warnungen? "we stress that..."
 \textbf{Folgentopologie}
 
 \begin{query}
-    Hierfür brauche ich mindestens Konvergenz von Folgen. Wo soll ich das einführen? Optionen die ich sehe:
-    \begin{enumerate}[label=\thequery.\arabic*.]
-        \item Find ich am sinnvollsten: Kapitel Topologie und Folgen zu einem Riesenkapitel mergen und Stoff relativ zueinander umordnen dass es halbwegs aufeinander aufbaut
-        \item Finde ich am sinnvollsten 2: Kapitel Topologie und Folgen vertauschen
-        \item Konvergenzbegriff hier einführen, kurz erklären mit Beispielen, dann mit Folgentopologie weitermachen \& den Rest von Folgen im nächsten Kapitel machen
-        \item In Kapitel "Mengen und Zahlen" werden sowieso Familien und Folgen definiert (aber nichts größer damit gemacht), da könnte ich auch eine Definition von Konvergenz von Folgen dazu packen
-        \item Halte ich für nicht sinnvoll: Folgentopologie hier rauslassen und in Kapitel Folgen nachholen
-    \end{enumerate}
+    Beschluss: Kapitel über Topologie und Folgen vertauschen.
 \end{query}
 
 \begin{definition}[Folgentopologie]
@@ -250,7 +388,7 @@ noch Sachen aus Gurau Kapitel 4?
     \begin{enumerate}
         \item Für $Y \subset X$: $y \in \partial Y \iff \forall \epsilon > 0$
         \item Für Bälle: $B_r(x)$ ist offen ($\implies B_r(x)^o = B_r(x)$)
-        \item Für Bälle: $\bar{B}_r(x)$ ist abgeschlossen ($\implies \bar{B}_r(x) = \bar{B_r(x)}$)
+        \item Für Bälle: $\bar{B}_r(x)$ ist abgeschlossen ($\implies \overline{B}_r(x) = \overline{B_r(x)}$)
         \item muss schauen ob ich noch mehr von diesen $\partial Y = \bar{Y} \backslash Y^o$ etc Miniaussagen reinpacken will, und wie viele davon spezifisch für metrische Räume sind
     \end{enumerate}
 \end{lemma}
@@ -265,7 +403,7 @@ noch Sachen aus Gurau Kapitel 4?
 \begin{lemma}[Metrisch $\implies$ Hausdorff]
     Sei $(X, d)$ ein metrischer Raum mit induzierter Topologie $\T_d$.
 
-    Dann ist $(X, \T_d)$ ein Hausdorr-Raum.
+    Dann ist $(X, \T_d)$ ein Hausdorff-Raum.
 \end{lemma}
 \begin{proof}
     Seien $x, y \in X$, $x \neq y$.
@@ -300,7 +438,7 @@ noch Sachen aus Gurau Kapitel 4?
 \end{definition}
 
 \begin{definition}[Normäquivalenz]
-    Zwei Normen $|\cdot|_1$, $|\cdot|_2$ heißen \underline{äquivalent}, falls $\exists c, C > 0: c |\cdot|_1 \leq |\cdot|_2 \leq |C \cdot|_1$.
+    Zwei Normen $|\cdot|_1$, $|\cdot|_2$ heißen \underline{äquivalent}, falls $\exists c, C > 0: c |\cdot|_1 \leq |\cdot|_2 \leq C |\cdot|_1$.
 \end{definition}
 
 \begin{example}
@@ -322,7 +460,13 @@ Basis hier? oder oben?
 \section{Stetigkeit}
 
 \begin{definition}[$\epsilon$-$\delta$-Stetigkeit]
-    $$\forall \epsilon > 0 \exists \delta > 0 \forall x \in D: |x-x_0| < \delta \implies |f(x)-f(x_0)| < \epsilon$$
+    Seien $(X, d_1)$, $(Y, d_2)$ metrische Räume, $x_0 \in X$, und $f: X \arr Y$ eine Funktion.
+
+    $f$ heißt \underline{stetig in $x_0$} nach $\epsilon$-$\delta$-Kriterium, falls gilt:
+
+    $\forall \epsilon > 0 \exists \delta > 0 \forall x \in D: d_1(x,x_0) < \delta \implies d_2(f(x),f(x_0)) < \epsilon$.
+
+    $f$ heißt \underline{stetig} nach $\epsilon$-$\delta$-Kriterium, falls $f$ stetig in $x$ nach $\epsilon$-$\delta$-Kriterium $\forall x \in X$ ist.
 \end{definition}
 
 - Erklärung
@@ -338,9 +482,25 @@ Basis hier? oder oben?
     $f: X \arr Y$ heißt \underline{folgenstetig}, falls $\forall (x_n)_{n \in \N}$ mit Grenzwert in $X$ gilt: $\lim_{n \arr \infty} f(x_n) = f(\lim_{n \arr \infty}x_n)$.
 \end{definition}
 
+\begin{proposition}[alle Stetigkeitsbegriffe sind äquivalent]
+    \begin{enumerate}
+        \item Sei $(X, \T)$ ein Hausdorff-Raum.
+
+        Dann ist $f$ genau dann stetig, wenn $f$ folgenstetig ist.
+        \item Sei $(X, d)$ ein metrischer Raum.
+
+        Dann ist $f$ genau dann stetig bezüglich der von $d$ induzierten Topologie, wenn $f$ stetig nach $\epsilon$-$\delta$-Kriterium ist.
+
+        Da die induzierte Topologie Hausdorff ist, gilt auch die Aussagen von (i).
+    \end{enumerate}
+\end{proposition}
+
 \begin{lemma}[stetige Bilder kompakter Mengen sind kompakt]
     
 \end{lemma}
+
+- es gibt glaub ich noch mehr wichtige "stetige Bilder / Urbilder..." Aussagen
+- dann wird daraus: "Eigenschaften stetiger Funktionen..."
 
 \begin{lemma}[Metrik ist stetig]
     
@@ -350,13 +510,58 @@ Basis hier? oder oben?
     flow chart ansprechen, Sorgenfrey Topologie
 \end{remark}
 
-\begin{definition}[Gleichmäßige Stetigkeit]
-    $$\forall \epsilon > 0 \exists \delta > 0 \forall x, y \in D: |x-y| < \delta \implies |f(x)-f(y)| < \epsilon$$
+\begin{definition}[wegzusammenhängend]
+    Sei $(X, \T)$ ein topologischer Raum.
+
+    Eine Menge $Y \subset X$ heißt \underline{wegzusammenhängend}, falls es $\forall x, y \in Y$ einen stetigen Weg von $x$ nach $y$ gibt:
+
+    $\exists \gamma: [0,1] \arr Y$ stetig mit $\gamma(0) = x$, $\gamma(1) = 1$, und $\gamma(t) \in X \forall t \in [0,1]$.
 \end{definition}
 
-\begin{lemma}[gleichmäßig stetig $\implies$ stetig]
-        
+\begin{lemma}[wegzusammenhängend $\implies$ zusammenhängend]
+    Sei $(X, \T)$ ein topologischer Raum. Wenn $Y \subset X$ wegzusammenhängend ist, dann ist $Y$ auch zusammenhängend.
 \end{lemma}
+\begin{proof}
+    verwendet Mittelwertsatz $\arr$ später? Dann auch wegzsh später.
+\end{proof}
+
+\begin{definition}[Gleichmäßige Stetigkeit]
+    Seien $(X, d_1)$, $(Y, d_2)$ metrische Räume, und $f: X \arr Y$ eine Funktion.
+    
+    $f$ heißt \underline{gleichmäßig stetig}, falls gilt:
+    
+    $\forall \epsilon > 0 \exists \delta > 0 \forall x, y \in D: d_1(x,y) < \delta \implies d_2(f(x),f(y)) < \epsilon$.
+\end{definition}
+
+Der Unterschied ist hier, dass $x, y$ beide frei sind, und deshablb $\delta$ nicht von einem der beiden Punkte $x_0$ abhängen darf. Dadurch sind stetige Funktionen, die zu stark ansteigen, nicht gleichmäßig stetig, weil man die Abhängigkeit des Anstiegs von $x_0$ nicht mehr verwenden kann, um $\delta$ klein zu halten. Ein paar Beispiele sollen dies verdeutlichen.
+
+\begin{lemma}[gleichmäßig stetig $\implies$ stetig]
+    Wäre eig eine super Übungsaufgabe, weiß aber nicht ob die an dem Punkt irgendein Erstie schon hinkriegt haha
+
+    
+\end{lemma}
+
+Der Leser richte besondere Aufmerksamkeit darauf, in welche Reihenfolge wir welche Variablen wählen, und an welchen Punkten wir welche Teile der "gleichmäßig stetig"-Aussage verwenden.
+
+\begin{proof}
+    Nehme an, $f$ ist gleichmäßig stetig, d.h. es gilt:
+    
+    $\forall \epsilon_{\text{glm}} > 0 \exists \delta_{\text{glm}} > 0 \forall x, y \in D: d_1(x,y) < \delta_{\text{glm}} \implies d_2(f(x),f(y)) < \epsilon_{\text{glm}}$ ($\star$)
+    
+    Wir zeigen Stetigkeit in einem beliebigen Punkt $x_0 \in X$ nach $\epsilon$-$\delta$-Kriterium.
+    
+    Sei nun $\epsilon > 0$ beliebig.
+
+    Wegen gleichmäßiger Stetigkeit gilt ($\star$) für alle $\epsilon > 0$, also auch für $\epsilon = \epsilon_{\text{glm}}$. Dieses liefert uns ein $\delta_{\text{glm}}$, für das der Rest von ($\star$) gilt.
+
+    Wähle nun $\delta = \delta_{\text{glm}}$.
+
+    Sei $x \in X$ beliebig.
+
+    Nehme an, es gilt $d_1(x,x_0) < \delta = \delta_{\text{glm}}$.
+
+    Wegen gleichmäßiger Stetigkeit (ausgewertet für $y = x_0$) gilt dann auch $d_2(f(x),f(x_0)) < \epsilon_{\text{gm}} = \epsilon$.
+\end{proof}
 
 \begin{example}
     \begin{enumerate}
@@ -366,17 +571,24 @@ Basis hier? oder oben?
 \end{example}
 
 \begin{definition}[Lipschitz Stetigkeit]
-    $$\exists L \leq 0: \forall x, y \in D: |f(x)-f(y)| < L \cdot |x-y|$$
+    Seien $(X, d_1)$, $(Y, d_2)$ metrische Räume, und $f: X \arr Y$ eine Funktion.
+    
+    $f$ heißt \underline{Lipschitz-stetig}, falls gilt:
+    
+    $\exists L \leq 0: \forall x, y \in D: d_2(f(x),f(y)) \leq L \cdot d_1(x,y)$.
 \end{definition}
 
+Anschauung: Kegel mit Steigung $L$ in beide Richtungen, kompletter Funktionsgraph bleibt im Kegel
+
 \begin{lemma}[Lipschitz stetig $\implies$ gleichmäßig stetig]
-    
+    Beweis: HA.
 \end{lemma}
 
 \begin{example}
     \begin{enumerate}
+        \item Konstante Funktion $f(x) = c$ ist Lipschitz stetig mit Lipschitz Konstante $L = 0$.
         \item $id$ ist Lipschitz stetig
         \item $f: \R_+ \arr \R_+, \quad f(x) = \sqrt{x}$ ist gleichmäßig aber nicht Lipschitz ($x=0$)
-        \item Polynome sind Lipschitz auf $[a, b]$, nicht Lipschitz auf $\R$ (Problem $\infty$)
+        \item nichtkonstante Polynome sind Lipschitz auf $[a, b]$ (Abschätzung durch sup |f|), nicht Lipschitz auf $\R$ (Problem $\infty$)
     \end{enumerate}
 \end{example}

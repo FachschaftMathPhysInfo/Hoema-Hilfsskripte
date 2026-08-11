@@ -23,9 +23,10 @@
 \usepackage{fontawesome5}
 \usepackage{enumitem}
 \usepackage{faktor}
+\usepackage{cancel}
+\usepackage{relsize}
 
 \usepackage{thmtools}
-
 
 
 % \declaretheoremstyle[
@@ -81,7 +82,9 @@
 \newtheorem{Proposition}[Theorem]{Proposition}
 \newtheorem{Lemma}[Theorem]{Lemma}
 \newtheorem{Exercise}{Aufgabe}[chapter]
-% das definiert einen neuen counter für Aufgaben, d.h. Def 1.1, Def 1.2, Theorem 1.3, Aufgabe 1.1
+% {Aufgabe} definiert einen neuen counter für Aufgaben
+\renewcommand{\theExercise}{\thechapter.\Alph{Exercise}}
+% ändert die Nummerierung von 0.1, 0.2, 1.1... zu 0.A, 0.B, 1.A... um sie leichter von Def, Theorem etc zu unterscheiden
 \newtheorem{Axiom}[Theorem]{Axiom}
 
 \definecolor{shadecolor}{RGB}{238,233,233}
@@ -116,6 +119,13 @@
 % brauche ich gerade nicht
 \newenvironment{exercise}{\colorlet{shadecolor}{green!12} \begin{shaded} \begin{Exercise} }{\end{Exercise} \end{shaded} }
 
+
+
+\newcounter{query}
+\newenvironment{query} {\refstepcounter{query} \par\medskip \begin{redbox} \noindent \textbf{\textcolor{purple}{\thequery. }} \begingroup \color{purple} \large \ignorespaces} {\par \endgroup \end{redbox} \medskip \ignorespacesafterend}
+% Das environment habe ich gecoded, um während des Schreibens Fragen, die ich nicht spontan klären oder entscheiden kann, reinzuschreiben, damit ich aufhör drüber nachzudenken und sie später aufgreifen kann. wird mit \begin{query} ... \end{query} aufgerufen. Das ist mega markant und fällt beim Korrekturlesen sofort auf.
+
+
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.5em}
 
@@ -134,29 +144,30 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
-\newcommand{\e}{\emptyset}
+\newcommand{\e}{\text{\scalebox{1.1}{$\not \hspace{-2pt}\text{\footnotesize{O}}\hspace{1pt}$}}}
+% da saß ich auch mindestens 1h dran um das leere Menge genau so hinzubasteln wie ich wollte
+% honourable mention to \cancel{\text{O}}
 \newcommand{\arr}{\longrightarrow}
 \newcommand{\m}{^{-1}}
 \newcommand{\Pot}{\mathcal{P}\hspace{-1pt}ot\hspace{1pt}}
+
+
+\newcommand{\B}{\mathcal{B}}
 \newcommand{\T}{\mathcal{T}}
 
 \newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.}\hbox{\scriptsize.}}} =}
 
-\newcommand{\absurdum}{{\quad \huge $\lightning$}}
+\newcommand{\absurdum}{{\quad\huge$\lightning$}}
+% ein schöner "Widerspruch" Blitz, macht aber die Zeile in der er ist etwas höher
 \renewcommand{\qedsymbol}{$\blacksquare$}
 \newcommand{\subqed}{\hfill$\diamond$}
+\newcommand{\notiff}{\iff\hspace{-17pt}\not\hspace{17pt}} % da hat es tatsächlich standardmäßig nichts
 
 
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Det}{Det}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\rank}{rank}
-
-
-
-\newcounter{query}
-\newenvironment{query} {\refstepcounter{query} \par\medskip \begin{redbox} \noindent \textbf{\textcolor{purple}{\thequery. }} \begingroup \color{purple} \large \ignorespaces} {\par \endgroup \end{redbox} \medskip \ignorespacesafterend}
-% Das environment habe ich gecoded, um während des Schreibens Fragen, die ich nicht spontan klären oder entscheiden kann, reinzuschreiben, damit ich aufhör drüber nachzudenken und sie später aufgreifen kann. wird mit \begin{query} ... \end{query} aufgerufen. Das ist mega markant und fällt beim Korrekturlesen sofort auf.
 
 
 \setlist[enumerate,1]{label=(\roman*)}
@@ -172,11 +183,11 @@
 \mainmatter
 
 
-%\include{0.Einleitung}
+\include{0.Einleitung}
 
-%\include{1.Logik}
+\include{1.Logik}
 
-%\include{2.MengenundZahlen}
+\include{2.MengenundZahlen}
 
 \include{3.Topologie}
 
