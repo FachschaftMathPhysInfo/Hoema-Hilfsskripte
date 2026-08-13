@@ -307,6 +307,10 @@ Vielleicht noch ein Vermerk "mehr im GURAU$^{\text{TM}}$ Script"
     $\forall (U_{\alpha})_{\alpha \in I}$ mit $C \subset \bigcup\limits_{\alpha \in I} U_{\alpha}$ $\exists \alpha_1, ..., \alpha_n \in I: C \subset \bigcup\limits_{i=1}^{n} U_{\alpha_i}$.
 \end{definition}
 
+\begin{lemma}[kompakte Mengen sind abgeschlossen]
+    \label{lem-compact-sets-are-closed}
+\end{lemma}
+
 \begin{lemma}[abgeschlossene Teilmengen kompakter Mengen sind kompakt]
     Sei $(X, \T)$ ein topologischer Raum, und $K \subset X$ kompakt. Dann gilt:
     \begin{enumerate}
@@ -317,6 +321,14 @@ Vielleicht noch ein Vermerk "mehr im GURAU$^{\text{TM}}$ Script"
 \begin{proof}
     
 \end{proof}
+
+\begin{lemma}[Umkehrfunktionen bijektiver kompakter Funktionen sind stetig]
+    oder so ähnlich, gibt sicher noch eine weitere Aussage
+
+    verwendet "offene Funktion" --> oben irgendwo hinzufügen?
+
+    Prüfen ob der Beweis hier schon reinpasst oder ob der Dinge verwendet die unten sind!
+\end{lemma}
 
 \begin{proposition}[Punktkompaktifizierung]
     Sei $(X, \T)$ ein topologischer Raum, und $Y \subset X$ beliebig.
@@ -482,7 +494,7 @@ Basis hier? oder oben?
     $f: X \arr Y$ heißt \underline{folgenstetig}, falls $\forall (x_n)_{n \in \N}$ mit Grenzwert in $X$ gilt: $\lim_{n \arr \infty} f(x_n) = f(\lim_{n \arr \infty}x_n)$.
 \end{definition}
 
-\begin{proposition}[alle Stetigkeitsbegriffe sind äquivalent]
+\begin{theorem}[alle Stetigkeitsbegriffe sind äquivalent]
     \begin{enumerate}
         \item Sei $(X, \T)$ ein Hausdorff-Raum.
 
@@ -493,7 +505,7 @@ Basis hier? oder oben?
 
         Da die induzierte Topologie Hausdorff ist, gilt auch die Aussagen von (i).
     \end{enumerate}
-\end{proposition}
+\end{theorem}
 
 \begin{lemma}[stetige Bilder kompakter Mengen sind kompakt]
     
@@ -592,3 +604,7 @@ Anschauung: Kegel mit Steigung $L$ in beide Richtungen, kompletter Funktionsgrap
         \item nichtkonstante Polynome sind Lipschitz auf $[a, b]$ (Abschätzung durch sup |f|), nicht Lipschitz auf $\R$ (Problem $\infty$)
     \end{enumerate}
 \end{example}
+
+Offene Bälle als Basis der Standardtopologie $\arr$ Folgerungen?
+
+Reihenfolge der Einführung von Stetigkeit überdenken

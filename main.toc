@@ -12,6 +12,7 @@
 \contentsline {section}{\numberline {2.7}GURAU}{34}{section.2.7}%
 \contentsline {chapter}{\numberline {3}Topologie}{37}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Grundlegende Begriffe}{38}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Folgentopologie und Metrische Topologie}{44}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Folgentopologie und Metrische Topologie}{45}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Stetigkeit}{47}{section.3.3}%
-\contentsline {chapter}{\numberline {4}auxies.aux}{51}{chapter.4}%
+\contentsline {chapter}{\numberline {4}Folgen}{51}{chapter.4}%
+\contentsline {chapter}{\numberline {5}auxies.aux}{57}{chapter.5}%

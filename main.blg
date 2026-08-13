@@ -1,17 +1,17 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
-[1] Config.pm:331> INFO - Logfile is 'main.blg'
-[161] biber:342> INFO - === Tue Aug 11, 2026, 02:27:25
-[188] Biber.pm:421> INFO - Reading 'main.bcf'
-[362] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
-[393] Biber.pm:4487> INFO - Processing section 0
-[410] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[412] bibtex.pm:1713> INFO - LaTeX decoding ...
-[417] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[499] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[499] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[499] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
-[500] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[511] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[512] bbl.pm:779> INFO - Output to main.bbl
-[513] Biber.pm:132> WARN - legacy year field '1000BC' in entry 'GURAU' is not an integer - this will probably not sort properly.
-[513] Biber.pm:134> INFO - WARNINGS: 1
+[0] Config.pm:331> INFO - Logfile is 'main.blg'
+[155] biber:342> INFO - === Thu Aug 13, 2026, 18:15:16
+[190] Biber.pm:421> INFO - Reading 'main.bcf'
+[331] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
+[354] Biber.pm:4487> INFO - Processing section 0
+[374] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[375] bibtex.pm:1713> INFO - LaTeX decoding ...
+[381] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[467] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[468] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[468] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[468] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[480] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[482] bbl.pm:779> INFO - Output to main.bbl
+[483] Biber.pm:132> WARN - legacy year field '1000BC' in entry 'GURAU' is not an integer - this will probably not sort properly.
+[483] Biber.pm:134> INFO - WARNINGS: 1

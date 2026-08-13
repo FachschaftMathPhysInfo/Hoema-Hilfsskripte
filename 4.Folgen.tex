@@ -1,0 +1,193 @@
+\chapter{Folgen}
+
+\begin{example}
+    Erinnerung an die Definition von Folgen, paar Beispiele
+\end{example}
+
+\begin{query}
+    Genau hier ist mir wieder eingefallen, dass Konvergenz von Folgen Topologie benötigt. Deswegen bin ich immer noch der Meinung, dass "Topologie" und "Folgen" eigentlich in ein Kapitel gehören.
+
+    Standardreihenfolge in Analysis:
+    \begin{enumerate}[label=\arabic*,start=3]
+        \item Folgen in $\R$, $\C$, $\R^n$
+        \item metrische Topologie des $\R^n$
+        \item Stetigkeit von reellwertigen Funktionen
+        \item Folgen in metrischen Räumen
+        \item manchmal: allgemeine Topologie und Stetigkeit von allgemeinen Funktionen
+    \end{enumerate}
+
+    Ich denke nicht, dass man Folgen und Topologie sinnvoll in zwei getrennte Kapitel separieren kann. Wir können daraus entweder ein Riesenkapitel oder viele kleine Kapitel machen. Was ist Dir lieber?
+\end{query}
+
+\begin{definition}[Konvergenz von Folgen, 1]
+    Sei $(a_n)_{n \in \N}$ eine Folge in $\R$ oder $\C$. Die Folge konvergiert gegen $a \in \R$ oder $\C$, falls gilt:
+
+    $\forall \epsilon > 0 \exists N \in \N \forall n \leq N: |a - a_n| < \epsilon$.
+\end{definition}
+
+\begin{definition}[Konvergenz von Folgen, 2]
+    Sei $(a_n)_{n \in \N}$ eine Folge in einem metrischen Raum $(X, d)$. Die Folge konvergiert gegen $a \in X$, falls gilt:
+
+    $\forall \epsilon > 0 \exists N \in \N \forall n \leq N: d(a, a_n) < \epsilon$.
+\end{definition}
+
+Obige Bedingung ist äquivalent zu $a_n \in B_{\epsilon}(a)$. Dies können wir verallgemeinern zu topologischen Räumen, indem wir offene Bälle durch offene Mengen ersetzen
+
+\begin{definition}[Konvergenz von Folgen, 2]
+    Sei $(a_n)_{n \in \N}$ eine Folge in einem topologischen Raum $(X, \T)$. Die Folge konvergiert gegen $a \in X$, falls gilt:
+
+    $\forall U \in \T$ offene Umgebung von $a$ $ \exists n \in \N \forall n \leq N: a_n \in U$.
+\end{definition}
+
+Diese Definition geht auf Kosten der Eindeutigkeit. In nicht HD Räumen können Folgen mehrere Grenzwerte haben, und Stetigkeit ist nicht mit Folgenstetigkeit äquivalent.
+
+Einfaches Beispiel: $id: (X, \T_{disk}) \arr (X, \T_{triv})$. Da in $\T_{triv}$ nur zwei offene Mengen existieren mit den Urbildern $id\m(\e) = \e \in \T_{disk}$ und $id\m(X) = X \in \T_{disk}$ ist $id$ stetig. Aber in $\T_{disk}$ konvergieren nur Folgen, bei denen alle bis auf endlich viele Folgenglieder denselben Wert annehmen, aber in $\T_{triv}$ konvergiert jede Folge gegen jeden Grenzwert. Daher ist die Implikation $a_n \arr a \implies id(a_n) \arr id(a)$ falsch, und $id$ ist nicht folgenstetig.
+
+In HD Räumen sind Grenzwerte eindeutig und stetig und folgenstetig ist wieder äquivalent.
+
+\begin{remark}
+    $\infty$ ist kein Grenzwert!!
+\end{remark}
+
+\begin{definition}[Teilfolge]
+    
+\end{definition}
+
+\begin{lemma}[lemma]
+    Eine Folge konvergiert genau dann, wenn all ihre Teilfolgen konvergieren
+\end{lemma}
+
+\begin{definition}[Häufungspunkt einer Folge]
+    
+\end{definition}
+
+\begin{example}
+    $a_n = (-1)^n$ hat Häufungspunkte $1$ und $-1$, aber konvergiert nicht
+\end{example}
+
+\begin{definition}[sequentieller Abschluss / Folgenabschluss]
+    hat auf Deutsch nicht wirklich einen Namen?
+\end{definition}
+
+\begin{proposition}[Äquivalenz von Abschlüssen]
+    Mögliche Aussagen sind:
+    \begin{itemize}
+        \item Folgenabschluss $\subset$ Abschluss
+        \item in metrischen Räumen: Folgenabschluss $=$ Abschluss
+        \item in topologischen Räumen mit abzählbarer Basis: $=$
+        \item in erstabzählbaren topologischen Räumen: $=$
+    \end{itemize}
+    "$=$ gilt" nennt sich Frechet Uryson Eigenschaft oder so
+    
+    Gurau hat nur den zweiten Stichpunkt, ist auch nicht so wichtig aber ich hab mich zu lange reingefuchst haha
+\end{proposition}
+
+\begin{definition}[Cauchy-Folge]
+    
+\end{definition}
+
+\begin{lemma}[lemma]
+    CF konvergiert $\iff$ hat konvergente Teilfolge
+\end{lemma}
+
+\begin{lemma}[konvergent $\implies$ Cauchy]
+    
+\end{lemma}
+
+\begin{definition}[folgenkompakt]
+    
+\end{definition}
+
+\begin{proposition}[kompakt $\iff$ folgenkompakt]
+    oder Theorem?
+\end{proposition}
+
+\begin{definition}[vollständig]
+    Jede CF konvergiert
+
+    auch Vervollständigung
+\end{definition}
+
+\begin{definition}[Kontraktion]
+    
+\end{definition}
+
+etwas über geometrische Bedeutung, und Kontraktion ==> Lipschitz
+
+\begin{theorem}[Fixpunktsatz von Banach]
+    DAS ist jetzt WIRKLICH ein Theorem
+
+    Die ganzen Aussagen, die Gurau "Theorem" nennt, sind zwar auch wichtig, aber oft nicht auf demselben Level wie zB Heine Borel... deswegen nenne ich viele Proposition.
+
+    Aber va wenn der Beweis davon lang ist, bin ich versucht sie doch Theorem zu nennen
+
+    zB ist die Proposition "Äquivalenz von Abschlüssen" auf rein logischem Level ein Mega Theorem, aber für Analysis Zwecke eher ein "netter fun fact"
+\end{theorem}
+
+\begin{definition}[rekursive Folge]
+    einiges an Text blob
+
+    basic definition
+    
+    examples
+
+    continuity of F
+
+    homogeneous
+
+    linear
+
+    finite difference eq
+\end{definition}
+
+\begin{lemma}[Linearkombinationen homogen rekursiver Folgen sind homogen rekursiv]
+    Lemma... ? Bemerkung? Algorithmus? und irgendwie hat sich hier die Determinante einer Matrix reingeschlichen...
+\end{lemma}
+
+\begin{proposition}[Rechenregeln für Limiten]
+    Rechen
+\end{proposition}
+
+\begin{lemma}[Sandwichlemma]
+    
+\end{lemma}
+
+\begin{definition}[limsup, liminf]
+    mit oder ohne $\infty$?
+\end{definition}
+
+noch ein remark zu $\infty$?
+
+\begin{lemma}[wenn konvergent...]
+    limsup = lim = liminf $\iff$ konvergiert
+\end{lemma}
+
+\begin{definition}[monotone und beschränkte Folgen]
+    
+\end{definition}
+
+\begin{proposition}[monotone Konvergenz für Folgen]
+    
+\end{proposition}
+
+\begin{definition}[Intervallschachtelung]
+    
+\end{definition}
+
+\begin{theorem}[Satz von Bolzano-Weierstraß]
+    Das ist definitiv wieder ein Theorem mit capital T
+\end{theorem}
+
+\begin{corollary}[$\R^n$ ist vollständig]
+    
+\end{corollary}
+
+\begin{corollary}[$\R^n$ ist die Vervollständigung von $\Q^n$]
+    
+\end{corollary}
+
+\begin{theorem}[Satz von Heine-Borel]
+    Noch ein Theorem mit capital T
+\end{theorem}
+
+Guraus Beweis ist eine ganze Gurau-Seite lang. Ich erinnere mich daran, dass der Beweis von Heine-Borel super schnell geht wenn man Folgenkompaktheit verwendet. Aber Cauchy-Vollständigkeit ist trotzdem notwendig, daher geht der fürchte ich nicht früher.
