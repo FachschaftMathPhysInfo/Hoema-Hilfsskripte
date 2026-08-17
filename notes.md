@@ -24,8 +24,6 @@ Kapitel 2
 
 - Beweis schöner machen
 
-- counter für exercises
-
 - Lösungen
 
 - Gruppenhomo
@@ -56,17 +54,16 @@ kleinere Dinge
 
 - subproofs
 
-- wie schreibt man Sachen über Pfeile und = Zeichen?
-
 - (n.k) um Nummerierungen
 
 - schönere Referenzen: automatisch Def. / Lem. / etc.
 
-- schöneres \cap etc mit Text direkt drunter
-
 - "Nachrechnen" Beweis schöner
 
 - Liste mit Literatur, Empfehlungen
+
+- fix all \footnote{} to \footnotemark inside boxes
+
 
 
 Fragen zum ganzen Dokument

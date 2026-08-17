@@ -139,31 +139,42 @@
 
 
 
+% Weil die Standard \exists und \forall Symbole immer so aussehen wie Menschen in einem überfüllten Zug
+% Die \let\... Zeile verhindert eine unendliche rekursive Ausführung
+\let\squeezedexists\exists
+\renewcommand{\exists}{\kern4pt\squeezedexists\kern2pt}
+\let\squeezedforall\forall
+\renewcommand{\forall}{\kern4pt\squeezedforall\kern2pt}
+
+
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\e}{\text{\scalebox{1.1}{$\not \hspace{-2pt}\text{\footnotesize{O}}\hspace{1pt}$}}}
-% da saß ich auch mindestens 1h dran um das leere Menge genau so hinzubasteln wie ich wollte
+% da saß ich auch mindestens 1h dran um das leere Menge genau so hinzubasteln wie ich es haben wollte
 % honourable mention to \cancel{\text{O}}
 \newcommand{\arr}{\longrightarrow}
 \newcommand{\m}{^{-1}}
 \newcommand{\Pot}{\mathcal{P}\hspace{-1pt}ot\hspace{1pt}}
 
 
+\newcommand{\A}{\mathcal{A}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\T}{\mathcal{T}}
 
 \newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.}\hbox{\scriptsize.}}} =}
 
-\newcommand{\absurdum}{{\quad\huge$\lightning$}}
+\newcommand{\absurdum}{{\hspace{12pt}\huge$\lightning$}}
 % ein schöner "Widerspruch" Blitz, macht aber die Zeile in der er ist etwas höher
 \renewcommand{\qedsymbol}{$\blacksquare$}
 \newcommand{\subqed}{\hfill$\diamond$}
 \newcommand{\notiff}{\iff\hspace{-17pt}\not\hspace{17pt}} % da hat es tatsächlich standardmäßig nichts
+\newcommand{\limm}{\lim\limits_{n \rightarrow \infty}}
 
 
+% die 4 hier sind glaube ich nicht von mir, sondern noch von meinem Prof. Muss noch überprüfen was die machen und ob es schönere Symbole dafür gibt
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Det}{Det}
 \DeclareMathOperator{\im}{im}

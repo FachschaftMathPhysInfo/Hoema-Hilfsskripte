@@ -44,17 +44,26 @@ Längere Motivation: Offene Intervalle
 
 \begin{definition}[Topologie]
     Sei $X$ eine Menge, und $\T \subset \Pot(X)$ ein Mengensystem, d.h. eine Menge, deren Elemente Teilmengen von $X$ sind. Wir können also Teilmengen $U \subset X$ danach bewerten, ob sie Elemente in $\T$ oder nicht sind.
+
+    Mengen $U \in \T$ nennen wir \underline{offen}.
     
     $\T$ heißt \underline{Topologie} und das Tupel $(X, \T)$ \underline{topologischer Raum}, falls gilt:
     \begin{enumerate}[label=(T\arabic*)]
         \item $\e, X \in \T$
-        \item $(U_{\alpha})_{\alpha \in I} \subset \T \implies \bigcup\limits_{\alpha \in I} U_{\alpha} \in \T$
-        \item $(U_i)_{i \in \llbracket 1, n \rrbracket} \subset \T \implies \bigcap\limits_{1 = 1}\limits^n U_i \in \T$
-    \end{enumerate}
-    Wie die Indizes andeuten, kann dabei die Vereinigung in (T2) beliebig (auch überabzählbar) sein, der Schnitt in (T3) aber höchstens endlich.
 
-    Mengen $U \in \T$ nennen wir \underline{offen}.
+        \emph{"Leere Menge, ganze Menge sind offen"}
+        \item $(U_{\alpha})_{\alpha \in I} \subset \T \implies \bigcup\limits_{\alpha \in I} U_{\alpha} \in \T$ für beliebige Indexmengen $I$
+
+        \emph{"Beliebige Vereinigungen [offener Mengen] sind offen"}
+        \item $(U_i)_{i \in \llbracket 1, n \rrbracket} \subset \T \implies \bigcap\limits_{i = 1}\limits^n U_i \in \T$ für endliche Indexmengen $\llbracket 1, n \rrbracket$
+
+        \emph{"Endliche Schnitte [offener Mengen] sind offen"}
+    \end{enumerate}
 \end{definition}
+
+Die Vereinigung in (T2) kann beliebig, daher auch überabzählbar sein.
+
+Wir merken an, dass eine Menge auch offen \emph{und} abgeschlossen sein kann, oder auch \emph{weder} offen \emph{noch} abgeschlossen. Das Konzept von \emph{halboffenen} Intervallen lässt sich allerdings nicht vernünftig auf beliebig Räume verallgemeinern.
 
 \begin{example}
     \begin{enumerate}
@@ -346,9 +355,6 @@ Vielleicht noch ein Vermerk "mehr im GURAU$^{\text{TM}}$ Script"
 
 \textbf{Folgentopologie}
 
-\begin{query}
-    Beschluss: Kapitel über Topologie und Folgen vertauschen.
-\end{query}
 
 \begin{definition}[Folgentopologie]
     abgeschlossen bzgl eines Konvergenzbegriffes
@@ -545,7 +551,7 @@ Basis hier? oder oben?
     $\forall \epsilon > 0 \exists \delta > 0 \forall x, y \in D: d_1(x,y) < \delta \implies d_2(f(x),f(y)) < \epsilon$.
 \end{definition}
 
-Der Unterschied ist hier, dass $x, y$ beide frei sind, und deshablb $\delta$ nicht von einem der beiden Punkte $x_0$ abhängen darf. Dadurch sind stetige Funktionen, die zu stark ansteigen, nicht gleichmäßig stetig, weil man die Abhängigkeit des Anstiegs von $x_0$ nicht mehr verwenden kann, um $\delta$ klein zu halten. Ein paar Beispiele sollen dies verdeutlichen.
+Der Unterschied ist hier, dass $x, y$ beide frei sind, und deshalb $\delta$ nicht von einem der beiden Punkte $x_0$ abhängen darf. Dadurch sind stetige Funktionen, die zu stark ansteigen, nicht gleichmäßig stetig, weil man die Abhängigkeit des Anstiegs von $x_0$ nicht mehr verwenden kann, um $\delta$ klein zu halten. Ein paar Beispiele sollen dies verdeutlichen.
 
 \begin{lemma}[gleichmäßig stetig $\implies$ stetig]
     Wäre eig eine super Übungsaufgabe, weiß aber nicht ob die an dem Punkt irgendein Erstie schon hinkriegt haha

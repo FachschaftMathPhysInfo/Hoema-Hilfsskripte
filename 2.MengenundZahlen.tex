@@ -7,7 +7,7 @@ Mengen sind ein zentrales Konzept, auf dem die ganze Mathematik beruht. Grob ges
 Mengen sind primitiv, in dem Sinne, dass sie nicht aus anderen Objekten definiert werden. Stattdessen werden sie indirekt definiert, indem mit den Gesetzen der Logik alle Eigenschaften axiomatisch aufgelistet werden, die Mengen erfüllen sollen. Das resultierende System nennt man \underline{ZF-Mengenlehre}, nach den Mathematikern Ernst Zermelo und Abraham Fraenkel. Aber zuerst definieren wir etwas Notation:
 
 \begin{definition}[Teilmenge, Vereinigungsmenge, Schnittmenge]
-    \label{subset-union-cap}
+    \label{def-subset-union-cap}
     \begin{enumerate}
         \item Sei $A$ eine Menge. Eine \underline{Teilmenge} $B$ von $A$ ist eine Menge, die elementweise komplett in $A$ enthalten ist, logisch definiert über
         $$x \in B \implies x \in A.$$
@@ -32,28 +32,48 @@ Natürlich ergeben diese Definitionen streng genommen erst Sinn, sobald man die 
     \label{ZF-axioms}
     In diesem Axiomsystem wird nicht zwischen Mengen und Elementen unterschieden, d.h. jedes Element einer anderen Menge wird auch selbst als eigenständige Menge gesehen. Die einzigen Objekte, deren Existenz axiomatisiert wird, sind Mengen.
     \begin{enumerate}[label=(ZF\arabic*)]
-        \item \underline{Extensionalitätsaxiom}: Eine Menge wird vollständig durch ihre Elemente bestimmt. Formal, für je zwei Mengen $A$, $B$ gilt $(x \in A \iff x \in B) \implies A = B$. Das Extensionalitätsaxiom impliziert unter anderem, dass weitere im folgenden axiomatisierten Mengen eindeutig sind.
-        \item \underline{Paarmengenaxiom}: Wenn $A$, $B$ Mengen sind, dann ist $\{A, B\}$ eine Menge.
-        \item \underline{Aussonderungsaxiom}: Wenn $A$ eine Menge ist, und $P(x)$ eine Eigenschaft\footnote{Logisch streng genommen ist $P$ ein \emph{Prädikat}.}, die Elemente $x$ von $A$ entweder erfüllen oder nicht erfüllen können, dann ist $\{x \in A | P(x)\}$ eine Menge. Die Notation $x \in A | P(x)$ bedeutet "x in A, für die gilt: P(x)". Logisch ist das wieder definiert durch $x \in A \land P(x)$, aber der senkrechte Strich trennt optisch die Elemente der Menge von den Bedingungen, die diese erfüllen.
-        \item \underline{Vereinigungsaxiom}: Wenn $A$ eine Menge ist, die aus Mengen besteht, dann ist $\bigcup A \defeq \{x | x \in B \land D \in A\}$ eine Menge.
-        \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennen wir die \underline{leere Menge} und schreiben $\e$ oder $\{\}$. Formal ist die Aussage $\exists \e: \forall x: x \notin \e$. Die leere Menge ist die einzige explizite Menge, deren Existenz axiomatisiert wird. Alle weiteren expliziten Mengen müssen also mit Hilfe der anderen Axiome aus der leeren Menge konstruiert werden.
-        \item \underline{Potenzmengenaxiom}: Für jede Menge $A$ existiert eine Menge, die genau alle Teilmengen von $A$ enthält. Diese nennen wir die Potenzmenge $\Pot(A)$.
+        \item \underline{Extensionalitätsaxiom}: Eine Menge wird vollständig durch ihre Elemente bestimmt. Formal, für je zwei Mengen $A$, $B$ gilt $(x \in A \iff x \in B) \implies A = B$.
         
-        Wir schreiben: $\Pot(A) = \{B | B \subset A\}$.
-        \item \underline{Unendlichkeitsaxiom}: Sei $A$ eine beliebige Menge. Dann existiert eine Menge $B$ mit $\e \in B$, und $A \in B \implies A \cup \{A\} \in B$.\\
-        Man bemerke, dass mit $A \arr A \cup \{A\} \in B$ die Voraussetzung für das Unendlichkeitsaxiom wieder erfüllt ist, damit gilt also auch $A \cup \{A\} \cup \{A \cup \{A\}\} \in B$. Diese Kette lässt sich \underline{induktiv}, d.h. durch wiederholtes Ausführen desselben Argumentes, beliebig weit fortsetzen. $B$ enthält also, sofern es mindestens ein $A$ enthält, gleich unendlich viele Mengen.
+        \emph{Das Extensionalitätsaxiom impliziert unter anderem, dass weitere im folgenden axiomatisierten Mengen eindeutig sind.}
+        \item \underline{Paarmengenaxiom}: Wenn $A$, $B$ Mengen sind, dann ist $\{A, B\}$ eine Menge.
+        \item \underline{Aussonderungsaxiom}: Wenn $A$ eine Menge ist, und $P(x)$ eine Eigenschaft\footnote{Logisch streng genommen ist $P$ ein \emph{Prädikat}.}, die Elemente $x$ von $A$ entweder erfüllen oder nicht erfüllen können, dann ist die Teilmenge von $A$ definiert durch alle Elemente, die $P(x)$ erfüllen, $\{x \in A | P(x)\}$, eine Menge.
+        
+        \emph{Die Notation $x \in A | P(x)$, sprich "x in A, für die gilt: P(x)", ist logisch definiert durch $(x \in A) \land P(x)$, aber der senkrechte Strich trennt optisch die Elemente der Menge von den Bedingungen, die diese erfüllen. Manche Autoren schreiben auch $x \in A : P(x)$.}
+        \item \underline{Vereinigungsaxiom}: Wenn $A$ eine Menge ist, die aus Mengen besteht, dann ist $\bigcup A \defeq \{x | x \in B \land D \in A\}$ eine Menge.
+        \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennen wir die \underline{leere Menge} und schreiben $\e$ oder $\{\}$.
+        
+        Formal ist die Aussage $\exists \e: \forall x: x \notin \e$.
+
+        Eine Menge $A \neq \e$ nennen wir \underline{nichtleer}.
+        \item \underline{Potenzmengenaxiom}: Für jede Menge $A$ existiert eine Menge, die genau alle Teilmengen von $A$ enthält. Diese nennen wir die Potenzmenge von $A$ und schreiben $\Pot(A)$.
+        
+        Mit (ZF3) gilt $\Pot(A) = \{B | B \subset A\}$.
+        \item \underline{Unendlichkeitsaxiom}: Sei $A$ eine beliebige Menge. Dann existiert eine Menge $B$ mit $\e \in B$, und $A \in B \implies A \cup \{A\} \in B$.
+
+        \emph{Man bemerke, dass mit $A \arr A \cup \{A\} \in B$ die Voraussetzung für das Unendlichkeitsaxiom wieder erfüllt ist, damit gilt also auch $A \cup \{A\} \cup \{A \cup \{A\}\} \in B$. Diese Kette lässt sich \underline{induktiv}, d.h. durch wiederholtes Ausführen desselben Argumentes, beliebig weit fortsetzen. $B$ enthält also, sofern es mindestens ein $A$ enthält, gleich unendlich viele Mengen. Daher auch der Name.}
         \item \underline{Ersetzungsaxiom}: Ist $A$ eine Menge, und $f$ eine Vorschrift, die jede Menge $x \in A$ eindeutig durch eine andere Menge $f(x)$ ersetzt (d.h. $f$ ist eine \emph{Funktion}, Def. \ref{def-function}), dann ist das Bild von $f$ definiert als $f(A) = \{f(x) | x \in A\}$ wieder eine Menge.
         \item \underline{Fundierungs}- oder \underline{Regularitätsaxiom}: Sei $A$ eine Menge. Dann enthält $A$ ein Element $x$ mit $x \cap A = \e$.
     \end{enumerate}
 \end{axiom}
 
-Danach ein paar Bemerkungen zu einzelnen Axiomen
-
 \begin{remark}
     \begin{itemize}
-        \item e
+        \item (ZF1): Eine gängige Beweismethode zu zeigen, dass zwei Mengen $A$ und $B$ gleich sind, ist, die beiden Implikationen $x \in A \implies x \in B$ und $x \in B \implies x \in A$ zu zeigen. Aus (ZF1) folgt $A = B$.
+        \item (ZF3): Das historisch zuerst entstandene \underline{Abstraktionsprinzip}, dass $\{x | P(x)\}$ für alle $P(x)$ eine Menge ist, ist sehr verlockend\footnotemark, aber scheitert an einem logischen Widerspruch, genannt die \underline{Antinomie von Russell}:
+
+        Man setze $\A = \{x | x \notin x\}$, und betrachtet den Fall $x = A$.\\
+        Wenn $A \in A$, dann folgt $A \notin A$. Aber wenn $A \notin A$, dann folgt $A \in A$. \absurdum
+
+        In ZF-Mengenlehre ist dieser Widerspruch gleich doppelt ausgeschlossen, mit (ZF3) dadurch, dass $P(x)$ auf eine zugrundeliegende Menge $A$ eingeschränkt wird, und durch (ZF9) dadurch, dass Mengen sich nicht selbst enthalten können (siehe unten).
+
+        Es gibt trotzdem Wege, das Abstraktionsprinzip widerspruchsfrei zu machen, z.B. in der Klassenlogik, in der man den Begriff von Mengen zu \underline{Klassen} erweitert, und Klassen von unterschiedlichen "Ebenen" (genannt \underline{Typen}) unterscheidet, die nicht vermischt werden können. Für die Standardmathematik ist allerdings ZF-Mengenlehre ausreichend.
+        \item (ZF5): Die leere Menge ist die einzige explizite Menge, deren Existenz axiomatisiert wird. Alle weiteren expliziten Mengen müssen/können also mit Hilfe der anderen Axiome aus der leeren Menge konstruiert werden (siehe \ref{def-natural-numbers} und Definitionen/Bemerkungen danach).
+        \item (ZF6): Das Potenzmengenaxiom garantiert auch, dass für eine Menge $A$ jede mögliche Teilmenge von $A$ existiert.
+        \item (ZF7): Das Unendlichkeitsaxiom ist eng verknüpft mit der Definition der natürlichen Zahlen \ref{def-natural-numbers} und dem Prinzip der natürlichen Induktion \ref{theorem-natural-induction}.
+        \item (ZF9): Damit wird zum Beispiel ausgeschlossen, dass Mengen sich nicht selbst enthalten können. Zu einer Menge $A$ betrachte zum Beispiel $B = \{A\}$, nach (ZF9) muss es ein $x \in B$ geben mit $x \cap B = \e$. Es gibt aber nur $x = A$, damit ist $A \cap \{A\} = \e$, also ist nach \ref{def-subset-union-cap} $A \notin A$.
     \end{itemize}
 \end{remark}
+\footnotetext{Zum Beispiel würde daraus auch sofort das Leermengenaxiom folgen, da $\e = \{x | x \neq x\}$.}
 
 Danach noch ein paar Definitionen
 
@@ -66,7 +86,7 @@ Danach noch ein paar Definitionen
     \end{enumerate}
 \end{definition}
 
-Man bemerke, dass die Paare $(a, b)$ geordnet sind, d.h. wenn $A$, $B$ zwei Elemente $x \neq y$ gemeinsam haben, dann ist $(x, y) \neq (y, x)$. Die Existenz von geordneten Paaren ist z.B. durch (ZF2) mittels einer Identifikation wie $(a, b) = \{\{a\}, \{a, b\}\}$ begründet.
+Man bemerke, dass die Paare $(a, b)$ geordnet sind, d.h. wenn $A$, $B$ zwei Elemente $x \neq y$ gemeinsam haben, dann ist $(x, y) \neq (y, x)$. Dafür reichen übliche Mengentupel $\{a, b\}$ nicht aus, da $\{a, b\} = \{b, a\}$. Die Existenz von geordneten Paaren ist z.B. durch (ZF2) mittels einer Identifikation wie $(a, b) = \{a, \{a, b\}\}$ begründet.
 
 \begin{example}
     zu Mengenoperationen $\subset, \cup, \cap, \backslash, \triangle, \times$ auch Beispiele mit $\e$!
@@ -79,7 +99,7 @@ Man bemerke, dass die Paare $(a, b)$ geordnet sind, d.h. wenn $A$, $B$ zwei Elem
         \item $A \backslash (B \cap C) = (A \backslash B) \cup (A \backslash C)$.
     \end{enumerate}
 \end{lemma}
-Wir sehen nun unseren ersten kleineren Beweis. Die Beweismethode, die wir hier verwenden, nennt man \emph{Nachrechnen}, damit meint man in der Mathematik das wiederholte Anwenden von Axiomen, Definitionen, und bereits gezeigten Aussagen, ohne dabei größere Ideen zu brauchen oder auf kompliziertere Details achten zu müssen.
+Wir sehen nun unseren ersten kleineren Beweis. Die Beweismethode, die wir hier verwenden, nennt man \underline{Nachrechnen}. Damit meint man in der Mathematik das wiederholte Anwenden von Axiomen, Definitionen, und bereits gezeigten Aussagen, ohne dabei größere Ideen zu brauchen oder auf kompliziertere Details achten zu müssen.
 \begin{proof}
     \begin{enumerate}
         \item Sei $x$ beliebig. Man bemerke, dass $x \notin A \iff \neg (x \in A)$ ist. Dann gilt mit den Gesetzen der Logik:\\
@@ -412,7 +432,7 @@ Ein maximales Element ist eine schwächere Bedingung als eine obere Schranke, da
 \begin{example}
     \begin{enumerate}[label=(\arabic*)]
         \item Auf den zwei Mengen $X = \{1, \sqrt{\pi}, \text{Gurau}, \text{\faCoffee} \}$, $Y = \{\text{rational}, \text{irrational},$
-        $\text{Vorlesung}, \text{trinken}\}$ definieren wir zwei bijektive Funktionen:
+        $\text{Vorlesung}, \text{trinken}\}$ definieren wir zwei Funktionen:
         
         $f: X \arr Y$ über
         \begin{itemize}[label=]
@@ -428,7 +448,7 @@ Ein maximales Element ist eine schwächere Bedingung als eine obere Schranke, da
             \item $g(\text{Gurau}) = \text{trinken}$
             \item $g(\text{\faCoffee}) = \text{irrational}$
         \end{itemize}
-        Für uns Menschen sieht die Funktion $f$ nach einer sinnvollen Zuordnung aus, die Funktion $g$ dagegen völlig unsinnig. Aus mathematischer Sicht sind allerdings beide Funktionen absolut gleichwertig, nämlich wohldefiniert und bijektiv.\\
+        Für uns Menschen sieht die Funktion $f$ nach einer sinnvollen Zuordnung aus, die Funktion $g$ dagegen völlig unsinnig. Aus mathematischer Sicht sind allerdings beide Funktionen absolut gleichwertig, nämlich wohldefiniert und bijektiv (siehe \ref{def-injective-surjective-bijective}).\\
         Oft haben mathematische Konstrukte eine Motivation, die auf nicht streng logischer Intuition beruht oder aus der weltlichen Anschauung kommt, aber das ist eben nicht immer so. Und auf keinen Fall darf man Mathematik danach beurteilen, ob sie intuitiv Sinn ergibt, sondern nur ob sie logisch Sinn ergibt.
     \end{enumerate}
 \end{example}
@@ -466,6 +486,7 @@ Ein maximales Element ist eine schwächere Bedingung als eine obere Schranke, da
 \end{example}
 
 \begin{definition}[injektiv, surjektiv, bijektiv]
+    \label{def-injective-surjective-bijective}
     Seien $X$, $Y$ Mengen, und $f: X \arr Y$ eine Funktion.
     \begin{enumerate}
         \item $f$ heißt \underline{injektiv}, wenn gilt: $\forall x, y \in X: x \neq y \implies f(x) \neq f(y)$.\\
@@ -661,6 +682,7 @@ Im Allgemeinen schreibt man $b = a\m$. Man schreibt auch $b = -a$, falls $\star$
 \end{example}
 
 \begin{lemma}[Rechenregeln für Gruppen]
+    \label{lem-rechenregeln-gruppe}
     Sei $(M, \star)$ eine Gruppe mit neutralem Element $e$.
     
     Dann gilt $\forall a, b, c \in M$:
@@ -839,14 +861,15 @@ Zwei äquivalente Wege:
 
 
 
-\section{Zahlen}
+\section{Reelle Zahlen}
 \label{sec-numbers}
 
-Zahlen sind intrinsisch motiviert. Zuerst einmal sind die natürlich Zahlen $\N$ ein mathematisches Mittel, um Objekte in der physischen Welt zu zählen\footnote{Man kann auch nur Objekte in der mathematischen Welt zählen, wenn man zu sehr darin gefangen steckt.}, wie z.B. Anzahl Kaffeetassen pro Tag. Diese werden mit negativen Zahlen zu den ganzen Zahlen $\Z$ erweitert, um Prozesse der Subtraktion zu beschreiben. Hier haben wir Subtraktion als inverse Operation zur Addition eingeführt, wodurch negative Zahlen mathematisch von der Forderung der Abgeschlossenheit bezüglich Subtraktion kommen, sie haben aber auch eine nichtmathematische Motivation (z.B. Schulden). Rationale Zahlen $\Q$ sind nichtmathematisch die Konsequenz davon, Zahlen für physische Messungen zu verwenden, für die ganze Zahlen nicht präzise genug sind, oder mathematisch aus der Forderung der Existenz von multiplikativen Inversen.
+Zahlen sind, zumindest im Anfang, extrinsisch motiviert. Zuerst einmal sind die natürlich Zahlen $\N$ ein mathematisches Mittel, um Objekte in der physischen Welt zu zählen\footnote{Man kann auch nur Objekte in der mathematischen Welt zählen, wenn man zu sehr darin gefangen steckt.}, wie z.B. Anzahl Kaffeetassen pro Tag. Diese werden mit negativen Zahlen zu den ganzen Zahlen $\Z$ erweitert, um Prozesse der Subtraktion zu beschreiben. Hier haben wir Subtraktion als inverse Operation zur Addition eingeführt, wodurch negative Zahlen mathematisch von der Forderung der Abgeschlossenheit bezüglich Subtraktion kommen, sie haben aber auch eine nichtmathematische Motivation (z.B. Schulden). Rationale Zahlen $\Q$ sind nichtmathematisch die Konsequenz davon, Zahlen für physische Messungen zu verwenden, für die ganze Zahlen nicht präzise genug sind, oder mathematisch aus der Forderung der Existenz von multiplikativen Inversen.
 
 Relle Zahlen $\R$ haben eine eher begrenzte nichtmathematische Motivation. Auch wenn die Existenz von nicht rationalen (irrationalen) Zahlen wie $\sqrt{2}$ oder $\pi$ bereits seit der Antike bekannt ist, haben diese ihre Relevanz doch eher als mathematischen Vervollständigung von $\Q$, als als präzise Messergebnisse in der physischen Welt. Die komplexen Zahlen $\C$ sind rein mathematisch motiviert als algebraische Vervollständigung von $\R$.
 
 \begin{definition}[Natürliche Zahlen]
+    \label{def-natural-numbers}
     Wir definieren die \underline{natürlichen Zahlen} $\N$, indem wir mit der Forderung $0 \in \N$ anfangen, und schrittweise $+1$ aufaddieren und für $n \in \N$ auch $(n+1) \in \N$ fordern. Weil man das nicht für unendlich viele Zahlen machen kann, brauchen wir eine implizite Konstruktion, nämlich die \underline{Peano-Axiome}:
     \begin{itemize}
         \item $\N$ ist eine Menge, die ein Element $0$ enthält.
@@ -880,7 +903,7 @@ Relle Zahlen $\R$ haben eine eher begrenzte nichtmathematische Motivation. Auch 
 \begin{remark}
     \textbf{Natürliche Zahlen und die Null}
 
-    Mathematiker sind sich nicht einig, ob die $0$ ein Element der natürlichen Zahlen sein sollte. Manche Autoren, so auch wir oder Gurau, definieren deswegen $\N$ als natürliche Zahlen mit $0$ und schreiben $\N^*$ für die natürlichen Zahlen ohne $0$, andere Autoren definieren $\N$ als natürliche Zahlen ohne $0$ und schreiben $\N_0$ für die natürlichen Zahlen mit $0$. $\N^*$ und $\N_0$ bedeuten immer dasselbe, aber wofür $\N$ steht, muss der Leser bei jeder Literatur neu nachschauen, oder aus dem Kontext erschließen.
+    Mathematiker sind sich nicht einig, ob die $0$ ein Element der natürlichen Zahlen sein sollte. Manche Autoren, so auch wir oder Gurau, definieren $\N$ als natürliche Zahlen mit $0$ und schreiben $\N^*$ für die natürlichen Zahlen ohne $0$. Andere Autoren definieren $\N$ als natürliche Zahlen ohne $0$ und schreiben $\N_0$ für die natürlichen Zahlen mit $0$. Zwar ist $\N^*$ immer ohne $0$ und $\N_0$ immer mit $0$, aber wofür $\N$ steht, muss der Leser bei jeder neuen Lektüre selbst nachschauen, oder aus dem Kontext erschließen.
 \end{remark}
 
 Wie bereits angemerkt, ist die Definition der natürlichen Zahlen eng verknüpft mit dem Prinzip der vollständigen Induktion. Diesen Zusammenhang können wir jetzt formalisieren:
@@ -910,7 +933,7 @@ Wie bereits angemerkt, ist die Definition der natürlichen Zahlen eng verknüpft
 Wie der Leser in \ref{exercise-structure-of-n} bewiesen hat, bildet $(\N, +)$ fast eine kommutative Gruppe, nur die additiven Inversen $-n$ zu $n \neq 0$ fehlen. Wenn wir diese, axiomatisch wie oben, hinzufügen, dann erhalten wir die ganzen Zahlen:
 
 \begin{definition}[Ganze Zahlen]
-    Wir definieren $\Z$ als den kleinsten kommutativen Ring mit Eins, der $\N$ mit der entsprechenden Addition und Multiplikation enthält.
+    Wir definieren die Menge der \underline{ganzen Zahlen} $\Z$ als den kleinsten kommutativen Ring mit Eins, der $\N$ mit der entsprechenden Addition und Multiplikation enthält.
 \end{definition}
 
 Diese Definition ist äquivalent zu Definition 2.5 in \cite{GURAU}.
@@ -918,7 +941,7 @@ Diese Definition ist äquivalent zu Definition 2.5 in \cite{GURAU}.
 Um aus dem Ring der ganzen Zahlen einen Körper zu machen, fehlen nur noch die multiplikativen Inversen $b\m$ zu $b \neq 0$. Fügt man diese, wieder axiomatisch, hinzu, dann kommen damit auch automatisch Brüche der Form $\frac{a}{b}$. Daraus erhalten wir die rationalen Zahlen:
 
 \begin{definition}[Rationale Zahlen]
-    Wir definieren $\Q$ als den kleinsten Körper, der $\Z$ mit der entsprechenden Addition und Multiplikation enthält.
+    Wir definieren die Menge der \underline{rationalen Zahlen} $\Q$ als den kleinsten Körper, der $\Z$ mit der entsprechenden Addition und Multiplikation enthält.
 \end{definition}
 
 \begin{remark}
@@ -934,7 +957,7 @@ Aus den rationalen Zahlen die reellen Zahlen zu definieren, erfordert wieder etw
 Wenn wir die Existenz dieser Suprema für $\Q$ fordern, dann erhalten wir die reellen Zahlen:
 
 \begin{definition}[Reelle Zahlen]
-    Wir definieren $\R$ als den vollständigen Körper, der $\Q$ mit der entsprechenden Ordnungsrelation $\leq$ enthält.
+    Wir definieren die Menge der \underline{reellen Zahlen} $\R$ als den vollständigen Körper, der $\Q$ mit der entsprechenden Ordnungsrelation $\leq$ enthält.
 \end{definition}
 
 \cite{GURAU} konstruiert $\Z$, $\Q$, und $\R$ wieder explizit. Insbesondere noch auf Dedekind Schnitte eingehen!
@@ -963,9 +986,15 @@ Wenn man eine Menge (oder ein sonstiges Objekt) implizit durch Angabe der Eigens
 \end{definition}
 
 \begin{remark}
-    Vorsicht: $\infty$ ist keine Zahl! Man kann $\infty$ nicht in sinnvoller Weise zu $\R$ hinzufügen.
+    Vorsicht: Unendlich, wie es in diesem Kontext definiert ist, ist keine Zahl! Man kann $\infty$ nicht in sinnvoller Weise zu $\R$ hinzufügen:
 
-    Paar Rechenbeispiele wie es schief läuft?
+    $\infty + 1 = \infty + 0 \overset{\text{Kürzen}}{\underset{\ref{lem-rechenregeln-gruppe}}{\implies}} 0 = 1$, analoges für $\infty \cdot 2 = \infty \cdot 1 \implies 2 = 1$
+
+    Unendlich ist auch nicht die multiplikative Inverse zu $0$:
+    
+    Angenommen, es gibt $\frac{1}{0} = \infty \implies 0 \overset{\text{Def. Null}}{=}\frac{1}{0} \cdot 0 \overset{\text{Def. Inverse}}{=} 1$
+
+    Bottom line: $\infty$ ist keine Zahl, und $\frac{1}{0}$ existiert immer noch nicht.
 \end{remark}
 
 \begin{definition}[Kardinalität]
@@ -1012,7 +1041,7 @@ Das ist unser erster Beweis, der eine \emph{Hilfskonstruktion} verwendet. Hilfsk
 
         Da $f$ nach Annahme surjektiv ist, muss es also ein $y \in X$ geben mit $f(y) = B$.
 
-        Für dieses $y$ gilt dann nach Konstruktion von $B$ aber $y \in B \implies y \notin f(y) = B$, und genauso $y \notin B \implies y \in f(y) = B$.\absurdum
+        Für dieses $y$ gilt dann nach Konstruktion von $B$ aber $y \in B \implies y \notin f(y) = B$, und genauso $y \notin B \implies y \in f(y) = B$. \absurdum
 
         Also kann $f$ nicht surjektiv sein.
     \end{itemize}
@@ -1022,7 +1051,7 @@ Das ist unser erster Beweis, der eine \emph{Hilfskonstruktion} verwendet. Hilfsk
     \begin{itemize}[label=]
         \item Da nach Teil 1 keine surjektive Abbildung $X \arr \Pot(X)$ existieren kann, existiert auch keine bijektive Abbildung, daher muss $|X| \neq |\Pot(X)|$ gelten.
 
-        Dass $|X|$ also kleiner als $|\Pot(X)|$ sein muss, ist intuitiv klar. Formal zeigt man das mithilfe der Einbettung $\iota: X \arr \Pot(X)$ über $\iota(x) = \{x\}$.
+        Dass $|X|$ also kleiner als $|\Pot(X)|$ sein muss, ist intuitiv klar. Formal zeigt man das mithilfe der Einbettung $\iota: X \arr \Pot(X)$, $\iota(x) = \{x\}$:
         
         Da $\{x\} = \{y\} \implies x = y$ gilt, ist $\iota$ injektiv, darum muss $|X| \leq |\Pot(X)|$ gelten, und deswegen insgesamt $|X| < |\Pot(X)|$.
     \end{itemize}
@@ -1055,7 +1084,7 @@ Das ist unser erster Beweis, der eine \emph{Hilfskonstruktion} verwendet. Hilfsk
     
     Da nach Teil 1 keine surjektive Abbildung $X \arr \Pot(X)$ existieren kann, existiert auch keine bijektive Abbildung, daher muss $|X| \neq |\Pot(X)|$ gelten.
 
-    Dass $|X|$ also kleiner als $|\Pot(X)|$ sein muss, ist intuitiv klar. Formal zeigt man das mithilfe der Einbettung $\iota: X \arr \Pot(X)$ über $\iota(x) = \{x\}$.
+    Dass $|X|$ also kleiner als $|\Pot(X)|$ sein muss, ist intuitiv klar. Formal zeigt man das mithilfe der Einbettung $\iota: X \arr \Pot(X)$, $\iota(x) = \{x\}$:
     
     Da $\{x\} = \{y\} \implies x = y$ gilt, ist $\iota$ injektiv, darum muss $|X| \leq |\Pot(X)|$ gelten, und deswegen insgesamt $|X| < |\Pot(X)|$.
 \end{proof}
@@ -1163,10 +1192,12 @@ Wie schwer zu glauben dieser Satz im Vergleich zum vorherigen ist, bleibt dem Le
     
 \end{theorem}
 
+\section{Komplexe Zahlen}
+
 Die komplexen Zahlen stammen historisch aus der Realisierung, dass die Lösung für gewisse kubische Gleichungen (d.h. Gleichungen der Form $a \cdot x^3 + b \cdot x^2 + c \cdot x + d = 0$) nur berechnet werden können, wenn man die Existenz von Wurzeln aus negativen Zahlen zulässt, obgleich wenn besagte Wurzeln in der Lösung nicht vorkommen. Das führt zur Einführung der imaginären Einheit, die ihren Namen daher erhält, dass sie die Seitenlänge eines Quadrates mit negativem Flächeninhalt beschreibt, was empirisch nicht möglich scheint.
 
 \begin{definition}[Komplexe Zahlen]
-    Wir definieren $i = \sqrt{-1}$ und $\C = \R + i \R$.
+    Wir definieren die Menge der \underline{komplexen Zahlen} $\C$ als den kleinsten Körper, in dem die Gleichung $x^2 = -1$ eine Lösung hat, und der $\R$ enthält.
 \end{definition}
 
 \begin{corollary}["für Marco"]
@@ -1221,7 +1252,7 @@ Die komplexen Zahlen stammen historisch aus der Realisierung, dass die Lösung f
 
 \section{GURAU}
 
-Intuitiv kann man die natürlichen Zahlen fordern, indem man $0$ als "nichts" definiert, $1$ als "eines", und von da an jede kommende Zahl als "die Zahl davor $+ 1$"\footnote{Formal machen das die Peano-Axiome.}. Mathematisch wäre streng genommen nichts falsch damit, und für ein mathematisches Verständnis ist die formale Definition auch nicht entscheidend. Der ästhetische Mangel ist allerdings, dass man dazu ein zusätzliches Axiom bräuchte, was aber nicht nötig ist, da man die intrinsisch bekannte Struktur der natürlichen Zahlen mit den bereits bekannten Axiomen konstruieren kann. Das macht man genauso wie beschrieben, d.h. man fängt mit "nichts" an und geht jeweils Schritt für Schritt weiter "hoch". Dafür verwendet man die Existenz der leeren Menge (ZF5) sowie ein bisschen Trixerei mit Mengenklammern.
+Intuitiv kann man die natürlichen Zahlen fordern, indem man $0$ als "nichts" definiert, $1$ als "eines", und von da an jede kommende Zahl als "die Zahl davor $+ 1$"\footnote{Formal machen das die Peano-Axiome.}. Mathematisch wäre streng genommen nichts falsch damit, und für ein mathematisches Verständnis ist die formale Definition auch nicht entscheidend. Der ästhetische Mangel ist allerdings, dass man dazu ein zusätzliches Axiom bräuchte, was aber nicht nötig ist, da man die bereits bekannte Struktur der natürlichen Zahlen mit den bereits bekannten Axiomen konstruieren kann. Das macht man genauso wie beschrieben, d.h. man fängt mit "nichts" an und geht jeweils Schritt für Schritt weiter "hoch". Dafür verwendet man die Existenz der leeren Menge (ZF5) sowie ein bisschen Trixerei mit Mengenklammern.
 
 \begin{definition}[Natürliche Zahlen]
     \label{def-natural-numbers}

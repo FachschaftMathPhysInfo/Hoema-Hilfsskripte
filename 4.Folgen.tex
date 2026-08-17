@@ -5,38 +5,40 @@
 \end{example}
 
 \begin{query}
-    Genau hier ist mir wieder eingefallen, dass Konvergenz von Folgen Topologie benötigt. Deswegen bin ich immer noch der Meinung, dass "Topologie" und "Folgen" eigentlich in ein Kapitel gehören.
-
-    Standardreihenfolge in Analysis:
-    \begin{enumerate}[label=\arabic*,start=3]
-        \item Folgen in $\R$, $\C$, $\R^n$
-        \item metrische Topologie des $\R^n$
-        \item Stetigkeit von reellwertigen Funktionen
-        \item Folgen in metrischen Räumen
-        \item manchmal: allgemeine Topologie und Stetigkeit von allgemeinen Funktionen
-    \end{enumerate}
-
-    Ich denke nicht, dass man Folgen und Topologie sinnvoll in zwei getrennte Kapitel separieren kann. Wir können daraus entweder ein Riesenkapitel oder viele kleine Kapitel machen. Was ist Dir lieber?
+    Ich habe nochmal mit einem Freund darüber diskutiert, und denke das folgende wäre sinnvoll:
+    \begin{itemize}
+        \item Ein oder zwei didaktische Zusatzkapitel zu Folgen in $\R$ (um reelle Zahlen besser kennenzulernen) und offene Mengen in $\R^n$
+        \item Danach Kapitel zu Topologie und Folgen, möglicherweise ein drittes zu metrischen Räumen oder die irgendwo eingestreut
+        \item Danach ein Sonderkapitel über Stetigkeit, dazu alles auf einmal
+    \end{itemize}
+    Das braucht aber einiges an Umstrukturierungsarbeit.
 \end{query}
 
 \begin{definition}[Konvergenz von Folgen, 1]
-    Sei $(a_n)_{n \in \N}$ eine Folge in $\R$ oder $\C$. Die Folge konvergiert gegen $a \in \R$ oder $\C$, falls gilt:
+    Sei $(a_n)_{n \in \N}$ eine Folge in $\R$ oder $\C$. Die Folge \underline{konvergiert} gegen $a \in \R$ oder $\C$, falls gilt:
 
-    $\forall \epsilon > 0 \exists N \in \N \forall n \leq N: |a - a_n| < \epsilon$.
+    $\forall \epsilon > 0 \exists N_0 \in \N \forall n \geq N_0: |a - a_n| < \epsilon$.
 \end{definition}
 
 \begin{definition}[Konvergenz von Folgen, 2]
-    Sei $(a_n)_{n \in \N}$ eine Folge in einem metrischen Raum $(X, d)$. Die Folge konvergiert gegen $a \in X$, falls gilt:
+    Sei $(a_n)_{n \in \N}$ eine Folge in einem metrischen Raum $(X, d)$. Die Folge \underline{konvergiert} gegen $a \in X$, falls gilt:
 
-    $\forall \epsilon > 0 \exists N \in \N \forall n \leq N: d(a, a_n) < \epsilon$.
+    $\forall \epsilon > 0 \exists N_0 \in \N \forall n \geq N_0: d(a, a_n) < \epsilon$.
 \end{definition}
+
+\begin{exercise}
+    Sei $(a_n)_{n \in \N}$ eine konvergente Folge in einem metrischen Raum $(X, d)$.
+
+    Beweisen Sie, dass $\limm a_n$ eindeutig ist.
+\end{exercise}
 
 Obige Bedingung ist äquivalent zu $a_n \in B_{\epsilon}(a)$. Dies können wir verallgemeinern zu topologischen Räumen, indem wir offene Bälle durch offene Mengen ersetzen
 
 \begin{definition}[Konvergenz von Folgen, 2]
-    Sei $(a_n)_{n \in \N}$ eine Folge in einem topologischen Raum $(X, \T)$. Die Folge konvergiert gegen $a \in X$, falls gilt:
+    \label{def-convergence-of-series-2}
+    Sei $(a_n)_{n \in \N}$ eine Folge in einem topologischen Raum $(X, \T)$. Die Folge \underline{konvergiert} gegen $a \in X$, falls gilt:
 
-    $\forall U \in \T$ offene Umgebung von $a$ $ \exists n \in \N \forall n \leq N: a_n \in U$.
+    $\forall U \in \T$ offene Umgebung von $a$ $ \exists N_0 \in \N \forall n \geq N_0: a_n \in U$.
 \end{definition}
 
 Diese Definition geht auf Kosten der Eindeutigkeit. In nicht HD Räumen können Folgen mehrere Grenzwerte haben, und Stetigkeit ist nicht mit Folgenstetigkeit äquivalent.
@@ -46,15 +48,40 @@ Einfaches Beispiel: $id: (X, \T_{disk}) \arr (X, \T_{triv})$. Da in $\T_{triv}$ 
 In HD Räumen sind Grenzwerte eindeutig und stetig und folgenstetig ist wieder äquivalent.
 
 \begin{remark}
-    $\infty$ ist kein Grenzwert!!
+    $\infty$ und $-\infty$ sind keine Grenzwerte! Denn für jede Folge $(a_n)$ mit Werten in $\R$ ist $|\pm \infty - a_n| = \infty$ und damit $|a - a_n| < \epsilon$ falsch $\forall n \forall \epsilon$.
+
+    Falls die Folgenglieder unbeschränkt immer größer (oder immer kleiner) wird, dann sagt man, $(a_n)$ \underline{divergiert bestimmt gegen $\pm \infty$}, falls gilt:
+    
+    $\forall K \in \R \exists N_0 \in \N \forall n \leq N_0: \pm a_n > K$.
+    
+    Man kann aber trotzdem nicht einfach $\limm a_n = \infty$ "definieren", denn $\infty$ verhält sich nicht wie ein Grenzwert: Z.B. wäre dann für die Folgen $a_n = n$ und $b_n = 1$ mit \ref{prop-rechenregeln-für-limiten}
+
+    $\infty = \limm (n + 1) = (\limm n) + (\limm 1) = \infty + 1 \implies 0 = 1$ \absurdum
+
+    Stattdessen schreibt man $a_n \arr \pm \infty$, und sagt umgangsprachlich auch "$a_n$ geht gegen $\pm$unendlich".
+
+    Ich weiß, dass 99\% von Euch diese Bemerkung lesen und ignorieren werden, aber vielleicht kann ich ja die restlichen 1\% überzeugen.
 \end{remark}
 
 \begin{definition}[Teilfolge]
-    
+    Eine \underline{Teilfolge} einer Folge $(a_n)_{n \in \N}$ ist eine Einschränkung von $a(n)$ auf einen immer noch unendlichen Definitionsbereich $\{n_k | k \in \N\} \subset \N$. Die verbliebenen Folgenindizes $n_k$ sind immer noch aufsteigend, d.h. $n_{k_2} > n_{k_1}$ wenn $k_2 > k_1$. Wir schreiben $(a_{n_k})_{k \in \N}$\footnote{Dabei ist $n_k$ als ganzes als ein Index zu sehen, nicht als Index $k$ für ein fest gewähltes $n$.}.
 \end{definition}
 
+\begin{example}
+    Sei $(a_n)_{n \in \N} = (a_0, a_1, a_2, ...)$ eine beliebige Folge. Mögliche Teilfolgen sind
+    \begin{itemize}
+        \item verschobene Folge $(a_1, a_2, a_3) = (a_{n+1})_{n \in \N}$ mit $n_k = n+1$
+        
+        oder allgemeiner $(a_s, a_{s+1}, a_{s+2}, ...) = (a_{n+s})_{n \in \N}$ mit $n_k = n+s$
+        \item alle geraden Folgenglieder $(a_0, a_2, a_4, ...) = (a_{2n})_{n \in \N}$ mit $n_k = 2n$
+        
+        oder alle ungeraden Folgenglieder $(a_1, a_3, a_5, ...) = (a_{2n+1})_{n \in \N}$ mit $n_k = 2n+1$
+        \item jedes $2^n$-te Folgenglied $(a_1, a_2, a_4, a_8, ...) = (a_{2^n})_{n \in \N}$ mit $n_k = 2^n$
+    \end{itemize}
+\end{example}
+
 \begin{lemma}[lemma]
-    Eine Folge konvergiert genau dann, wenn all ihre Teilfolgen konvergieren
+    Eine Folge $(a_n)_{n \in \N}$ konvergiert genau dann, wenn all ihre Teilfolgen $(a_{n_k})_{k \in \N}$ konvergieren.
 \end{lemma}
 
 \begin{definition}[Häufungspunkt einer Folge]
@@ -80,18 +107,48 @@ In HD Räumen sind Grenzwerte eindeutig und stetig und folgenstetig ist wieder �
     "$=$ gilt" nennt sich Frechet Uryson Eigenschaft oder so
     
     Gurau hat nur den zweiten Stichpunkt, ist auch nicht so wichtig aber ich hab mich zu lange reingefuchst haha
+
+    Ich hab eine bessere Idee: "sequentieller Abschluss" rauslassen. Stattdessen
+    \begin{itemize}
+        \item Abschluss von $A$ enthält alle Grenzwerte von Folgen in $A$.
+        \item Dann eine Bemerkung zur Umkehrrichtung.
+    \end{itemize}
 \end{proposition}
 
 \begin{definition}[Cauchy-Folge]
-    
+    \label{def-cauchy-series}
+    Eine Folge $(a_n)_{n \in \N}$ in einem metrischen Raum $(X, d)$ heißt \underline{Cauchy-Folge}, falls gilt:
+
+    $\forall \epsilon > 0 \exists N_0 \in \N \forall n, k \leq N_0: d(a_n, a_k) < \epsilon$.
 \end{definition}
+
+Eine Cauchy-Folge ist eine Folge, deren Folgenglieder für $n \arr \infty$ beliebig nahe beieinander liegen. Damit sind Cauchy-Folgen eng mit konvergenten Folgen verwandt:
+
+\begin{lemma}[konvergent $\implies$ Cauchy]
+    Sei $(a_n)_{n \in \N}$ eine konvergente Folge in einem metrischen Raum $(X, d)$.
+
+    Dann ist $(a_n)_{n \in \N}$ eine Cauchy-Folge.
+\end{lemma}
+\begin{proof}
+    Zuerst leiten wir uns die Beweis-Idee her:
+    
+    Wir schauen uns \ref{def-cauchy-series} und \ref{def-convergence-of-series-2} an, und sehen, dass wir von $d(a_n, a) < \epsilon$ zu $d(a_n, a_k) < \epsilon$ kommen müssen. Dazu verwenden wir die Dreiecksungleichung (+Symmetrie) der Metrik: $d(a_n, a_k) \leq d(a_n, a) + d(a_k, a)$, was $< \epsilon$ sein soll. Das ist erfüllt, wenn $d(a_n, a) < \frac{\epsilon}{2}$, was aus der Konvergenz von $(a_n)$ folgt.
+    
+    Damit wäre der Beweis im Grunde beendet. Für Klarheit, wie man mathematisch sauber arbeitet, rechnen wir nochmal das Kriterium für Cauchy-Folgen rigoros nach.
+
+    Sei $\epsilon > 0$.
+
+    Mit unserer Beweis-Idee als Motivation wenden wir nun die Konvergenz von $(a_n)$ auf $\frac{\epsilon}{2}$ an, und erhalten daraus ein $N_0$, für welches $d(a_n, a) < \frac{\epsilon}{2} \forall n \geq N_0$ (und analog $d(a_k, a) < \frac{\epsilon}{2} \forall k \geq N_0$) gilt.
+
+    Wir wählen dieses $N_0 \in \N$.
+
+    Seien nun $N_0 \leq n, k \in \N$ beliebig.
+
+    Dann gilt: $d(a_n, a_k) \leq d(a_n, a) + d(a_k, a) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$.
+\end{proof}
 
 \begin{lemma}[lemma]
     CF konvergiert $\iff$ hat konvergente Teilfolge
-\end{lemma}
-
-\begin{lemma}[konvergent $\implies$ Cauchy]
-    
 \end{lemma}
 
 \begin{definition}[folgenkompakt]
@@ -145,6 +202,7 @@ etwas über geometrische Bedeutung, und Kontraktion ==> Lipschitz
 \end{lemma}
 
 \begin{proposition}[Rechenregeln für Limiten]
+    \label{prop-rechenregeln-für-limiten}
     Rechen
 \end{proposition}
 
