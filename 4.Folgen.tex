@@ -34,8 +34,8 @@
 
 Obige Bedingung ist äquivalent zu $a_n \in B_{\epsilon}(a)$. Dies können wir verallgemeinern zu topologischen Räumen, indem wir offene Bälle durch offene Mengen ersetzen
 
-\begin{definition}[Konvergenz von Folgen, 2]
-    \label{def-convergence-of-series-2}
+\begin{definition}[Konvergenz von Folgen, 3]
+    \label{def-convergence-of-sequence-2}
     Sei $(a_n)_{n \in \N}$ eine Folge in einem topologischen Raum $(X, \T)$. Die Folge \underline{konvergiert} gegen $a \in X$, falls gilt:
 
     $\forall U \in \T$ offene Umgebung von $a$ $ \exists N_0 \in \N \forall n \geq N_0: a_n \in U$.
@@ -59,8 +59,6 @@ In HD Räumen sind Grenzwerte eindeutig und stetig und folgenstetig ist wieder �
     $\infty = \limm (n + 1) = (\limm n) + (\limm 1) = \infty + 1 \implies 0 = 1$ \absurdum
 
     Stattdessen schreibt man $a_n \arr \pm \infty$, und sagt umgangsprachlich auch "$a_n$ geht gegen $\pm$unendlich".
-
-    Ich weiß, dass 99\% von Euch diese Bemerkung lesen und ignorieren werden, aber vielleicht kann ich ja die restlichen 1\% überzeugen.
 \end{remark}
 
 \begin{definition}[Teilfolge]
@@ -70,9 +68,9 @@ In HD Räumen sind Grenzwerte eindeutig und stetig und folgenstetig ist wieder �
 \begin{example}
     Sei $(a_n)_{n \in \N} = (a_0, a_1, a_2, ...)$ eine beliebige Folge. Mögliche Teilfolgen sind
     \begin{itemize}
-        \item verschobene Folge $(a_1, a_2, a_3) = (a_{n+1})_{n \in \N}$ mit $n_k = n+1$
+        \item verschobene Folge $(a_1, a_2, a_3, ...) = (a_{n+1})_{n \in \N}$ mit $n_k = n+1$
         
-        oder allgemeiner $(a_s, a_{s+1}, a_{s+2}, ...) = (a_{n+s})_{n \in \N}$ mit $n_k = n+s$
+        oder allgemeiner $(a_s, a_{s+1}, a_{s+2}, ...) = (a_{n+s})_{n \in \N}$ mit $n_k = n+s$ und $s \in \N$ fest
         \item alle geraden Folgenglieder $(a_0, a_2, a_4, ...) = (a_{2n})_{n \in \N}$ mit $n_k = 2n$
         
         oder alle ungeraden Folgenglieder $(a_1, a_3, a_5, ...) = (a_{2n+1})_{n \in \N}$ mit $n_k = 2n+1$
@@ -84,19 +82,18 @@ In HD Räumen sind Grenzwerte eindeutig und stetig und folgenstetig ist wieder �
     Eine Folge $(a_n)_{n \in \N}$ konvergiert genau dann, wenn all ihre Teilfolgen $(a_{n_k})_{k \in \N}$ konvergieren.
 \end{lemma}
 
-\begin{definition}[Häufungspunkt einer Folge]
-    
-\end{definition}
+\begin{query}
+    Checken dass hierfür nirgendwo Häufungspunkte gebraucht werden!
 
-\begin{example}
-    $a_n = (-1)^n$ hat Häufungspunkte $1$ und $-1$, aber konvergiert nicht
-\end{example}
+    Wenn doch: limsup und liminf von unten hochholen
+\end{query}
 
 \begin{definition}[sequentieller Abschluss / Folgenabschluss]
     hat auf Deutsch nicht wirklich einen Namen?
 \end{definition}
 
 \begin{proposition}[Äquivalenz von Abschlüssen]
+    \label{prop-equivalence-of-closures}
     Mögliche Aussagen sind:
     \begin{itemize}
         \item Folgenabschluss $\subset$ Abschluss
@@ -116,7 +113,7 @@ In HD Räumen sind Grenzwerte eindeutig und stetig und folgenstetig ist wieder �
 \end{proposition}
 
 \begin{definition}[Cauchy-Folge]
-    \label{def-cauchy-series}
+    \label{def-cauchy-sequence}
     Eine Folge $(a_n)_{n \in \N}$ in einem metrischen Raum $(X, d)$ heißt \underline{Cauchy-Folge}, falls gilt:
 
     $\forall \epsilon > 0 \exists N_0 \in \N \forall n, k \leq N_0: d(a_n, a_k) < \epsilon$.
@@ -125,6 +122,7 @@ In HD Räumen sind Grenzwerte eindeutig und stetig und folgenstetig ist wieder �
 Eine Cauchy-Folge ist eine Folge, deren Folgenglieder für $n \arr \infty$ beliebig nahe beieinander liegen. Damit sind Cauchy-Folgen eng mit konvergenten Folgen verwandt:
 
 \begin{lemma}[konvergent $\implies$ Cauchy]
+    \label{lem-convergent-implies-cauchy}
     Sei $(a_n)_{n \in \N}$ eine konvergente Folge in einem metrischen Raum $(X, d)$.
 
     Dann ist $(a_n)_{n \in \N}$ eine Cauchy-Folge.
@@ -132,13 +130,13 @@ Eine Cauchy-Folge ist eine Folge, deren Folgenglieder für $n \arr \infty$ belie
 \begin{proof}
     Zuerst leiten wir uns die Beweis-Idee her:
     
-    Wir schauen uns \ref{def-cauchy-series} und \ref{def-convergence-of-series-2} an, und sehen, dass wir von $d(a_n, a) < \epsilon$ zu $d(a_n, a_k) < \epsilon$ kommen müssen. Dazu verwenden wir die Dreiecksungleichung (+Symmetrie) der Metrik: $d(a_n, a_k) \leq d(a_n, a) + d(a_k, a)$, was $< \epsilon$ sein soll. Das ist erfüllt, wenn $d(a_n, a) < \frac{\epsilon}{2}$, was aus der Konvergenz von $(a_n)$ folgt.
+    Wir schauen uns \ref{def-cauchy-sequence} und \ref{def-convergence-of-sequence-2} an, und sehen, dass wir von $d(a_n, a) < \epsilon$ zu $d(a_n, a_k) < \epsilon$ kommen müssen. Dazu verwenden wir die Dreiecksungleichung (\&\;Symmetrie) der Metrik: $d(a_n, a_k) \leq d(a_n, a) + d(a_k, a)$, was $< \epsilon$ sein soll. Das ist erfüllt, wenn $d(a_n, a) < \frac{\epsilon}{2}$, was aus der Konvergenz von $(a_n)$ folgt.
     
     Damit wäre der Beweis im Grunde beendet. Für Klarheit, wie man mathematisch sauber arbeitet, rechnen wir nochmal das Kriterium für Cauchy-Folgen rigoros nach.
 
     Sei $\epsilon > 0$.
 
-    Mit unserer Beweis-Idee als Motivation wenden wir nun die Konvergenz von $(a_n)$ auf $\frac{\epsilon}{2}$ an, und erhalten daraus ein $N_0$, für welches $d(a_n, a) < \frac{\epsilon}{2} \forall n \geq N_0$ (und analog $d(a_k, a) < \frac{\epsilon}{2} \forall k \geq N_0$) gilt.
+    Mit unserer Beweis-Idee als Motivation wenden wir nun die Konvergenz von $(a_n)$ auf $\frac{\epsilon}{2} > 0$ an, und erhalten daraus ein $N_0$, für welches $d(a_n, a) < \frac{\epsilon}{2}$ und $d(a_k, a) < \frac{\epsilon}{2} \forall n, k \geq N_0$) gilt.
 
     Wir wählen dieses $N_0 \in \N$.
 
@@ -147,39 +145,124 @@ Eine Cauchy-Folge ist eine Folge, deren Folgenglieder für $n \arr \infty$ belie
     Dann gilt: $d(a_n, a_k) \leq d(a_n, a) + d(a_k, a) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$.
 \end{proof}
 
+Trotzdem müssen Cauchy-Folgen im Allgemeinen nicht unbedingt konvergieren, abhängig vom metrischen Raum.
+\begin{query}
+    Besser formulieren!
+\end{query}
+Ein Gegenbeispiel ist durch die rationalen Zahlen gegeben:
+
+\begin{exercise}
+    Eine Folge $(a_n)_{n \in \N}$ sei rekursiv definiert über $a_0 = 1$ und $a_{n+1} = \frac{1}{2} (a_n + \frac{2}{a_n})$. Zeigen Sie:
+    \begin{enumerate}[label=(\alph*)]
+        \item $(a_n)$ ist eine Folge im metrischen Raum $(\Q, |\cdot|)$.
+        \item $(a_n)$ ist eine Cauchy-Folge in $\Q$.
+        \item $(a_n)$ konvergiert gegen $\sqrt{2} \notin \Q$.
+    \end{enumerate}
+\end{exercise}
+
 \begin{lemma}[lemma]
-    CF konvergiert $\iff$ hat konvergente Teilfolge
+    \label{lem-cauchy-convergent-subsequence}
+    Sei $(X, d)$ ein metrischer Raum. Eine Cauchy-Folge konvergiert genau dann, wenn sie eine konvergente Teilfolge hat.
 \end{lemma}
+\begin{proof}
+    \underline{$\implies$}:
+
+    Sei $(a_n)_{n \in \N}$ eine konvergente Folge. Dann ist $(a_n)_{n \in \N}$ eine konvergente Teilfolge.
+
+    \underline{$\impliedby$}:
+
+    Sei $(a_n)_{n \in \N}$ eine Cauchy-Folge mit einer Teilfolge $(a_{n_k})_{k \in \N}$, die gegen $a \in X$ konvergiert. Zu zeigen ist, dass $(a_n)$ konvergiert.
+
+    Sei $\epsilon > 0$. Wir verwenden dieselbe Idee wie im Beweis von \ref{lem-convergent-implies-cauchy}.
+    
+    Da $(a_n)$ eine Cauchy-Folge ist, existiert zu $\frac{\epsilon}{2} > 0$ ein $N_{\text{CF}} \in \N$ mit $d(a_{\ell}, a_{n_k}) < \frac{\epsilon}{2} \forall \ell, n_k \geq N_{\text{CF}}$.
+    
+    Da $(a_{n_k})$ konvergiert, existiert zu $\frac{\epsilon}{2} > 0$ gleichzeitig auch ein $N_{\text{konv}} \in \N$ mit $d(a_{n_k}, a) < \frac{\epsilon}{2} \forall n_k \geq N_{\text{konv}}$.
+
+    Wir wählen nun $N_0 = \max\{N_{\text{CF}}, N_{\text{konv}}\}$. Dann sind alle aufgeführten Ungleichungen erfüllt, und mit Dreiecksungleichung und Symmetrie der Metrik folgt:
+    
+    $d(a_{\ell}, a) \leq d(a_{\ell}, a_{n_k}) + d(a_{n_k}, a) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$.
+\end{proof}
 
 \begin{definition}[folgenkompakt]
-    
+    Sei $(X, d)$ ein metrischer Raum.
+
+    Eine Menge $K \subset X$ heißt \underline{folgenkompakt}, falls für jede Folge $(a_n)_{n \in \N}$, die in $K$ liegt, eine Teilfolge $a_{n_k}$ existiert, die in $K$ konvergiert.
 \end{definition}
 
 \begin{proposition}[kompakt $\iff$ folgenkompakt]
-    oder Theorem?
+    Sei $(X, d)$ ein metrischer Raum. Eine Menge $K \subset X$ ist genau dann kompakt, wenn sie folgenkompakt ist.
 \end{proposition}
+\begin{proof}
+    \underline{$\implies$}:
+
+    Sei $K \subset X$ kompakt, und $(a_n)_{n \in \N}$ eine Folge in $K$.
+
+    Wir machen eine Fallunterscheidung: Falls $(a_n)$ eine Teilfolge mit konstanten Folgengliedern $a_{n_k} = a$ hat, dann konvergiert $a_{n_k}$ gegen $a \in K$. Andernfalls können wir eine Teilfolge wählen, die paarweise verschiedene Folgenglieder hat, d.h. $a_{n_k} \neq a_{n_{\ell}} \forall k \neq \ell$.
+
+    Wir wollen zeigen, dass die Teilfolge in $K$ konvergiert, und nutzen dazu die Kompaktheit von $K$.
+\end{proof}
 
 \begin{definition}[vollständig]
-    Jede CF konvergiert
-
-    auch Vervollständigung
+    Ein metrischer Raum $(X, d)$ heißt \underline{vollständig}, wenn jede Cauchy-Folge in $X$ konvergiert.
 \end{definition}
+
+\begin{query}
+    Wie wir schon in Beispiel... nochmal drauf rumtreten oder steht oben schon genug?
+\end{query}
+
+\begin{definition}[Fixpunkt]
+    Sei $f: X \arr X$ eine Funktion.
+
+    Ein Punkt $x^* \in X$ heißt \underline{Fixpunkt} von $f$, falls $f(x^*) = x^*$ gilt.
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item Die Identität $id: X \arr X$ hat jeden Punkt in $X$ als Fixpunkt, da $id(x^*) = x^*$.
+        \item $f: \R \arr \R$ mit $f(x) = 2x - 1$ hat einen Fixpunkt bei $2x^* - 1 = x^* \implies x^* = 1$.
+        \item $g: \R \arr \R$ mit $g(x) = x + 1$ hat keinen Fixpunkt, da $x^* + 1 = x^* \forall x^* \in \R$ falsch ist.
+        \item $h: \R^2 \arr \R^2$ mit $h(x, y) = (fduosfhudsogosru)$ hat den/die Fixpunkt/e $vfuignrdgunreog$.
+    \end{enumerate}
+\end{example}
 
 \begin{definition}[Kontraktion]
-    
+    \label{def-contraction-map}
+    Sei $(X, d)$ ein metrischer Raum, und $T: X \arr X$ eine Funktion.
+
+    $T$ heißt \underline{Kontraktion}, wenn sie Abstände von Punkten in $X$ um einen nichtkonstanten Faktor $<1$ staucht, d.h. falls gilt:
+
+    $\exists c \in [0, 1) \forall x, y \in X: d(T(x), T(y)) \leq c \cdot d(x, y)$.
 \end{definition}
 
-etwas über geometrische Bedeutung, und Kontraktion ==> Lipschitz
+\begin{example}
+    \begin{enumerate}
+        \item Die Identität $id: \R \arr \R$ ist keine Kontraktion, da der Stauchungsfaktor konstant $c=1 \nless 1$ ist.
+        \item Die konstante Funktion $f: \R \arr \R$ mit $f(x) = a \in \R$ ist eine Kontraktion mit $c = 0$.
+        \item $g: \R \arr \R$ mit $g(x) = \frac{x}{2} - 5$ ist eine Kontraktion mit $c = \frac{1}{2}$.
+    \end{enumerate}
+\end{example}
+
+\begin{query}
+    gelöschte Bemerkung zu Punkt (i):
+
+    Wir zeigen die Behauptung nochmal formal: Die logische Negation von \ref{def-contraction-map} ist $\forall c \in [0, 1) \exists x, y \in X: d(T(x), T(y)) > c \cdot d(x, y)$. Das zeigen wir für $X = \R$ und $d = |\cdot|$:
+        
+    Sei $c \in [0, 1)$ beliebig. Wähle $x = 0$ und $y = 1$. Dann gilt: $|id(x) - id(y)| = |0 - 1| = 1 > c = c \cdot |x - y|$.
+\end{query}
+
+etwas über geometrische Bedeutung, und Kontraktion ==> Lipschitz nvm Lipschitz kommt später
 
 \begin{theorem}[Fixpunktsatz von Banach]
-    DAS ist jetzt WIRKLICH ein Theorem
+    Sei $(X, d)$ ein nichtleerer metrischer Raum, und $T: X \arr X$ eine Kontraktion\footnote{Wenn $X$ kompakt ist, dann ist auch $c=1$ hinreichend.}.
 
-    Die ganzen Aussagen, die Gurau "Theorem" nennt, sind zwar auch wichtig, aber oft nicht auf demselben Level wie zB Heine Borel... deswegen nenne ich viele Proposition.
+    Dann besitzt $T$ einen Fixpunkt $x^*$.
 
-    Aber va wenn der Beweis davon lang ist, bin ich versucht sie doch Theorem zu nennen
-
-    zB ist die Proposition "Äquivalenz von Abschlüssen" auf rein logischem Level ein Mega Theorem, aber für Analysis Zwecke eher ein "netter fun fact"
+    Der Fixpunkt kann gefunden werden, indem man für beliebiges $x \in X$ eine rekursive Folge $a_0 = x$ und $a_{n+1} = T(a_n)$ definiert. Dann gilt $x^* = \limm a_n$.
 \end{theorem}
+\begin{proof}
+    Wir wählen $x \in X$ beliebig und definieren die Folge $a_0 = x$ und $a_{n+1} = T(a_n)$.
+\end{proof}
 
 \begin{definition}[rekursive Folge]
     einiges an Text blob
@@ -195,57 +278,267 @@ etwas über geometrische Bedeutung, und Kontraktion ==> Lipschitz
     linear
 
     finite difference eq
+
+    Ich weiß immer noch nicht, was hier los ist... irgendwie taucht sogar eine Determinante auf, ohne je Matrizen zu definiert haben...
 \end{definition}
 
 \begin{lemma}[Linearkombinationen homogen rekursiver Folgen sind homogen rekursiv]
-    Lemma... ? Bemerkung? Algorithmus? und irgendwie hat sich hier die Determinante einer Matrix reingeschlichen...
+    Lemma... ? Bemerkung? Algorithmus? Wahrscheinlich einfach ein Verweis aufs Gurau Script
 \end{lemma}
 
 \begin{proposition}[Rechenregeln für Limiten]
     \label{prop-rechenregeln-für-limiten}
-    Rechen
+    Seien $(a_n)_{n \in \N}$ und $(b_n)_{n \in \N}$ konvergente Folgen in $\R$ mit Grenzwerten $\limm a_n = a$ und $\limm b_n = b$, und $c \in \R$. Dann existieren die folgenden Grenzwerte und es gilt:
+    \begin{enumerate}
+        \item $\limm |a_n| = |a|$
+        \item $\limm (a_n + b_n) = a + b$
+        \item $\limm (c \cdot a_n) = c \cdot a$
+        \item $\limm (a_n \cdot b_n) = a \cdot b$
+        \item Falls $b \neq 0$ und alle bis auf endlich viele $b_n \neq 0$, dann existiert $\limm \frac{1}{b_n}$, und aus (iv) folgt $\limm \frac{a_n}{b_n} = \frac{a}{b}$.
+        \item \underline{Monotonie von Grenzwerten}: Falls $a_n \leq b_n$ für alle bis auf endlich viele $n \in \N$, dann ist $a \leq b$.
+
+        Ein Spezialfall ist, wenn $a_n \leq b \forall n \in \N$, dann ist $\limm a_n \leq b$.
+    \end{enumerate}
 \end{proposition}
 
+\begin{remark}
+    \label{remark-rechenregeln-für-limiten}
+    \begin{enumerate}
+        \item Der Umkehrschluss, also die Folgerung der Existenz von $\limm a_n$ und $\limm b_n$ aus der Existenz der kombinierten Limiten, gilt im Allgemeinen nicht: Zum Beispiel existiert für $a_n = n$ und $b_n = -n$ der Grenzwert $\limm (a_n + b_n) = \limm 0 = 0$, aber die Grenzwerte $\limm a_n$ und $\limm b_n$ existieren beide nicht.
+        \item Monotonie (vi) gilt nicht mit "$<$": Zum Beispiel ist für die Folge $a_n = -\frac{1}{n} \; (n > 0)$ zwar $a_n < 0 \forall n \in \N$, aber $\limm a_n = 0 \nless 0$.
+        \item Natürlich folgt wieder eine entsprechende Monotonieaussage für $a_n \geq b_n$, z.B. durch Betrachten von $-b_n \leq -a_n$.
+    \end{enumerate}
+\end{remark}
+
 \begin{lemma}[Sandwichlemma]
+    Seien $(a_n)_{n \in \N}$, $(b_n)_{n \in \N}$, $(c_n)_{n \in \N}$ Folgen in $\R$.
     
+    Es gelte $a_n \leq b_n \leq c_n \forall n \geq N_0 \in \N$. Außerdem seien $(a_n)$ und $(c_n)$ konvergent mit Grenzwerten $\limm a_n = \limm c_n = a$.
+
+    Dann konvergiert auch $(b_n)$ mit Grenzwert $\limm b_n = a$.
 \end{lemma}
 
-\begin{definition}[limsup, liminf]
-    mit oder ohne $\infty$?
+Das Sandwichlemma ist sehr bekannt aufgrund seiner bildhaften Namen. Die Folge $(b_n)$ wird zwischen $(a_n)$ und $(c_n)$ "gesandwicht" und konvergiert deshalb gegen denselben Grenzwert. Ein anderer Name ist \emph{Gefangenenlemma}, mit der Vorstellung, dass $(a_n)$ und $(c_n)$ zwei Polizisten sind, die einen Gefangenen $(b_n)$ zwischen sich festhalten. Wenn nun die beiden Polizisten zum Gefängnis $a$ gehen, dann hat der Gefangene keine andere Wahl, als auch zum Gefängnis zu gehen.
+
+\begin{proof}
+    straightforward $\sim GURAU$
+\end{proof}
+
+Die folgenden Definitionen bieten eine Abschwächung des Limes-Begriffes. Manche Folgen, wie zum Beispiel die alternierende Folge $a_n = (-1)^n$, konvergieren zwar nicht, aber haben trotzdem Punkte, denen sie auf besondere Weise "nahe stehen", wie hier $1$ und $-1$.
+
+\begin{definition}[Häufungspunkt einer Folge]
+    Sei $(a_n)_{n \in \N}$ eine Folge in einem metrischen Raum $(X, d)$.
+
+    Ein Punkt $a \in X$ heißt \underline{Häufungspunkt} von $(a_n)$, wenn eine Teilfolge $(a_{n_k})_{k \in \N}$ existiert, die gegen $a$ konvergiert.
 \end{definition}
 
-noch ein remark zu $\infty$?
+Anders ausgedrückt ist ein Häufungspunkt ein Punkt, dem die Folge unendlich oft beliebig nahe kommt.
+
+\begin{example}
+    \begin{enumerate}
+        \item Wenn eine Folge konvergiert, dann konvergieren alle Teilfolgen gegen den Grenzwert, also ist dieser auch ein Häufungspunkt.
+        \item Die alternierende Folge $a_n = (-1)^n$ hat Häufungspunkte $1$ und $-1$, aber konvergiert nicht.
+        \item Die Folge $(a_n) = (1, 2, 1, 2, 3, 1, 2, 3, 4, 1, ...)$ hat jede natürliche Zahl als Häufungspunkt.
+        \item Die Folge $a_n = n$ konvergiert nicht und hat keine Häufungspunkte.
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    $a_n = (-1)^n$ hat Häufungspunkte $1$ und $-1$, aber konvergiert nicht
+\end{example}
+
+Für Folgen in $\R$ mit mehreren Häufungspunkte kann man diese miteinander vergleichen. Die umgangsprachlich genannten Limsup und Liminf geben davon den größten und kleinsten an:
+
+\begin{definition}[Limes Superior und Limes Inferior]
+    Sei $(a_n)_{n \in \N}$ eine Folge in $\R$. Dann sind der \underline{Limes Superior} und \underline{Limes Inferior} die Grenzwerte:
+    $$\limmsup = \limm \sup\limits_{k \geq n} \{a_k\}, \qquad \qquad \limminf = \limm \inf\limits_{k \geq n} \{a_k\},$$
+    falls diese existieren.
+    
+    Anders als bei gewöhnlichen Limiten wollen wir hier aber auch $\infty$ und $-\infty$ als Werte zulassen. Da diese aber nicht als Werte des Limes zulässig sind, setzen wir den Limsup bzw. Liminf so, falls es unendlich viele Folgenglieder gibt, die beliebig groß bzw. beliebig klein werden:
+    $$\limmsup = \infty \text{,\; falls } \forall R \in \R \forall N_0 \in \N \exists n > N_0: a_n > R.$$
+    $$\limminf = -\infty \text{,\; falls } \forall R \in \R \forall N_0 \in \N \exists n > N_0: a_n < R.$$
+\end{definition}
+
+\begin{example}
+    Wir wollen an ein zwei Beispielen zeigen, wie die Folgen $\sup\limits_{k \geq n} a_k$ und $\inf\limits_{k \geq n} a_k$ ausgewertet werden.
+    \begin{enumerate}
+        \item Die alternierende Folge $a_n = (-1)^n$:
+        
+        Für jedes endliche $n \in \N$ sind die Folgenglieder $a_k$ mit $k \geq n$ alternierend $\pm 1$. Das Supremum dieser Menge ist $\sup_{k \geq n} \{a_k\} = \sup \{1, -1\} = 1$, und das Infimum ist $\inf_{k \geq n} \{a_k\} = \inf \{1, -1\} = -1$. Daraus folgt $\limmsup a_n = \limm 1 = 1$ und $\limminf a_n = \limm -1 = -1$.
+        \item Die Folge $a_n = n$ für $n$ gerade und $a_n = \frac{-1}{n}$ für $n$ ungerade: $(a_n) = (0, -1, 2, \frac{-1}{3}, 4, \frac{-1}{5}, ...)$
+        
+        Die geraden Folgenglieder steigen ins Unendliche, während die ungeraden Folgenglieder als Teilfolge von unten gegen $0$ konvergieren. Wir vermuten daher $\limmsup = \infty$ und $\limminf = 0$.
+
+        Seien zuerst $R \in \R$ und $N_0 \in \N$ beliebig. Ein Folgenglied $a_n > R$ mit $n > N_0$ findet man leicht durch Erhöhen von $R$ oder $N_0$ auf die nächste gerade natürliche Zahl. Also gilt $\limmsup a_n = \infty$.
+
+        Für die negativen Folgenglieder berechnen wir:
+
+        $\inf_{k \geq 1} \{a_k\} = -1$
+
+        $\inf_{k \geq 2} \{a_k\} = \inf_{k \geq 3} \{a_k\} = -\frac{1}{3}$
+
+        $\inf_{k \geq 4} \{a_k\} = \inf_{k \geq 5} \{a_k\} = -\frac{1}{5}$ etc.
+
+        Also ist $\limminf a_n = \lim\limits_{k \rightarrow \infty} \frac{-1}{2k+1} = 0$.
+    \end{enumerate}
+\end{example}
 
 \begin{lemma}[wenn konvergent...]
     limsup = lim = liminf $\iff$ konvergiert
 \end{lemma}
 
-\begin{definition}[monotone und beschränkte Folgen]
-    
+Ein sehr wichtiges Konvergenzkriterium für Folgen ist die monotone Konvergenz. Obwohl sie im Grunde eine elementare Eigenschaft von Mengen in $\R$ ist, hat sie Konsequenzen selbst weit über die gewöhliche Analysis hinaus.
+
+\begin{definition}[Monotonie von Folgen]
+    Eine Folge $(a_n)_{n \in \N}$ in $\R$ heißt
+    \begin{itemize}
+        \item \underline{monoton wachsend}, falls $a_n \geq a_k \forall n > k$.
+        \item \underline{monoton fallend}, falls $a_n \leq a_k \forall n > k$.
+        \item \underline{streng monoton wachsend}, falls $a_n < a_k \forall n > k$.
+        \item \underline{streng monoton fallend}, falls $a_n < a_k \forall n > k$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[beschränkte Folgen]
+    Eine Folge $(a_n)_{n \in \N}$ in $\R$ heißt \underline{beschränkt}, falls $\exists M \in \R: |a_n| \leq M \forall n \in \N$.
 \end{definition}
 
 \begin{proposition}[monotone Konvergenz für Folgen]
-    
+    \label{prop-monotone-konvergenz-für-folgen}
+    Sei $(a_n)_{n \in \N}$ eine Folge in $\R$.
+
+    Wenn $(a_n)$ monoton wachsend und beschränkt ist, dann konvergiert $(a_n)$. Der Grenzwert ist das Supremum der Folge.
 \end{proposition}
 
-\begin{definition}[Intervallschachtelung]
+Eine analoge Aussage für monoton fallende Folgen $(b_n)_{n \in \N}$ gilt auch. Diese folgt sofort aus monotoner Konvergenz für wachsende Folgen, indem man die Aussage für steigende Folgen auf $(-b_n)_{n \in \N}$ und \ref{prop-rechenregeln-für-limiten} anwendet.
+
+\begin{proof}
+    Sei $(a_n)_{n \in \N}$ monoton steigend und beschränkt. Die $a_n$ steigen also durch die Monotonie von unten immer näher an die kleinste obere Schranke. Die Existenz dieser Schranke ist durch die Eigenschaften der reellen Zahlen gegeben. Wir müssen also nur noch formal zeigen, dass die $a_n$ auch tatsächlich beliebig nahe an diese Schranke kommen müssen. Dazu betrachten wir die Folge als ganzes:
+
+    Die Menge $\{a_n | n \in \N\} \subset \R$ ist beschränkt, und hat damit nach \ref{missing} ein Supremum, das wir $a$ nennen, die besagte kleinste obere Schranke.
     
+    Unsere Behauptung ist, dass $(a_n)$ gegen $a$ konvergiert.
+
+    Sei $\epsilon > 0$. Falls es kein $N_0 \in \N$ gibt mit $|a_{N_0} - a| < \epsilon$, dann muss $|a_n - a| \geq \epsilon \forall n \in \N$ sein. In diesem Fall wäre dann aber $a$ nicht das Supremum von $\{a_n | n \in \N\}$. Also muss es ein $N_0$ geben mit $|a_{N_0} - a| < \epsilon$.
+
+    Da aber $(a_n)$ monoton steigend ist, gilt dann auch $\forall n \geq N_0: |a_n - a| < \epsilon$. Also konvergiert die Folge gegen $a$.
+\end{proof}
+
+\begin{definition}[Intervallschachtelung]
+    Eine Intervallschachtelung ist eine Folge von Intervallen $([a_n, b_n])_{n \in \N}$ mit $a_n \leq b_n \forall n \in \N$ und $[a_{n+1}, b_{n+1}] \subset [a_n, b_n] \forall n \in \N$.
 \end{definition}
 
+\begin{example}
+    $[-1, 1] \subset [-\frac{1}{2}, \frac{1}{2}] \subset [-\frac{1}{3}, \frac{1}{3}] \subset [-\frac{1}{4}, \frac{1}{4}] \subset ...$
+\end{example}
+
+Intervallschachtelungen sind vor allem nützlich als Hilfsmittel in Beweisen (und in der Numerik), aufgrund der Eigenschaft \ref{lem-nested-intervals}. Oft genügt es für diese Zwecke, die Existenz und Konvergenz einer Intervallschachtelung allgemein zu verwenden.
+
+\begin{lemma}[Intervallschachtelung]
+    \label{lem-nested-intervals}
+    Sei $([a_n, b_n])_{n \in \N}$ eine Intervallschachtelung, und es gelte $\limm (b_n - a_n) = 0$.
+    
+    Dann konvergiert die Intervallschachtelung gegen einen Punkt, d.h.$\exists! \; x \in \R$ mit $\limm [a_n, b_n] = \{x\}$.
+\end{lemma}
+\begin{proof}
+    Wir betrachten die zwei Folgen der Intervallgrenzen $(a_n)_{n \in \N}$ und $(b_n)_{n \in \N}$ separat. Zuerst zeigen wir die Konvergenz von $(a_n)$ und $(b_n)$, danach die Gleichheit der Grenzwerte. Zuletzt zeigen wir, dass das Grenzintervall nichtleer ist.
+    
+    Wie in \ref{remark-rechenregeln-für-limiten} angemerkt, reicht $\limm (b_n - a_n) = 0$ nicht für die Existenz von $(a_n)$ und $(b_n)$ aus. Wir müssen daher die Konvergenz separat zeigen.
+    
+    $(a_n)$ ist wegen der Bedingung $[a_{n+1}, b_{n+1}] \subset [a_n, b_n]$ monoton wachsend, und wegen derselben Bedingung von oben beschränkt durch $b_0$. Mit monotoner Konvergenz für Folgen (\ref{prop-monotone-konvergenz-für-folgen}) folgt, dass $(a_n)$ konvergiert.
+
+    $(b_n)$ ist mit gleicher Begründung monoton fallend und von unten durch $a_0$ beschränkt, und konvergiert daher mit \ref{prop-monotone-konvergenz-für-folgen} auch.
+
+    Wir nennen nun $\limm a_n = a$ und $\limm b_n = b$. Aus den Rechenregeln für Limiten \ref{prop-rechenregeln-für-limiten} folgt $0 = \limm (a_n - b_n) = a - b$, also $a = b = x \in \R$.
+    
+    Da $a_n \leq x \leq b_n \forall n \in \N$, muss auch $x \in \bigcup\limits_{n \in \N} [a_n, b_n]$. Wegen der Monotonie von $(a_n)$ und $(b_n)$ und der Eindeutigkeit von Grenzwerten gibt es für jedes andere $y \neq x$ ein $N \in \N$ mit entweder $y < a_N$ oder $y > b_N$. Insgesamt ist also $x \in \bigcup\limits_{n \in \N} [a_n, b_n]$.
+\end{proof}
+
+\begin{query}
+    Was sieht schöner aus? Das...
+\end{query}
 \begin{theorem}[Satz von Bolzano-Weierstraß]
-    Das ist definitiv wieder ein Theorem mit capital T
+    Sei $(a_n)_{n \in \N}$ eine beschränkte Folge in $\R$. Dann hat $(a_n)$ eine konvergente Teilfolge.
+
+    Die Aussage gilt auch für  beschränkte Folgen $(a_n)_{n \in \N}$ in $\R^n$.
 \end{theorem}
+... oder das...
+\begin{theorem}[Satz von Bolzano-Weierstraß]
+    Sei $(a_n)_{n \in \N}$ eine beschränkte Folge in $\R$. Dann hat $(a_n)$ eine konvergente Teilfolge.
+
+    Sei $(a_n)_{n \in \N}$ eine beschränkte Folge in $\R^n$. Dann hat $(a_n)$ eine konvergente Teilfolge.
+\end{theorem}
+... oder das...
+\begin{theorem}[Satz von Bolzano-Weierstraß]
+    .
+    \begin{enumerate}
+        \item Sei $(a_n)_{n \in \N}$ eine beschränkte Folge in $\R$. Dann hat $(a_n)$ eine konvergente Teilfolge.
+        \item Sei $(a_n)_{n \in \N}$ eine beschränkte Folge in $\R^n$. Dann hat $(a_n)$ eine konvergente Teilfolge.
+    \end{enumerate}
+\end{theorem}
+... oder einfach nur das?
+\begin{theorem}[Satz von Bolzano-Weierstraß]
+    Sei $(a_n)_{n \in \N}$ eine beschränkte Folge in $\R$.
+    
+    Dann hat $(a_n)$ eine konvergente Teilfolge.
+\end{theorem}
+
+ein paar Worte darüber wie toll diese Aussage ist
+
+\begin{proof}
+    $totallytrivial$
+\end{proof}
 
 \begin{corollary}[$\R^n$ ist vollständig]
-    
+    \label{cor-r-hoch-n-ist-vollständig}
+    $\R^n$ ist vollständig.
 \end{corollary}
+\begin{proof}
+    Wir müssen zeigen, dass jede Cauchy-Folge konvergiert. Sei also $(a_n)_{n \in \N}$ eine Cauchy-Folge.
+
+    Da $(a_n)$ eine Cauchy-Folge ist, ist sie auch beschränkt.
+    
+    Nach dem Satz von Bolzano-Weierstraß \ref{theorem-bolzano-weierstrass} existiert eine konvergente Teilfolge $(a_{n_k})_{k \in \N}$.
+
+    Nach \ref{lem-cauchy-convergent-subsequence} konvergiert $(a_n)$.
+\end{proof}
 
 \begin{corollary}[$\R^n$ ist die Vervollständigung von $\Q^n$]
-    
+    Es gilt $\overline{\Q^n} = \R^n$.
 \end{corollary}
+\begin{proof}
+    Wir zeigen die Aussage für den Folgenabschluss, in $\R^n$ ist dieser nach \ref{prop-equivalence-of-closures} äquivalent zum topologischen Abschluss.
+
+    Wir zeigen zuerst $\overline{\Q} = \R$. Die Aussage für $\R^n$ folgt dann aus komponentenweiser Betrachtung der Folge.
+
+    Schritt 1: Jede Cauchy-Folge in $\Q$ konvergiert in $\R$.
+    
+    Schritt 2: Für jedes $x \in \R$ existiert eine Cauchy-Folge in $\Q$, die gegen $x$ konvergiert.
+    
+    Schritt 3: ???
+    
+    Schritt 4: profit
+    
+    $\underline{\subset}$:
+
+    Nach \ref{cor-r-hoch-n-ist-vollständig} ist $\R$ vollständig. Da jede Cauchy-Folge in $\Q$ auch eine Cauchy-Folge in $\R$ ist, konvergiert jede Cauchy-Folge in $\Q$ gegen einen Grenzwert in $\R$. Damit ist der Abschluss von $\Q$ eine Teilmenge von $\R$.
+
+    $\underline{\supset}$:
+
+    Sei $x \in \R$. Um $\R \subset \overline{\Q}$ zu zeigen, müssen wir eine Cauchy-Folge in $\Q$ finden, die gegen $x$ konvergiert.
+
+    Sei nun $n \in \N$ beliebig. Wir betrachten das Intervall $[x - \frac{1}{n}, x]$. Nach \ref{theorem-q-liegt-dicht-in-r} existiert eine rationale Zahl $q_n$ im Innern dieses Intervalls, also $x - \frac{q}{n} < q_n < x$.
+
+    Für $n \arr \infty$ konvergiert dann nach dem Sandwichlemma \ref{lem-sandwich-lemma} $q_n \arr x$. Nach \ref{lem-convergent-implies-cauchy} ist die Folge $(q_n)_{n \in \N}$ auch eine Cauchy-Folge, also insgesamt eine Cauchy-Folge von rationalen Zahlen, die gegen $x$ konvergiert.
+\end{proof}
 
 \begin{theorem}[Satz von Heine-Borel]
-    Noch ein Theorem mit capital T
+    Eine Menge $K \subset \R^n$ ist genau dann kompakt, wenn sie beschränkt und abgeschlossen ist.
 \end{theorem}
+\begin{proof}
+    $verytotallytrivial$
+\end{proof}
 
 Guraus Beweis ist eine ganze Gurau-Seite lang. Ich erinnere mich daran, dass der Beweis von Heine-Borel super schnell geht wenn man Folgenkompaktheit verwendet. Aber Cauchy-Vollständigkeit ist trotzdem notwendig, daher geht der fürchte ich nicht früher.
+
+Anmerkung: ich müsste dazu im Büro vorbei und meine Mathe-Ordner abholen.

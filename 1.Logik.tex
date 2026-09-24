@@ -1,8 +1,8 @@
 \chapter{Logik}
 
-Mathematik ist eine Geisteswissenschaft. Anders als in Naturwissenschaften wird keine Heuristik verwendet, d.h. man akzeptiert keine Aussagen, nur weil sie plausibel erscheinen oder erfahrungsgemäß stimmen. Stattdessen müssen alle Aussagen mit den Gesetzen der \emph{Logik} bewiesen werden. Der Grund dafür ist, dass die menschliche Intuition im Bereich der Mathematik nicht sehr gut ist, und man leicht etwas für richtig halten kann, das in Wirklichkeit falsch ist. Außerdem lehrt die Notwendigkeit, jede Behauptung einwandfrei beweisen zu müssen, bevor sie akzeptiert wird, eine völlig neue Denkweise, die wiederum auch in der Physik Früchte tragen kann.
+Mathematik ist eine Geisteswissenschaft. Anders als in Naturwissenschaften wird keine Heuristik verwendet, d.h. man akzeptiert keine Aussagen, nur weil sie plausibel erscheinen oder erfahrungsgemäß stimmen. Stattdessen müssen alle Aussagen mit den Gesetzen der \emph{Logik} bewiesen werden. Der Grund dafür ist, dass die menschliche Intuition im Bereich der Mathematik nicht sehr gut ist, und man leicht etwas für richtig halten kann, das in Wirklichkeit falsch ist. Außerdem lehrt die Notwendigkeit jede Behauptung einwandfrei beweisen zu müssen eine völlig neue Denkweise, die wiederum auch in der Physik Früchte tragen kann.
 
-\section{Aussagen}
+\section{Aussagenlogik}
 
 Die Logik befasst sich mit dem Wahrheitsgehalt von Aussagen. In der klassischen Logik (die in der Mathematik verwendet wird) muss eine Aussage entweder wahr oder falsch sein.
 
@@ -10,9 +10,10 @@ Die Logik befasst sich mit dem Wahrheitsgehalt von Aussagen. In der klassischen 
     Beispiele für Aussagen sind:
     \begin{align*}
         & 2 + 2 = 4 & \emph{ist wahr.}\\
-        & 0 = 7 & \text{\emph{ist falsch.}}\\
         & \text{Alle Menschen studieren Physik.} & \text{\emph{ist falsch.}}\\
         & \text{Kaffee ist objektiv das beste und leckerste Getränk das es gibt.} & \text{\emph{ist wahr.}}\\
+        & 0 = 7 & \text{\emph{ist falsch.}}\\
+        & \text{}
     \end{align*}
 \end{example}
 
@@ -46,7 +47,7 @@ Man bemerke, wenn $A$ falsch ist, dann ist $A \implies B$ wahr. Das ist nötig, 
     \begin{align*}
         & 1 + 1 = 2 \implies 2 + 2 = 4 & \text{\emph{ist wahr, da $2 +2 = 4$ wahr ist.}}\\
         & 2 = 7 \implies 0 = 0 & \text{\emph{ist wahr, da $2 = 7$ falsch ist.}}\\
-        \intertext{Man bemerke, dass man aus einer falschen Aussage alles folgern kann (hier z.B. durch Multiplikation mit $0$), das aber keinen mathematischen Wert hat: Die Implikation $2 = 7 \implies 0 = 1$ ist genauso wahr.}
+        \intertext{Man bemerke, dass man aus einer falschen Aussage alles folgern kann (hier z.B. durch Multiplikation mit $0$). Das hat aber keinen mathematischen Wert: Die Implikation $2 = 7 \implies 0 = 1$ ist genauso wahr.}
         & \text{Es regnet} \implies \text{die Straße ist nass.} & \emph{ist wahr:}\\
         \intertext{Wenn es regnet, dann ist die Straße nass, also sind beide Seiten und damit auch die Implikation wahr. Wenn es nicht regnet, dann ist "es regnet" falsch, und damit die Implikation wahr.}
         & \text{Physik ist ein Studienfach} & \\
@@ -57,6 +58,16 @@ Man bemerke, wenn $A$ falsch ist, dann ist $A \implies B$ wahr. Das ist nötig, 
         & 2 = 7 \iff 0 = 1 & \text{\emph{ist wahr, da beide Aussagen falsch sind.}}\\
     \end{align*}
 \end{example}
+
+\begin{remark}
+    \textbf{Wahrheitstabellen}
+    
+    Ein nützliches Hilfsmittel, um den Wahrheitsgehalt von zusammengesetzten Aussagen zu überprüfen, sind Wahrheitstabellen. Man schreibt in die erste Zeile zuerst alle elementaren Aussagen $A$, $B$, etc, und daneben größere zusammengesetzte Aussagen. Dann geht man alle wahr/falsch Kombinationen der elementaren Aussagen durch, und berechnet so den Wahrheitsgehalt der entsprechenden zusammengesetzten Aussagen.
+\end{remark}
+
+\section{Prädikatenlogik}
+
+blablabla
 
 \section{Beweise}
 

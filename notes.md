@@ -64,6 +64,22 @@ kleinere Dinge
 
 - fix all \footnote{} to \footnotemark inside boxes
 
+- kürzeres Minus in math mode?
+
+
+
+Kapitel 4
+
+- bounded von R zu R^n erweitern (auch in Bolzano Weierstraß etc)
+
+- exercise Cauchy ==> beschränkt
+
+
+
+ganz kleine Dinge
+
+- schöneres epsilon
+
 
 
 Fragen zum ganzen Dokument

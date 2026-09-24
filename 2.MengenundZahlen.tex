@@ -39,7 +39,7 @@ Natürlich ergeben diese Definitionen streng genommen erst Sinn, sobald man die 
         \item \underline{Aussonderungsaxiom}: Wenn $A$ eine Menge ist, und $P(x)$ eine Eigenschaft\footnote{Logisch streng genommen ist $P$ ein \emph{Prädikat}.}, die Elemente $x$ von $A$ entweder erfüllen oder nicht erfüllen können, dann ist die Teilmenge von $A$ definiert durch alle Elemente, die $P(x)$ erfüllen, $\{x \in A | P(x)\}$, eine Menge.
         
         \emph{Die Notation $x \in A | P(x)$, sprich "x in A, für die gilt: P(x)", ist logisch definiert durch $(x \in A) \land P(x)$, aber der senkrechte Strich trennt optisch die Elemente der Menge von den Bedingungen, die diese erfüllen. Manche Autoren schreiben auch $x \in A : P(x)$.}
-        \item \underline{Vereinigungsaxiom}: Wenn $A$ eine Menge ist, die aus Mengen besteht, dann ist $\bigcup A \defeq \{x | x \in B \land D \in A\}$ eine Menge.
+        \item \underline{Vereinigungsaxiom}: Wenn $A$ eine Menge ist, die aus Mengen besteht, dann ist $\bigcup A = \{x | x \in B \land D \in A\}$ eine Menge.
         \item \underline{Leermengenaxiom}: Es existiert eine Menge, die keine Elemente enthält. Diese nennen wir die \underline{leere Menge} und schreiben $\e$ oder $\{\}$.
         
         Formal ist die Aussage $\exists \e: \forall x: x \notin \e$.
@@ -1116,7 +1116,8 @@ Das ist eine völlig unintuitive Aussage. Naiv geht man davon aus, dass es "viel
 
     Aus der Definition sieht man sofort, dass $f$ wohldefiniert ist, weil $\pm k \in \Z$ liegt für $k \in \N$.
 
-    $f$ ist offensichtlich injektiv: Wenn für gerade $n_1 = 2 k_1 \neq n_2 = 2 k_2$, dann ist $f(n_1) = k_1 \neq k_2 = f(n_2)$, analog für ungerade $n_1$ und $n_2$, und falls $n_1$ gerade und $n_2$ ungerade (oder andersrum), dann gilt sowieso $f(n_1) \neq f(n_2)$ wegen unterschiedlicher Vorzeichen.
+    $f$ ist offensichtlich injektiv:\\
+    Wenn für gerade $n_1 = 2 k_1 \neq n_2 = 2 k_2$, dann ist $f(n_1) = k_1 \neq k_2 = f(n_2)$. Analog für ungerade $n_1$ und $n_2$. Und falls $n_1$ gerade und $n_2$ ungerade (oder andersrum), dann gilt sowieso $f(n_1) \neq f(n_2)$ wegen unterschiedlicher Vorzeichen.
 
     $f$ ist surjektiv: Sei $w \in \Z$.
     \begin{enumerate}[label=Fall \arabic*:]
@@ -1189,12 +1190,12 @@ Wie schwer zu glauben dieser Satz im Vergleich zum vorherigen ist, bleibt dem Le
 \end{remark}
 
 \begin{theorem}[$\Q$ liegt dicht in $\R$]
-    
+    \label{theorem-q-liegt-dicht-in-r}
 \end{theorem}
 
 \section{Komplexe Zahlen}
 
-Die komplexen Zahlen stammen historisch aus der Realisierung, dass die Lösung für gewisse kubische Gleichungen (d.h. Gleichungen der Form $a \cdot x^3 + b \cdot x^2 + c \cdot x + d = 0$) nur berechnet werden können, wenn man die Existenz von Wurzeln aus negativen Zahlen zulässt, obgleich wenn besagte Wurzeln in der Lösung nicht vorkommen. Das führt zur Einführung der imaginären Einheit, die ihren Namen daher erhält, dass sie die Seitenlänge eines Quadrates mit negativem Flächeninhalt beschreibt, was empirisch nicht möglich scheint.
+Die komplexen Zahlen stammen historisch aus der Realisierung, dass die Lösung für gewisse kubische Gleichungen (d.h. Gleichungen der Form $a \cdot x^3 + b \cdot x^2 + c \cdot x + d = 0$) zwar reelle Lösungen haben, aber nur berechnet werden können, wenn man die Existenz von Wurzeln aus negativen Zahlen zulässt, obgleich besagte Wurzeln in der Lösung nicht vorkommen. Das führt zur Einführung der imaginären Einheit, die ihren Namen daher hat, dass sie die Seitenlänge eines Quadrates mit negativem Flächeninhalt beschreibt, was empirisch nicht möglich scheint.
 
 \begin{definition}[Komplexe Zahlen]
     Wir definieren die Menge der \underline{komplexen Zahlen} $\C$ als den kleinsten Körper, in dem die Gleichung $x^2 = -1$ eine Lösung hat, und der $\R$ enthält.
@@ -1246,41 +1247,4 @@ Die komplexen Zahlen stammen historisch aus der Realisierung, dass die Lösung f
     $z^{\frac{1}{n}}$ Umkehrfunktion davon
 
     Wurzelzweige: brauchen Exponentialfunktion :/
-\end{definition}
-
-
-
-\section{GURAU}
-
-Intuitiv kann man die natürlichen Zahlen fordern, indem man $0$ als "nichts" definiert, $1$ als "eines", und von da an jede kommende Zahl als "die Zahl davor $+ 1$"\footnote{Formal machen das die Peano-Axiome.}. Mathematisch wäre streng genommen nichts falsch damit, und für ein mathematisches Verständnis ist die formale Definition auch nicht entscheidend. Der ästhetische Mangel ist allerdings, dass man dazu ein zusätzliches Axiom bräuchte, was aber nicht nötig ist, da man die bereits bekannte Struktur der natürlichen Zahlen mit den bereits bekannten Axiomen konstruieren kann. Das macht man genauso wie beschrieben, d.h. man fängt mit "nichts" an und geht jeweils Schritt für Schritt weiter "hoch". Dafür verwendet man die Existenz der leeren Menge (ZF5) sowie ein bisschen Trixerei mit Mengenklammern.
-
-\begin{definition}[Natürliche Zahlen]
-    \label{def-natural-numbers}
-    Man definiert die \underline{natürlichen Zahlen} über eine Identifikation:
-    \begin{itemize}%[label=-]
-        \item $0 = \e$\quad für $n = 0$,
-        \item der \underline{Nachfolger} von $n$ ist definert als $S(n) = n \cup \{n\}$,
-        \item $\N$ ist definiert als die kleinste Menge, die $0$ und alle iterativen Nachfolger enthält.
-    \end{itemize}
-    Dann ist z.B. $1 = \e \cup \{\e\} = \{\e\}$, $2 = \{ \e, \{\e\} \}$, $3 = \{ \e, \{ \e \}, \{\e, \{\e\}\} \}$ etc. Damit ist $n$ definiert als eine Menge, die genau $n$ Elemente enthält. $S(n)$ ist die formale Definition von $n + 1$.
-    
-    Wir bemerken, dass $\N$ nach (ZF7) existiert und wohldefiniert ist.
-\end{definition}
-
-Als nächstes möchte man \emph{natürlich} eine Addition und Multiplikation definieren, die dem bekannten Verhalten entspricht: Wenn man z.B. heute $n$ Tassen Kaffe trinkt und morgen $m$ Tassen Kaffee, dann hat man zusammen $m + n$ Tassen Kaffee getrunken. Oder wenn man $n$ Tassen Kaffee am Tag für $k$ Tage in Folge trinkt, dann sind das insgesamt $n \cdot k$ Tassen Kaffee. Dafür macht man sich die Definition des Nachfolgers zunutze: Für $n, m \in \N$ kann man sich zuerst $n + 0$ definieren, und dann mithilfe des Nachfolgers so lange $+1$ aufaddieren, bis man bei $n + m$ angekommen ist. Genauso macht man es mit $n \cdot 0$ bis $n \cdot m$.
-
-\begin{definition}[Addition und Multiplikation auf $\N$]
-    Seien $n, m, \in \N$. Wir definieren:
-    \begin{itemize}
-        \item $n + 0 = n$
-        \item $n + S(m) = S(n + m)$
-    \end{itemize}
-    Also $n + 1 = n + S(0) = S(n + 0) = S(n)$, $n + 2 = n + S(1) = S(n + 1)$ etc. Die induktive Kette ist auf ganz $\N$ wohldefiniert, weil sie für jedes feste Paar $n, m \in N$ nur endlich viele Schritte benötigt.
-    \begin{itemize}
-        \item $n \cdot 0 = 0$
-        \item $n \cdot S(m) = n + n \cdot m$
-    \end{itemize}
-    Daraus folgt $n \cdot 1 = n \cdot S(0) = n + c \cdot 0 = n$, daraus folgt $n \cdot 2 = n \cdot S(1) = n + n \cdot 1 = n + n$ etc. Die induktive Kette ist anaolog zu oben wieder auf ganz $\N$ wohldefiniert.
-
-    Dann sind $+$ und $\cdot$ wohldefinierte innere Verknüpfungen auf $\N$. Wir schreiben auch $n \cdot m = n m$.
 \end{definition}
