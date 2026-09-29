@@ -25,6 +25,8 @@
 \usepackage{faktor}
 \usepackage{cancel}
 \usepackage{relsize}
+\usepackage{tabularx}
+\usepackage{array}
 
 \usepackage{thmtools}
 
@@ -41,16 +43,19 @@
 % \declaretheorem[sibling=theorem, name=Lemma]{lemma}
 % \declaretheorem[sibling=theorem, name=Korollar]{corollary}
 
-% \declaretheoremstyle[
-%   spaceabove = 0.8em,
-%   spacebelow = 0.8em,
-%   headfont = \bfseries,
-%   notefont = \itshape,
-%   headpunct = {},
-%   postheadspace = 1em,
-%   headformat = \NAME~\NUMBER\NOTE\linebreak,
-%   postheadspace = 10em
-% ]{definitionstyle}
+
+\declaretheoremstyle[
+    spaceabove=0.8em,
+    spacebelow=0.8em,
+    headfont=\bfseries,
+    notefont=\itshape,
+    headpunct={},
+    headformat={\NAME\ \NUMBER\ \NOTE\leavevmode\vspace{0.7em}\newline},
+    postheadspace=0pt
+]{definitionstyle}
+
+
+
 
 % \declaretheorem[style=definitionstyle, sibling=theorem, name=Definition]{definition}
 % \declaretheorem[style=definitionstyle, sibling=theorem, name=Coffee]{example}
@@ -67,7 +72,7 @@
 
 
 
-\theoremstyle{definition}
+\theoremstyle{definitionstyle}
 \newtheorem{Theorem}{Theorem}[chapter]
 % das erste {Theorem} ist der wrapper für unten
 % das zweite {Theorem} ist der Anzeigetext
@@ -145,7 +150,8 @@
 \renewcommand{\exists}{\kern4pt\squeezedexists\kern2pt}
 \let\squeezedforall\forall
 \renewcommand{\forall}{\kern4pt\squeezedforall\kern2pt}
-
+\let\squeezedneg\neg
+\renewcommand{\neg}{\squeezedneg \; }
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -158,8 +164,9 @@
 \newcommand{\arr}{\longrightarrow}
 \newcommand{\m}{^{-1}}
 \newcommand{\Pot}{\mathcal{P}\hspace{-1pt}ot\hspace{1pt}}
+\newcommand{\existsone}{\exists ! \;}
 
-
+% geschwungene Buchstaben für Topologien, sigma Algebren usw (nicht zu verwechseln mit \R \C etc)
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\T}{\mathcal{T}}

@@ -1,73 +1,273 @@
 \chapter{Logik}
 
-Mathematik ist eine Geisteswissenschaft. Anders als in Naturwissenschaften wird keine Heuristik verwendet, d.h. man akzeptiert keine Aussagen, nur weil sie plausibel erscheinen oder erfahrungsgemäß stimmen. Stattdessen müssen alle Aussagen mit den Gesetzen der \emph{Logik} bewiesen werden. Der Grund dafür ist, dass die menschliche Intuition im Bereich der Mathematik nicht sehr gut ist, und man leicht etwas für richtig halten kann, das in Wirklichkeit falsch ist. Außerdem lehrt die Notwendigkeit jede Behauptung einwandfrei beweisen zu müssen eine völlig neue Denkweise, die wiederum auch in der Physik Früchte tragen kann.
+Mathematik ist eine Geisteswissenschaft. Anders als in Naturwissenschaften wird keine Heuristik verwendet, d.h. man akzeptiert keine Aussagen, nur weil sie plausibel erscheinen oder erfahrungsgemäß stimmen. Stattdessen müssen alle Aussagen mit den Gesetzen der \underline{Logik} bewiesen werden. Der Grund dafür ist, dass die menschliche Intuition im Bereich der Mathematik nicht sehr gut ist, und man leicht etwas für richtig halten kann, das in Wirklichkeit falsch ist. Außerdem lehrt die Notwendigkeit jede Behauptung einwandfrei beweisen zu müssen eine völlig neue Denkweise, die wiederum auch in der Physik Früchte tragen kann.
 
 \section{Aussagenlogik}
 
-Die Logik befasst sich mit dem Wahrheitsgehalt von Aussagen. In der klassischen Logik (die in der Mathematik verwendet wird) muss eine Aussage entweder wahr oder falsch sein.
+Die Logik befasst sich mit dem Wahrheitsgehalt von Aussagen. In der klassischen Logik ist eine Aussage ein sprachliches Konstrukt, dem ein eindeutiger \underline{Wahrheitsgehalt} von entweder \underline{wahr} oder \underline{falsch} zugeordnet werden kann
 
 \begin{example}[Aussagen]
     Beispiele für Aussagen sind:
-    \begin{align*}
-        & 2 + 2 = 4 & \emph{ist wahr.}\\
-        & \text{Alle Menschen studieren Physik.} & \text{\emph{ist falsch.}}\\
-        & \text{Kaffee ist objektiv das beste und leckerste Getränk das es gibt.} & \text{\emph{ist wahr.}}\\
-        & 0 = 7 & \text{\emph{ist falsch.}}\\
-        & \text{}
-    \end{align*}
+    \begin{enumerate}
+        \item $2 + 2 = 4$ \hfill \emph{ist wahr.}
+        \item Alle Menschen studieren Physik. \hfill \emph{ist falsch.}
+        \item Kaffee ist objektiv das beste und leckerste Getränk, das es gibt. \hfill \emph{ist wahr.}
+        \item $0 = 7$ \hfill \emph{ist falsch.}
+        \item Alice und Bob stehen näher als 5 Meter beieinander. \hfill \emph{ist eine Aussage,}
+        \item[] \vspace{-10pt} \hfill \emph{deren Wahrheitsgehalt mit}
+        \item[] \vspace{-10pt} \hfill \emph{den gegebenen Informationen}
+        \item[] \vspace{-10pt} \hfill \emph{nicht entschieden werden kann.}
+        \item Mehr Kaffee! \hfill \emph{ist keine Aussage (zumindest nicht im logischen Sinne).}
+    \end{enumerate}
 \end{example}
 
-\begin{definition}[def]
-    Sei $A$ eine Aussage. Dann ist die \emph{negierte Aussage} $\neg A$ ("nicht $A$") genau dann wahr, wenn $A$ falsch ist.
+Elementare Aussagen können durch sogenannte \underline{Junktoren} zu neuen Aussagen verknüpft werden.
+
+\begin{definition}[Junktoren]
+    Seien $A$ und $B$ Aussagen.
+    \begin{enumerate}
+        \item Die \underline{Negation}:
+
+        Die zu $A$ negierte Aussage $\neg A$ ("nicht $A$") hat genau den umgekehrten Wahrheitswert von $A$.
+
+        Wenn $A$ wahr ist, dann ist $\neg A$ falsch. Wenn $A$ falsch ist, dann ist $\neg A$ wahr.
+        \item Die \underline{Konjunktion} (\underline{und-Verknüpfung}):
+
+        Die Aussage $A \land B$ ("$A$ und $B$") ist wahr, wenn $A$ und $B$ wahr sind.
+
+        Wenn mindestens eine Aussage $A$ oder $B$ falsch ist, ist $A \land B$ falsch.
+        \item Die \underline{Disjunktion} (\underline{oder-Verknüpfung}):
+
+        Die Aussage $A \lor B$ ("$A$ oder $B$") ist wahr, wenn mindestens eine Aussage $A$ oder $B$ wahr ist.
+        
+        Wenn $A$ und $B$ beide falsch sind, dann ist $A \lor B$ falsch.
+    \end{enumerate}
+    Man beachte, dass die Disjunktion in der Logik kein ausschließendes "oder" ist. Wenn $A$ und $B$ beide wahr sind, dann ist $A \lor B$ auch wahr. Das ausschließende "oder" wird stattdessen durch einen anderen Junktor ausgedrückt:
+    \begin{enumerate}[resume]
+        \item Die \underline{Kontravalenz} (\underline{entweder-oder-Verknüpfung}):
+
+        Die Aussage $A \, \dot{\lor} \, B$ ist wahr, wenn $A$ wahr und $B$ falsch ist, oder wenn $A$ falsch und $B$ wahr ist.
+
+        Wenn $A$ und $B$ beide wahr oder beide falsch sind, dann ist $A \, \dot{\lor} \, B$ falsch.
+    \end{enumerate}
 \end{definition}
 
-\begin{definition}[def]
-    Seien $A$, $B$ Aussagen.
-    Die Aussage $A \land B$ ("$A$ und $B$") ist genau dann wahr, wenn $A$ und $B$ beide wahr sind.
-    Die Aussage $A \lor B$ ("$A$ oder $B$") ist genau dann wahr, wenn mindestens eine der beiden Aussagen $A$ und $B$ wahr ist.
-\end{definition}
-
-Mehrere Aussagen können durch die Verknüpfungen $\land$ (\emph{und}) und $\lor$ (\emph{oder}) aneinandergereit werden. Dabei ist  $\lor$ ist inklusiv, d.h. wenn $A \land B$ wahr ist, dann ist auch $A \lor B$ wahr. $A \lor \neg A$ ist immer wahr, und $A \land \neg A$ ist immer falsch.
-
-Das Kernstück der Logik sind \emph{Implikationen}:
-
-\begin{definition}[def]
-    Seien $A$, $B$ Aussagen.
-    Die Aussage $A \implies B$ ("$A$ impliziert B") ist genau dann wahr, wenn daraus, dass $A$ wahr ist, folgt, dass $B$ auch wahr ist.
-
-    $A$ nennt man Prämisse, oder hinreichende Bedingung für $B$. $B$ nennt man Schlussfolgerung, oder notwendige Bedingung für $A$.
-
-    Die Aussage $A \iff B$ ("$A$ ist äquivalent zu $B$", "genau dann $A$ wenn $B$") ist genau dann wahr, wenn $A \implies B$ und $B \implies A$ wahr sind.
-\end{definition}
-
-Man bemerke, wenn $A$ falsch ist, dann ist $A \implies B$ wahr. Das ist nötig, weil man aus $A \implies B$ noch keinen Schluss über die Rückrichtung $B \implies A$ treffen kann, das macht erst die Äquivalenz.
+Negation, Konjunktion, und Disjunktion sind in der Mathematik sehr häufig. Die Kontravalenz hingegen hat in der Mathematik quasi keine Anwendung und wird nur der Vollständigkeit halber aufgelistet.
 
 \begin{example}
     Beispiele:
-    \begin{align*}
-        & 1 + 1 = 2 \implies 2 + 2 = 4 & \text{\emph{ist wahr, da $2 +2 = 4$ wahr ist.}}\\
-        & 2 = 7 \implies 0 = 0 & \text{\emph{ist wahr, da $2 = 7$ falsch ist.}}\\
-        \intertext{Man bemerke, dass man aus einer falschen Aussage alles folgern kann (hier z.B. durch Multiplikation mit $0$). Das hat aber keinen mathematischen Wert: Die Implikation $2 = 7 \implies 0 = 1$ ist genauso wahr.}
-        & \text{Es regnet} \implies \text{die Straße ist nass.} & \emph{ist wahr:}\\
-        \intertext{Wenn es regnet, dann ist die Straße nass, also sind beide Seiten und damit auch die Implikation wahr. Wenn es nicht regnet, dann ist "es regnet" falsch, und damit die Implikation wahr.}
-        & \text{Physik ist ein Studienfach} & \\
-        & \implies \text{alle Menschen studieren Physik.} & \text{\emph{ist falsch:}}\\
-        \intertext{"Physik ist ein Studienfach" ist wahr, aber "alle Menschen studieren Physik" ist falsch. Damit ist die Implikation falsch.}
-        & 1 + 1 = 2 \iff 2 + 2 = 4 & \text{\emph{ist wahr, da beide Aussagen wahr sind.}}\\
-        & 2 = 7 \iff 0 = 0 & \text{\emph{ist falsch, da $0 = 0$ wahr aber $2 = 7$ falsch ist.}}\\
-        & 2 = 7 \iff 0 = 1 & \text{\emph{ist wahr, da beide Aussagen falsch sind.}}\\
-    \end{align*}
+    \begin{enumerate}
+        \item $\neg (4 = 6)$ \hfill \emph{ist wahr, weil $4 = 6$ falsch ist.}
+        \item $(2 \cdot 2 = 4) \; \land \; (1 + 3 = 2)$ \hfill \emph{ist falsch, weil $1 + 3 = 2$ falsch ist.}
+        \item $(0 = 0) \; \lor \; (1 + 1 = 2)$ \hfill \emph{ist wahr, weil beide Aussagen wahr sind.}
+    \end{enumerate}
+\end{example}
+
+Das Kernstück der Logik ist die \underline{Implikation}.
+
+\begin{definition}[Implikation]
+    Seien $A$, $B$ Aussagen.
+    
+    Die Aussage $A \implies B$ ("$A$ impliziert B", "wenn $A$, dann $B$") ist wahr, wenn daraus, dass $A$ wahr ist, folgt, dass $B$ auch wahr ist.
+    
+    Wenn diese Folgerung nicht gilt, ist $A \implies B$ falsch.\\
+
+    Explizit bedeutet das:
+
+    Wenn $A$ und $B$ beide wahr sind, dann ist $A \implies B$ wahr.
+
+    Wenn $A$ wahr und $B$ falsch ist, dann ist $A \implies B$ falsch.
+
+    Wenn $A$ falsch ist, dann ist $A \implies B$ wahr, unabhängig von $B$.
+    
+    $A$ nennt man \underline{Prämisse}, oder \underline{hinreichende Bedingung} für $B$. $B$ nennt man \underline{Schlussfolgerung}, oder \underline{notwendige Bedingung} für $A$.
+\end{definition}
+
+\begin{remark}
+    In der Literatur findet der Leser möglicherweise weitere Formen der Implikation, die mit $A \rightarrow B$, $A \models B$, $A \vdash B$ etc bezeichnet werden. Die Unterschiede liegen nur darin, auf welcher sprachlichen Ebene sich die Implikation befindet. Eine Unterscheidung ist in der formalen Logik, nicht aber in der Mathematik relevant, weshalb wir im folgenden immer $A \implies B$ schreiben.
+\end{remark}
+
+\begin{example}
+    Beispiele:
+    \begin{enumerate}
+        \item $1 + 1 = 2 \implies 2 + 2 = 4$ \hfill \emph{ist wahr, da $2 +2 = 4$ wahr ist.}
+        \item $2 = 7 \implies 0 = 0$ \hfill \emph{ist wahr, da $2 = 7$ falsch ist.}
+    \end{enumerate}
+    \begin{shadedbox}
+        Eine ganz wichtige Bemerkung, die sich der Leser vor allem für seine ersten Schritte im Beweisen ans Herz nehmen sollte:
+        
+        Am vorigen Beispiel haben wir gesehen, dass man aus einer falschen Aussage alles folgern kann, hier z.B. durch Multiplikation mit $0$.
+        
+        Das hat aber keinen mathematischen Wert: Die Implikation $2 = 7 \implies 0 = 1$ ist genauso wahr.
+
+        Es ist also keine gültige Beweismethode, bei der zu beweisenden Aussage anzufangen, und so lange gültige Folgerungen zu machen, bis man bei einer offensichtlich wahren Aussage angekommen ist.
+    \end{shadedbox}
+    \begin{enumerate}[resume]
+        \item Es regnet $\implies$ die Straße ist nass. \hfill \emph{ist wahr:}
+
+        Wenn es regnet, dann ist die Straße nass, also sind beide Seiten und damit auch die Implikation wahr. Wenn es nicht regnet, dann ist "es regnet" falsch, und damit die Implikation wahr.
+        \item Physik ist ein Studienfach $\implies$ alle Menschen studieren Physik. \hfill \emph{ist falsch:}
+
+        "Physik ist ein Studienfach" ist wahr, aber "alle Menschen studieren Physik" ist falsch. Damit ist die Implikation falsch.
+    \end{enumerate}
+\end{example}
+
+Die Defintion, dass $A \implies B$ wahr ist, wenn $A$ falsch ist, mag vielleicht etwas ungewöhnlich erscheinen. Dies ist aber nötig, weil man aus $A \implies B$ noch keinen Schluss über die Rückrichtung $B \implies A$ treffen kann. Das macht erst die \underline{Äquivalenz}:
+
+\begin{definition}[Äquivalenz]
+    Seien $A$, $B$ Aussagen.
+
+    Die Aussage $A \iff B$ ist wahr, wenn $A$ und $B$ die gleichen Wahrheitsgehälte haben, also entweder beide wahr oder beide falsch sind.\\
+    Wenn $A$ wahr und $B$ falsch ist, oder umgekehrt, dann ist $A \iff B$ falsch.
+\end{definition}
+
+Wir bemerken noch, dass es sich technisch gesehen bei der Implikation und der Äquivalenz auch um Junktoren handelt.
+
+\begin{example}
+    Beispiele:
+    \begin{enumerate}
+        \item $1 + 1 = 2 \iff 2 + 2 = 4$ \emph{ist wahr, da beide Aussagen wahr sind.}
+        \item $2 = 7 \iff 0 = 0$ \emph{ist falsch, da $0 = 0$ wahr aber $2 = 7$ falsch ist.}
+        \item $2 = 7 \iff 0 = 1$ \emph{ist wahr, da beide Aussagen falsch sind.}
+        \item Es regnet $\iff$ die Straße ist nass. \hfill \emph{ist falsch:}
+
+        Es könnte ja auch sein, dass es nicht regnet, aber jemand mit einem Gartenschlauch die Straße nass gemacht hat. In diesem Fall ist "es regnet" falsch, aber "die Straße ist nass" ist wahr.
+    \end{enumerate}
 \end{example}
 
 \begin{remark}
     \textbf{Wahrheitstabellen}
     
     Ein nützliches Hilfsmittel, um den Wahrheitsgehalt von zusammengesetzten Aussagen zu überprüfen, sind Wahrheitstabellen. Man schreibt in die erste Zeile zuerst alle elementaren Aussagen $A$, $B$, etc, und daneben größere zusammengesetzte Aussagen. Dann geht man alle wahr/falsch Kombinationen der elementaren Aussagen durch, und berechnet so den Wahrheitsgehalt der entsprechenden zusammengesetzten Aussagen.
+
+    Beispiel: Wir behaupten, dass $(A \implies B) \land (B \implies A)$ den gleichen Wahrheitsgehalt hat wie $A \iff B$, und überprüfen dies mit einer Wahrheitstabelle.
+
+    \begin{center}
+        \begin{tabular}{|c|c||c|c|c||c|}
+            \hline
+            $A$ & $B$ & $A \implies B$ & $B \implies A$ & $(A \implies B) \land (B \implies A)$ & $A \iff B$\\
+            \hline\hline
+            wahr & wahr & wahr & wahr & wahr & wahr\\
+            \hline
+            wahr & falsch & falsch & wahr & falsch & falsch\\
+            \hline
+            falsch & wahr & wahr & falsch & falsch & falsch\\
+            \hline
+            falsch & falsch & wahr & wahr & wahr & wahr\\
+            \hline
+        \end{tabular}
+    \end{center}
 \end{remark}
+
+\begin{exercise}
+    Zeigen Sie mithilfe von Wahrheitstabellen:
+    \begin{enumerate}
+        \item $A \lor \neg A$ ist immer wahr.
+        \item $A \land \neg A$ ist immer falsch.
+    \end{enumerate}
+    Folgende Aussagen haben jeweils den gleichen Wahrheitsgehalt:
+    \begin{enumerate}[resume]
+        \item $\neg (A \land B)$ und $(\neg A) \lor (\neg B)$
+        \item $\neg (A \lor B)$ und $(\neg A) \land (\neg B)$
+        \item $\neg (A \implies B)$ und $A \land (\neg B)$
+    \end{enumerate}
+\end{exercise}
+
+
 
 \section{Prädikatenlogik}
 
-blablabla
+Bis jetzt haben wir keine Aussagen betrachtet, die folgende Form annehmen:
+\begin{align*}
+    & x + 2 = 5\\
+    & 2 \cdot x = y\\
+    & \text{etc}
+\end{align*}
+Das liegt daran, dass es sich hierbei streng genommen nicht um Aussagen handelt. Der Wahrheitsgehalt hängt von Variablen $x$, $y$, etc ab, und kann damit erst nach Wahl dieser Variablen festgelegt werden. Die erste Aussage ist z.B. für $x=3$ wahr und für $x=4$ falsch. Sprachliche Konstrukte, die das Einsetzen einer oder mehrerer Variable ermöglichen, nennt man \underline{Prädikate}. Man schreibt z.B. $x$ für die Variable und $A(\cdot)$ für das Prädikat. Für ein gegebenes (also fest gewähltes) $x$ ist dann $A(x)$ eine Aussage. Oft nennt man auch der Einfachheit halber $A(x)$, und meint damit, dass man ein Prädikat $A(\cdot)$ mit Variable $x$ betrachtet.
+
+\begin{example}
+    Weitere Beispiele sprachlicher Natur sind:
+    \begin{enumerate}
+        \item $x$ trinkt gerne Kaffee. \hfill \emph{ist ein Prädikat mit Variable $x$.}
+        \begin{itemize}[label=]
+            \item \emph{Nach Einsetzen von $x$ gibt der Wahrheitsgehalt der Aussage an, ob $x$ gerne Kaffee trinkt. Dabei muss $x$ noch nichtmal ein Mensch sein:}
+        \end{itemize}
+        
+        Unser Kleiderschrank trinkt gerne Kaffee.
+        \begin{itemize}[label=]
+            \item \emph{ist z.B. auch eine Aussage, die offensichtlich falsch ist, aber vom Prädikat zugelassen wird.\footnote{Ein bisschen albern zu sein kann in der Mathematik durchaus helfen!}}
+        \end{itemize}
+        \item \begin{itemize}[label=]
+            \item \emph{Man kann $x$ auch auf sinnvollere Werte eingrenzen. Formal funktioniert das wiefolgt:}
+        \end{itemize}
+
+        $x$ ist ein Mensch $\land$ $x$ trinkt gerne Kaffee. \hfill \emph{ist ein Prädikat mit Variable $x$.}
+        \begin{itemize}[label=]
+            \item \emph{Man schreibt stattdessen oft so etwas wie:}
+        \end{itemize}
+
+        Für einen Menschen $x$: $x$ trinkt gerne Kaffee.
+        \begin{itemize}[label=]
+            \item \emph{Im oberen Fall muss $x$ kein Mensch sein, aber wenn nicht, dann ist die Aussage automatisch falsch. In diesem Fall kann für $x$ kein nicht-Mensch eingesetzt werden.}
+        \end{itemize}
+        \item $x$ verbringt seine Zeit gerne mit $y$. \hfill \emph{ist ein Prädikat mit zwei Variablen $x$ und $y$.}
+        \begin{itemize}[label=]
+            \item \emph{Hier müssen wieder weder $x$, noch $y$ Menschen sein.}
+            \item \emph{Man beachte, dass der Wahrheitsgehalt sich ändern kann, wenn die gewählten $x$ und $y$ vertauscht werden: Beispiele seien Phantasie des Lesers überlassen...}
+        \end{itemize}
+    \end{enumerate}
+\end{example}
+
+In der Prädikatenlogik bietet es sich an, statt der Prädikate selbst, die Erfüllbarkeit der aus Prädikaten hervogegangenen Aussagen zu betrachten. Anders gesagt, man untersucht, für wie viele $x$ (in einem zugelassenen Wertebereich) die Aussage $A(x)$ wahr ist. Dabei helfen sogenannte \underline{Quantoren}:
+
+\begin{definition}[Quantoren]
+    \label{def-quantors}
+    Sei $A(\cdot)$ ein Prädikat mit Variable $x$ in einem nicht näher definierten Wertebereich.
+    \begin{enumerate}
+        \item \underline{Existenzquantor}: $\exists \qquad$ ("es existiert")
+
+        $\exists x: A(x)$ ("es existiert ein $x$, für das gilt: $A(x)$") ist wahr, wenn (mindestens) ein $x$ existiert, für das $A(x)$ wahr ist.
+        
+        Wenn es kein solches $x$ gibt, dann ist $\exists x: A(x)$ falsch.
+        \item \underline{Allquantor}: $\forall \qquad$ ("für alle")
+
+        $\forall x: A(x)$ ("für alle $x$ gilt: $A(x)$") ist wahr, wenn $A(x)$ für alle $x$ wahr ist.
+
+        Wenn $A(x)$ nicht für alle $x$ wahr ist, dann ist $\forall x: A(x)$ falsch.
+        \item \underline{Eindeutigkeitsquantor}: $\existsone \qquad$ ("es existiert genau ein")
+
+        $\existsone x: A(x)$ ("es existiert genau ein $x$, für das gilt: $A(x)$") ist wahr, wenn genau ein $x$ existiert, für das $A(x)$ wahr ist.
+
+        Wenn es entweder kein solches $x$ gibt, oder wenn es mindestens zwei verschiedene $x$ gibt, dann ist $\existsone x: A(x)$ falsch.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Beispiele:
+    \begin{enumerate}
+        \item Es existiert ein $x$ mit $x + 2 = 5$. \hfill \emph{ist eine wahre Existenzaussage, nämlich $x = 3$.}
+        \item Alle Menschen brauchen Wasser. \hfill \emph{ist eine wahre Allaussage:}
+        \item 
+    \end{enumerate}
+\end{example}
+
+\begin{shadedbox}
+    \begin{remark}
+        Die logischen Negationen von Quantoren gehen direkt aus der Definition \ref{def-quantors} hervor:
+        \begin{itemize}
+            \item $\neg (\exists x: A(x)) \iff \forall x: \neg A(x)$
+            \item $\neg (\forall x: A(x)) \iff \exists x: \neg A(x)$
+        \end{itemize}
+    \end{remark}
+\end{shadedbox}
+
+\begin{exercise}
+    Der Eindeutigkeitsquantor ist kein atomarer Quantor. Zeigen Sie das, indem Sie die Aussage:
+    $$\existsone x: A(x)$$
+    durch andere Quantoren und Junktoren ausdrücken.
+\end{exercise}
+
+
 
 \section{Beweise}
 
@@ -81,28 +281,12 @@ Kleine "Hilfsaussagen" ohne eigenständige Bedeutung nennt man \emph{Lemmata} (S
     \item \emph{Beweis durch Widerspruch}: Man nimmt an, dass $A$ wahr und $B$ falsch ist, und zeigt, dass daraus eine falsche Aussage folgt. Dabei nutzt man aus, dass $A \land \neg B$ die logische Negation von $A \implies B$ ist, und aus einer wahren Aussage keine falsche Aussage folgen kann.
 \end{itemize}
 
-\begin{definition}[def]
-    Für Aussagen $A(x)$, die von einer Variable $x$ abhängen, verwendet man \emph{Quantoren}: $\exists$ ("es existiert"), $\exists!$ ("es existiert genau ein"), und $\forall$ ("für alle"). Ein Doppelpunkt $:$ bedeutet einfach "mit ..." oder "so, dass ... gilt".
-    \begin{itemize}
-        \item $\exists x: A(x)$ ist wahr, wenn mindestens ein $x$ existiert, für das $A(x)$ wahr ist.
-        \item $\exists! x: A(x)$ ist wahr, wenn genau ein $x$ existiert, für das $A(x)$ wahr ist.
-        \item $\forall x: A(x)$ ist wahr, wenn $A(x)$ wahr für alle x ist.
-    \end{itemize}
-\end{definition}
-
-\begin{remark}
-    Die logischen Negationen von Quantoren sind:
-    \begin{itemize}
-        \item $\neg (\exists x: A(x)) \iff \forall x: \neg A(x)$
-        \item $\neg (\forall x: A(x)) \iff \exists x: \neg A(x)$
-    \end{itemize}
-\end{remark}
 
 \begin{remark}
     Die Beweisstrategien für Quantoren sind:
     \begin{itemize}
         \item $\exists x: A(x)$ beweist man, indem man ein $x$ explizit angibt, für das $A(x)$ wahr ist, oder die Existenz dieses $x$ aus einer wahre Existenzaussage herleitet.
-        \item $\exists! x: A(x)$ beweist man in zwei Schritten. Erst zeigt man die Existenzaussage $\exists x: A(x)$. Für die Eindeutigkeitsaussage nimmt man an, dass zwei $x, y$ existieren, für die $A(x)$ und $A(y)$ wahr sind, und folgert, dass dann $x = y$ gelten muss.
+        \item $\existsone x: A(x)$ beweist man in zwei Schritten. Erst zeigt man die Existenzaussage $\exists x: A(x)$. Für die Eindeutigkeitsaussage nimmt man an, dass zwei $x, y$ existieren, für die $A(x)$ und $A(y)$ wahr sind, und folgert, dass dann $x = y$ gelten muss.
         \item $\forall x: A(x)$ beweist man, indem man ein $x$ als beliebig gegeben annimmt, und dann zeigt, dass $A(x)$ (unabhängig von der Wahl von $x$) wahr ist. Möglicherweise sind hierfür Fallunterscheidungen nötig (wie z.B. Fall 1 $x = 0$ und Fall 2 $x \neq 0$ wenn man in einem Beweisschritt durch $x$ teilen will), dann muss man $A(x)$ für alle Fälle beweisen.
         \item \underline{Vollständige Induktion} (oder \underline{natürliche Induktion}) ist eine nützliche Beweismethode für Aussagen $A(n)$, die von einer natürlichen Zahl $n$ abhängen. Man zeigt zuerst, dass $A(n)$ für wahlweise $n=0$ oder $n=1$ wahr ist. Dann zeigt man im zweiten Schritt, dass wenn $A(n)$ für eine beliebige natürliche Zahl $n$ wahr ist, dann auch $A(n+1)$ wahr ist. Aus beiden Schritten zusammen folgt, dass $A(n)$ für jede natürliche Zahl $n$ wahr ist.\\
         Die Beweismethode der vollständigen Induktion ist eng verknüpft mit der Definition der natürlichen Zahlen $\N$, siehe \ref{theorem-natural-induction}. Anschaulich bedeutet beides, bei $0$ (oder $1$) anzufangen, und sukzessive mit $+1$ "hochzugehen".
