@@ -1472,6 +1472,7 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmri9.tfm
 INPUT ./2.MengenundZahlen.tex
 OUTPUT 2.MengenundZahlen.aux
 INPUT ./2.MengenundZahlen.tex
@@ -1489,7 +1490,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fontawesome5/fa5free0solid.
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free0.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmri9.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/rm-lmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm

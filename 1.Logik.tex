@@ -84,7 +84,7 @@ Das Kernstück der Logik ist die \underline{Implikation}.
 \end{definition}
 
 \begin{remark}
-    In der Literatur findet der Leser möglicherweise weitere Formen der Implikation, die mit $A \rightarrow B$, $A \models B$, $A \vdash B$ etc bezeichnet werden. Die Unterschiede liegen nur darin, auf welcher sprachlichen Ebene sich die Implikation befindet. Eine Unterscheidung ist in der formalen Logik, nicht aber in der Mathematik relevant, weshalb wir im folgenden immer $A \implies B$ schreiben.
+    In der Literatur findet der Leser möglicherweise weitere Formen der Implikation, die mit $A \rightarrow B$, $A \models B$, $A \vdash B$ etc bezeichnet werden. Die Unterschiede liegen nur darin, auf welcher sprachlichen Ebene sich die Implikation befindet. Eine Unterscheidung ist in der formalen Logik, nicht aber in der Mathematik relevant, weshalb wir im Folgenden immer $A \implies B$ schreiben.
 \end{remark}
 
 \begin{example}
@@ -160,6 +160,7 @@ Wir bemerken noch, dass es sich technisch gesehen bei der Implikation und der Ä
 \end{remark}
 
 \begin{exercise}
+    \label{exercise-A}
     Zeigen Sie mithilfe von Wahrheitstabellen:
     \begin{enumerate}
         \item $A \lor \neg A$ ist immer wahr.
@@ -169,6 +170,7 @@ Wir bemerken noch, dass es sich technisch gesehen bei der Implikation und der Ä
     \begin{enumerate}[resume]
         \item $\neg (A \land B)$ und $(\neg A) \lor (\neg B)$
         \item $\neg (A \lor B)$ und $(\neg A) \land (\neg B)$
+        \item $(A \implies B)$ und $(\neg B \implies \neg A)$
         \item $\neg (A \implies B)$ und $A \land (\neg B)$
     \end{enumerate}
 \end{exercise}
@@ -247,7 +249,19 @@ In der Prädikatenlogik bietet es sich an, statt der Prädikate selbst, die Erf�
     \begin{enumerate}
         \item Es existiert ein $x$ mit $x + 2 = 5$. \hfill \emph{ist eine wahre Existenzaussage, nämlich $x = 3$.}
         \item Alle Menschen brauchen Wasser. \hfill \emph{ist eine wahre Allaussage:}
-        \item 
+        \item ...
+    \end{enumerate}
+    Bei Prädikaten $A(x, y)$ mit zwei Variablen kann man die Reihenfolge der zu $x$ und $y$ gehörenden Quantoren i.A. nicht vertauschen:
+    \begin{enumerate}[resume]
+        \item \begin{itemize}[label=]
+            \item \emph{Man wähle für $x$ einen Topf, und für $y$ einen Deckel. Das Prädikat sei:}
+        \end{itemize}
+        \item[] Deckel $y$ passt auf Topf $x$.
+        \begin{itemize}[label=]
+            \item \emph{Dazu betrachte man die zwei Aussagen $\forall x \exists y: A(x,y)$ und $\exists y \forall x: A(x,y)$, oder ausgeschrieben:}
+        \end{itemize}
+        \item[] Für jeden Topf existiert ein Deckel, der auf den Topf passt. \hfill \emph{ist vermutlich wahr.}
+        \item[] Es existiert ein Deckel, der auf jeden Topf passt. \hfill \emph{ist falsch, und völlig absurd.}
     \end{enumerate}
 \end{example}
 
@@ -258,12 +272,26 @@ In der Prädikatenlogik bietet es sich an, statt der Prädikate selbst, die Erf�
             \item $\neg (\exists x: A(x)) \iff \forall x: \neg A(x)$
             \item $\neg (\forall x: A(x)) \iff \exists x: \neg A(x)$
         \end{itemize}
+        Die Aussage $A(x)$ kann auch weitere Quantoren enthalten, die nach denselben Regeln wieder negiert werden können.
     \end{remark}
 \end{shadedbox}
 
+\begin{example}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{example}
+
+\begin{exercise}
+    Formulieren Sie die folgenden alltäglichen Aussagen in mathematischer Sprache. Es können teils mehrere Lösungen möglich sein.
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{exercise}
+
 \begin{exercise}
     Der Eindeutigkeitsquantor ist kein atomarer Quantor. Zeigen Sie das, indem Sie die Aussage:
-    $$\existsone x: A(x)$$
+    $$\existsone x\!: A(x)$$
     durch andere Quantoren und Junktoren ausdrücken.
 \end{exercise}
 
@@ -271,33 +299,201 @@ In der Prädikatenlogik bietet es sich an, statt der Prädikate selbst, die Erf�
 
 \section{Beweise}
 
-In der Mathematik startet man mit \emph{Axiomen}, das sind Aussagen, die man als wahr annimmt oder akzeptiert. In der modernen Mathematik\footnote{Die Gödelschen Unvollständigkeitssätze besagen in etwa, dass jedes widerspruchsfreie Axiomsystem unvollständig ist, d.h. dass es immer Aussagen gibt, die man mit den gegebenen Axiomen weder beweisen noch widerlegen kann. (Das ist eine grobe Erklärung der Sätze, nicht die formale Aussage.)} sind das die Zermelo-Fränkel Axiome \ref{ZF-axioms} mit (oder selten ohne) Auswahlaxiom \ref{axiom-of-choice}. Ausgehend davon leitet man durch logisch gültige Schlüsse weitere wahre Aussagen her.
+In der Mathematik (und anderen Systemen, die auf Logik basieren) startet man mit \underline{Axiomen}, das sind Aussagen, die man als wahr annimmt oder akzeptiert. Man kann a priori\footnote{Lat. "vor der Anschauung", d.h. ohne Experimente usw.} und ohne Axiome nicht zu neuen Erkenntnissen gelangen. Vor allem in der fortgeschrittenen Physik, in der Theorien immer weiter abstrahiert und mathematisiert werden, gerät man schnell in Versuchung, "alles" beweisen zu wollen. Das geht aber einfach nicht, an irgendeinem Punkt muss man eine Annahme treffen, die auf einer Beobachtung beruht.\footnote{Das klingt hier vielleicht offensichtlich, aber viele junge PhysikerInnen, der Autor eingeschlossen, verfallen im Laufe ihrer Ausbildung immer wieder diesem Drang.} Was die mathematische Denkweise allerdings lehrt, ist, auf so wenig Annahmen wie möglich eine vollständige (d.h. alle dazugehörigen Beobachtungen beschreibende) Theorie aufzubauen. Gleichzeitig schult sie den Blick dafür, was eine Annahme und was eine Folgerung ist, und damit auch, wie eine veränderte oder neue Annahme die Folgerungen beeinflusst. Diese Fertigkeiten sind sowohl in der theoretischen, als auch in der experimentellen Physik sehr wichtig.
 
-Kleine "Hilfsaussagen" ohne eigenständige Bedeutung nennt man \emph{Lemmata} (Singular \emph{Lemma}), wichtige Zwischenergebnisse nennt man \emph{Propositionen}, und ganz große Resultate nennt man \emph{Sätze} oder \emph{Theoreme}, die Grenzen sind allerdings etwas schwammig. Übliche Beweisstrategien sind:
+In der Mathematik ist ein sehr häufig verwendetes Axiomsystem gegeben durch die Zermelo-Fränkel Axiome \ref{ZF-axioms} mit (oder selten ohne) Auswahlaxiom \ref{axiom-of-choice}. Die historische Entwicklung hat auch weitere ähnliche Axiome und Axiomsysteme produziert, die teilweise stärker sind (d.h. die Zermelo-Fränkel Axiome folgen daraus), teilweise schwächer (d.h. sie folgen aus den Zermelo-Fränkel Axiomen), und teilweise ein bisschen anders. "Das perfekte" Axiomsystem gibt es nicht.\footnote{Die Gödelschen Unvollständigkeitssätze besagen in etwa, dass jedes widerspruchsfreie Axiomsystem unvollständig ist, d.h. dass es immer Aussagen gibt, die man mit den gegebenen Axiomen weder beweisen noch widerlegen kann. (Das ist eine grobe Erklärung der Sätze, nicht die formale Aussage.)} Die Grundlagen der Mathematik, die hier behandelt werden, sind in allen Fällen gleich.
 
-\begin{itemize}
-    \item \emph{Direkter Beweis}: Man zeigt $A \implies B$ durch eine Kette von Implikationen.
-    \item \emph{Beweis durch Kontraposition}: Man zeigt $\neg B \implies \neg A$, was logisch äquivalent zu $A \implies B$ ist.
-    \item \emph{Beweis durch Widerspruch}: Man nimmt an, dass $A$ wahr und $B$ falsch ist, und zeigt, dass daraus eine falsche Aussage folgt. Dabei nutzt man aus, dass $A \land \neg B$ die logische Negation von $A \implies B$ ist, und aus einer wahren Aussage keine falsche Aussage folgen kann.
-\end{itemize}
+Zusätzlich zu Axiomen verwendet man \underline{Definitionen}, das sind einfach sprachliche Umformulierungen für besseres Verständnis und Übersicht. Aus Axiomen und Definitionen werden dann mit den Gesetzen der Logik Aussagen bewiesen. Diese tragen in der Mathematik verschiedene Namen, die etwas schwammig und subjektiv sind. Kleine "Hilfsaussagen" ohne große eigenständige Bedeutung nennt man \underline{Lemmata} (Singular \underline{Lemma}), wichtige Zwischenergebnisse nennt man \underline{Propositionen}, und Resultate mit besonderer Wichtigkeit und/oder nichttrivialem Beweis nennt man \underline{Sätze} oder \underline{Theoreme}. Manche deutschsprachige Autoren unterscheiden zusätzlich, dass Theoreme nochmal etwas wichtiger als Sätze sind (das wollen wir hier auch versuchen, vermutlich mit gemischtem Erfolg).
 
+Für das Erlernen der Beweiskunst ist es unerlässlich, sich verschiedener Beweisstrategien bewusst zu sein. Meistens sind eine oder ein paar davon deutlich leichter, und manchmal sind nicht alle überhaupt anwendbar. Im Folgenden wollen wir die häufigsten davon aufführen und an Beispielen erläutern. Mit zunehmender Erfahrung wird der Leser immer besser darin werden, gleich am Anfang die erfolgsversprechendste Strategie zu identifizieren und gezielt anzugehen.
+
+\begin{shadedbox}
+    \textbf{Direkter Beweis}
+
+    Zu zeigen ist eine Implikationsaussage $A \implies B$.
+
+    Man nimmt an, dass $A$ wahr ist, und zeigt schrittweise Zwischenaussagen $Z_1$, $Z_2$, $Z_3$, ... bis man Aussage $B$ als wahr gezeigt hat.
+
+    $$A \implies Z_1 \implies Z_2 \implies Z_3 \quad ... \implies B$$
+\end{shadedbox}
+
+\begin{example}
+    \begin{enumerate}
+        \item unser LA Professor hatte ein nettes Beispiel...    
+        \item 
+    \end{enumerate}
+\end{example}
+
+\begin{shadedbox}
+    \textbf{Beweis per Kontraposition}
+
+    Zu zeigen ist eine Implikationsaussage $A \implies B$.
+
+    Man nutzt das Ergebnis von \ref{exercise-A} (v) und zeigt stattdessen:
+
+    $$\neg B \implies \neg A$$
+
+    Man nimmt also $\neg B$ als wahr an, und zeigt durch einen direkten Beweis, dass $\neg A$ wahr ist.
+\end{shadedbox}
+
+\begin{example}
+    
+\end{example}
+
+\begin{shadedbox}
+    \textbf{Beweis durch Widerspruch}
+
+    Zu zeigen ist eine Implikationsaussage $A \implies B$.
+
+    Das Grundprinzip eines Widerspruchsbeweises (Lat. \underline{reductio ad absurdum}) ist, dass aus einer wahren Aussage keine falsche Aussage folgen kann. Man nutzt das Ergebnis von \ref{exercise-A} (vi), dass $A \land (\neg B)$ die Negation von $A \implies B$ ist.
+    
+    Um zu zeigen, dass die negierte Aussage falsch sein muss, nimmt man $A \land (\neg B)$ an, und zeigt, dass daraus ein logischer Widerspruch folgt. Wegen \ref{exercise-A} (i) muss die nicht-negierte Aussage also wahr sein. Insgesamt hat man also gezeigt:
+
+    $$\neg (A \land (\neg B))$$
+\end{shadedbox}
 
 \begin{remark}
-    Die Beweisstrategien für Quantoren sind:
-    \begin{itemize}
-        \item $\exists x: A(x)$ beweist man, indem man ein $x$ explizit angibt, für das $A(x)$ wahr ist, oder die Existenz dieses $x$ aus einer wahre Existenzaussage herleitet.
-        \item $\existsone x: A(x)$ beweist man in zwei Schritten. Erst zeigt man die Existenzaussage $\exists x: A(x)$. Für die Eindeutigkeitsaussage nimmt man an, dass zwei $x, y$ existieren, für die $A(x)$ und $A(y)$ wahr sind, und folgert, dass dann $x = y$ gelten muss.
-        \item $\forall x: A(x)$ beweist man, indem man ein $x$ als beliebig gegeben annimmt, und dann zeigt, dass $A(x)$ (unabhängig von der Wahl von $x$) wahr ist. Möglicherweise sind hierfür Fallunterscheidungen nötig (wie z.B. Fall 1 $x = 0$ und Fall 2 $x \neq 0$ wenn man in einem Beweisschritt durch $x$ teilen will), dann muss man $A(x)$ für alle Fälle beweisen.
-        \item \underline{Vollständige Induktion} (oder \underline{natürliche Induktion}) ist eine nützliche Beweismethode für Aussagen $A(n)$, die von einer natürlichen Zahl $n$ abhängen. Man zeigt zuerst, dass $A(n)$ für wahlweise $n=0$ oder $n=1$ wahr ist. Dann zeigt man im zweiten Schritt, dass wenn $A(n)$ für eine beliebige natürliche Zahl $n$ wahr ist, dann auch $A(n+1)$ wahr ist. Aus beiden Schritten zusammen folgt, dass $A(n)$ für jede natürliche Zahl $n$ wahr ist.\\
-        Die Beweismethode der vollständigen Induktion ist eng verknüpft mit der Definition der natürlichen Zahlen $\N$, siehe \ref{theorem-natural-induction}. Anschaulich bedeutet beides, bei $0$ (oder $1$) anzufangen, und sukzessive mit $+1$ "hochzugehen".
-    \end{itemize}
-    Weitere Beweistechniken sind:
-    \begin{itemize}
-        \item o.B.d.A. oder OE (engl. w.l.o.g.)
-        \item Fakt: ...
-    \end{itemize}
+    Ein einfaches Gegenbeispiel zur negierten Aussage zu geben, also $A \land (\neg B)$ zu formulieren und Bedingungen anzugeben, unter denen es falsch ist, reicht nicht! Man muss zeigen, dass aus $A \land (\neg B)$ ein Widerspruch folgen \underline{muss}.
 \end{remark}
 
+\begin{example}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{example}
+
+\begin{shadedbox}
+    \label{proof-of-existence}
+    \textbf{Existenzbeweis}
+
+    Zu zeigen ist eine Existenzaussage $\exists x\!: A(x)$.
+
+    Der Beweis funktioniert einfach durch Angabe eines solchen $x$, und anschließendes Zeigen, dass $A(x)$ wahr ist.
+
+    Man kann (falls möglich) dieses $x$ explizit konstruieren, oder implizit unter Verwendung anderer Objekte, deren Existenz schon als wahr bekannt.\footnote{Das Auswahlaxiom \ref{axiom-of-choice} ermöglicht Existenzbeweise von Objekten, die man durch Zermelo-Fränkel Axiome \ref{ZF-axioms} nicht explizit angeben kann.}
+\end{shadedbox}
+
+Existenzbeweise rechnet man von hinten nach vorne durch, und schreibt sie dann von vorne nach hinten auf: Man fängt auf einem Schmierpapier bei $A(x)$ an, und macht so lange Umformungen, bis man sein $x$ gefunden hat. Dann schreibt man auf das Abgabepapier zuerst sein $x$, und dann die gleiche Rechnung andersrum, bis man bei $A(x)$ angekommen ist. Wir geben nochmal ein Beispiel dazu:
+
+\begin{example}
+    iwas mit Mitternachtsformel?
+\end{example}
+
+\begin{shadedbox}
+    \textbf{Allbeweis}
+    
+    Zu zeigen ist eine Allaussage $\forall x\!: A(x)$.
+
+    Man nimmt zuerst ein beliebiges $x$ aus der zugelassenen Wertemenge als gegeben. Dieses ist zwar beliebig, aber fest. Dann zeigt man, dass $A(x)$ wahr sein muss, unabhängig davon, welches $x$ aus der Wertemenge gewählt wurde.
+
+    Oft verwendet man dazu eine \underline{Fallunterscheidung}. Diese kann z.B. eine Unterteilung in $x = 0$ und $x \neq 0$, $x > 0$ und $x < 0$, etc sein. Das darf man machen, weil $x$ nach seiner Einführung fest ist, und es hilft z.B., wenn man gewisse Rechenoperationen wie durch $x$ teilen nicht für alle $x$ im Wertebereich durchführen darf.
+\end{shadedbox}
+
+\begin{example}
+    was mit durch x teilen
+\end{example}
+
+\begin{shadedbox}
+    \textbf{Eindeutigkeitsbeweis}
+
+    Zu zeigen ist eine Eindeutigkeitsaussage $\existsone x: A(x)$.
+
+    Weil es sich streng genommen um zwei Aussagen handelt, führt man zwei separate Beweise. Der eine ist ein Existenzbeweis wie in \ref{proof-of-existence} beschrieben.\footnote{Wenn man nur den Eindeutigkeitsbeweis durchführt, dann hat man zwar gezeigt, dass $x$ \emph{im Falle seiner Existenz} eindeutig ist, aber nicht, dass es tatsächlich existiert.}
+
+    Der zweite ist der eigentliche Eindeutigkeitsbeweis: Man nimmt zwei $x, y$, für die man annimmt, dass $A(x)$ und $A(y)$ wahr sind. Dann folgert man daraus, dass $x = y$ gelten muss.
+\end{shadedbox}
+
+\begin{example}
+    \begin{enumerate}
+        \item Behauptung: $\existsone x\!: x + 2 = 5$.
+
+        Die Existenzaussage haben wir bereits oben gezeigt. Es fehlt noch die Eindeutigkeitsaussage.
+
+        Seien also $x, y$ Zahlen mit $x + 2 = 5$ und $y + 2 = 5$.
+
+        Es gilt also: $5 = x + 2 = y + 2$.
+
+        Durch Subtraktion von $2$ folgt: $x = y$.
+        \item 
+    \end{enumerate}
+\end{example}
+
+\begin{shadedbox}
+    \textbf{Vollständige Induktion}
+
+    Zu zeigen ist eine Allaussage für natürliche Zahlen: $\forall n \in \N: A(n)$.
+
+    Wir greifen hier etwas vorweg, weil wir das Prinzip von Induktion erst im nächsten Kapitel in \ref{theorem-natural-induction} rigoros einführen können. Man kann sich aber auch jetzt schon überlegen, warum die Beweismethode Sinn ergibt.
+
+    Induktion funktioniert in mehreren Schritten:
+
+    \underline{Induktionsanfang} / \underline{IA}: $n = 0$ oder $n = 1$.\footnote{Mathematiker sind sich uneinig, ob $0$ eine natürliche Zahl sein sollte oder nicht. Außerdem ergeben manche Aussagen für $n=0$ keinen Sinn, weil z.B. betrachtete Mengen leer sind oder durch $n$ geteilt wird. Wer extra-sicher sein will, kann auch im Induktionsanfang $A(0)$ und $A(1)$ zeigen.} Man zeigt, dass $A(0)$ oder $A(1)$ wahr ist.
+
+    \underline{Induktionsvoraussetzung} / \underline{IV}: Nehme an, es gilt $A(n)$ für ein $n \in \N$ beliebig aber fest. Die IV wird i.d.R. nicht mit aufgeschrieben.
+
+    \underline{Induktionsschritt} / \underline{IS}: Man zeigt, dass $A(n+1)$ wahr ist. Meistens ist dieser Teil bei weitem der schwierigste.
+
+    Durch diese drei Schritte folgt induktiv die Aussage:
+
+    IA $\implies A(0)$\\
+    IV $\rightarrow A(0)$, IS $\implies A(1)$\\
+    IV $\rightarrow A(1)$, IS $\implies A(2)$\\
+    IV $\rightarrow A(2)$, IS $\implies A(3)$\\
+    ...
+\end{shadedbox}
+
+Die Beweismethode der vollständigen Induktion ist eng verknüpft mit der Definition der natürlichen Zahlen $\N$, siehe \ref{def-natural-numbers}. Anschaulich bedeutet beides, bei $0$ (oder $1$) anzufangen, und sukzessive mit $+1$ "hochzugehen".
+
+\begin{example}
+    \begin{enumerate}
+        \item das von meinem LA1 Prof
+        \item Behauptung: Es gilt $1 + 2 + 3 + ... + n = \frac{1}{2} n (n+1)$
+
+        IA: Für $n=0$ sind beide Seiten $0$. Für $n=1$ gilt: $1 \overset{\text{z.z.}}{=} \frac{1}{2} \cdot 1 \cdot (1 + 1) = 1$ \checkmark
+
+        IV: Es gelte die Aussage für ein $n \in \N$ beliebig, aber fest.
+        
+        IS: Wir zeigen $A(n+1)$.
+        \begin{align*}
+            & \; 1 + 2 + ... + n + (n+1) & \\
+            & = (1 + 2 + ... + n) + (n+1) & \text{separieren von $A(n)$}\\
+            & = (\frac{1}{2} n (n+1)) + (n+1) & \text{nach IV}\\
+            & = \frac{1}{2} (n (n+1) + 2(n+1)) & \text{umklammern}\\
+            & = \frac{1}{2} (n^2 + 3n + 2) & \\
+            & = \frac{1}{2} (n+1) (n+2) & \text{und das ist unser $A(n+1)$.}
+        \end{align*}
+    \end{enumerate}
+\end{example}
+
+\begin{shadedbox}
+    \label{obda-fakt}
+    \textbf{Weitere Beweistechniken}
+
+    Die Fallunterscheidung haben wir bereits oben angesprochen. Wir listen noch ein paar gängige Techniken auf. Manche werden von Mathematikern auch scherzhaft als "Schummeln" belacht, weil man sich dadurch das Leben scheinbar ohne Begründung einfacher macht.
+
+    \begin{itemize}
+        \item \underline{o.B.d.A.}: steht für "ohne Beschränkung der Allgemeinheit" (Engl. \underline{W.l.o.g.} oder \underline{WLOG} für "without loss of generality") und kommt in vielen Formen und Farben, wie \underline{OE} ("ohne Einschränkung"), oder auch versteckt in Sätzen wie "es genügt zu zeigen".
+        
+        Alle davon bedeuten, man trifft eine vereinfachende Annahme, die allerdings den Beweis nicht ungültig oder unvollständig macht. Wenn man sorgfältig ist, dann begründet man noch seine Vereinfachung.
+        
+        Beispiel: Man hat reelle Zahlen $x$ und $y$ gegeben, und muss etwas mit $\max(x, y)$ berechnen. Dann könnte man schreiben:
+        \begin{itemize}[label=]
+            \item \underline{o.B.d.A.} sei $x \geq y \implies \max(x, y) = x$.
+            \item Sonst: ist $y \geq x$, Umbenennen $x \rightarrow y$ und $y \rightarrow x$, dann ist wieder $x \geq y$.
+        \end{itemize}
+        Damit verändert man im Grunde den Beweis nicht, aber spart sich ordentlich an Schreibarbeit und Fallunterscheidungen.
+        \item \underline{Hilfskonstruktion}: Man führt zusätzliche Zahlen, Größen, Räume, etc ein, die gewisse Eigenschaften erfüllen. Dann nutzt man diese Eigenschaften irgendwie aus. Die Existenz der Hilfskonstruktion muss, falls sie nicht klar ist, auch begründet werden.
+        
+        Hilfskonstruktionen treten in der Regel nur in schwierigeren Beweisen auf, und machen auch oft den Eindruck, dass sie aus heiterem Himmel fallen. Wir möchten den motivierten Leser trotzdem dazu anhalten, insbesondere die Motivation dahinter zu verstehen, denn in den meisten Fällen steckt doch eine erreichbare Idee dahinter.
+        
+        Ein leicht verständliches physikalisches Beispiel für eine Hilfskonstruktion ist der Massenschwerpunkt von einem oder mehreren mechanischen Körpern.
+        \item \underline{Fakt}: ... \emph{gefolgt von einer Aussage, die den Beweis einfacher macht.}
+
+        Oder ähnlich "offensichtlich gilt", "trivial", "wie der Leser sich selbst überzeugen kann" etc.
+
+        Man vermittelt den Eindruck, als ob die Aussage entweder bekannt oder leicht zu überprüfen sei.\footnote{Zynisch nennt man das auch "Beweis durch Einschüchterung". Wir können dem Leser aber nicht ausdrücklich genug ans Herz legen, wie wichtig es ist, immer und ohne Scheu Fragen zu stellen wenn man etwas nicht versteht!} Falls dem wirklich so ist, dann spart der Autor sich berechtigterweise Zeit und Arbeit. Es existieren aber auch Mathematiker, die vermuten, dass manche Autoren damit Aussagen reinschmuggeln wollen, die sie selbst nicht beweisen können...
+    \end{itemize}
+\end{shadedbox}
 
 
 \cite{GURAU}

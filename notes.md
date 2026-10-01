@@ -1,21 +1,18 @@
 Kapitel 1 nochmal drüberschauen
 
+- "z.z." einführen
+
 - Format
 
 - mehr Beispiele
 
 - Negation von und / oder zufügen
 
-- Regeln wie Distributiv(?)
+- Beispiele von JJ raussuchen
 
-- Negation von Symbolen
+- Doppelpunkt ändern
 
-- Beispiel für nicht-Aussagen
-
-- ein paar Wahrheitstafeln
-
-
-Roland Herzog eine Mail schreiben
+Roland Herzog eine Mail schreiben --> nicht mehr nötig
 
 
 Kapitel 2
