@@ -1,10 +1,10 @@
 \chapter{Logik}
 
-Mathematik ist eine Geisteswissenschaft. Anders als in Naturwissenschaften wird keine Heuristik verwendet, d.h. man akzeptiert keine Aussagen, nur weil sie plausibel erscheinen oder erfahrungsgemäß stimmen. Stattdessen müssen alle Aussagen mit den Gesetzen der \underline{Logik} bewiesen werden. Der Grund dafür ist, dass die menschliche Intuition im Bereich der Mathematik nicht sehr gut ist, und man leicht etwas für richtig halten kann, das in Wirklichkeit falsch ist. Außerdem lehrt die Notwendigkeit jede Behauptung einwandfrei beweisen zu müssen eine völlig neue Denkweise, die wiederum auch in der Physik Früchte tragen kann.
+Mathematik ist eine Geisteswissenschaft. Anders als in Naturwissenschaften wird keine Heuristik verwendet, d.h. man akzeptiert keine Aussagen, nur weil sie plausibel erscheinen oder erfahrungsgemäß stimmen. Stattdessen müssen alle Aussagen mit den Gesetzen der \marked{Logik} bewiesen werden. Der Grund dafür ist, dass die menschliche Intuition im Bereich der Mathematik nicht sehr gut ist, und man leicht etwas für richtig halten kann, das in Wirklichkeit falsch ist. Außerdem lehrt die Notwendigkeit jede Behauptung einwandfrei beweisen zu müssen eine völlig neue Denkweise, die wiederum auch in der Physik Früchte tragen kann.
 
 \section{Aussagenlogik}
 
-Die Logik befasst sich mit dem Wahrheitsgehalt von Aussagen. In der klassischen Logik ist eine Aussage ein sprachliches Konstrukt, dem ein eindeutiger \underline{Wahrheitsgehalt} von entweder \underline{wahr} oder \underline{falsch} zugeordnet werden kann
+Die Logik befasst sich mit dem Wahrheitsgehalt von Aussagen. In der klassischen Logik ist eine Aussage ein sprachliches Konstrukt, dem ein eindeutiger \marked{Wahrheitsgehalt} von entweder \marked{wahr} oder \marked{falsch} zugeordnet werden kann
 
 \begin{example}[Aussagen]
     Beispiele für Aussagen sind:
@@ -21,22 +21,22 @@ Die Logik befasst sich mit dem Wahrheitsgehalt von Aussagen. In der klassischen 
     \end{enumerate}
 \end{example}
 
-Elementare Aussagen können durch sogenannte \underline{Junktoren} zu neuen Aussagen verknüpft werden.
+Elementare Aussagen können durch sogenannte \marked{Junktoren} zu neuen Aussagen verknüpft werden.
 
 \begin{definition}[Junktoren]
     Seien $A$ und $B$ Aussagen.
     \begin{enumerate}
-        \item Die \underline{Negation}:
+        \item Die \marked{Negation}:
 
         Die zu $A$ negierte Aussage $\neg A$ ("nicht $A$") hat genau den umgekehrten Wahrheitswert von $A$.
 
         Wenn $A$ wahr ist, dann ist $\neg A$ falsch. Wenn $A$ falsch ist, dann ist $\neg A$ wahr.
-        \item Die \underline{Konjunktion} (\underline{und-Verknüpfung}):
+        \item Die \marked{Konjunktion} (\marked{und-Verknüpfung}):
 
         Die Aussage $A \land B$ ("$A$ und $B$") ist wahr, wenn $A$ und $B$ wahr sind.
 
         Wenn mindestens eine Aussage $A$ oder $B$ falsch ist, ist $A \land B$ falsch.
-        \item Die \underline{Disjunktion} (\underline{oder-Verknüpfung}):
+        \item Die \marked{Disjunktion} (\marked{oder-Verknüpfung}):
 
         Die Aussage $A \lor B$ ("$A$ oder $B$") ist wahr, wenn mindestens eine Aussage $A$ oder $B$ wahr ist.
         
@@ -44,7 +44,7 @@ Elementare Aussagen können durch sogenannte \underline{Junktoren} zu neuen Auss
     \end{enumerate}
     Man beachte, dass die Disjunktion in der Logik kein ausschließendes "oder" ist. Wenn $A$ und $B$ beide wahr sind, dann ist $A \lor B$ auch wahr. Das ausschließende "oder" wird stattdessen durch einen anderen Junktor ausgedrückt:
     \begin{enumerate}[resume]
-        \item Die \underline{Kontravalenz} (\underline{entweder-oder-Verknüpfung}):
+        \item Die \marked{Kontravalenz} (\marked{entweder-oder-Verknüpfung}):
 
         Die Aussage $A \, \dot{\lor} \, B$ ist wahr, wenn $A$ wahr und $B$ falsch ist, oder wenn $A$ falsch und $B$ wahr ist.
 
@@ -63,7 +63,7 @@ Negation, Konjunktion, und Disjunktion sind in der Mathematik sehr häufig. Die 
     \end{enumerate}
 \end{example}
 
-Das Kernstück der Logik ist die \underline{Implikation}.
+Das Kernstück der Logik ist die \marked{Implikation}.
 
 \begin{definition}[Implikation]
     Seien $A$, $B$ Aussagen.
@@ -78,9 +78,11 @@ Das Kernstück der Logik ist die \underline{Implikation}.
 
     Wenn $A$ wahr und $B$ falsch ist, dann ist $A \implies B$ falsch.
 
-    Wenn $A$ falsch ist, dann ist $A \implies B$ wahr, unabhängig von $B$.
+    Wenn $A$ falsch ist, dann ist $A \implies B$ wahr, unabhängig von $B$.\\
     
-    $A$ nennt man \underline{Prämisse}, oder \underline{hinreichende Bedingung} für $B$. $B$ nennt man \underline{Schlussfolgerung}, oder \underline{notwendige Bedingung} für $A$.
+    $A$ nennt man \marked{Prämisse}, oder \marked{hinreichende Bedingung} für $B$.
+    
+    $B$ nennt man \marked{Schlussfolgerung}, oder \marked{notwendige Bedingung} für $A$.
 \end{definition}
 
 \begin{remark}
@@ -112,12 +114,13 @@ Das Kernstück der Logik ist die \underline{Implikation}.
     \end{enumerate}
 \end{example}
 
-Die Defintion, dass $A \implies B$ wahr ist, wenn $A$ falsch ist, mag vielleicht etwas ungewöhnlich erscheinen. Dies ist aber nötig, weil man aus $A \implies B$ noch keinen Schluss über die Rückrichtung $B \implies A$ treffen kann. Das macht erst die \underline{Äquivalenz}:
+Die Defintion, dass $A \implies B$ wahr ist, wenn $A$ falsch ist, mag vielleicht etwas ungewöhnlich erscheinen. Dies ist aber nötig, weil man aus $A \implies B$ noch keinen Schluss über die Rückrichtung $B \implies A$ treffen kann. Das macht erst die \marked{Äquivalenz}:
 
 \begin{definition}[Äquivalenz]
     Seien $A$, $B$ Aussagen.
 
-    Die Aussage $A \iff B$ ist wahr, wenn $A$ und $B$ die gleichen Wahrheitsgehälte haben, also entweder beide wahr oder beide falsch sind.\\
+    Die Aussage $A \iff B$ ("$A$ ist \marked{äquivalent} zu $B$", "genau dann $A$, wenn $B$") ist wahr, wenn $A$ und $B$ die gleichen Wahrheitsgehälte haben, also entweder beide wahr oder beide falsch sind.
+
     Wenn $A$ wahr und $B$ falsch ist, oder umgekehrt, dann ist $A \iff B$ falsch.
 \end{definition}
 
@@ -138,7 +141,7 @@ Wir bemerken noch, dass es sich technisch gesehen bei der Implikation und der Ä
 \begin{remark}
     \textbf{Wahrheitstabellen}
     
-    Ein nützliches Hilfsmittel, um den Wahrheitsgehalt von zusammengesetzten Aussagen zu überprüfen, sind Wahrheitstabellen. Man schreibt in die erste Zeile zuerst alle elementaren Aussagen $A$, $B$, etc, und daneben größere zusammengesetzte Aussagen. Dann geht man alle wahr/falsch Kombinationen der elementaren Aussagen durch, und berechnet so den Wahrheitsgehalt der entsprechenden zusammengesetzten Aussagen.
+    Ein nützliches Hilfsmittel, um den Wahrheitsgehalt von zusammengesetzten Aussagen zu überprüfen, sind \marked{Wahrheitstabellen}. Man schreibt in die erste Zeile zuerst alle elementaren Aussagen $A$, $B$, etc, und daneben größere zusammengesetzte Aussagen. Dann geht man alle wahr/falsch Kombinationen der elementaren Aussagen durch, und berechnet so den Wahrheitsgehalt der entsprechenden zusammengesetzten Aussagen.
 
     Beispiel: Wir behaupten, dass $(A \implies B) \land (B \implies A)$ den gleichen Wahrheitsgehalt hat wie $A \iff B$, und überprüfen dies mit einer Wahrheitstabelle.
 
@@ -185,7 +188,7 @@ Bis jetzt haben wir keine Aussagen betrachtet, die folgende Form annehmen:
     & 2 \cdot x = y\\
     & \text{etc}
 \end{align*}
-Das liegt daran, dass es sich hierbei streng genommen nicht um Aussagen handelt. Der Wahrheitsgehalt hängt von Variablen $x$, $y$, etc ab, und kann damit erst nach Wahl dieser Variablen festgelegt werden. Die erste Aussage ist z.B. für $x=3$ wahr und für $x=4$ falsch. Sprachliche Konstrukte, die das Einsetzen einer oder mehrerer Variable ermöglichen, nennt man \underline{Prädikate}. Man schreibt z.B. $x$ für die Variable und $A(\cdot)$ für das Prädikat. Für ein gegebenes (also fest gewähltes) $x$ ist dann $A(x)$ eine Aussage. Oft nennt man auch der Einfachheit halber $A(x)$, und meint damit, dass man ein Prädikat $A(\cdot)$ mit Variable $x$ betrachtet.
+Das liegt daran, dass es sich hierbei streng genommen nicht um Aussagen handelt. Der Wahrheitsgehalt hängt von \marked{Variablen} $x$, $y$, etc ab, und kann damit erst nach Wahl dieser Variablen festgelegt werden. Die erste Aussage ist z.B. für $x=3$ wahr und für $x=4$ falsch. Sprachliche Konstrukte, die das Einsetzen einer oder mehrerer Variable ermöglichen, nennt man \marked{Prädikate}. Man schreibt z.B. $x$ für die Variable und $A(\cdot)$ für das Prädikat. Für ein gegebenes (also fest gewähltes) $x$ ist dann $A(x)$ eine Aussage. Oft nennt man auch der Einfachheit halber $A(x)$, und meint damit, dass man ein Prädikat $A(\cdot)$ mit Variable $x$ betrachtet.
 
 \begin{example}
     Weitere Beispiele sprachlicher Natur sind:
@@ -220,27 +223,27 @@ Das liegt daran, dass es sich hierbei streng genommen nicht um Aussagen handelt.
     \end{enumerate}
 \end{example}
 
-In der Prädikatenlogik bietet es sich an, statt der Prädikate selbst, die Erfüllbarkeit der aus Prädikaten hervogegangenen Aussagen zu betrachten. Anders gesagt, man untersucht, für wie viele $x$ (in einem zugelassenen Wertebereich) die Aussage $A(x)$ wahr ist. Dabei helfen sogenannte \underline{Quantoren}:
+In der Prädikatenlogik bietet es sich an, statt der Prädikate selbst, die Erfüllbarkeit der aus Prädikaten hervogegangenen Aussagen zu betrachten. Anders gesagt, man untersucht, für wie viele $x$ (in einem zugelassenen Wertebereich) die Aussage $A(x)$ wahr ist. Dabei helfen sogenannte \marked{Quantoren}:
 
 \begin{definition}[Quantoren]
     \label{def-quantors}
     Sei $A(\cdot)$ ein Prädikat mit Variable $x$ in einem nicht näher definierten Wertebereich.
     \begin{enumerate}
-        \item \underline{Existenzquantor}: $\exists \qquad$ ("es existiert")
+        \item \marked{Existenzquantor}: $\exists \qquad$ ("es existiert")
 
-        $\exists x: A(x)$ ("es existiert ein $x$, für das gilt: $A(x)$") ist wahr, wenn (mindestens) ein $x$ existiert, für das $A(x)$ wahr ist.
+        $\exists x\!: A(x)$ ("es existiert ein $x$, für das gilt: $A(x)$") ist wahr, wenn (mindestens) ein $x$ existiert, für das $A(x)$ wahr ist.
         
-        Wenn es kein solches $x$ gibt, dann ist $\exists x: A(x)$ falsch.
-        \item \underline{Allquantor}: $\forall \qquad$ ("für alle")
+        Wenn es kein solches $x$ gibt, dann ist $\exists x\!: A(x)$ falsch.
+        \item \marked{Allquantor}: $\forall \qquad$ ("für alle")
 
-        $\forall x: A(x)$ ("für alle $x$ gilt: $A(x)$") ist wahr, wenn $A(x)$ für alle $x$ wahr ist.
+        $\forall x\!: A(x)$ ("für alle $x$ gilt: $A(x)$") ist wahr, wenn $A(x)$ für alle $x$ wahr ist.
 
-        Wenn $A(x)$ nicht für alle $x$ wahr ist, dann ist $\forall x: A(x)$ falsch.
-        \item \underline{Eindeutigkeitsquantor}: $\existsone \qquad$ ("es existiert genau ein")
+        Wenn $A(x)$ nicht für alle $x$ wahr ist, dann ist $\forall x\!: A(x)$ falsch.
+        \item \marked{Eindeutigkeitsquantor}: $\existsone \qquad$ ("es existiert genau ein")
 
-        $\existsone x: A(x)$ ("es existiert genau ein $x$, für das gilt: $A(x)$") ist wahr, wenn genau ein $x$ existiert, für das $A(x)$ wahr ist.
+        $\existsone x\!: A(x)$ ("es existiert genau ein $x$, für das gilt: $A(x)$") ist wahr, wenn genau ein $x$ existiert, für das $A(x)$ wahr ist.
 
-        Wenn es entweder kein solches $x$ gibt, oder wenn es mindestens zwei verschiedene $x$ gibt, dann ist $\existsone x: A(x)$ falsch.
+        Wenn es entweder kein solches $x$ gibt, oder wenn es mindestens zwei verschiedene $x$ gibt, dann ist $\existsone x\!: A(x)$ falsch.
     \end{enumerate}
 \end{definition}
 
@@ -258,7 +261,7 @@ In der Prädikatenlogik bietet es sich an, statt der Prädikate selbst, die Erf�
         \end{itemize}
         \item[] Deckel $y$ passt auf Topf $x$.
         \begin{itemize}[label=]
-            \item \emph{Dazu betrachte man die zwei Aussagen $\forall x \exists y: A(x,y)$ und $\exists y \forall x: A(x,y)$, oder ausgeschrieben:}
+            \item \emph{Dazu betrachte man die zwei Aussagen $\forall x \exists y\!: A(x,y)$ und $\exists y \forall x\!: A(x,y)$, oder ausgeschrieben:}
         \end{itemize}
         \item[] Für jeden Topf existiert ein Deckel, der auf den Topf passt. \hfill \emph{ist vermutlich wahr.}
         \item[] Es existiert ein Deckel, der auf jeden Topf passt. \hfill \emph{ist falsch, und völlig absurd.}
@@ -269,8 +272,8 @@ In der Prädikatenlogik bietet es sich an, statt der Prädikate selbst, die Erf�
     \begin{remark}
         Die logischen Negationen von Quantoren gehen direkt aus der Definition \ref{def-quantors} hervor:
         \begin{itemize}
-            \item $\neg (\exists x: A(x)) \iff \forall x: \neg A(x)$
-            \item $\neg (\forall x: A(x)) \iff \exists x: \neg A(x)$
+            \item $\neg (\exists x\!: A(x)) \iff \forall x\!: \neg A(x)$
+            \item $\neg (\forall x\!: A(x)) \iff \exists x\!: \neg A(x)$
         \end{itemize}
         Die Aussage $A(x)$ kann auch weitere Quantoren enthalten, die nach denselben Regeln wieder negiert werden können.
     \end{remark}
@@ -299,11 +302,11 @@ In der Prädikatenlogik bietet es sich an, statt der Prädikate selbst, die Erf�
 
 \section{Beweise}
 
-In der Mathematik (und anderen Systemen, die auf Logik basieren) startet man mit \underline{Axiomen}, das sind Aussagen, die man als wahr annimmt oder akzeptiert. Man kann a priori\footnote{Lat. "vor der Anschauung", d.h. ohne Experimente usw.} und ohne Axiome nicht zu neuen Erkenntnissen gelangen. Vor allem in der fortgeschrittenen Physik, in der Theorien immer weiter abstrahiert und mathematisiert werden, gerät man schnell in Versuchung, "alles" beweisen zu wollen. Das geht aber einfach nicht, an irgendeinem Punkt muss man eine Annahme treffen, die auf einer Beobachtung beruht.\footnote{Das klingt hier vielleicht offensichtlich, aber viele junge PhysikerInnen, der Autor eingeschlossen, verfallen im Laufe ihrer Ausbildung immer wieder diesem Drang.} Was die mathematische Denkweise allerdings lehrt, ist, auf so wenig Annahmen wie möglich eine vollständige (d.h. alle dazugehörigen Beobachtungen beschreibende) Theorie aufzubauen. Gleichzeitig schult sie den Blick dafür, was eine Annahme und was eine Folgerung ist, und damit auch, wie eine veränderte oder neue Annahme die Folgerungen beeinflusst. Diese Fertigkeiten sind sowohl in der theoretischen, als auch in der experimentellen Physik sehr wichtig.
+In der Mathematik (und anderen Systemen, die auf Logik basieren) startet man mit \marked{Axiomen}, das sind Aussagen, die man als wahr annimmt oder akzeptiert. Man kann a priori\footnote{Lat. "vor der Anschauung", d.h. ohne Experimente usw.} und ohne Axiome nicht zu neuen Erkenntnissen gelangen. Vor allem in der fortgeschrittenen Physik, in der Theorien immer weiter abstrahiert und mathematisiert werden, gerät man schnell in Versuchung, "alles" beweisen zu wollen. Das geht aber einfach nicht, an irgendeinem Punkt muss man eine Annahme treffen, die auf einer Beobachtung beruht.\footnote{Das klingt hier vielleicht offensichtlich, aber viele junge PhysikerInnen, der Autor eingeschlossen, verfallen im Laufe ihrer Ausbildung immer wieder diesem Drang.} Was die mathematische Denkweise allerdings lehrt, ist, auf so wenig Annahmen wie möglich eine vollständige (d.h. alle dazugehörigen Beobachtungen beschreibende) Theorie aufzubauen. Gleichzeitig schult sie den Blick dafür, was eine Annahme und was eine Folgerung ist, und damit auch, wie eine veränderte oder neue Annahme die Folgerungen beeinflusst. Diese Fertigkeiten sind sowohl in der theoretischen, als auch in der experimentellen Physik sehr wichtig.
 
 In der Mathematik ist ein sehr häufig verwendetes Axiomsystem gegeben durch die Zermelo-Fränkel Axiome \ref{ZF-axioms} mit (oder selten ohne) Auswahlaxiom \ref{axiom-of-choice}. Die historische Entwicklung hat auch weitere ähnliche Axiome und Axiomsysteme produziert, die teilweise stärker sind (d.h. die Zermelo-Fränkel Axiome folgen daraus), teilweise schwächer (d.h. sie folgen aus den Zermelo-Fränkel Axiomen), und teilweise ein bisschen anders. "Das perfekte" Axiomsystem gibt es nicht.\footnote{Die Gödelschen Unvollständigkeitssätze besagen in etwa, dass jedes widerspruchsfreie Axiomsystem unvollständig ist, d.h. dass es immer Aussagen gibt, die man mit den gegebenen Axiomen weder beweisen noch widerlegen kann. (Das ist eine grobe Erklärung der Sätze, nicht die formale Aussage.)} Die Grundlagen der Mathematik, die hier behandelt werden, sind in allen Fällen gleich.
 
-Zusätzlich zu Axiomen verwendet man \underline{Definitionen}, das sind einfach sprachliche Umformulierungen für besseres Verständnis und Übersicht. Aus Axiomen und Definitionen werden dann mit den Gesetzen der Logik Aussagen bewiesen. Diese tragen in der Mathematik verschiedene Namen, die etwas schwammig und subjektiv sind. Kleine "Hilfsaussagen" ohne große eigenständige Bedeutung nennt man \underline{Lemmata} (Singular \underline{Lemma}), wichtige Zwischenergebnisse nennt man \underline{Propositionen}, und Resultate mit besonderer Wichtigkeit und/oder nichttrivialem Beweis nennt man \underline{Sätze} oder \underline{Theoreme}. Manche deutschsprachige Autoren unterscheiden zusätzlich, dass Theoreme nochmal etwas wichtiger als Sätze sind (das wollen wir hier auch versuchen, vermutlich mit gemischtem Erfolg).
+Zusätzlich zu Axiomen verwendet man \marked{Definitionen}, das sind einfach sprachliche Umformulierungen für besseres Verständnis und Übersicht. Aus Axiomen und Definitionen werden dann mit den Gesetzen der Logik Aussagen bewiesen. Diese tragen in der Mathematik verschiedene Namen, die etwas schwammig und subjektiv sind. Kleine "Hilfsaussagen" ohne große eigenständige Bedeutung nennt man \marked{Lemmata} (Singular \marked{Lemma}), wichtige Zwischenergebnisse nennt man \marked{Propositionen}, und Resultate mit besonderer Wichtigkeit und/oder nichttrivialem Beweis nennt man \marked{Sätze} oder \marked{Theoreme}. Manche deutschsprachige Autoren unterscheiden zusätzlich, dass Theoreme nochmal etwas wichtiger als Sätze sind (das wollen wir hier auch versuchen, vermutlich mit gemischtem Erfolg).
 
 Für das Erlernen der Beweiskunst ist es unerlässlich, sich verschiedener Beweisstrategien bewusst zu sein. Meistens sind eine oder ein paar davon deutlich leichter, und manchmal sind nicht alle überhaupt anwendbar. Im Folgenden wollen wir die häufigsten davon aufführen und an Beispielen erläutern. Mit zunehmender Erfahrung wird der Leser immer besser darin werden, gleich am Anfang die erfolgsversprechendste Strategie zu identifizieren und gezielt anzugehen.
 
@@ -345,7 +348,7 @@ Für das Erlernen der Beweiskunst ist es unerlässlich, sich verschiedener Bewei
 
     Zu zeigen ist eine Implikationsaussage $A \implies B$.
 
-    Das Grundprinzip eines Widerspruchsbeweises (Lat. \underline{reductio ad absurdum}) ist, dass aus einer wahren Aussage keine falsche Aussage folgen kann. Man nutzt das Ergebnis von \ref{exercise-A} (vi), dass $A \land (\neg B)$ die Negation von $A \implies B$ ist.
+    Das Grundprinzip eines Widerspruchsbeweises (Lat. \marked{reductio ad absurdum}) ist, dass aus einer wahren Aussage keine falsche Aussage folgen kann. Man nutzt das Ergebnis von \ref{exercise-A} (vi), dass $A \land (\neg B)$ die Negation von $A \implies B$ ist.
     
     Um zu zeigen, dass die negierte Aussage falsch sein muss, nimmt man $A \land (\neg B)$ an, und zeigt, dass daraus ein logischer Widerspruch folgt. Wegen \ref{exercise-A} (i) muss die nicht-negierte Aussage also wahr sein. Insgesamt hat man also gezeigt:
 
@@ -353,7 +356,7 @@ Für das Erlernen der Beweiskunst ist es unerlässlich, sich verschiedener Bewei
 \end{shadedbox}
 
 \begin{remark}
-    Ein einfaches Gegenbeispiel zur negierten Aussage zu geben, also $A \land (\neg B)$ zu formulieren und Bedingungen anzugeben, unter denen es falsch ist, reicht nicht! Man muss zeigen, dass aus $A \land (\neg B)$ ein Widerspruch folgen \underline{muss}.
+    Ein einfaches Gegenbeispiel zur negierten Aussage zu geben, also $A \land (\neg B)$ zu formulieren und Bedingungen anzugeben, unter denen es falsch ist, reicht nicht! Man muss zeigen, dass aus $A \land (\neg B)$ ein Widerspruch folgen \uline{muss}.
 \end{remark}
 
 \begin{example}
@@ -370,8 +373,9 @@ Für das Erlernen der Beweiskunst ist es unerlässlich, sich verschiedener Bewei
 
     Der Beweis funktioniert einfach durch Angabe eines solchen $x$, und anschließendes Zeigen, dass $A(x)$ wahr ist.
 
-    Man kann (falls möglich) dieses $x$ explizit konstruieren, oder implizit unter Verwendung anderer Objekte, deren Existenz schon als wahr bekannt.\footnote{Das Auswahlaxiom \ref{axiom-of-choice} ermöglicht Existenzbeweise von Objekten, die man durch Zermelo-Fränkel Axiome \ref{ZF-axioms} nicht explizit angeben kann.}
+    Man kann (falls möglich) dieses $x$ explizit konstruieren, oder implizit unter Verwendung anderer Objekte, deren Existenz schon als wahr bekannt.\footnotemark
 \end{shadedbox}
+\footnotetext{Das Auswahlaxiom \ref{axiom-of-choice} ermöglicht Existenzbeweise von Objekten, die man durch Zermelo-Fränkel Axiome \ref{ZF-axioms} nicht explizit angeben kann.}
 
 Existenzbeweise rechnet man von hinten nach vorne durch, und schreibt sie dann von vorne nach hinten auf: Man fängt auf einem Schmierpapier bei $A(x)$ an, und macht so lange Umformungen, bis man sein $x$ gefunden hat. Dann schreibt man auf das Abgabepapier zuerst sein $x$, und dann die gleiche Rechnung andersrum, bis man bei $A(x)$ angekommen ist. Wir geben nochmal ein Beispiel dazu:
 
@@ -386,7 +390,7 @@ Existenzbeweise rechnet man von hinten nach vorne durch, und schreibt sie dann v
 
     Man nimmt zuerst ein beliebiges $x$ aus der zugelassenen Wertemenge als gegeben. Dieses ist zwar beliebig, aber fest. Dann zeigt man, dass $A(x)$ wahr sein muss, unabhängig davon, welches $x$ aus der Wertemenge gewählt wurde.
 
-    Oft verwendet man dazu eine \underline{Fallunterscheidung}. Diese kann z.B. eine Unterteilung in $x = 0$ und $x \neq 0$, $x > 0$ und $x < 0$, etc sein. Das darf man machen, weil $x$ nach seiner Einführung fest ist, und es hilft z.B., wenn man gewisse Rechenoperationen wie durch $x$ teilen nicht für alle $x$ im Wertebereich durchführen darf.
+    Oft verwendet man dazu eine \marked{Fallunterscheidung}. Diese kann z.B. eine Unterteilung in $x = 0$ und $x \neq 0$, $x > 0$ und $x < 0$, etc sein. Das darf man machen, weil $x$ nach seiner Einführung fest ist, und es hilft z.B., wenn man gewisse Rechenoperationen wie durch $x$ teilen nicht für alle $x$ im Wertebereich durchführen darf.
 \end{shadedbox}
 
 \begin{example}
@@ -396,12 +400,13 @@ Existenzbeweise rechnet man von hinten nach vorne durch, und schreibt sie dann v
 \begin{shadedbox}
     \textbf{Eindeutigkeitsbeweis}
 
-    Zu zeigen ist eine Eindeutigkeitsaussage $\existsone x: A(x)$.
+    Zu zeigen ist eine Eindeutigkeitsaussage $\existsone x\!: A(x)$.
 
-    Weil es sich streng genommen um zwei Aussagen handelt, führt man zwei separate Beweise. Der eine ist ein Existenzbeweis wie in \ref{proof-of-existence} beschrieben.\footnote{Wenn man nur den Eindeutigkeitsbeweis durchführt, dann hat man zwar gezeigt, dass $x$ \emph{im Falle seiner Existenz} eindeutig ist, aber nicht, dass es tatsächlich existiert.}
+    Weil es sich streng genommen um zwei Aussagen handelt, führt man zwei separate Beweise. Der eine ist ein Existenzbeweis wie in \ref{proof-of-existence} beschrieben.\footnotemark
 
     Der zweite ist der eigentliche Eindeutigkeitsbeweis: Man nimmt zwei $x, y$, für die man annimmt, dass $A(x)$ und $A(y)$ wahr sind. Dann folgert man daraus, dass $x = y$ gelten muss.
 \end{shadedbox}
+\footnotetext{Wenn man nur den Eindeutigkeitsbeweis durchführt, dann hat man zwar gezeigt, dass $x$ \emph{im Falle seiner Existenz} eindeutig ist, aber nicht, dass es tatsächlich existiert.}
 
 \begin{example}
     \begin{enumerate}
@@ -421,17 +426,17 @@ Existenzbeweise rechnet man von hinten nach vorne durch, und schreibt sie dann v
 \begin{shadedbox}
     \textbf{Vollständige Induktion}
 
-    Zu zeigen ist eine Allaussage für natürliche Zahlen: $\forall n \in \N: A(n)$.
+    Zu zeigen ist eine Allaussage für natürliche Zahlen: $\forall n \in \N\!: A(n)$.
 
     Wir greifen hier etwas vorweg, weil wir das Prinzip von Induktion erst im nächsten Kapitel in \ref{theorem-natural-induction} rigoros einführen können. Man kann sich aber auch jetzt schon überlegen, warum die Beweismethode Sinn ergibt.
 
     Induktion funktioniert in mehreren Schritten:
 
-    \underline{Induktionsanfang} / \underline{IA}: $n = 0$ oder $n = 1$.\footnote{Mathematiker sind sich uneinig, ob $0$ eine natürliche Zahl sein sollte oder nicht. Außerdem ergeben manche Aussagen für $n=0$ keinen Sinn, weil z.B. betrachtete Mengen leer sind oder durch $n$ geteilt wird. Wer extra-sicher sein will, kann auch im Induktionsanfang $A(0)$ und $A(1)$ zeigen.} Man zeigt, dass $A(0)$ oder $A(1)$ wahr ist.
+    \uline{Induktionsanfang} / \uline{IA}: $n = 0$ oder $n = 1$.\footnotemark Man zeigt, dass $A(0)$ oder $A(1)$ wahr ist.
 
-    \underline{Induktionsvoraussetzung} / \underline{IV}: Nehme an, es gilt $A(n)$ für ein $n \in \N$ beliebig aber fest. Die IV wird i.d.R. nicht mit aufgeschrieben.
+    \uline{Induktionsvoraussetzung} / \uline{IV}: Nehme an, es gilt $A(n)$ für ein $n \in \N$ beliebig aber fest. Die IV wird i.d.R. nicht mit aufgeschrieben.
 
-    \underline{Induktionsschritt} / \underline{IS}: Man zeigt, dass $A(n+1)$ wahr ist. Meistens ist dieser Teil bei weitem der schwierigste.
+    \uline{Induktionsschritt} / \uline{IS}: Man zeigt, dass $A(n+1)$ wahr ist. Meistens ist dieser Teil bei weitem der schwierigste.
 
     Durch diese drei Schritte folgt induktiv die Aussage:
 
@@ -441,6 +446,7 @@ Existenzbeweise rechnet man von hinten nach vorne durch, und schreibt sie dann v
     IV $\rightarrow A(2)$, IS $\implies A(3)$\\
     ...
 \end{shadedbox}
+\footnotetext{Mathematiker sind sich uneinig, ob $0$ eine natürliche Zahl sein sollte oder nicht. Außerdem ergeben manche Aussagen für $n=0$ keinen Sinn, weil z.B. betrachtete Mengen leer sind oder durch $n$ geteilt wird. Wer extra-sicher sein will, kann auch im Induktionsanfang $A(0)$ und $A(1)$ zeigen.}
 
 Die Beweismethode der vollständigen Induktion ist eng verknüpft mit der Definition der natürlichen Zahlen $\N$, siehe \ref{def-natural-numbers}. Anschaulich bedeutet beides, bei $0$ (oder $1$) anzufangen, und sukzessive mit $+1$ "hochzugehen".
 
@@ -472,22 +478,22 @@ Die Beweismethode der vollständigen Induktion ist eng verknüpft mit der Defini
     Die Fallunterscheidung haben wir bereits oben angesprochen. Wir listen noch ein paar gängige Techniken auf. Manche werden von Mathematikern auch scherzhaft als "Schummeln" belacht, weil man sich dadurch das Leben scheinbar ohne Begründung einfacher macht.
 
     \begin{itemize}
-        \item \underline{o.B.d.A.}: steht für "ohne Beschränkung der Allgemeinheit" (Engl. \underline{W.l.o.g.} oder \underline{WLOG} für "without loss of generality") und kommt in vielen Formen und Farben, wie \underline{OE} ("ohne Einschränkung"), oder auch versteckt in Sätzen wie "es genügt zu zeigen".
+        \item \uline{o.B.d.A.}: steht für "ohne Beschränkung der Allgemeinheit" (Engl. \uline{W.l.o.g.} oder \uline{WLOG} für "without loss of generality") und kommt in vielen Formen und Farben, wie \uline{OE} ("ohne Einschränkung"), oder auch versteckt in Sätzen wie "es genügt zu zeigen".
         
         Alle davon bedeuten, man trifft eine vereinfachende Annahme, die allerdings den Beweis nicht ungültig oder unvollständig macht. Wenn man sorgfältig ist, dann begründet man noch seine Vereinfachung.
         
         Beispiel: Man hat reelle Zahlen $x$ und $y$ gegeben, und muss etwas mit $\max(x, y)$ berechnen. Dann könnte man schreiben:
         \begin{itemize}[label=]
-            \item \underline{o.B.d.A.} sei $x \geq y \implies \max(x, y) = x$.
+            \item \uline{o.B.d.A.} sei $x \geq y \implies \max(x, y) = x$.
             \item Sonst: ist $y \geq x$, Umbenennen $x \rightarrow y$ und $y \rightarrow x$, dann ist wieder $x \geq y$.
         \end{itemize}
         Damit verändert man im Grunde den Beweis nicht, aber spart sich ordentlich an Schreibarbeit und Fallunterscheidungen.
-        \item \underline{Hilfskonstruktion}: Man führt zusätzliche Zahlen, Größen, Räume, etc ein, die gewisse Eigenschaften erfüllen. Dann nutzt man diese Eigenschaften irgendwie aus. Die Existenz der Hilfskonstruktion muss, falls sie nicht klar ist, auch begründet werden.
+        \item \uline{Hilfskonstruktion}: Man führt zusätzliche Zahlen, Größen, Räume, etc ein, die gewisse Eigenschaften erfüllen. Dann nutzt man diese Eigenschaften irgendwie aus. Die Existenz der Hilfskonstruktion muss, falls sie nicht klar ist, auch begründet werden.
         
         Hilfskonstruktionen treten in der Regel nur in schwierigeren Beweisen auf, und machen auch oft den Eindruck, dass sie aus heiterem Himmel fallen. Wir möchten den motivierten Leser trotzdem dazu anhalten, insbesondere die Motivation dahinter zu verstehen, denn in den meisten Fällen steckt doch eine erreichbare Idee dahinter.
         
         Ein leicht verständliches physikalisches Beispiel für eine Hilfskonstruktion ist der Massenschwerpunkt von einem oder mehreren mechanischen Körpern.
-        \item \underline{Fakt}: ... \emph{gefolgt von einer Aussage, die den Beweis einfacher macht.}
+        \item \uline{Fakt}: ... \emph{gefolgt von einer Aussage, die den Beweis einfacher macht.}
 
         Oder ähnlich "offensichtlich gilt", "trivial", "wie der Leser sich selbst überzeugen kann" etc.
 
