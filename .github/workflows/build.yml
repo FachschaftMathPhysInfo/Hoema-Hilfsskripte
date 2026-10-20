@@ -1,0 +1,78 @@
+name: Build Skript
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (e.g. v1.0). Leave empty to only build + deploy."
+        required: false
+        default: ""
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to create releases
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inject draft disclaimer (runner only, not committed)
+        run: |
+          cat > /tmp/disclaimer.tex <<'EOF'
+          \thispagestyle{empty}
+          \begin{center}
+          \begin{tcolorbox}[colback=red!5!white, colframe=red!75!black, title={\bfseries Hinweis -- inoffizielle, unfertige Version}, width=0.9\textwidth]
+          Dies ist eine \textbf{automatisch erzeugte, inoffizielle} Fassung eines Skripts,
+          das sich noch \textbf{in Bearbeitung} befindet und \textbf{unvollständig} ist.
+          Es handelt sich \emph{nicht} um eine offizielle Veröffentlichung der Autorin\slash des Autors.
+          Inhalte können fehlerhaft oder lückenhaft sein --- bitte mit Vorsicht genießen
+          und nicht als alleinige oder verlässliche Quelle verwenden.
+          \end{tcolorbox}
+          \end{center}
+          \clearpage
+          EOF
+          # insert the box right before the first \tableofcontents
+          awk 'f==0 && /\\tableofcontents/ {while((getline l < "/tmp/disclaimer.tex")>0) print l; f=1} {print}' \
+            main.tex > main.patched.tex && mv main.patched.tex main.tex
+
+      - name: Compile main.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          # latexmk runs pdflatex + biber automatically
+
+      - name: Assemble site
+        run: |
+          mkdir -p site
+          cp main.pdf site/main.pdf
+          # root URL redirects straight to the PDF
+          printf '<!doctype html><meta http-equiv="refresh" content="0; url=main.pdf">' > site/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Create release
+        if: github.event_name == 'workflow_dispatch' && inputs.tag != ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          files: main.pdf
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
