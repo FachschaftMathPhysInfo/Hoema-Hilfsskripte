@@ -18,6 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Remove committed build artifacts (runner only)
+        # The repo tracks stale .aux/.fdb_latexmk/.fls etc.; strip them so the
+        # build is reproducible and latexmk always recompiles the patched source.
+        run: rm -f *.aux *.bcf *.bbl *.blg *.fdb_latexmk *.fls *.out *.toc *.run.xml *.synctex.gz
+
       - name: Inject draft disclaimer (runner only, not committed)
         run: |
           cat > /tmp/disclaimer.tex <<'EOF'
@@ -41,6 +46,9 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
+          # Pin to TeX Live 2025: the source's \newtheorem setup breaks on the
+          # 2026-06-01 LaTeX kernel but builds clean on 2025-11-01 (author's env).
+          docker_image: texlive/texlive:TL2025-historic
           # latexmk runs pdflatex + biber automatically
 
       - name: Assemble site
